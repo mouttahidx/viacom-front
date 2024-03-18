@@ -75,7 +75,7 @@ export default function TopBar() {
         <a href="tel:+1418-825-2323" className="font-bold">418-825-2323</a>
       </span>
 
-      <a href="/" className="uppercase text-white text-xs font-medium ml-auto">Connexion</a>
+      <a href="/outien.viacommunication.com" className="uppercase text-white text-xs font-medium ml-auto">Connexion</a>
     </div>
   );
 }
