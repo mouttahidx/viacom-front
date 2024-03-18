@@ -4,7 +4,7 @@ export default function TopBar() {
   return (
     <div className="w-full bg-transparent hidden px-2 lg:flex absolute top-0 items-center border-b border-gray-600 max-w-6xl left-0 right-0 mx-auto h-14 z-10 ">
       {/* social media icons */}
-      <a href="#" className="mr-4">
+      <a href="facebook.com" className="mr-4">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           x="0px"
@@ -36,7 +36,7 @@ export default function TopBar() {
           </g>
         </svg>
       </a>
-      <a href="/">
+      <a href="linkedin.com">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           x="0px"

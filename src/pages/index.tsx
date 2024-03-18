@@ -13,7 +13,7 @@ export default function Home() {
         <Divider size="lg" className="w-[50px] my-10"/>
         <h2 className="text-3xl w-full lg:w-1/2">Maximisez la croissance et la rentabilité de votre PME grâce à nos services de conception Web et de marketing  digital.</h2>
         <div className="mt-10">
-        <Button variant="filled" className="!bg-primary hover:!bg-opacity-90 mr-4 ">Demande d'informations</Button>
+        <Button variant="filled" className="!bg-primary hover:!bg-opacity-90 mr-4 ">{`Demande d'informations`}</Button>
         <Button variant="outline" color="white" className="">Nos services</Button>
         </div>
       </div>
