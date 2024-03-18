@@ -9,13 +9,15 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "hero-bg":"url('/img/hero-home.webp')",
+      },
+      content:{
+        'logo-before':"url('/img/par-ici.webp')"
       },
       colors:{
         'primary':"#F05423",
-        'secondary':"#0C2249"
+        'secondary':"#0C2249",
+        'dark-secondary':"#042b87"
       },
       container:{
         center:true,
