@@ -7,6 +7,20 @@ const nextConfig = {
     localeDetection: false,
 
   },
+  async headers() {
+    const headers = [];
+      headers.push({
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex',
+          },
+        ],
+        source: '/:path*',
+      });
+    
+    return headers;
+  },
 };
 
 export default nextConfig;
