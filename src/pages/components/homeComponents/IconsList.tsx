@@ -15,7 +15,7 @@ export default function IconsList() {
             <Image src={"/img/google-ads.webp"} alt='' width={100} height={100} className='object-contain w-[100px]'/>
             <div className='flex flex-col gap-y-3'>
                 <h4 className='list-title'>Google Ads - SEA</h4>
-                <p className='body-text'>Notre agence Web est reconnue partenaire Google, cette distinction étant due à notre savoir-faire, ainsi qu'à l'excellence de notre travail sur leurs outils publicitaires.</p>
+                <p className='body-text'>{`Notre agence Web est reconnue partenaire Google, cette distinction étant due à notre savoir-faire, ainsi qu'à l'excellence de notre travail sur leurs outils publicitaires.`}</p>
             </div>
         </div>
         <div className='flex gap-x-4 '>
