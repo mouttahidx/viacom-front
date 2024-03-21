@@ -36,7 +36,7 @@ export default function Home({ dir }: any) {
 
       {/* // 1st section */}
       <section className="w-full mx-auto max-w-6xl p-4 bottom-arrow relative">
-        <div className=" lg:-mt-14  bg-primary px-16 py-24 lg:pb-8 lg:pt-12 rounded-xl flex flex-col lg:flex-row justify-center lg:justify-start items-center text-center lg:text-left">
+        <div className=" lg:-mt-14  bg-primary px-8 lg:px-16 py-16 lg:pb-8 lg:pt-12 rounded-xl flex flex-col lg:flex-row justify-center lg:justify-start items-center text-center lg:text-left">
           {/* first div */}
           <div className="lg:w-8/12 ">
             <h2 className="second-title text-white ">
