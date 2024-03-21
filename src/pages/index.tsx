@@ -40,7 +40,7 @@ export default function Home({ dir }: any) {
           {/* first div */}
           <div className="lg:w-8/12 ">
             <h2 className="second-title text-white ">
-              Détendez-vous, on s’occupe de votre marketing!
+              Détendez-vous, on s&apos;occupe de votre marketing!
             </h2>
             <p className="mt-4 body-text !text-white">
               Notre agence Web vous offre des stratégies complètes de marketing
@@ -74,12 +74,12 @@ export default function Home({ dir }: any) {
             <br />
             Vous aspirez à vous démarquer dans la province du Québec ? Vous
             cherchez à collaborer avec une agence qui comprend vos enjeux en
-            marketing numérique et qui met l'humain au centre de ses
+            marketing numérique et qui met l&apos;humain au centre de ses
             préoccupations ? <br />
             <br />
             Alors, vous avez trouvé votre partenaire idéal. <br />
             <br />
-            Avec plus d'une centaine de sites Web à notre actif, notre personnel
+            Avec plus d&apos;une centaine de sites Web à notre actif, notre personnel
             a développé une{" "}
             <b>
               expertise profonde pour répondre aux besoins et aux budgets des
