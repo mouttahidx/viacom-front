@@ -6,7 +6,6 @@ export default function Document() {
     <Html lang="fr">
       <Head>
         <ColorSchemeScript defaultColorScheme="auto" />
-        <meta name="robots" content="noindex"/>
       </Head>
       <body>
         <Main />
