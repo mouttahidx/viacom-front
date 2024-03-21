@@ -21,6 +21,32 @@ body {
   color: rgb(var(--foreground-rgb));
 }
 
+.section-title{
+   @apply text-4xl lg:text-4xl text-gray-300 font-extrabold uppercase
+}
+
+.second-title{
+  @apply text-2xl 
+
+}
+.body-text{
+  @apply text-gray-500 leading-normal text-lg
+}
+
+.list-title{
+  @apply text-black text-xl
+}
+
+
+.bottom-arrow:after {
+  content:'';
+  position: absolute;
+  left: 10%;
+  border-top: 20px solid #F05423;
+  border-left: 20px solid transparent;
+  border-right: 0px solid transparent;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
