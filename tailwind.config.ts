@@ -10,7 +10,13 @@ const config: Config = {
     extend: {
       backgroundImage: {
         "hero-bg":"url('/img/hero-home.webp')",
+        "savoir-bg":"url('/img/savoir.webp')",
+        "approche-bg":"url('/img/approche.webp')",
+        "faire-bg":"url('/img/faire.webp')",
+        "website-bg":"url('/img/website.webp')",
+        "optimization-seo-bg":"url('/img/optimization-seo.webp')",
       },
+
       content:{
         'logo-before':"url('/img/par-ici.webp')"
       },
