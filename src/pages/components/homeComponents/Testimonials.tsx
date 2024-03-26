@@ -33,8 +33,8 @@ export default function Testimonials() {
     <section className="bg-secondary">
       <div className="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
         <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
-          {testimonials.map((testi) => (
-            <blockquote className="rounded-lg bg-[#213357] !text-white bg-opacity-40 p-6 shadow-sm sm:p-8 h-fit">
+          {testimonials.map((testi,index) => (
+            <blockquote key={index} className="rounded-lg bg-[#213357] !text-white bg-opacity-40 p-6 shadow-sm sm:p-8 h-fit">
               <div className="flex items-center gap-4">
                 <img
                   alt=""
