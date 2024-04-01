@@ -30,7 +30,7 @@ export default function PostCard({
             CATEGORY
           </h2> */}
           <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
-            {title.fr || title.en}
+            {title?.fr || title?.en}
           </h1>
           <div className="leading-relaxed mb-3 h-[80px] text-ellipsis overflow-hidden" dangerouslySetInnerHTML={{__html:content?.fr || content?.en}}/>
           <div className="flex items-center flex-wrap ">
