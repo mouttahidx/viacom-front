@@ -27,7 +27,7 @@ export default function Slug({post}:{post:Post}) {
       <article className="w-full">
       <Image
           className="w-full h-full max-h-[400px] object-cover object-center rounded-lg shadow mb-12"
-          src={"http://viacommunication.test/storage/"+post.image}
+          src={"https://laravel.devvia.ca/storage/"+post.image}
           width={800}
           height={400}
           alt="blog"

@@ -20,7 +20,7 @@ export default function PostCard({
         <Link href={"/blogue/"+ (slug.fr || slug.en)}>
         <Image
           className="lg:h-48 md:h-36 w-full object-cover object-center"
-          src={"http://viacommunication.test/storage/"+image}
+          src={"https://laravel.devvia.ca/storage/"+image}
           width={500}
           height={600}
           alt="blog"
