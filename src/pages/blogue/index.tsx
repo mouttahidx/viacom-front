@@ -45,7 +45,7 @@ export default function Blogue({
     try {
       const res =
         (await fetch(
-          "http://viacommunication.test/api/posts?page=" + page.current
+          "https://laravel.devvia.ca/api/posts?page=" + page.current
         )) || {};
       const data = await res.json();
       setPosts(data.data);
@@ -105,7 +105,7 @@ export const getServerSideProps = (async () => {
   let posts: Posts = [];
   let headers = { total: 0, last_page: 0 };
   try {
-    const res = await fetch("http://viacommunication.test/api/posts");
+    const res = await fetch("https://laravel.devvia.ca/api/posts");
     const data = await res.json();
     posts = data.data;
     headers.total = data.total;

@@ -3,8 +3,8 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'http',
-        hostname: 'viacommunication.test',
+        protocol: 'https',
+        hostname: 'laravel.devvia.ca',
         port: '',
         pathname: '/storage/**',
       },

@@ -44,7 +44,7 @@ export default function Slug({post}:{post:Post}) {
 // This function gets called at build time
 export async function getStaticProps(ctx:any) {
   // Call an external API endpoint to get posts
-  const res = await fetch('http://viacommunication.test/api/posts/'+ctx.params.slug)
+  const res = await fetch('https://laravel.devvia.ca/api/posts/'+ctx.params.slug)
   const post = await res.json()
  
   // By returning { props: { posts } }, the Blog component
