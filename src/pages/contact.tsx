@@ -12,10 +12,11 @@ import "react-toastify/dist/ReactToastify.css";
 export default function Contact() {
   const recaptchaRef = useRef("");
   const [loading, setLoading] = useState(false);
-  function onChange(value: string) {
+  function changed(value: string) {
     recaptchaRef.current = value;
     console.log(value);
   }
+
 
   const form = useForm({
     initialValues: {
@@ -160,7 +161,9 @@ export default function Contact() {
               <Group justify="flex-start" mt="sm">
                 <ReCAPTCHA
                   sitekey="6LfvaHUpAAAAAEhXVSH0_xfx8X_KAFMCbeDd3QGB"
-                  onChange={onChange}
+                  onChange={(token)=>{
+                    changed(token || "")
+                  }}
                   className="h-fit"
                 />
                 <Button type="submit" color="#F05423" disabled={loading}>
