@@ -23,7 +23,7 @@ type Headers = {
   last_page: number;
 };
 
-export default function blogue({
+export default function Blogue({
   posts,
   headers,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
