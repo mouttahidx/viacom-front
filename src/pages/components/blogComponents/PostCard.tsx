@@ -17,7 +17,7 @@ export default function PostCard({
   return (
     <div className="p-4 md:w-1/3">
       <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-        <Link href={"/blogue/"+ (slug.fr || slug.en)}>
+        <Link href={"/blogue/"+ (slug?.fr || slug?.en)}>
         <Image
           className="lg:h-48 md:h-36 w-full object-cover object-center"
           src={"https://laravel.devvia.ca/storage/"+image}
@@ -32,7 +32,7 @@ export default function PostCard({
           <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
             {title.fr || title.en}
           </h1>
-          <div className="leading-relaxed mb-3 h-[80px] text-ellipsis overflow-hidden" dangerouslySetInnerHTML={{__html:content.fr || content.en}}/>
+          <div className="leading-relaxed mb-3 h-[80px] text-ellipsis overflow-hidden" dangerouslySetInnerHTML={{__html:content?.fr || content?.en}}/>
           <div className="flex items-center flex-wrap ">
             <a className="text-primary inline-flex items-center md:mb-2 lg:mb-0">
             Lire plus          

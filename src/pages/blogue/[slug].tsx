@@ -21,7 +21,7 @@ export default function Slug({post}:{post:Post}) {
 
     <div>
       <div className="pt-24 pb-24 lg:pt-44 bg-pages-hero-bg bg-no-repeat bg-cover flex justify-center items-center">
-        <h1 className="uppercase text-white text-4xl mt-10">{post.title.fr}</h1>
+        <h1 className="uppercase text-white text-4xl mt-10">{post.title?.fr}</h1>
       </div>
       <section className="max-w-5xl mx-auto  py-24">
       <article className="w-full">
@@ -32,7 +32,7 @@ export default function Slug({post}:{post:Post}) {
           height={400}
           alt="blog"
         />
-      <div dangerouslySetInnerHTML={{__html:post.content.fr}} className="w-full" />
+      <div dangerouslySetInnerHTML={{__html:post.content?.fr}} className="w-full" />
       </article>
     
       </section>
@@ -64,7 +64,7 @@ export async function getStaticPaths() {
  
   // Get the paths we want to pre-render based on posts
   const paths = data.data.map((post:Post) => ({
-    params: { slug: (post.slug.fr || post.slug.en) },
+    params: { slug: (post.slug?.fr || post.slug?.en) },
   }))
  
   // We'll pre-render only these paths at build time.
