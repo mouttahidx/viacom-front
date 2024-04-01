@@ -552,75 +552,75 @@ export default function Home({ dir }: any) {
           revenus pour votre entreprise. C'est pourquoi notre approche va
           au-delà de la simple conception Web.
         </p>
-        <div className="grid mt-16 w-full justify-items-center gap-4 gap-y-16 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+        <div className="grid mt-16 w-full justify-items-center gap-x-6 gap-y-16 lg:gap-8 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
           <Image
-            width={100}
-            height={100}
-            className="object-contain"
-            src={"/img/campaign.webp"}
+            width={200}
+            height={200}
+            className="object-contain w-10/12 lg:w-full"
+            src={"/img/alzeihmer.webp"}
             alt="logo"
           />
           <Image
-            width={100}
-            height={100}
-            className="object-contain"
-            src={"/img/campaign.webp"}
+            width={200}
+            height={200}
+            className="object-contain w-10/12 lg:w-full"
+            src={"/img/centraide.webp"}
             alt="logo"
           />
           <Image
-            width={100}
-            height={100}
-            className="object-contain"
-            src={"/img/campaign.webp"}
+            width={200}
+            height={200}
+            className="object-contain w-10/12 lg:w-full"
+            src={"/img/napa.webp"}
             alt="logo"
           />
           <Image
-            width={100}
-            height={100}
-            className="object-contain"
-            src={"/img/campaign.webp"}
+            width={200}
+            height={200}
+            className="object-contain w-10/12 lg:w-full"
+            src={"/img/eleganza.webp"}
             alt="logo"
           />
           <Image
-            width={100}
-            height={100}
-            className="object-contain"
-            src={"/img/campaign.webp"}
+            width={200}
+            height={200}
+            className="object-contain w-10/12 lg:w-full"
+            src={"/img/ecole.webp"}
             alt="logo"
           />
           <Image
-            width={100}
-            height={100}
-            className="object-contain"
-            src={"/img/campaign.webp"}
+            width={200}
+            height={200}
+            className="object-contain w-10/12 lg:w-full"
+            src={"/img/sunspace.webp"}
             alt="logo"
           />
           <Image
-            width={100}
-            height={100}
-            className="object-contain"
-            src={"/img/campaign.webp"}
+            width={200}
+            height={200}
+            className="object-contain w-10/12 lg:w-full"
+            src={"/img/crd.webp"}
             alt="logo"
           />
           <Image
-            width={100}
-            height={100}
-            className="object-contain"
-            src={"/img/campaign.webp"}
+            width={200}
+            height={200}
+            className="object-contain w-10/12 lg:w-full"
+            src={"/img/oceanick.webp"}
             alt="logo"
           />
           <Image
-            width={100}
-            height={100}
-            className="object-contain"
-            src={"/img/campaign.webp"}
+            width={200}
+            height={200}
+            className="object-contain w-10/12 lg:w-full"
+            src={"/img/laplante.jpg"}
             alt="logo"
           />
           <Image
-            width={100}
-            height={100}
-            className="object-contain"
-            src={"/img/campaign.webp"}
+            width={200}
+            height={200}
+            className="object-contain w-10/12 lg:w-full"
+            src={"/img/levis.jpg"}
             alt="logo"
           />
         </div>

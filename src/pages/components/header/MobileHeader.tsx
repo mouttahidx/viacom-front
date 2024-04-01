@@ -75,14 +75,14 @@ export default function MobileHeader() {
           <Accordion defaultValue="">
             <Accordion.Item key="web" value={"web"}>
               <Accordion.Control>
-                <Link href="/">Services</Link>
+                <Link href="/services">Services</Link>
               </Accordion.Control>
               <Accordion.Panel>
                 <div className="pl-4 w-full flex flex-col">
-                    <Link href={"/"} className="border-b pb-2 w-full">Publicités Facebook Ads</Link>
-                    <Link href={"/"} className="border-b py-2 w-full">Publicités Google Ads</Link>
-                    <Link href={"/"} className="border-b py-2 w-full">Marketing Digital</Link>
-                    <Link href={"/"} className="border-b py-2 w-full">SEO - Réferencement naturel</Link>
+                    <Link href={"/services/agence-facebook-ads"} className="border-b pb-2 w-full">Publicités Facebook Ads</Link>
+                    <Link href={"/services/agence-google-ads"} className="border-b py-2 w-full">Publicités Google Ads</Link>
+                    <Link href={"/services/agence-marketing-digital"} className="border-b py-2 w-full">Marketing Digital</Link>
+                    <Link href={"/services/agence-seo"} className="border-b py-2 w-full">SEO - Réferencement naturel</Link>
                 </div>
               </Accordion.Panel>
             </Accordion.Item>

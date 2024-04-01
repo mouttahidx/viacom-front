@@ -1,5 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: 'viacommunication.test',
+        port: '',
+        pathname: '/storage/**',
+      },
+    ],
+  },
   reactStrictMode: true,
   i18n: {
     locales: ['fr','en'],

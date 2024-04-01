@@ -30,25 +30,55 @@ body {
 
 }
 .body-text{
-  @apply text-gray-500 leading-normal text-lg
+  @apply text-gray-500 leading-relaxed text-lg
 }
 
 .list-title{
   @apply text-black text-xl
 }
 
+.menu-item{
+  @apply hover:bg-primary hover:text-white p-1 hover:rounded duration-300
+}
 
-.bottom-arrow:after {
+.divider{
+  @apply w-[80px] mx-auto bg-primary h-1 mt-8 mb-8
+}
+
+.gray-section-title{
+  @apply text-3xl capitalize font-semibold text-gray-600
+}
+
+.brand{
+  @apply text-primary font-semibold
+}
+
+
+
+.right-arrow:after {
   content:'';
   position: absolute;
-  left: 10%;
-  border-top: 20px solid #F05423;
-  border-left: 20px solid transparent;
-  border-right: 0px solid transparent;
+  right: -10px;
+  top:30px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  /* border-right: 20px solid transparent; */
+  border-left: 10px solid #F05423;
 }
+
+
+  .bottom-arrow:after {
+    content:'';
+    position: absolute;
+    left: 10%;
+    border-top: 20px solid #F05423;
+    border-left: 20px solid transparent;
+    border-right: 0px solid transparent;
+  }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+  
 }

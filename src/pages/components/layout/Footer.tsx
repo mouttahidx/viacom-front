@@ -9,6 +9,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto bg-secondary px-4 flex flex-col sm:flex-row flex-wrap pt-16 py-10 gap-y-16 items-start lg:items-start">
         {/* first column */}
         <div className="lg:w-5/12 md:w-4/12 sm:w-6/12">
+          <Link href="/">
           <Image
             src="/img/logo-footer.webp"
             width={300}
@@ -16,6 +17,7 @@ export default function Footer() {
             alt=""
             className="w-10/12 md:w-[280px] object-contain"
           />
+          </Link>
         </div>
         {/* second column */}
         <div className="flex lg:w-4/12 flex-col gap-y-8 text-sm md:w-4/12 sm:w-6/12">
