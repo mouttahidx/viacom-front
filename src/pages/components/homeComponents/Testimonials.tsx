@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 export default function Testimonials() {
@@ -36,7 +37,9 @@ export default function Testimonials() {
           {testimonials.map((testi,index) => (
             <blockquote key={index} className="rounded-lg bg-[#213357] !text-white bg-opacity-40 p-6 shadow-sm sm:p-8 h-fit">
               <div className="flex items-center gap-4">
-                <img
+                <Image
+                  width={100}
+                  height={100}
                   alt=""
                   src={testi.img}
                   className="size-14 rounded-full object-cover"

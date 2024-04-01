@@ -539,10 +539,10 @@ export default function AgenceGoogleAds() {
           >
             <Tabs.List justify="start">
               {tabs.map((item) => (
-                <Tabs.Tab value={item.label}>{item.label}</Tabs.Tab>
+                <Tabs.Tab value={item.label} key={item.label}>{item.label}</Tabs.Tab>
               ))}
               {tabs.map((item) => (
-                <Tabs.Panel value={item.label}>{item.text}</Tabs.Panel>
+                <Tabs.Panel value={item.label} key={item.label}>{item.text}</Tabs.Panel>
               ))}
             </Tabs.List>
           </Tabs>
