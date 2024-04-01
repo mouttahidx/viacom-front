@@ -59,7 +59,7 @@ export async function getStaticProps(ctx:any) {
 // This function gets called at build time
 export async function getStaticPaths() {
   // Call an external API endpoint to get posts
-  const res = await fetch('http://viacommunication.test/api/posts')
+  const res = await fetch('https://laravel.devvia.ca/api/posts/')
   const data = await res.json()
  
   // Get the paths we want to pre-render based on posts
