@@ -3,10 +3,14 @@ import React from "react";
 import IconsList from "../components/servicesComponents/IconsList";
 import Image from "next/image";
 import Link from "next/link";
+import Head from "next/head";
 
 export default function services() {
   return (
     <div>
+      <Head>
+        <title>VIA Communication - Services</title>
+      </Head>
       {/* // hero section */}
       <section className="w-full py-28 text-white h-[780px] lg:h-[781px] bg-services-hero-bg bg-cover bg-no-repeat bg-center relative">
         <div className="absolute bg-dark-secondary left-0 bottom-0 right-0 top-0 bg-opacity-50 z-0"></div>
@@ -19,6 +23,8 @@ export default function services() {
           </h2>
 
           <Button
+            component={Link}
+            href={"/contact"}
             variant="filled"
             className="!bg-primary hover:!bg-opacity-90 mt-10 "
           >{`Contactez-nous`}</Button>
@@ -158,6 +164,8 @@ export default function services() {
             marketing digital sans frais.
           </p>
           <Button
+            component={Link}
+            href={"/contact"}
             variant="outline"
             color="white"
             size="md"

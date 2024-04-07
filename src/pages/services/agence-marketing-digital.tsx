@@ -1,4 +1,5 @@
 import { Accordion, Button, Tabs } from "@mantine/core";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -157,6 +158,9 @@ export default function AgenceMarketingDigital() {
 
   return (
     <div>
+      <Head>
+        <title>VIA Communication - Marketing Digital</title>
+      </Head>
       {/* hero */}
       <div className="bg-facebook-hero bg-center bg-no-repeat bg-cover ">
         <div className="bg-secondary h-full pt-24 pb-24 lg:py-44 flex justify-center bg-opacity-60">
@@ -202,6 +206,8 @@ export default function AgenceMarketingDigital() {
               réaliser vos objectifs.
             </div>
             <Button
+              component={Link}
+              href={"/contact"}
               variant="filled"
               size="md"
               className="!bg-primary hover:!bg-opacity-90 mt-10 "
@@ -254,6 +260,8 @@ export default function AgenceMarketingDigital() {
               </ul>
             </div>
             <Button
+              component={Link}
+              href={"/contact"}
               variant="filled"
               size="md"
               className="!bg-primary hover:!bg-opacity-90 mt-10 "
@@ -312,7 +320,10 @@ export default function AgenceMarketingDigital() {
             </p>
           </Link>
 
-          <Link href="/services/agence-google-ads" className="w-full xl:w-4/12 flex flex-col items-center">
+          <Link
+            href="/services/agence-google-ads"
+            className="w-full xl:w-4/12 flex flex-col items-center"
+          >
             <Image
               src={"/img/sem.webp"}
               alt=""
@@ -325,11 +336,14 @@ export default function AgenceMarketingDigital() {
               Maximisez votre présence numérique et augmentez vos conversions
               grâce à des campagnes SEM efficaces.
             </p>
-            </Link>
+          </Link>
         </div>
         {/* inner 2 */}
         <div className="w-full flex flex-wrap lg:flex-nowrap gap-y-16 gap-x-4 2xl:gap-x-16">
-          <Link href="/services/agence-facebook-ads" className="w-full xl:w-4/12 flex flex-col items-center">
+          <Link
+            href="/services/agence-facebook-ads"
+            className="w-full xl:w-4/12 flex flex-col items-center"
+          >
             <Image
               src={"/img/facebook-phone.webp"}
               alt=""
@@ -390,10 +404,14 @@ export default function AgenceMarketingDigital() {
           >
             <Tabs.List justify="start">
               {tabs.map((item) => (
-                <Tabs.Tab value={item.label} key={item.label}>{item.label}</Tabs.Tab>
+                <Tabs.Tab value={item.label} key={item.label}>
+                  {item.label}
+                </Tabs.Tab>
               ))}
               {tabs.map((item) => (
-                <Tabs.Panel value={item.label} key={item.label}>{item.text}</Tabs.Panel>
+                <Tabs.Panel value={item.label} key={item.label}>
+                  {item.text}
+                </Tabs.Panel>
               ))}
             </Tabs.List>
           </Tabs>
@@ -404,6 +422,8 @@ export default function AgenceMarketingDigital() {
       <section className="w-full bg-no-repeat bg-cover bg-fixed bg-center mt-40 text-center bg-google-cta">
         <div className="w-full h-full bg-white bg-opacity-40  p-24">
           <Button
+            component={Link}
+            href={"/contact"}
             variant="filled"
             size="xl"
             className="!bg-primary hover:!bg-opacity-90 shadow-xl"
@@ -427,6 +447,8 @@ export default function AgenceMarketingDigital() {
           {/* cta */}
           <div className="mt-10 lg:mt-0 flex flex-wrap gap-y-6 gap-x-4 w-full justify-center lg:w-3/12">
             <Button
+              component={Link}
+              href={"/contact"}
               variant="outline"
               color="#EE5422"
               className="!block !w-full"

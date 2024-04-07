@@ -1,5 +1,6 @@
 import { CheckBadgeIcon } from "@heroicons/react/16/solid";
 import { Accordion, Button, Tabs } from "@mantine/core";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -174,12 +175,15 @@ export default function AgenceGoogleAds() {
 
   return (
     <div>
+      <Head>
+        <title>VIA Communication - Google ADS</title>
+      </Head>
       {/* hero */}
       <div className="bg-facebook-hero bg-center bg-no-repeat bg-cover ">
         <div className="bg-secondary h-full pt-24 pb-24 lg:py-44 flex justify-center bg-opacity-60">
           <h1 className="capitalize text-center text-white text-3xl lg:text-4xl mt-10 max-w-4xl ">
-            Stimulez vos ventes et votre présence en ligne
-            grâce à notre agence Google Ads
+            Stimulez vos ventes et votre présence en ligne grâce à notre agence
+            Google Ads
           </h1>
         </div>
       </div>
@@ -226,6 +230,8 @@ export default function AgenceGoogleAds() {
               campagnes Google Ads en véritables moteurs de croissance.
             </div>
             <Button
+              component={Link}
+              href={"/contact"}
               variant="filled"
               size="md"
               className="!bg-primary hover:!bg-opacity-90 mt-10 "
@@ -507,6 +513,8 @@ export default function AgenceGoogleAds() {
               aligné sur vos objectifs commerciaux.
             </div>
             <Button
+              component={Link}
+              href={"/contact"}
               variant="filled"
               size="md"
               className="!bg-primary hover:!bg-opacity-90 mt-10 "
@@ -539,10 +547,14 @@ export default function AgenceGoogleAds() {
           >
             <Tabs.List justify="start">
               {tabs.map((item) => (
-                <Tabs.Tab value={item.label} key={item.label}>{item.label}</Tabs.Tab>
+                <Tabs.Tab value={item.label} key={item.label}>
+                  {item.label}
+                </Tabs.Tab>
               ))}
               {tabs.map((item) => (
-                <Tabs.Panel value={item.label} key={item.label}>{item.text}</Tabs.Panel>
+                <Tabs.Panel value={item.label} key={item.label}>
+                  {item.text}
+                </Tabs.Panel>
               ))}
             </Tabs.List>
           </Tabs>
@@ -729,6 +741,8 @@ export default function AgenceGoogleAds() {
       <section className="w-full bg-no-repeat bg-cover bg-fixed bg-center mt-40 text-center bg-google-cta">
         <div className="w-full h-full bg-white bg-opacity-40  p-24">
           <Button
+            component={Link}
+            href={"/contact"}
             variant="filled"
             size="xl"
             className="!bg-primary hover:!bg-opacity-90 shadow-xl"
@@ -804,6 +818,8 @@ export default function AgenceGoogleAds() {
           {/* cta */}
           <div className="mt-10 lg:mt-0 flex flex-wrap gap-y-6 gap-x-4 w-full justify-center lg:w-3/12">
             <Button
+              component={Link}
+              href={"/contact"}
               variant="outline"
               color="#EE5422"
               className="!block !w-full"

@@ -1,4 +1,5 @@
 import { Accordion, Button, Tabs } from "@mantine/core";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -372,6 +373,9 @@ export default function AgenceSeo() {
 
   return (
     <div>
+      <Head>
+        <title>VIA Communication - SEO</title>
+      </Head>
       {/* hero */}
       <div className="bg-facebook-hero bg-center bg-no-repeat bg-cover ">
         <div className="bg-secondary h-full pt-24 pb-24 lg:py-44 flex justify-center bg-opacity-60">
@@ -428,6 +432,8 @@ export default function AgenceSeo() {
               simple tâche, c’est une stratégie gagnante.
             </div>
             <Button
+              component={Link}
+              href={"/contact"}
               variant="filled"
               size="md"
               className="!bg-primary hover:!bg-opacity-90 mt-10 "
@@ -608,6 +614,8 @@ export default function AgenceSeo() {
               matière de référencement.
             </div>
             <Button
+              component={Link}
+              href={"/contact"}
               variant="filled"
               size="md"
               className="!bg-primary hover:!bg-opacity-90 mt-10 "
@@ -640,10 +648,14 @@ export default function AgenceSeo() {
           >
             <Tabs.List justify="start">
               {tabs1.map((item) => (
-                <Tabs.Tab value={item.label} key={item.label}>{item.label}</Tabs.Tab>
+                <Tabs.Tab value={item.label} key={item.label}>
+                  {item.label}
+                </Tabs.Tab>
               ))}
               {tabs1.map((item) => (
-                <Tabs.Panel value={item.label} key={item.label}>{item.text}</Tabs.Panel>
+                <Tabs.Panel value={item.label} key={item.label}>
+                  {item.text}
+                </Tabs.Panel>
               ))}
             </Tabs.List>
           </Tabs>
@@ -661,10 +673,14 @@ export default function AgenceSeo() {
           >
             <Tabs.List justify="start">
               {tabs2.map((item) => (
-                <Tabs.Tab value={item.label} key={item.label}>{item.label}</Tabs.Tab>
+                <Tabs.Tab value={item.label} key={item.label}>
+                  {item.label}
+                </Tabs.Tab>
               ))}
               {tabs2.map((item) => (
-                <Tabs.Panel value={item.label} key={item.label}>{item.text}</Tabs.Panel>
+                <Tabs.Panel value={item.label} key={item.label}>
+                  {item.text}
+                </Tabs.Panel>
               ))}
             </Tabs.List>
           </Tabs>
@@ -749,6 +765,8 @@ export default function AgenceSeo() {
           {/* cta */}
           <div className="mt-10 lg:mt-0 flex flex-wrap gap-y-6 gap-x-4 w-full justify-center lg:w-3/12">
             <Button
+              component={Link}
+              href={"/contact"}
               variant="outline"
               color="#EE5422"
               className="!block !w-full"

@@ -53,6 +53,7 @@ export default function Blogue({
     setLoading(false);
   };
 
+  console.log(posts)
   return (
     <div>
       <div className="pt-24 pb-24 lg:pt-44 bg-pages-hero-bg bg-no-repeat bg-cover flex justify-center items-center">
@@ -61,7 +62,7 @@ export default function Blogue({
 
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-24 mx-auto">
-          <div className="flex flex-wrap -m-4">
+          <div className="flex flex-wrap -m-4 gap-x-16">
             {!loading &&
               _posts.map((post) => (
                 <PostCard
@@ -74,7 +75,7 @@ export default function Blogue({
               ))}
           </div>
         </div>
-
+        <iframe src='https://my.spline.design/macbookprocopy-c73b3d08c4025222fed95acf83a597e7/'  width='100%' height='100%' className="h-96"></iframe>
         {!loading && pageTotal > 0 ? (
           <ReactPaginate
             previousLabel={"← Précedent"}
@@ -100,7 +101,8 @@ export default function Blogue({
   );
 }
 
-export const getServerSideProps = (async () => {
+export const getServerSideProps = (async (ctx) => {
+
   // Fetch data from external API
   let posts: Posts = [];
   let headers = { total: 0, last_page: 0 };
