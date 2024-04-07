@@ -2,7 +2,7 @@ import { Accordion, Drawer } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 import { XMarkIcon } from "@heroicons/react/16/solid";
 import FreeQuote from "./FreeQuote";
 import { useRouter } from "next/router";
@@ -10,9 +10,13 @@ import Flag from "./Flag";
 
 export default function MobileHeader() {
   type locales = Array<string>;
-
+  const router = useRouter();
   const [opened, { open, close }] = useDisclosure(false);
   const {locales,locale} = useRouter();
+
+  useEffect(()=>{
+    close()
+  },[router])
 
   return (
     <div>
@@ -87,11 +91,11 @@ export default function MobileHeader() {
               </Accordion.Panel>
             </Accordion.Item>
           </Accordion>
-          <Link href={"/"} className="border-b py-2 pl-4 w-full">Nos Réalisations</Link>
+          <Link href={"/nos-realisations"} className="border-b py-2 pl-4 w-full">Nos Réalisations</Link>
           <Link href={"/blogue"} className="border-b py-2 pl-4 w-full">Blogue</Link>
-          <Link href={"/"} className="border-b py-2 pl-4 w-full">Contact</Link>
-          <Link href={"/"} className="border-b py-2 pl-4 w-full">FAQ</Link>
-          <Link href={"/"} className="border-b py-2 pl-4 w-full">Support</Link>
+          <Link href={"/contact"} className="border-b py-2 pl-4 w-full">Contact</Link>
+          <Link href={"/faq"} className="border-b py-2 pl-4 w-full">FAQ</Link>
+          <a target="_blank" href={"https://soutien.viacommunication.com/"} className="border-b py-2 pl-4 w-full">Support</a>
 
         </div>
       </Drawer>

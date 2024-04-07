@@ -5,6 +5,8 @@ import { useIntl } from "react-intl";
 import IconsList from "./components/homeComponents/IconsList";
 import { CheckIcon } from "@heroicons/react/16/solid";
 import Testimonials from "./components/homeComponents/Testimonials";
+import Link from "next/link";
+import Head from "next/head";
 
 /* tslint:disable:no-unused-variable */
 export default function Home({ dir }: any) {
@@ -16,6 +18,9 @@ export default function Home({ dir }: any) {
 
   return (
     <div>
+      <Head>
+        <title>VIA Communication - Accueil</title>
+      </Head>
       {/* // hero section */}
       <section className="w-full py-28 text-white h-[780px] lg:h-[781px] bg-hero-bg bg-cover bg-no-repeat bg-center relative">
         <div className="absolute bg-dark-secondary left-0 bottom-0 right-0 top-0 bg-opacity-30 z-0"></div>
@@ -27,8 +32,16 @@ export default function Home({ dir }: any) {
             <Button
               variant="filled"
               className="!bg-primary hover:!bg-opacity-90 mr-4 "
+              component={Link}
+              href={"/contact"}
             >{`Demande d'informations`}</Button>
-            <Button variant="outline" color="white" className="">
+            <Button
+              component={Link}
+              href={"/services"}
+              variant="outline"
+              color="white"
+              className=""
+            >
               Nos services
             </Button>
           </div>
@@ -50,11 +63,19 @@ export default function Home({ dir }: any) {
           </div>
           {/* cta */}
           <div className="mt-10 flex flex-wrap gap-y-6 gap-x-4 w-full justify-center lg:w-4/12">
-            <Button variant="outline" color="white" className="">
+            <Button
+              component={Link}
+              href={"/services"}
+              variant="outline"
+              color="white"
+              className=""
+            >
               Nos services
             </Button>
             <Button
               variant="filled"
+              component={Link}
+              href={"/contact"}
               className="!bg-white !text-black hover:!bg-opacity-90 "
             >{`Contactez-nous`}</Button>
           </div>
@@ -88,6 +109,8 @@ export default function Home({ dir }: any) {
             </b>
           </p>
           <Button
+            component={Link}
+            href={"/contact"}
             variant="filled"
             className="!bg-primary hover:!bg-opacity-90 mt-10 !w-full md:!w-6/12"
           >{`Contactez-nous`}</Button>
@@ -147,6 +170,8 @@ export default function Home({ dir }: any) {
             rendement.
           </p>
           <Button
+            component={Link}
+            href={"/contact"}
             variant="filled"
             className="!bg-primary hover:!bg-opacity-90 mt-10 !w-full md:!w-6/12 mx-auto"
           >{`Contactez-nous`}</Button>
@@ -641,7 +666,14 @@ export default function Home({ dir }: any) {
           </div>
           {/* cta */}
           <div className="mt-10 lg:mt-0 flex flex-wrap gap-y-6 gap-x-4 w-full justify-center lg:w-3/12">
-            <Button variant="outline" color="#EE5422" className="!block !w-full" size="md">
+            <Button
+              component={Link}
+              href={"/contact"}
+              variant="outline"
+              color="#EE5422"
+              className="!block !w-full"
+              size="md"
+            >
               Contactez-nous{" "}
             </Button>
           </div>

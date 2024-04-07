@@ -9,7 +9,7 @@ const CookieConsent = () => {
 
   const acceptCookie = () => {
     setShowConsent(true);
-    setCookie("localConsent-viacom", "true", {});
+    setCookie("localConsent-viacom", "true", {maxAge:24*60*60*1000});
   };
 
   if (showConsent) {

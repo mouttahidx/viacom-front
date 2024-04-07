@@ -1,6 +1,10 @@
+import { useRouter } from "next/router";
 import React from "react";
+import Flag from "./Flag";
 
 export default function TopBar() {
+  const router = useRouter();
+  const {locales,locale} = useRouter();
   return (
     <div className="w-full bg-transparent hidden px-2 lg:flex absolute top-0 items-center border-b border-gray-600 max-w-6xl left-0 right-0 mx-auto h-14 z-10 ">
       {/* social media icons */}
@@ -76,6 +80,9 @@ export default function TopBar() {
       </span>
 
       <a href="/outien.viacommunication.com" className="uppercase text-white text-xs font-medium ml-auto">Connexion</a>
+      {[...locales || []].filter(x => x !== locale).map((locale) => (
+            <Flag locale={locale} key={locale}/>
+          ))}
     </div>
   );
 }

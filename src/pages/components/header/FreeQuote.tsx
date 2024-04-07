@@ -4,7 +4,7 @@ import React from "react";
 export default function FreeQuote() {
   return (
     <Link
-      href="/"
+      href="/contact"
       className="group text-lg text-white hover:bg-white hover:text-primary bg-primary font-medium text-center p-1 relative -mb-3 h-14 rounded z-10"
     >
       Devis<p className="text-sm uppercase">gratuit</p>

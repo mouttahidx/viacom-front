@@ -1,5 +1,6 @@
 import { CheckBadgeIcon } from "@heroicons/react/16/solid";
 import { Accordion, Button } from "@mantine/core";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -106,6 +107,9 @@ export default function AgenceFacebookAds() {
 
   return (
     <div>
+      <Head>
+        <title>VIA Communication - Facebook ADS</title>
+      </Head>
       {/* hero */}
       <div className="bg-facebook-hero bg-center bg-no-repeat bg-cover ">
         <div className="bg-secondary h-full pt-24 pb-24 lg:py-44 flex justify-center bg-opacity-60">
@@ -158,6 +162,8 @@ export default function AgenceFacebookAds() {
               pour la publicité Facebook et Instagram selon vos besoins.
             </div>
             <Button
+              component={Link}
+              href={"/contact"}
               variant="filled"
               size="md"
               className="!bg-primary hover:!bg-opacity-90 mt-10 "
@@ -362,6 +368,8 @@ export default function AgenceFacebookAds() {
               optimisons en continu en fonction de leur performance.
             </div>
             <Button
+              component={Link}
+              href={"/contact"}
               variant="filled"
               size="md"
               className="!bg-primary hover:!bg-opacity-90 mt-10 "
@@ -425,6 +433,8 @@ export default function AgenceFacebookAds() {
       <section className="w-full bg-no-repeat bg-cover bg-fixed bg-center my-40 text-center bg-facebook-phone">
         <div className="w-full h-full bg-white bg-opacity-40  p-24">
           <Button
+            component={Link}
+            href={"/contact"}
             variant="filled"
             size="xl"
             className="!bg-primary hover:!bg-opacity-90 shadow-xl"
@@ -556,7 +566,7 @@ export default function AgenceFacebookAds() {
         </div>
       </section>
 
-      {/* cta */}
+      {/* text image */}
       <section className="w-full bg-no-repeat bg-cover bg-fixed bg-center mt-40 text-center bg-phone-icons">
         <div className="w-full h-full bg-white bg-opacity-40  p-24">
           <Button
@@ -583,6 +593,8 @@ export default function AgenceFacebookAds() {
           {/* cta */}
           <div className="mt-10 lg:mt-0 flex flex-wrap gap-y-6 gap-x-4 w-full justify-center lg:w-3/12">
             <Button
+              component={Link}
+              href={"/contact"}
               variant="outline"
               color="#EE5422"
               className="!block !w-full"
