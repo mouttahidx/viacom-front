@@ -1,96 +1,85 @@
 import { PlusIcon } from "@heroicons/react/20/solid";
 import { Accordion } from "@mantine/core";
 import React from "react";
+import { useIntl } from "react-intl";
 
 export default function Faq() {
+  const intl = useIntl();
+
   const faqs = [
     {
-      value: "Quels types de services offre VIA Communication?",
+      value: intl.formatMessage({id:"faq.q.1.title"}),
       description: (
         <div className="">
-          Services de marketing digital, conception Web, SEO et SEM
+          {intl.formatMessage({id:"faq.q.1.text"})}
         </div>
       ),
     },
     {
-      value: "Y a-t-il un contrat à signer?",
+      value: intl.formatMessage({id:"faq.q.2.title"}),
       description: (
         <div className="">
-          Tous les services offerts par VIA Communication nécessitent seulement
-          30 jours d’avis avant d’être résiliés. C’est notre façon de garantir
-          la qualité du service rendu!
+          {intl.formatMessage({id:"faq.q.2.text"})}
         </div>
       ),
     },
     {
-      value: "Avez-vous des forfaits complets?",
+      value: intl.formatMessage({id:"faq.q.3.title"}),
       description: (
         <div className="">
-          Bien sûr! À partir d’aussi peu que 225$ par mois.
+          {intl.formatMessage({id:"faq.q.3.text"})}
         </div>
       ),
     },
     {
-      value: "En quoi consiste l’audit « Multi-plateformes »?",
+      value: intl.formatMessage({id:"faq.q.4.title"}),
       description: (
         <div className="">
-          L’audit Multi-plateformes consiste en une analyse de votre présence
-          actuelle sur les différents médias sociaux. Il vous permet de savoir
-          où vous en êtes.
+          {intl.formatMessage({id:"faq.q.4.text"})}
         </div>
       ),
     },
     {
-      value:
-        "Peut-on établir un partenariat comme celui que vous avez avec GEM-CAR?",
+      value: intl.formatMessage({id:"faq.q.5.title"}),
       description: (
         <div className="">
-          VIA Communication est toujours à la recherche de nouveaux partenaires.
-          Pour toutes demandes, communiquez avec nous à :
-          info@viacommunication.com
+          {intl.formatMessage({id:"faq.q.5.text"})}
         </div>
       ),
     },
     {
-      value: "Avez-vous des offres spéciales pour les startups?",
+      value: intl.formatMessage({id:"faq.q.6.title"}),
       description: (
         <div className="">
-          Absolument! VIA Communication offre des services de gestion de médias
-          sociaux de marketing Web et des conférences, tous adaptés aux besoins
-          des startups, petites, moyennes et grandes entreprises. Envoyez-nous
-          votre demande d’information à : info@viacommunication.com
+          {intl.formatMessage({id:"faq.q.6.text"})}
         </div>
       ),
     },
     {
-      value: "Offrez-vous une période d’essai gratuite?",
+      value: intl.formatMessage({id:"faq.q.7.title"}),
       description: (
         <div className="">
-          Aucune période d’essai gratuite n’est offerte, mais nous vous invitons
-          à visiter la section « Avis » de notre page Facebook afin de découvrir
-          ce que nos clients disent sur nous! <br /> <br />
-          <a href="https://www.facebook.com/VIACommunication/" target="_blank" className="text-primary font-medium">
-            Page Facebook
+                    {intl.formatMessage({id:"faq.q.7.text"})}
+
+          <a href="https://www.facebook.com/VIACommunication/" target="_blank" className="text-primary font-medium block">
+            Facebook
           </a>
         </div>
       ),
     },
     {
-      value:
-        "Si je paie pour un forfait trimestriel, semestriel ou annuel, aurais-je un rabais?",
+      value: intl.formatMessage({id:"faq.q.8.title"}),
       description: (
         <div className="">
-          Aucun forfait trimestriel, semestriel ou annuel n’est offert.{" "}
+          {intl.formatMessage({id:"faq.q.8.text"})}
         </div>
       ),
     },
     {
-      value:
-        "Est-il possible d’obtenir un rabais pour les organismes à but non lucratif?",
+      value: intl.formatMessage({id:"faq.q.9.title"}),
       description: (
         <div className="">
-          Absolument, un rabais peut être offert. Envoyez votre demande
-          d’information à : info@viacommunication.com
+          {intl.formatMessage({id:"faq.q.9.text"})}
         </div>
       ),
     },

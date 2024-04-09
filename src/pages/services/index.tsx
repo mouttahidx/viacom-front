@@ -4,22 +4,28 @@ import IconsList from "../components/servicesComponents/IconsList";
 import Image from "next/image";
 import Link from "next/link";
 import Head from "next/head";
+import { useIntl } from "react-intl";
 
 export default function services() {
+  const intl = useIntl();
+
   return (
     <div>
       <Head>
-        <title>VIA Communication - Services</title>
+        <title>
+          VIA Communication - {intl.formatMessage({ id: "nav.services" })}
+        </title>
       </Head>
       {/* // hero section */}
       <section className="w-full py-28 text-white h-[780px] lg:h-[781px] bg-services-hero-bg bg-cover bg-no-repeat bg-center relative">
         <div className="absolute bg-dark-secondary left-0 bottom-0 right-0 top-0 bg-opacity-50 z-0"></div>
         <div className="z-10 absolute top-[16%] lg:top-[35%] max-w-6xl mx-auto  left-0 right-0 px-3">
-          <h1 className="text-4xl w-full">Marketing digital pour les PME</h1>
+          <h1 className="text-4xl w-full">
+            {intl.formatMessage({ id: "services.hero.title" })}
+          </h1>
           <Divider size="lg" className="w-[50px] my-10" />
           <h2 className="text-3xl w-full">
-            Pour maintenir vos revenus ou pour une croissance forte le marketing
-            digital est l’outil parfait!
+            {intl.formatMessage({ id: "services.hero.subtitle" })}
           </h2>
 
           <Button
@@ -27,7 +33,9 @@ export default function services() {
             href={"/contact"}
             variant="filled"
             className="!bg-primary hover:!bg-opacity-90 mt-10 "
-          >{`Contactez-nous`}</Button>
+          >
+            {intl.formatMessage({ id: "btn.contact" })}
+          </Button>
         </div>
       </section>
 
@@ -36,12 +44,12 @@ export default function services() {
         {/* title subtitle */}
         <div className="text-center flex flex-col items-center">
           <h2 className="text-3xl capitalize">
-            Le pouvoir du Web au service des PME
+            {intl.formatMessage({ id: "services.1.title" })}{" "}
           </h2>
           <div className="w-[50px] bg-primary h-1 mx-auto mt-1 mb-10"></div>
 
           <p className="body-text">
-            Obtenez un maximum de visibilité pour votre entreprise
+            {intl.formatMessage({ id: "services.1.subtitle" })}{" "}
           </p>
         </div>
 
@@ -63,19 +71,21 @@ export default function services() {
 
       {/* 3rd section */}
       <section className="w-full flex flex-col container max-w-6xl my-40 ">
-        <h2 className="second-title text-center ">Nos services</h2>
+        <h2 className="second-title text-center ">
+          {intl.formatMessage({ id: "services.2.title" })}
+        </h2>
         <div className="w-[50px] bg-primary h-1 mx-auto mt-1 mb-16"></div>
 
         {/* 1st text */}
         <div className="bg-savoir-bg bg-cover bg-no-repeat bg-center">
           <div className="w-full pt-10 px-4 pb-10 text-center text-white bg-black bg-opacity-70">
-            <h4 className="second-title">Conception de site Web et SEO</h4>
+            <h4 className="second-title">
+              {intl.formatMessage({ id: "services.2.1.title" })}
+            </h4>
             <div className="w-[50px] bg-white h-1 mx-auto mt-1 mb-10"></div>
 
             <p className="body-text !text-white">
-              Pilier de nos services de marketing digital, de la conception de
-              votre site Web à son référencement sur les moteurs de recherche,
-              notre agence vous accompagnera à toutes les étapes
+              {intl.formatMessage({ id: "services.2.1.text" })}
             </p>
 
             <Button
@@ -85,7 +95,7 @@ export default function services() {
               color="white"
               className="mt-8 hover:scale-105 duration-300"
             >
-              PLUS
+              {intl.formatMessage({ id: "btn.more" })}
             </Button>
           </div>
         </div>
@@ -95,14 +105,14 @@ export default function services() {
           {/* 1st div */}
           <div className="bg-approche-bg bg-cover bg-no-repeat bg-center">
             <div className="w-full pt-10 px-4 pb-10 text-center text-white bg-black bg-opacity-70">
-              <h4 className="second-title">Publicité Facebook et Instagram</h4>
-              <div className="w-[50px] bg-white h-1 mx-auto mt-1 mb-10"></div>
+            <h4 className="second-title">
+              {intl.formatMessage({ id: "services.2.2.title" })}
+            </h4>
+            <div className="w-[50px] bg-white h-1 mx-auto mt-1 mb-10"></div>
 
-              <p className="body-text !text-white">
-                Nos campagnes publicitaires ultra ciblées génèrent des retombées
-                extraordinaires. Facebook et Instagram sont les endroits idéaux
-                pour générer des ventes.
-              </p>
+            <p className="body-text !text-white">
+              {intl.formatMessage({ id: "services.2.2.text" })}
+            </p>
               <Button
                 component={Link}
                 href={"/services/agence-facebook-ads"}
@@ -110,7 +120,7 @@ export default function services() {
                 color="white"
                 className="mt-8 hover:scale-105 duration-300"
               >
-                PLUS
+                {intl.formatMessage({ id: "btn.more" })}
               </Button>
             </div>
           </div>
@@ -118,14 +128,14 @@ export default function services() {
           {/* 2nd div */}
           <div className="bg-faire-bg bg-cover bg-no-repeat bg-center">
             <div className="w-full pt-10 px-4 pb-10 text-center text-white bg-black bg-opacity-70">
-              <h4 className="second-title">Publicité Google AdWords</h4>
-              <div className="w-[50px] bg-white h-1 mx-auto mt-1 mb-10"></div>
+            <h4 className="second-title">
+              {intl.formatMessage({ id: "services.2.3.title" })}
+            </h4>
+            <div className="w-[50px] bg-white h-1 mx-auto mt-1 mb-10"></div>
 
-              <p className="body-text !text-white">
-                Nous nous assurons de bien positionner votre entreprise sur
-                Google alors que vos clients potentiels cherchent activement des
-                entreprises comme la vôtre.
-              </p>
+            <p className="body-text !text-white">
+              {intl.formatMessage({ id: "services.2.3.text" })}
+            </p>
               <Button
                 component={Link}
                 href={"/services/agence-google-ads"}
@@ -133,7 +143,7 @@ export default function services() {
                 color="white"
                 className="mt-8 hover:scale-105 duration-300"
               >
-                PLUS
+                {intl.formatMessage({ id: "btn.more" })}
               </Button>
             </div>
           </div>
@@ -142,12 +152,13 @@ export default function services() {
         {/* 5th text */}
         <div className="bg-website-bg bg-cover bg-no-repeat bg-center mt-8">
           <div className="w-full pt-10 px-4 pb-10 text-center text-white bg-black bg-opacity-70">
-            <h4 className="second-title">Graphisme et montage vidéo</h4>
+          <h4 className="second-title">
+              {intl.formatMessage({ id: "services.2.4.title" })}
+            </h4>
             <div className="w-[50px] bg-white h-1 mx-auto mt-1 mb-10"></div>
 
             <p className="body-text !text-white">
-              Tous les services sous un seul et même toit, notre agence Web vous
-              offre aussi des services de graphisme.s.
+              {intl.formatMessage({ id: "services.2.4.text" })}
             </p>
           </div>
         </div>
@@ -157,11 +168,11 @@ export default function services() {
       <section className="w-full text-center px-1 mt-40 border-b border-white bg-secondary py-24 text-white">
         <div className="max-w-6xl mx-auto  flex flex-col items-center">
           <h2 className="text-3xl lg:text-4xl">
-            Propulsez votre entreprise vers de nouveaux sommets!
+          {intl.formatMessage({ id: "cta3.title" })}
           </h2>
           <p className="!text-white body-text mt-8 !font-light">
-            Contactez-nous, il nous fera plaisir de vous offrir une stratégie de
-            marketing digital sans frais.
+          {intl.formatMessage({ id: "cta3.text" })}
+
           </p>
           <Button
             component={Link}
@@ -170,7 +181,10 @@ export default function services() {
             color="white"
             size="md"
             className="w-fit mt-10"
-          >{`Contactez-nous`}</Button>
+          >
+          {intl.formatMessage({ id: "btn.contact" })}
+
+            </Button>
         </div>
       </section>
     </div>

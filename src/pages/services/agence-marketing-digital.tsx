@@ -3,115 +3,57 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { useIntl } from "react-intl";
 
 export default function AgenceMarketingDigital() {
+  const intl = useIntl();
+
   const tabs = [
     {
-      label: "Sites web",
+      label: intl.formatMessage({ id: "marketing.4.tab1.title" }),
       text: (
         <div>
-          Propulsez votre marque, quelle que soit la nature de votre site web.
-          Qu’il s’agisse d’un e-commerce dynamique B2C, d’un site B2B orienté
-          vers les relations d’affaires, d’un portfolio artistique ou d’une
-          plateforme éducative, notre équipe est prête à vous aider.
-          <br />
-          <br />
-          Nos designers et développeurs travaillent ensemble pour créer des
-          interfaces personnalisées, centrées sur l’utilisateur.
-          <br />
-          <br />
-          Elles se distinguent par leur design unique, leur durabilité et leur
-          facilité de maintenance.
-          <br />
-          <br />
-          Avec notre approche sur mesure, nous créons des expériences qui
-          mettent véritablement en valeur votre marque.
+          <span
+            dangerouslySetInnerHTML={{
+              __html: intl.formatMessage({ id: "marketing.4.tab1.text" }),
+            }}
+          />
         </div>
       ),
     },
     {
-      label: "SEO",
+      label: intl.formatMessage({ id: "marketing.4.tab2.title" }),
       text: (
         <div>
-          Optimisez votre présence dans les résultats de recherche des moteurs
-          de recherche pour devenir le choix privilégié de vos clients. Le
-          référencement naturel, ou SEO, est bien plus qu’une simple série
-          d’actions. C’est une approche globale qui renforce votre visibilité et
-          vous connecte aux clients pertinents.
-          <br />
-          <br />
-          Notre équipe met en place une stratégie SEO personnalisée. Grâce à une
-          analyse minutieuse, nous optimisons les aspects techniques, les
-          mots-clés ciblés et la structure de votre site pour une navigation
-          fluide et une expérience utilisateur supérieure.
-          <br />
-          <br />
-          Offrez à votre entreprise la reconnaissance qu’elle mérite.
-          Laissez-nous créer une stratégie SEO qui capte l’attention, attire les
-          bons visiteurs et génère des conversions.
+          <span
+            dangerouslySetInnerHTML={{
+              __html: intl.formatMessage({ id: "marketing.4.tab2.text" }),
+            }}
+          />
         </div>
       ),
     },
     {
-      label: "SEM",
+      label: intl.formatMessage({ id: "marketing.4.tab3.title" }),
       text: (
         <div>
-          Augmentez votre visibilité avec une stratégie SEM efficace. Le SEM
-          combine des annonces en ligne ciblées et des campagnes publicitaires
-          pour promouvoir votre entreprise sur le web.
-          <br />
-          <br />
-          En tant qu’agence spécialisée, nous maximisons votre présence
-          numérique et générons des leads de qualité.
-          <br />
-          <br />
-          Notre équipe d’experts en SEM utilise des mots-clés pertinents et des
-          publicités optimisées pour atteindre votre public cible.
-          <br />
-          <br />
-          Grâce à notre approche stratégique, nous augmentons votre visibilité
-          sur les moteurs de recherche et les plateformes publicitaires. Vous
-          bénéficiez ainsi d’une exposition maximale et d’une augmentation du
-          trafic qualifié vers votre site web.
-          <br />
-          <br />
-          En tant qu’agence SEM, nous mettons en œuvre des campagnes
-          publicitaires comme Google Ads percutantes et mesurables.
-          <br />
-          <br />
-          Nous optimisons vos annonces pour générer des clients précieux et
-          accroître votre retour sur investissement. Avec notre expertise en
-          marketing numérique, vous bénéficiez d’une présence en ligne renforcée
-          et d’une croissance significative de votre entreprise.
+          <span
+            dangerouslySetInnerHTML={{
+              __html: intl.formatMessage({ id: "marketing.4.tab3.text" }),
+            }}
+          />
         </div>
       ),
     },
     {
-      label: "Suivi et analyse",
+      label: intl.formatMessage({ id: "marketing.4.tab4.title" }),
       text: (
         <div>
-          Augmentez votre visibilité avec une stratégie SEM efficace. Le SEM
-          combine des annonces en ligne ciblées et des campagnes publicitaires
-          pour promouvoir votre entreprise sur le web.
-          <br /> <br />
-          En tant qu’agence spécialisée, nous maximisons votre présence
-          numérique et générons des leads de qualité.
-          <br /> <br />
-          Notre équipe d’experts en SEM utilise des mots-clés pertinents et des
-          publicités optimisées pour atteindre votre public cible.
-          <br /> <br />
-          Grâce à notre approche stratégique, nous augmentons votre visibilité
-          sur les moteurs de recherche et les plateformes publicitaires. Vous
-          bénéficiez ainsi d’une exposition maximale et d’une augmentation du
-          trafic qualifié vers votre site web.
-          <br /> <br />
-          En tant qu’agence SEM, nous mettons en œuvre des campagnes
-          publicitaires comme Google Ads percutantes et mesurables.
-          <br /> <br />
-          Nous optimisons vos annonces pour générer des clients précieux et
-          accroître votre retour sur investissement. Avec notre expertise en
-          marketing numérique, vous bénéficiez d’une présence en ligne renforcée
-          et d’une croissance significative de votre entreprise.
+          <span
+            dangerouslySetInnerHTML={{
+              __html: intl.formatMessage({ id: "marketing.4.tab4.text" }),
+            }}
+          />
         </div>
       ),
     },
@@ -119,28 +61,14 @@ export default function AgenceMarketingDigital() {
 
   const faqs = [
     {
-      value: "C’est Quoi Le Marketing Digital ?",
+      value: intl.formatMessage({ id: "marketing.faq.q1.title" }),
       description: (
         <div className="text-primary">
-          Le <b>marketing digital</b>, également appelé marketing en ligne ou{" "}
-          <b>marketing numérique</b>, utilise des canaux numériques pour
-          promouvoir des produits, services ou marques.
-          <br /> <br />
-          Il s’appuie sur Internet, les réseaux sociaux, les moteurs de
-          recherche, etc. pour atteindre et engager le public cible.
-          <br /> <br />
-          L’objectif est de <b>générer de la visibilité</b>, d’
-          <b>attirer l’attention</b>, d‘<b>interagir avec les consommateurs</b>{" "}
-          et de les <b>convertir en clients</b>.
-          <br /> <br />
-          Le marketing digital utilise l’analyse des données, l’optimisation des
-          campagnes et des techniques telles que le référencement, la publicité
-          en ligne, le contenu et les médias sociaux.
-          <br /> <br />
-          En résumé, il permet de{" "}
-          <b>connecter les entreprises à leur audience cible</b> et de
-          promouvoir leurs produits dans le monde numérique en constante
-          évolution.
+          <span
+            dangerouslySetInnerHTML={{
+              __html: intl.formatMessage({ id: "marketing.faq.q1.text" }),
+            }}
+          />
         </div>
       ),
     },
@@ -165,7 +93,11 @@ export default function AgenceMarketingDigital() {
       <div className="bg-facebook-hero bg-center bg-no-repeat bg-cover ">
         <div className="bg-secondary h-full pt-24 pb-24 lg:py-44 flex justify-center bg-opacity-60">
           <h1 className="capitalize text-center text-white text-3xl lg:text-4xl mt-10 max-w-4xl">
-            Votre Agence Marketing Digital de confiance au Québec
+            <span
+              dangerouslySetInnerHTML={{
+                __html: intl.formatMessage({ id: "marketing.hero.title" }),
+              }}
+            />
           </h1>
         </div>
       </div>
@@ -182,28 +114,11 @@ export default function AgenceMarketingDigital() {
           {/* icons list */}
           <div className="w-full xl:w-6/12 ">
             <div className="body-text ">
-              Vous recherchez des experts en conception de site web ? Une agence
-              Google Ads ? Ou des gestionnaires chevronnés en médias sociaux ?
-              Vous êtes au bon endroit. En tant qu
-              <span className="text-primary font-medium">
-                ’agence de marketing digital
-              </span>{" "}
-              basée au Québec, nous proposons des{" "}
-              <b>stratégies adaptées aux PME</b>.
-              <br />
-              <br />
-              Nos spécialistes maîtrisent l’utilisation d’outils de pointe pour
-              maximiser votre présence en ligne. Que vous souhaitez optimiser
-              votre référencement naturel, lancer des campagnes publicitaires
-              efficaces ou repenser entièrement votre stratégie sur les médias
-              sociaux, nous sommes là pour vous accompagner.
-              <br />
-              <br />
-              Faites le choix de transformer votre présence digitale avec nous.
-              <br />
-              <br />
-              Voyez comment notre agence de marketing digital peut vous aider à
-              réaliser vos objectifs.
+              <span
+                dangerouslySetInnerHTML={{
+                  __html: intl.formatMessage({ id: "marketing.1" }),
+                }}
+              />
             </div>
             <Button
               component={Link}
@@ -211,7 +126,9 @@ export default function AgenceMarketingDigital() {
               variant="filled"
               size="md"
               className="!bg-primary hover:!bg-opacity-90 mt-10 "
-            >{`Contactez-nous`}</Button>
+            >
+              {intl.formatMessage({ id: "btn.contact" })}
+            </Button>
           </div>
           <Image
             src={"/img/agence-marketing.webp"}
@@ -236,28 +153,16 @@ export default function AgenceMarketingDigital() {
           />
           <div className="w-full xl:w-6/12 ">
             <h2 className="text-3xl font-semibold text-gray-600">
-              Pourquoi choisir notre agence de marketing digital ?
+              {intl.formatMessage({ id: "marketing.2.title" })}
             </h2>
             <div className="w-[50px] bg-primary h-1 mt-4 mb-6"></div>
             <div className="body-text">
-              <ul className="list-disc pl-6">
-                <li>
-                  Nous vous garantissons votre satisfaction, sans aucun
-                  engagement à long terme.
-                </li>
-                <li>
-                  Bénéficiez de résultats mesurables rapidement et efficacement.
-                </li>
-                <li>Augmentez vos revenus</li>
-                <li>
-                  Nous travaillons dans le respect de votre budget et de vos
-                  contraintes financières.
-                </li>
-                <li>
-                  Notre agence est un partenaire certifié Google, témoignant de
-                  la qualité de notre travail.
-                </li>
-              </ul>
+              <ul
+                className="list-disc pl-6"
+                dangerouslySetInnerHTML={{
+                  __html: intl.formatMessage({ id: "marketing.2.text" }),
+                }}
+              />
             </div>
             <Button
               component={Link}
@@ -265,7 +170,9 @@ export default function AgenceMarketingDigital() {
               variant="filled"
               size="md"
               className="!bg-primary hover:!bg-opacity-90 mt-10 "
-            >{`Contactez-nous`}</Button>
+            >
+              {intl.formatMessage({ id: "btn.contact" })}
+            </Button>
           </div>
         </div>
       </section>
@@ -275,7 +182,7 @@ export default function AgenceMarketingDigital() {
         {/* title subtitle */}
         <div className="text-center flex flex-col items-center">
           <h2 className="text-3xl capitalize font-semibold text-gray-600">
-            Pourquoi Google Ads est essentiel pour votre entreprise ?
+            {intl.formatMessage({ id: "marketing.3.title" })}
           </h2>
           <div className="w-[50px] bg-primary h-1 mx-auto mt-3 mb-10 "></div>
         </div>
@@ -294,11 +201,10 @@ export default function AgenceMarketingDigital() {
               className="w-full object-cover h-[280px] max-h-[380px] rounded-3xl hover:scale-105 duration-500"
             />
             <h4 className="text-xl font-semibold my-6 text-secondary">
-              Création De Sites Web{" "}
+            {intl.formatMessage({ id: "marketing.3.1.title" })}
             </h4>
             <p className="text-secondary text-center">
-              Concevez votre succès en ligne avec un site web personnalisé,
-              performant et aligné sur vos objectifs.
+            {intl.formatMessage({ id: "marketing.3.1.text" })}
             </p>
           </Link>
 
@@ -313,10 +219,11 @@ export default function AgenceMarketingDigital() {
               height={400}
               className="w-full object-cover h-[280px] max-h-[380px] rounded-3xl hover:scale-105 duration-500"
             />
-            <h4 className="text-xl font-semibold my-6 text-secondary">SEO</h4>
+            <h4 className="text-xl font-semibold my-6 text-secondary">
+            {intl.formatMessage({ id: "marketing.3.2.title" })}
+            </h4>
             <p className="text-secondary text-center">
-              Boostez votre visibilité sur les moteurs de recherche et atteignez
-              vos cibles grâce à des stratégies de référencement éprouvées.
+            {intl.formatMessage({ id: "marketing.3.2.text" })}
             </p>
           </Link>
 
@@ -331,10 +238,11 @@ export default function AgenceMarketingDigital() {
               height={400}
               className="w-full object-cover h-[280px] max-h-[380px] rounded-3xl hover:scale-105 duration-500"
             />
-            <h4 className="text-xl font-semibold my-6 text-secondary">SEM </h4>
+            <h4 className="text-xl font-semibold my-6 text-secondary">
+            {intl.formatMessage({ id: "marketing.3.3.title" })}
+            </h4>
             <p className="text-secondary text-center">
-              Maximisez votre présence numérique et augmentez vos conversions
-              grâce à des campagnes SEM efficaces.
+            {intl.formatMessage({ id: "marketing.3.3.text" })}
             </p>
           </Link>
         </div>
@@ -352,11 +260,10 @@ export default function AgenceMarketingDigital() {
               className="w-full object-cover h-[280px] max-h-[380px] rounded-3xl hover:scale-105 duration-500"
             />
             <h4 className="text-xl font-semibold my-6 text-secondary">
-              Publicité Sur Les Réseaux Sociaux{" "}
+            {intl.formatMessage({ id: "marketing.3.4.title" })}
             </h4>
             <p className="text-secondary text-center">
-              Développez votre audience et engagez vos clients avec des
-              publicités sociales ciblées et percutantes
+            {intl.formatMessage({ id: "marketing.3.4.text" })}
             </p>
           </Link>
 
@@ -368,11 +275,11 @@ export default function AgenceMarketingDigital() {
               height={400}
               className="w-full object-cover h-[280px] max-h-[380px] rounded-3xl hover:scale-105 duration-500"
             />
-            <h4 className="text-xl font-semibold my-6 text-secondary">
-              Suivi Et Analyse Des KPI{" "}
+           <h4 className="text-xl font-semibold my-6 text-secondary">
+            {intl.formatMessage({ id: "marketing.3.5.title" })}
             </h4>
             <p className="text-secondary text-center">
-              Des perspectives puissants pour optimiser votre stratégie.
+            {intl.formatMessage({ id: "marketing.3.5.text" })}
             </p>
           </div>
 
@@ -385,7 +292,7 @@ export default function AgenceMarketingDigital() {
         {/* title subtitle */}
         <div className="text-center flex flex-col items-center">
           <h2 className="text-3xl capitalize font-semibold text-gray-600">
-            Pourquoi Google Ads est essentiel pour votre entreprise ?
+            {intl.formatMessage({ id: "marketing.4.title" })}{" "}
           </h2>
           <div className="w-[50px] bg-primary h-1 mx-auto mt-3 "></div>
         </div>
@@ -454,7 +361,7 @@ export default function AgenceMarketingDigital() {
               className="!block !w-full"
               size="md"
             >
-              Contactez-nous{" "}
+              Contactez-nous
             </Button>
           </div>
         </div>
@@ -495,19 +402,19 @@ export default function AgenceMarketingDigital() {
           className="text-xl text-dark-secondary mt-4 font-semibold hover:scale-105 duration-300"
           href="/services/agence-facebook-ads"
         >
-          Facebook Ads{" "}
+          Facebook Ads
         </Link>
         <Link
           className="text-xl text-dark-secondary mt-4 font-semibold hover:scale-105 duration-300"
           href="/services/agence-google-ads"
         >
-          Google Ads - SEA{" "}
+          Google Ads - SEA
         </Link>
         <Link
           className="text-xl text-dark-secondary mt-4 font-semibold hover:scale-105 duration-300"
           href="/"
         >
-          Conception web{" "}
+          Conception web
         </Link>
       </section>
     </div>

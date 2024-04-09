@@ -7,6 +7,7 @@ import { XMarkIcon } from "@heroicons/react/16/solid";
 import FreeQuote from "./FreeQuote";
 import { useRouter } from "next/router";
 import Flag from "./Flag";
+import { useIntl } from "react-intl";
 
 export default function MobileHeader() {
   type locales = Array<string>;
@@ -17,7 +18,7 @@ export default function MobileHeader() {
   useEffect(()=>{
     close()
   },[router])
-
+  const intl = useIntl();
   return (
     <div>
       <div className="w-full px-4 block lg:hidden">
@@ -79,22 +80,22 @@ export default function MobileHeader() {
           <Accordion defaultValue="">
             <Accordion.Item key="web" value={"web"}>
               <Accordion.Control>
-                <Link href="/services">Services</Link>
+                <Link href="/services">{intl.formatMessage({ id: "nav.services" })}</Link>
               </Accordion.Control>
               <Accordion.Panel>
                 <div className="pl-4 w-full flex flex-col">
-                    <Link href={"/services/agence-facebook-ads"} className="border-b pb-2 w-full">Publicités Facebook Ads</Link>
-                    <Link href={"/services/agence-google-ads"} className="border-b py-2 w-full">Publicités Google Ads</Link>
-                    <Link href={"/services/agence-marketing-digital"} className="border-b py-2 w-full">Marketing Digital</Link>
-                    <Link href={"/services/agence-seo"} className="border-b py-2 w-full">SEO - Réferencement naturel</Link>
+                    <Link href={"/services/agence-facebook-ads"} className="border-b pb-2 w-full">{intl.formatMessage({ id: "nav.fb" })}</Link>
+                    <Link href={"/services/agence-google-ads"} className="border-b py-2 w-full">{intl.formatMessage({ id: "nav.google" })}</Link>
+                    <Link href={"/services/agence-marketing-digital"} className="border-b py-2 w-full">{intl.formatMessage({ id: "nav.marketing" })}</Link>
+                    <Link href={"/services/agence-seo"} className="border-b py-2 w-full">{intl.formatMessage({ id: "nav.seo" })}</Link>
                 </div>
               </Accordion.Panel>
             </Accordion.Item>
           </Accordion>
-          <Link href={"/nos-realisations"} className="border-b py-2 pl-4 w-full">Nos Réalisations</Link>
-          <Link href={"/blogue"} className="border-b py-2 pl-4 w-full">Blogue</Link>
-          <Link href={"/contact"} className="border-b py-2 pl-4 w-full">Contact</Link>
-          <Link href={"/faq"} className="border-b py-2 pl-4 w-full">FAQ</Link>
+          <Link href={"/nos-realisations"} className="border-b py-2 pl-4 w-full">{intl.formatMessage({ id: "nav.portfolio" })}</Link>
+          <Link href={"/blogue"} className="border-b py-2 pl-4 w-full">{intl.formatMessage({ id: "nav.blog" })}</Link>
+          <Link href={"/contact"} className="border-b py-2 pl-4 w-full">{intl.formatMessage({ id: "nav.contact" })}</Link>
+          <Link href={"/faq"} className="border-b py-2 pl-4 w-full">{intl.formatMessage({ id: "nav.faq" })}</Link>
           <a target="_blank" href={"https://soutien.viacommunication.com/"} className="border-b py-2 pl-4 w-full">Support</a>
 
         </div>

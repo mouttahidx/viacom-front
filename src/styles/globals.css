@@ -36,9 +36,11 @@ body {
 .list-title{
   @apply text-black text-xl
 }
-
+.menu-item-active{
+  @apply !bg-primary !text-white !rounded
+}
 .menu-item{
-  @apply hover:bg-primary hover:text-white p-1 hover:rounded duration-300
+  @apply hover:bg-primary hover:text-white p-1 hover:rounded duration-300 
 }
 
 .divider{

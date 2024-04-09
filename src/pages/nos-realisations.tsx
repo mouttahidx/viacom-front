@@ -4,34 +4,34 @@ import React from "react";
 import "@mantine/carousel/styles.css";
 import { Carousel } from "@mantine/carousel";
 import Image from "next/image";
+import { useIntl } from "react-intl";
 
 export default function NosRealisations() {
+  const intl = useIntl();
   return (
     <div>
       {/* hero */}
       <div className="pt-24 pb-24 lg:pt-44 bg-pages-hero-bg bg-no-repeat bg-cover flex justify-center items-center">
-        <h1 className="uppercase text-white text-4xl mt-10">Réalisations</h1>
+        <h1 className="uppercase text-white text-4xl mt-10">
+          {intl.formatMessage({ id: "work.hero.title" })}
+        </h1>
       </div>
       {/* 1st */}
       <section className=" bg-gradient-to-r from-[#0063a8] via-[#0063a8] to-primary">
         <div className="py-24 w-full h-full bg-secondary bg-opacity-65">
           <p className="max-w-6xl mx-auto text-white text-lg">
-            Depuis plus de 6 ans déjà, VIA Communication se spécialise dans la
-            conception de vos sites Web. Que ce soit un site e-commerce ou
-            simplement une vitrine, nous sommes là pour vous et ce, peu importe
-            le domaine dans lequel vous travaillez. Depuis 6 ans, nous avons
-            fait plusieurs dizaines de sites internet, et ce, pour plusieurs
-            dizaines de clients satisfaits! Nous vous présentons donc, ici,
-            certaines de nos réalisations. Quand débutons-nous votre projet Web?
+          {intl.formatMessage({ id: "work.1.text" })}
+
             <span className="text-sm text-white block mt-6">
-              -L’équipe VIA Communication
+            {intl.formatMessage({ id: "work.1.team" })}
+
             </span>
           </p>
         </div>
       </section>
 
       <h2 className="bg-secondary py-6 my-10 text-white text-center text-2xl font-semibold">
-        ILS NOUS ONT FAIT CONFIANCE
+      {intl.formatMessage({ id: "work.2.title" })}
       </h2>
       <section className="py-16 bg-white max-w-8xl px-4 mx-auto">
         <Carousel
@@ -121,39 +121,189 @@ export default function NosRealisations() {
 
       {/* ecommerce */}
       <section className="max-w-7xl mx-auto my-24">
-        <h2 className="gray-section-title text-center mb-16">Sites Web E-commerce</h2>
+        <h2 className="gray-section-title text-center mb-16">
+        {intl.formatMessage({ id: "work.3.title" })}
+
+        </h2>
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-1">
-          <Image src={"/img/sunspace.webp"} alt="" width={250} height={250} className="bg-black hover:shadow-xl cursor-pointer" />
-          <Image src={"/img/sunspace.webp"} alt="" width={250} height={250} className="bg-black hover:shadow-xl cursor-pointer" />
-          <Image src={"/img/sunspace.webp"} alt="" width={250} height={250} className="bg-black hover:shadow-xl cursor-pointer" />
-          <Image src={"/img/sunspace.webp"} alt="" width={250} height={250} className="bg-black hover:shadow-xl cursor-pointer" />
-          <Image src={"/img/sunspace.webp"} alt="" width={250} height={250} className="bg-black hover:shadow-xl cursor-pointer" />
-          <Image src={"/img/sunspace.webp"} alt="" width={250} height={250} className="bg-black hover:shadow-xl cursor-pointer" />
-          <Image src={"/img/sunspace.webp"} alt="" width={250} height={250} className="bg-black hover:shadow-xl cursor-pointer" />
-          <Image src={"/img/sunspace.webp"} alt="" width={250} height={250} className="bg-black hover:shadow-xl cursor-pointer" />
-          <Image src={"/img/sunspace.webp"} alt="" width={250} height={250} className="bg-black hover:shadow-xl cursor-pointer" />
-          <Image src={"/img/sunspace.webp"} alt="" width={250} height={250} className="bg-black hover:shadow-xl cursor-pointer" />
-          <Image src={"/img/sunspace.webp"} alt="" width={250} height={250} className="bg-black hover:shadow-xl cursor-pointer" />
-          <Image src={"/img/sunspace.webp"} alt="" width={250} height={250} className="bg-black hover:shadow-xl cursor-pointer" />
+          <Image
+            src={"/img/sunspace.webp"}
+            alt=""
+            width={250}
+            height={250}
+            className="bg-black hover:shadow-xl cursor-pointer"
+          />
+          <Image
+            src={"/img/sunspace.webp"}
+            alt=""
+            width={250}
+            height={250}
+            className="bg-black hover:shadow-xl cursor-pointer"
+          />
+          <Image
+            src={"/img/sunspace.webp"}
+            alt=""
+            width={250}
+            height={250}
+            className="bg-black hover:shadow-xl cursor-pointer"
+          />
+          <Image
+            src={"/img/sunspace.webp"}
+            alt=""
+            width={250}
+            height={250}
+            className="bg-black hover:shadow-xl cursor-pointer"
+          />
+          <Image
+            src={"/img/sunspace.webp"}
+            alt=""
+            width={250}
+            height={250}
+            className="bg-black hover:shadow-xl cursor-pointer"
+          />
+          <Image
+            src={"/img/sunspace.webp"}
+            alt=""
+            width={250}
+            height={250}
+            className="bg-black hover:shadow-xl cursor-pointer"
+          />
+          <Image
+            src={"/img/sunspace.webp"}
+            alt=""
+            width={250}
+            height={250}
+            className="bg-black hover:shadow-xl cursor-pointer"
+          />
+          <Image
+            src={"/img/sunspace.webp"}
+            alt=""
+            width={250}
+            height={250}
+            className="bg-black hover:shadow-xl cursor-pointer"
+          />
+          <Image
+            src={"/img/sunspace.webp"}
+            alt=""
+            width={250}
+            height={250}
+            className="bg-black hover:shadow-xl cursor-pointer"
+          />
+          <Image
+            src={"/img/sunspace.webp"}
+            alt=""
+            width={250}
+            height={250}
+            className="bg-black hover:shadow-xl cursor-pointer"
+          />
+          <Image
+            src={"/img/sunspace.webp"}
+            alt=""
+            width={250}
+            height={250}
+            className="bg-black hover:shadow-xl cursor-pointer"
+          />
+          <Image
+            src={"/img/sunspace.webp"}
+            alt=""
+            width={250}
+            height={250}
+            className="bg-black hover:shadow-xl cursor-pointer"
+          />
         </div>
       </section>
 
-       {/* vitrine */}
-       <section className="max-w-7xl mx-auto my-24">
-        <h2 className="gray-section-title text-center mb-16">Sites Web Vitrines</h2>
+      {/* vitrine */}
+      <section className="max-w-7xl mx-auto my-24">
+        <h2 className="gray-section-title text-center mb-16">
+        {intl.formatMessage({ id: "work.4.title" })}
+
+        </h2>
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-1">
-          <Image src={"/img/sunspace.webp"} alt="" width={250} height={250} className="bg-black hover:shadow-xl cursor-pointer" />
-          <Image src={"/img/sunspace.webp"} alt="" width={250} height={250} className="bg-black hover:shadow-xl cursor-pointer" />
-          <Image src={"/img/sunspace.webp"} alt="" width={250} height={250} className="bg-black hover:shadow-xl cursor-pointer" />
-          <Image src={"/img/sunspace.webp"} alt="" width={250} height={250} className="bg-black hover:shadow-xl cursor-pointer" />
-          <Image src={"/img/sunspace.webp"} alt="" width={250} height={250} className="bg-black hover:shadow-xl cursor-pointer" />
-          <Image src={"/img/sunspace.webp"} alt="" width={250} height={250} className="bg-black hover:shadow-xl cursor-pointer" />
-          <Image src={"/img/sunspace.webp"} alt="" width={250} height={250} className="bg-black hover:shadow-xl cursor-pointer" />
-          <Image src={"/img/sunspace.webp"} alt="" width={250} height={250} className="bg-black hover:shadow-xl cursor-pointer" />
-          <Image src={"/img/sunspace.webp"} alt="" width={250} height={250} className="bg-black hover:shadow-xl cursor-pointer" />
-          <Image src={"/img/sunspace.webp"} alt="" width={250} height={250} className="bg-black hover:shadow-xl cursor-pointer" />
-          <Image src={"/img/sunspace.webp"} alt="" width={250} height={250} className="bg-black hover:shadow-xl cursor-pointer" />
-          <Image src={"/img/sunspace.webp"} alt="" width={250} height={250} className="bg-black hover:shadow-xl cursor-pointer" />
+          <Image
+            src={"/img/sunspace.webp"}
+            alt=""
+            width={250}
+            height={250}
+            className="bg-black hover:shadow-xl cursor-pointer"
+          />
+          <Image
+            src={"/img/sunspace.webp"}
+            alt=""
+            width={250}
+            height={250}
+            className="bg-black hover:shadow-xl cursor-pointer"
+          />
+          <Image
+            src={"/img/sunspace.webp"}
+            alt=""
+            width={250}
+            height={250}
+            className="bg-black hover:shadow-xl cursor-pointer"
+          />
+          <Image
+            src={"/img/sunspace.webp"}
+            alt=""
+            width={250}
+            height={250}
+            className="bg-black hover:shadow-xl cursor-pointer"
+          />
+          <Image
+            src={"/img/sunspace.webp"}
+            alt=""
+            width={250}
+            height={250}
+            className="bg-black hover:shadow-xl cursor-pointer"
+          />
+          <Image
+            src={"/img/sunspace.webp"}
+            alt=""
+            width={250}
+            height={250}
+            className="bg-black hover:shadow-xl cursor-pointer"
+          />
+          <Image
+            src={"/img/sunspace.webp"}
+            alt=""
+            width={250}
+            height={250}
+            className="bg-black hover:shadow-xl cursor-pointer"
+          />
+          <Image
+            src={"/img/sunspace.webp"}
+            alt=""
+            width={250}
+            height={250}
+            className="bg-black hover:shadow-xl cursor-pointer"
+          />
+          <Image
+            src={"/img/sunspace.webp"}
+            alt=""
+            width={250}
+            height={250}
+            className="bg-black hover:shadow-xl cursor-pointer"
+          />
+          <Image
+            src={"/img/sunspace.webp"}
+            alt=""
+            width={250}
+            height={250}
+            className="bg-black hover:shadow-xl cursor-pointer"
+          />
+          <Image
+            src={"/img/sunspace.webp"}
+            alt=""
+            width={250}
+            height={250}
+            className="bg-black hover:shadow-xl cursor-pointer"
+          />
+          <Image
+            src={"/img/sunspace.webp"}
+            alt=""
+            width={250}
+            height={250}
+            className="bg-black hover:shadow-xl cursor-pointer"
+          />
         </div>
       </section>
       {/* CTA */}
@@ -162,11 +312,12 @@ export default function NosRealisations() {
           {/* first div */}
           <div className="lg:w-9/12 ">
             <h2 className="second-title text-primary font-bold">
-              Appelez-nous ou envoyez un courriel
+            {intl.formatMessage({ id: "cta1.title" })}
+
             </h2>
             <p className="mt-4 body-text !text-white">
-              Nous sommes à l’écoute pour répondre à vos questions et vous
-              proposer la meilleure solution
+            {intl.formatMessage({ id: "cta1.subtitle" })}
+
             </p>
           </div>
           {/* cta */}
@@ -179,7 +330,8 @@ export default function NosRealisations() {
               component={Link}
               href={"/contact"}
             >
-              Contactez-nous{" "}
+                     {intl.formatMessage({ id: "btn.contact" })}
+
             </Button>
           </div>
         </div>

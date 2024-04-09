@@ -4,91 +4,95 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { FormattedMessage, useIntl } from "react-intl";
 
 export default function AgenceFacebookAds() {
+  const intl = useIntl();
+
   const faqs = [
     {
-      value:
-        "Quelle Stratégie Choisir Pour Optimiser Vos Résultats Marketing : Google Ads Vs Facebook Ads ?",
+      value: intl.formatMessage({ id: "fb.faq.q1.title" }),
       description: (
         <div className="text-primary">
           <Link
             href="/services/agence-google-ads"
             className="font-semibold text-black"
           >
-            Google Ads
+            <FormattedMessage id="fb.faq.q1.text1.1link" />
           </Link>{" "}
-          est efficace pour cibler les utilisateurs lorsqu’ils{" "}
-          <b>recherchent</b> activement des produits ou services sur{" "}
-          <b>le moteur de recherche</b>. Cela peut vous permettre de toucher un
-          public plus large et d’obtenir des résultats plus directs en termes de
-          conversions et de ventes.
-          <br />
-          <br />
-          D’autre part,{" "}
+          <FormattedMessage id="fb.faq.q1.text1.before1" />
           <b>
-            Facebook Ads offre la possibilité de cibler des audiences
-            spécifiques
-          </b>{" "}
-          en utilisant des critères démographiques, des intérêts et des
-          comportements. Cela vous permet de créer une présence de marque
-          solide, d’engager votre audience et de générer de la notoriété.
-          Facebook Ads peut être particulièrement efficace pour les campagnes de
-          sensibilisation, de promotion et de fidélisation de la clientèle.
-          <br />
-          <br />
-          En fin de compte, il est souvent bénéfique de{" "}
-          <b>combiner les deux plateformes</b> publicitaires pour atteindre un
-          public plus large et optimiser les résultats marketing. Une stratégie
-          personnalisée en fonction de vos besoins spécifiques peut être
-          élaborée en consultant nos experts en marketing numérique.
-        </div>
-      ),
-    },
-    {
-      value: "Quel Budget Investir Pour La Gestion De Ma Publicité Facebook ?",
-      description: (
-        <div className="text-primary">
-          Déterminer le budget alloué aux publicités Facebook dépend de
-          plusieurs facteurs, tels que vos <b>ambitions marketing</b>, votre{" "}
-          <b>secteur d’activité</b>, la <b>taille de votre audience cible</b> et
-          <b>la concurrence dans votre domaine.</b>
-          <br />
-          <br />
-          Nous vous recommandons de fixer un budget publicitaire réaliste et
-          aligné sur vos objectifs commerciaux. Facebook propose différents
-          modes de tarification, tels que le coût par clic (CPC) ou le coût par
-          mille impressions (CPM). Vous pouvez également définir un budget
-          quotidien ou un budget total pour vos campagnes.
-          <br />
-          <br />
-          Contactez notre agence pour <b>estimer votre budget publicitaire</b>.
-          Nos experts analyseront votre marché et vos ressources. Vous recevrez
-          des recommandations personnalisées pour améliorer vos résultats.
-        </div>
-      ),
-    },
-    {
-      value:
-        "Comment Une Agence Spécialisée En Campagnes Facebook Ads Fonctionne ?",
-      description: (
-        <div className="text-primary">
-          Nous travaillons avec les <b>PME</b> pour concevoir,{" "}
-          <b>
-            créer et optimiser leurs campagnes publicitaires sur Facebook et
-            Instagram
+            <FormattedMessage id="fb.faq.q1.text1.b1" />
           </b>
-          .
+          <FormattedMessage id="fb.faq.q1.text1.after1" />
+          <b>
+            <FormattedMessage id="fb.faq.q1.text1.b2" />
+          </b>
+          <FormattedMessage id="fb.faq.q1.text1.after2" />
           <br />
           <br />
-          Nous exploitons pleinement nos connaissances des algorithmes et des
-          tendances de Facebook afin de garantir l’impact maximal de vos
-          annonces.
+          <FormattedMessage id="fb.faq.q1.text2.before" />
+          <b>
+            <FormattedMessage id="fb.faq.q1.text2.b" />
+          </b>{" "}
+          <FormattedMessage id="fb.faq.q1.text2.after" />
           <br />
           <br />
-          Notre objectif est de vous offrir une <b>solution sur mesure</b> qui
-          répond spécifiquement à vos besoins et vous permet d’atteindre vos
-          objectifs publicitaires avec succès.
+          <FormattedMessage id="fb.faq.q1.text3.before" />
+          <b>
+            <FormattedMessage id="fb.faq.q1.text3.b" />
+          </b>
+          <FormattedMessage id="fb.faq.q1.text3.after" />
+        </div>
+      ),
+    },
+    {
+      value: intl.formatMessage({ id: "fb.faq.q2.title" }),
+      description: (
+        <div className="text-primary">
+          <FormattedMessage id="fb.faq.q2.text1.before" />
+
+          <b>
+            <FormattedMessage id="fb.faq.q2.text1.b" />
+          </b>
+
+          <br />
+          <br />
+          <FormattedMessage id="fb.faq.q2.text2" />
+
+          <br />
+          <br />
+          <FormattedMessage id="fb.faq.q2.text3.before" />
+          <b>
+            <FormattedMessage id="fb.faq.q2.text3.b" />
+          </b>
+          <FormattedMessage id="fb.faq.q2.text3.after" />
+        </div>
+      ),
+    },
+    {
+      value: intl.formatMessage({ id: "fb.faq.q3.title" }),
+      description: (
+        <div className="text-primary">
+          <FormattedMessage id="fb.faq.q3.text1.before" />
+          <b>
+            {" "}
+            <FormattedMessage id="fb.faq.q3.text1.b1" />
+          </b>
+          <FormattedMessage id="fb.faq.q3.text1.after" />
+          <b>
+            <FormattedMessage id="fb.faq.q3.text1.b2" />
+          </b>
+          <br />
+          <br />
+          <FormattedMessage id="fb.faq.q3.text2" />
+          <br />
+          <br />
+          <FormattedMessage id="fb.faq.q3.text3.before" />
+          <b>
+            <FormattedMessage id="fb.faq.q3.text3.b" />
+          </b>{" "}
+          <FormattedMessage id="fb.faq.q3.text3.after" />
         </div>
       ),
     },
@@ -114,8 +118,7 @@ export default function AgenceFacebookAds() {
       <div className="bg-facebook-hero bg-center bg-no-repeat bg-cover ">
         <div className="bg-secondary h-full pt-24 pb-24 lg:py-44 flex justify-center bg-opacity-60">
           <h1 className="capitalize text-center text-white text-3xl lg:text-4xl mt-10 max-w-4xl ">
-            Agence Facebook Ads Simplifiez votre publicité avec une gestion
-            professionnelle
+            <FormattedMessage id="fb.hero.title" />
           </h1>
         </div>
       </div>
@@ -132,34 +135,40 @@ export default function AgenceFacebookAds() {
           {/* icons list */}
           <div className="w-full xl:w-6/12 ">
             <div className="body-text">
-              Naviguer avec succès dans le paysage publicitaire de Facebook et
-              Instagram requiert une expertise particulière. C’est ici que notre{" "}
-              <span className="text-primary">agence Facebook Ads</span> entre en
-              jeu. Notre expertise libère le potentiel de ces plateformes pour
-              propulser votre PME à travers une campagne optimisée.
+              <FormattedMessage id="fb.1.1before" />
+              <span className="text-primary">
+                <FormattedMessage id="fb.1.1tag" />
+              </span>
+              <FormattedMessage id="fb.1.1after" />
               <br />
               <br />
-              De plus, notre entreprise est certifiée Facebook Business Partner.
-              Ce qui nous permet de déployer tout notre savoir-faire de manière
-              efficace.
+              <FormattedMessage id="fb.1.2" />
               <br />
               <br />
-              Quand vous nous confiez vos campagnes publicitaires sur Facebook,
-              nous donnons vie à vos aspirations. Notre objectif ?
+              <FormattedMessage id="fb.1.3" />
               <br />
               <br />
               <ul className="pl-6 list-disc list">
-                <li>Stimuler</li>
-                <li>l’augmentation de vos ventes</li>
-                <li>Optimiser votre retour sur investissement publicitaire</li>
-                <li>Réduire vos coûts d’acquisition</li>
-                <li>Amplifier la notoriété de votre marque</li>
+                <li>
+                  <FormattedMessage id="fb.1.4.1" />
+                </li>
+                <li>
+                  <FormattedMessage id="fb.1.4.2" />
+                </li>
+                <li>
+                  <FormattedMessage id="fb.1.4.3" />
+                </li>
+                <li>
+                  <FormattedMessage id="fb.1.4.4" />
+                </li>
               </ul>
               <br />
               <br />
-              Chez <span className="text-primary">VIA Communication</span>,
-              notre équipe spécialisée élabore une stratégie marketing détaillée
-              pour la publicité Facebook et Instagram selon vos besoins.
+              <FormattedMessage id="fb.1.5before" />
+              <span className="text-primary">
+                <FormattedMessage id="fb.1.5tag" />
+              </span>
+              <FormattedMessage id="fb.1.5after" />
             </div>
             <Button
               component={Link}
@@ -167,7 +176,9 @@ export default function AgenceFacebookAds() {
               variant="filled"
               size="md"
               className="!bg-primary hover:!bg-opacity-90 mt-10 "
-            >{`Contactez-nous`}</Button>
+            >
+              <FormattedMessage id="btn.contact" />
+            </Button>
           </div>
           <Image
             src={"/img/facebook-phone.webp"}
@@ -184,16 +195,12 @@ export default function AgenceFacebookAds() {
         {/* title subtitle */}
         <div className="text-center flex flex-col items-center">
           <h2 className="text-3xl capitalize font-semibold">
-            Pourquoi lancer des campagnes Facebook Ads ?
+            <FormattedMessage id="fb.2.title" />
           </h2>
           <div className="w-[50px] bg-primary h-1 mx-auto mt-3 mb-10 "></div>
 
           <p className="body-text">
-            Avec ses milliards d’utilisateurs actifs à travers le monde, le
-            réseau social offre un moyen de toucher une large audience.
-            Correctement exploité, Facebook Ads aide les entreprises à établir
-            une présence en ligne solide et à interagir avec leur auditoire
-            cible.
+            <FormattedMessage id="fb.2.subtitle" />
           </p>
         </div>
 
@@ -208,16 +215,14 @@ export default function AgenceFacebookAds() {
               className="w-full object-cover h-[280px] rounded-3xl hover:scale-105 duration-500"
             />
             <h4 className="text-xl font-semibold my-6 text-secondary">
-              Un Public Vaste Et Diversifié
+              <FormattedMessage id="fb.2.1.title" />
             </h4>
             <p className="text-secondary text-center">
-              Facebook Ads met à disposition une plateforme diversifiée,
-              abritant des utilisateurs de tous âges et de toutes origines.
+              <FormattedMessage id="fb.2.1.text.1" />
+
               <br />
               <br />
-              Quel que soit votre secteur ou le profil de votre audience, ils
-              sont probablement sur Facebook. C'est un canal privilégié pour
-              exposer votre marque à une audience élargie.
+              <FormattedMessage id="fb.2.1.text.2" />
             </p>
           </div>
 
@@ -230,22 +235,16 @@ export default function AgenceFacebookAds() {
               className="w-full object-cover h-[280px] rounded-3xl hover:scale-105 duration-500"
             />
             <h4 className="text-xl font-semibold my-6 text-secondary">
-              Des Outils De Ciblage Précis
+              <FormattedMessage id="fb.2.2.title" />
             </h4>
             <p className="text-secondary text-center">
-              La puissance des campagnes publicitaires de Facebook réside dans
-              leur précision. En effet, leurs outils avancés permettent de viser
-              avec exactitude divers groupes d'utilisateurs.
+              <FormattedMessage id="fb.2.2.text.1" />
               <br />
               <br />
-              Des critères tels que l'âge, la localisation ou les centres
-              d'intérêt permettent un ciblage précis et efficace de vos
-              audiences.
+              <FormattedMessage id="fb.2.2.text.2" />
               <br />
               <br />
-              Ainsi, vos publicités Facebook / Instagram deviennent plus
-              pertinentes. Elles captent l'attention et encouragent l'engagement
-              de votre public cible.
+              <FormattedMessage id="fb.2.2.text.3" />
             </p>
           </div>
 
@@ -258,23 +257,18 @@ export default function AgenceFacebookAds() {
               className="w-full object-cover h-[280px] rounded-3xl hover:scale-105 duration-500"
             />
             <h4 className="text-xl font-semibold my-6 text-secondary">
-              Une Mesure De Performance Détaillée
+              <FormattedMessage id="fb.2.3.title" />
             </h4>
             <p className="text-secondary text-center">
-              Facebook Ads fournit des outils de suivi et d'analyse pour mesurer
-              l'efficacité de vos campagnes publicitaires. Ces outils vous
-              donnent accès à des statistiques précises, telles que le nombre de
-              vues, de clics et le taux de conversion pour des actions
-              spécifiques, comme les achats.
+              <FormattedMessage id="fb.2.3.text.1" />
+
               <br />
               <br />
-              Ces informations sont utiles pour maximiser l'efficacité et
-              optimiser la publicité sur Facebook.
+              <FormattedMessage id="fb.2.3.text.2" />
+
               <br />
               <br />
-              En exploitant correctement ces éléments, notre équipe est en
-              mesure d'affiner les stratégies et d'améliorer les performances
-              globales de vos annonces.
+              <FormattedMessage id="fb.2.3.text.3" />
             </p>
           </div>
         </div>
@@ -290,13 +284,10 @@ export default function AgenceFacebookAds() {
               className="w-full object-cover h-[280px] rounded-3xl hover:scale-105 duration-500"
             />
             <h4 className="text-xl font-semibold my-6 text-secondary">
-              Générez Un Volume Plus Important De Ventes
+              <FormattedMessage id="fb.2.4.title" />
             </h4>
             <p className="text-secondary text-center">
-              La publicité de Facebook augmente votre portée, ce qui se traduit
-              par plus d'opportunités de vente. En personnalisant les annonces
-              pour correspondre aux préférences et comportements d'achat des
-              utilisateurs, les chances de conversion sont optimisées.
+              <FormattedMessage id="fb.2.4.text" />
             </p>
           </div>
 
@@ -309,13 +300,10 @@ export default function AgenceFacebookAds() {
               className="w-full object-cover h-[280px] rounded-3xl hover:scale-105 duration-500"
             />
             <h4 className="text-xl font-semibold my-6 text-secondary">
-              Augmentez La Notoriété De Votre Marque
+              <FormattedMessage id="fb.2.5.title" />
             </h4>
             <p className="text-secondary text-center">
-              La publicité sur Facebook contribue à la renommée de votre
-              entreprise. Un public étendu voit vos annonces, renforçant ainsi
-              votre visibilité. De ce fait, cela nourrit la reconnaissance de
-              votre identité et fidélise votre audience.
+              <FormattedMessage id="fb.2.5.text" />
             </p>
           </div>
         </div>
@@ -334,38 +322,33 @@ export default function AgenceFacebookAds() {
           />
           <div className="w-full xl:w-6/12 ">
             <h2 className="text-3xl font-semibold text-gray-600">
-              Pourquoi travailler avec notre agence Facebook Ads ?
+              <FormattedMessage id="fb.3.title" />
             </h2>
             <div className="w-[50px] bg-primary h-1 mt-1 mb-10"></div>
             <div className="body-text">
-              Une présence solide sur les réseaux sociaux, notamment Facebook,
-              est aujourd’hui essentielle pour les PME.
+              <FormattedMessage id="fb.3.1" />
               <br />
               <br />
-              En effet, avec une majorité d’utilisateurs de Facebook suivant des
-              comptes d’entreprise, la visibilité offerte par ce réseau social
-              est considérable. Néanmoins, sans l’expertise adéquate, il peut
-              être délicat de déployer une stratégie de marketing Facebook
-              efficace et rentable.
+              <FormattedMessage id="fb.3.2" />
               <br />
               <br />
-              En tant qu’agence Facebook Ads, notre équipe est là pour vous
-              aider :
+              <FormattedMessage id="fb.3.3" />
               <br />
               <br />
               <ul className="pl-6 list-disc list">
-                <li>À définir vos objectifs</li>
-                <li>À cibler efficacement vos utilisateurs</li>
                 <li>
-                  À délivrer des messages impactants via la plateforme Facebook
-                  Ads.
+                  <FormattedMessage id="fb.3.4.1" />
+                </li>
+                <li>
+                  <FormattedMessage id="fb.3.4.2" />
+                </li>
+                <li>
+                  <FormattedMessage id="fb.3.4.3" />
                 </li>
               </ul>
               <br />
               <br />
-              Nos compétences en création de contenu web sont également un atout
-              précieux pour la mise en place d’annonces percutantes, que nous
-              optimisons en continu en fonction de leur performance.
+              <FormattedMessage id="fb.3.5" />
             </div>
             <Button
               component={Link}
@@ -373,7 +356,9 @@ export default function AgenceFacebookAds() {
               variant="filled"
               size="md"
               className="!bg-primary hover:!bg-opacity-90 mt-10 "
-            >{`Contactez-nous`}</Button>
+            >
+              <FormattedMessage id="btn.contact" />
+            </Button>
           </div>
         </div>
       </section>
@@ -381,49 +366,38 @@ export default function AgenceFacebookAds() {
       {/* 5th */}
       <section className="w-full flex flex-col xl:container px-4 my-40 text-center">
         <h2 className="text-3xl font-semibold text-gray-600">
-          8 raisons de travailler avec notre agence Facebook Ads
+          <FormattedMessage id="fb.4.title" />
         </h2>
         <div className="w-[50px] mx-auto bg-primary h-1 mt-8 mb-16"></div>
         {/* inner 2 */}
         <div className="max-w-5xl mx-auto w-full flex flex-wrap lg:flex-nowrap gap-y-6 gap-x-16">
           <div className="w-full xl:w-6/12 flex flex-col items-center">
             <p className="text-gray-600 text-left">
-              <b>1</b>. Définition de vos objectifs marketing grâce à nos
-              experts en publicité Facebook.
+              <b>1</b>. <FormattedMessage id="fb.4.1" />
               <br />
               <br />
-              <b>2</b>. Mise en place d’une stratégie marketing rentable et
-              efficace sur Facebook et Instagram.
+              <b>2</b>. <FormattedMessage id="fb.4.2" />
               <br />
               <br />
-              <b>3</b>. Création d’annonces pertinentes visant à engager vos
-              clients, avec une optimisation continue pour garantir de
-              meilleures performances de la campagne.
+              <b>3</b>. <FormattedMessage id="fb.4.3" />
               <br />
               <br />
-              <b>4</b>. Économie de temps en nous déléguant la gestion complète
-              de vos campagnes publicitaires Facebook.
+              <b>4</b>. <FormattedMessage id="fb.4.4" />
               <br />
               <br />
-              <b>5</b>. Accès à des outils spécialisés et à une expertise unique
-              pour évaluer la rentabilité de votre stratégie de marketing
-              social.
+              <b>5</b>. <FormattedMessage id="fb.4.5" />
             </p>
           </div>
 
           <div className="w-full xl:w-6/12 flex flex-col items-center text-center">
             <p className="text-gray-600 text-left">
-              <b>6</b>. Augmentation du taux de conversion pour exploiter au
-              mieux les opportunités de vente sur Facebook et Instagram.
+              <b>6</b>. <FormattedMessage id="fb.4.6" />
               <br />
               <br />
-              <b>7</b>. Mise en place d’une stratégie marketing rentable et
-              efficace sur Facebook et Instagram.
+              <b>7</b>. <FormattedMessage id="fb.4.7" />
               <br />
               <br />
-              <b>8</b>. Création d’annonces pertinentes visant à engager vos
-              clients, avec une optimisation continue pour garantir de
-              meilleures performances de la campagne.
+              <b>8</b>. <FormattedMessage id="fb.4.8" />
             </p>
           </div>
         </div>
@@ -438,83 +412,85 @@ export default function AgenceFacebookAds() {
             variant="filled"
             size="xl"
             className="!bg-primary hover:!bg-opacity-90 shadow-xl"
-          >{`Contactez-nous`}</Button>
+          >
+            <FormattedMessage id="btn.contact" />
+          </Button>
         </div>
       </section>
 
       {/* 6th */}
       <section className="w-full flex flex-col xl:container px-4 my-40 text-center">
         <h2 className="text-3xl font-semibold text-gray-600">
-          L’approche de notre Agence Facebook Ads
+          <FormattedMessage id="fb.6.title" />{" "}
         </h2>
         <h3 className="text-lg font-semibold text-gray-600 mt-2">
-          Votre réussite grâce à une stratégie de publicité Facebook
-          personnalisée
+          <FormattedMessage id="fb.6.subtitle" />
         </h3>
         <div className="w-[50px] mx-auto bg-primary h-1 mt-8 mb-8"></div>
 
         <p className="text-left mb-16 max-w-7xl mx-auto text-gray-600">
-          Nos <b>experts Facebook Ads</b> mettent à profit leur savoir-faire
-          pour
-          <b>exploiter la puissance des réseaux sociaux.</b>
-          Ensemble, nous élaborons des campagnes ciblées pour élaborer des
-          stratégies d’acquisition et de vente. Il est essentiel d’avoir une
-          stratégie claire pour se démarquer.
+          <b>
+            <FormattedMessage id="fb.6.1b1" />
+          </b>
+          <FormattedMessage id="fb.6.1before" />
+
+          <b>
+            <FormattedMessage id="fb.6.1b2" />
+          </b>
+          <FormattedMessage id="fb.6.1after" />
+
           <br />
           <br />
-          Nous vous aidons à affiner cette approche publicitaire. Aussi, nos
-          experts en publicité Facebook répondons à diverses questions comme :
+          <FormattedMessage id="fb.6.2" />
         </p>
         {/* inner 2 */}
         <div className="max-w-6xl mx-auto w-full flex flex-wrap lg:flex-nowrap gap-y-6 gap-x-16">
           <div className="w-full xl:w-6/12 flex flex-col items-center">
             <p className="text-gray-600 text-left">
               <CheckBadgeIcon className="w-5 h-5 mr-2 text-secondary inline" />
-              Quelle est la meilleure façon d’établir une campagne de publicité
-              sur Facebook et Instagram ?
+              <FormattedMessage id="fb.6.q.1" />
+
               <br />
               <br />
               <CheckBadgeIcon className="w-5 h-5 mr-2 text-secondary inline" />
-              Comment identifier précisément mes clients sur les plateformes
-              sociales ?
+              <FormattedMessage id="fb.6.q.2" />
+
               <br />
               <br />
               <CheckBadgeIcon className="w-5 h-5 mr-2 text-secondary inline" />
-              Quel est le moyen le plus efficace de partager mon offre avec mon
-              audience ?
+              <FormattedMessage id="fb.6.q.3" />
+
               <br />
               <br />
               <CheckBadgeIcon className="w-5 h-5 mr-2 text-secondary inline" />
-              Comment optimiser la rédaction de mes annonces pour maximiser
-              l’engagement ?
+              <FormattedMessage id="fb.6.q.4" />
+
               <br />
               <br />
               <CheckBadgeIcon className="w-5 h-5 mr-2 text-secondary inline" />
-              Comment puis-je tester et améliorer constamment l’efficacité de
-              mes publicités ?
+              <FormattedMessage id="fb.6.q.5" />
             </p>
           </div>
 
           <div className="w-full xl:w-6/12 flex flex-col items-center text-center">
             <p className="text-gray-600 text-left">
               <CheckBadgeIcon className="w-5 h-5 mr-2 text-secondary inline" />
-              Quel budget dois-je allouer à la publicité sur les réseaux sociaux
-              pour atteindre mes objectifs ?
+              <FormattedMessage id="fb.6.q.6" />
+
               <br />
               <br />
               <CheckBadgeIcon className="w-5 h-5 mr-2 text-secondary inline" />
-              Comment utiliser les retours des clients pour améliorer mes
-              publicités et mon produit/service ? ​​
+              <FormattedMessage id="fb.6.q.7" />
+
               <br />
               <br />
               <CheckBadgeIcon className="w-5 h-5 mr-2 text-secondary inline" />
-              Quels sont les meilleurs formats publicitaires à utiliser pour mon
-              entreprise sur Facebook et Instagram ?
+              <FormattedMessage id="fb.6.q.8" />
+
               <br />
               <br />
               <CheckBadgeIcon className="w-5 h-5 mr-2 text-secondary inline" />
-              Comment puis-je intégrer mes campagnes de publicité sur Facebook
-              avec mes autres efforts de marketing numérique ?
+              <FormattedMessage id="fb.6.q.9" />
             </p>
           </div>
         </div>
@@ -524,33 +500,33 @@ export default function AgenceFacebookAds() {
         <div className="max-w-6xl mx-auto w-full flex flex-wrap lg:flex-nowrap gap-y-6 gap-x-16">
           <div className="w-full xl:w-6/12 flex flex-col items-center">
             <div className="text-left text-gray-500">
-              Notre{" "}
+              <FormattedMessage id="fb.7.1before" />
               <span className="text-primary font-medium">
-                agence Facebook Ads
+                <FormattedMessage id="fb.7.1tag" />
               </span>{" "}
-              vous soutient tout au long du processus, évaluant constamment vos
-              résultats marketing. Cela nous permet d’ajuster, d’optimiser votre
-              stratégie et vos investissements. Voici ce que vous pouvez
-              attendre de nos services :
+              <FormattedMessage id="fb.7.1after" />
               <br />
               <br />
               <ul className="pl-6 list-disc list">
-                <li>Augmentation du nombre d’abonnés</li>
                 <li>
-                  Collecte d’informations précieuses sur de nouveaux prospects
+                  <FormattedMessage id="fb.7.2.1" />
                 </li>
-                <li>Stimulation des ventes en ligne</li>
-                <li>Développement d’une communauté engagée.</li>
+                <li>
+                  <FormattedMessage id="fb.7.2.2" />
+                </li>
+                <li>
+                  <FormattedMessage id="fb.7.2.3" />
+                </li>
+                <li>
+                  <FormattedMessage id="fb.7.2.4" />
+                </li>
               </ul>
               <br />
               <br />
-              L’approche de notre agence de publicité Facebook est dynamique,
-              s’adaptant constamment aux tendances du marché. Mais aussi aux
-              besoins spécifiques de votre entreprise.
+              <FormattedMessage id="fb.7.3" />
               <br />
               <br />
-              Notre objectif est de vous procurer les meilleurs résultats en
-              utilisant des stratégies de marketing social qui fonctionnent.
+              <FormattedMessage id="fb.7.4" />
             </div>
           </div>
 
@@ -583,11 +559,10 @@ export default function AgenceFacebookAds() {
           {/* first div */}
           <div className="lg:w-9/12 ">
             <h2 className="second-title text-primary font-bold">
-              Appelez-nous ou envoyez un courriel
+              <FormattedMessage id="cta1.title" />{" "}
             </h2>
             <p className="mt-4 body-text !text-black lg:w-10/12">
-              Nous sommes à l’écoute pour répondre à vos questions et vous
-              proposer la meilleure solution
+              <FormattedMessage id="cta1.subtitle" />
             </p>
           </div>
           {/* cta */}
@@ -600,7 +575,7 @@ export default function AgenceFacebookAds() {
               className="!block !w-full"
               size="md"
             >
-              Contactez-nous{" "}
+              <FormattedMessage id="btn.contact" />{" "}
             </Button>
           </div>
         </div>
@@ -608,7 +583,9 @@ export default function AgenceFacebookAds() {
 
       {/* FAQ */}
       <section className="2xl:container flex flex-col items-center mt-10 py-24 border-t border-secondary">
-        <h2 className="text-gray-600 text-3xl font-medium">FAQ</h2>
+        <h2 className="text-gray-600 text-3xl font-medium">
+          <FormattedMessage id="fb.faq.title" />
+        </h2>
         <div className="divider"></div>
         <Accordion
           defaultValue=""
@@ -628,20 +605,20 @@ export default function AgenceFacebookAds() {
       {/* other services */}
       <section className="2xl:container flex flex-col items-center mb-16 py-16">
         <h2 className="text-gray-600 text-3xl font-medium">
-          Nos autres services
+          <FormattedMessage id="other.title" />
         </h2>
         <div className="divider"></div>
         <Link
           className="text-xl text-dark-secondary mt-4 font-semibold hover:scale-105 duration-300"
           href="/"
         >
-          Conception WEB
+          <FormattedMessage id="other.web" />
         </Link>
         <Link
           className="text-xl text-dark-secondary mt-4 font-semibold hover:scale-105 duration-300"
           href="/services/agence-seo"
         >
-          Référencement naturel - SEO
+          <FormattedMessage id="other.seo" />
         </Link>
       </section>
     </div>

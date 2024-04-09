@@ -1,9 +1,12 @@
 import { useRouter } from "next/router";
 import React from "react";
 import Flag from "./Flag";
+import { useIntl } from "react-intl";
 
 export default function TopBar() {
   const router = useRouter();
+  const intl = useIntl();
+
   const {locales,locale} = useRouter();
   return (
     <div className="w-full bg-transparent hidden px-2 lg:flex absolute top-0 items-center border-b border-gray-600 max-w-6xl left-0 right-0 mx-auto h-14 z-10 ">
@@ -75,11 +78,14 @@ export default function TopBar() {
 
       {/* Call us */}
       <span className="text-white text-xs ml-6">
-        DES QUESTIONS? APPELEZ-NOUS :{" "}
+      {intl.formatMessage({id:"nav.questions"})}
         <a href="tel:+1418-825-2323" className="font-bold">418-825-2323</a>
       </span>
 
-      <a href="/outien.viacommunication.com" className="uppercase text-white text-xs font-medium ml-auto">Connexion</a>
+      <a href="/outien.viacommunication.com" className="uppercase text-white text-xs font-medium ml-auto">
+      {intl.formatMessage({id:"nav.login"})}
+        
+      </a>
       {[...locales || []].filter(x => x !== locale).map((locale) => (
             <Flag locale={locale} key={locale}/>
           ))}

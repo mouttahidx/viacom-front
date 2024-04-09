@@ -2,40 +2,48 @@ import { MapIcon, MapPinIcon } from "@heroicons/react/16/solid";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { useIntl } from "react-intl";
 
 export default function Footer() {
+  const intl = useIntl();
+
   return (
     <footer className="w-full bg-secondary">
       <div className="max-w-7xl mx-auto bg-secondary px-4 flex flex-col sm:flex-row flex-wrap pt-16 py-10 gap-y-16 items-start lg:items-start">
         {/* first column */}
         <div className="lg:w-5/12 md:w-4/12 sm:w-6/12">
           <Link href="/">
-          <Image
-            src="/img/logo-footer.webp"
-            width={300}
-            height={300}
-            alt=""
-            className="w-10/12 md:w-[280px] object-contain"
-          />
+            <Image
+              src="/img/logo-footer.webp"
+              width={300}
+              height={300}
+              alt=""
+              className="w-10/12 md:w-[280px] object-contain"
+            />
           </Link>
         </div>
         {/* second column */}
         <div className="flex lg:w-4/12 flex-col gap-y-8 text-sm md:w-4/12 sm:w-6/12">
           <div className="">
-            <h5 className="text-white font-medium">Nous contacter</h5>
+            <h5 className="text-white font-medium">
+              {" "}
+              {intl.formatMessage({ id: "footer.contactus" })}
+            </h5>
             <p className="text-white mt-2">Québec: 418-825-2323</p>
           </div>
 
           <div className="mt-24 flex flex-col gap-y-10">
             <p className="text-white mt-2">
-              Courriel :{" "}
+              {intl.formatMessage({ id: "email" })}:{" "}
               <a href="mailto:info@viacommunication.com">
                 info@viacommunication.com
               </a>
             </p>
 
             <div className="">
-              <h5 className="text-white font-medium">Adresse: </h5>
+              <h5 className="text-white font-medium">
+                {intl.formatMessage({ id: "address" })}:{" "}
+              </h5>
               <p className="text-white mt-2">
                 1020, rue Bouvier, suite 400, Québec, QC G2K 0H3
               </p>
@@ -48,7 +56,7 @@ export default function Footer() {
                 href="https://www.google.com/maps/place/1020+Rue+Bouvier+%23400,+Qu%C3%A9bec,+QC+G2K+0H3,+Canada/@46.8308746,-71.2852567,17z/data=!3m1!4b1!4m5!3m4!1s0x4cb897c0ce7524e7:0x88a7c7e893518194!8m2!3d46.8308746!4d-71.283068"
                 className="text-white"
               >
-                Ouvrir dans Google Maps
+                {intl.formatMessage({ id: "footer.open.map" })}
               </a>
             </div>
           </div>
@@ -72,18 +80,21 @@ export default function Footer() {
 
           <div className=" flex flex-col gap-y-6">
             <h5 className="text-white font-medium">
-              Responsable de la protection des rensigements personnels:{" "}
+            {intl.formatMessage({ id: "footer.responsable" })}
             </h5>
             <p className="text-white mt-2">Francois Beaudry</p>
             <p className="text-white mt-2">
-              Courriel :{" "}
+            {intl.formatMessage({ id: "email" })}:{" "}
               <a href="mailto:info@viacommunication.com">
                 info@viacommunication.com
               </a>
             </p>
             <p className="text-white mt-2">Québec: 418-825-2323</p>
             <p className="text-white mt-2">
-              <Link href={"/"}>Politiques de Confidentialité</Link>
+              <Link href={"/"}>
+            {intl.formatMessage({ id: "footer.policies" })}
+                
+              </Link>
             </p>
           </div>
         </div>
@@ -92,12 +103,16 @@ export default function Footer() {
         <div className="w-full text-gray-400 text-sm flex flex-col-reverse lg:flex-row justify-between lg:sitems-center">
           <div>
             <p>
-              Tous droits réservés ©{" "}
-              <b className="text-white">VIA Communication </b>{(new Date().getFullYear())}.
+            {intl.formatMessage({ id: "footer.copyright" })}
+              <b className="text-white">VIA Communication </b>
+              {new Date().getFullYear()}.
             </p>
           </div>
           <div className="flex gap-x-2 items-center mb-8 lg:mb-0">
-            <span>SUIVEZ-NOUS</span>
+            <span>
+            {intl.formatMessage({ id: "footer.followus" })}
+              
+            </span>
             <a href="facebook.com" className="">
               <svg
                 xmlns="http://www.w3.org/2000/svg"

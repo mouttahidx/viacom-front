@@ -3,20 +3,21 @@ import { sendEmail } from "@/helpers/sendEmail";
 import { EnvelopeIcon, MapPinIcon, PhoneIcon } from "@heroicons/react/16/solid";
 import { Button, Group, Text, TextInput } from "@mantine/core";
 import { hasLength, isEmail, isNotEmpty, useForm } from "@mantine/form";
+import Head from "next/head";
 import Image from "next/image";
 import React, { useRef, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
+import { useIntl } from "react-intl";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function Contact() {
   const recaptchaRef = useRef("");
+  const intl = useIntl();
   const [loading, setLoading] = useState(false);
   function changed(value: string) {
     recaptchaRef.current = value;
-    console.log(value);
   }
-
 
   const form = useForm({
     initialValues: {
@@ -28,16 +29,16 @@ export default function Contact() {
     validate: {
       name: hasLength(
         { min: 3, max: 156 },
-        "Le nom doit comporter entre 2 et 10 caractères"
+        intl.formatMessage({ id: "contact.name.error" })
       ),
-      email: isEmail("Courriel incorrect"),
+      email: isEmail(intl.formatMessage({ id: "contact.email.error" })),
       phone: (value) =>
         /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/.test(
           value
         )
           ? null
-          : "Téléphone invalide",
-      message: isNotEmpty("Message requis"),
+          : intl.formatMessage({ id: "contact.phone.error" }),
+      message: isNotEmpty(intl.formatMessage({ id: "contact.message.error" })),
     },
   });
 
@@ -45,7 +46,7 @@ export default function Contact() {
     let res = await sendEmail(values);
     if (res) {
       form.setValues({ name: "", email: "", phone: "", message: "" });
-      toast.success("Email envoyé avec succès!");
+      toast.success(intl.formatMessage({ id: "contact.message.success" }));
       setLoading(false);
       return true;
     } else {
@@ -54,21 +55,32 @@ export default function Contact() {
   }
   return (
     <div>
+      <Head>
+        <title>
+          VIA Communication - {intl.formatMessage({ id: "nav.contact" })}
+        </title>
+      </Head>
       <div className="pt-24 pb-24 lg:pt-44 bg-pages-hero-bg bg-no-repeat bg-cover flex justify-center items-center">
-        <h1 className="uppercase text-white text-4xl mt-10">Contact</h1>
+        <h1 className="uppercase text-white text-4xl mt-10">
+          {intl.formatMessage({ id: "contact.hero.title" })}
+        </h1>
       </div>
 
       {/* 1st */}
       <section className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 text-white">
         <div className="relative overflow-hidden lg:overflow-visible right-arrow col-span-1 md:col-span-3 lg:col-span-1 bg-primary min-h-[150px] md:min-h-[120px] flex items-center flex-col justify-center border-y border-white md:border-none">
           <h2 className="text-3xl !text-white text-center">
-            Avez-vous une question?
+            {intl.formatMessage({ id: "contact.1.title" })}
           </h2>
-          <p className="text-center text-sm mt-4">Contactez-nous</p>
+          <p className="text-center text-sm mt-4">
+            {intl.formatMessage({ id: "contact.1.subtitle" })}
+          </p>
         </div>
         <div className="bg-[#1C4D83] px-2 text-centers min-h-[250px] flex items-center flex-col justify-center border-y border-white md:border-none">
           <MapPinIcon className="text-white w-12 h-12" />
-          <h2 className="text-2xl mt-8 !text-white text-center">Adresse</h2>
+          <h2 className="text-2xl mt-8 !text-white text-center">
+            {intl.formatMessage({ id: "contact.address" })}
+          </h2>
           <p className="text-center text-sm mt-4">
             1020, rue Bouvier, bureau 400, Québec, QC G2K 0H3
           </p>
@@ -76,7 +88,9 @@ export default function Contact() {
         <div className="bg-[#1C4D83] px-2 text-centers min-h-[250px] flex items-center flex-col justify-center border-y border-white md:border-none">
           <PhoneIcon className="text-white w-12 h-12" />
 
-          <h2 className="text-2xl mt-8 !text-white text-center">Téléphone</h2>
+          <h2 className="text-2xl mt-8 !text-white text-center">
+            {intl.formatMessage({ id: "contact.phone" })}
+          </h2>
           <p className="text-center text-sm mt-4">
             Québec : <span className="text-primary">418-825-2323</span>
           </p>
@@ -84,7 +98,9 @@ export default function Contact() {
         <div className="bg-[#1C4D83] px-2 text-centers min-h-[250px] flex items-center flex-col justify-center border-y border-white md:border-none">
           <EnvelopeIcon className="text-white w-12 h-12" />
 
-          <h2 className="text-2xl mt-8 !text-white text-center">Courriel</h2>
+          <h2 className="text-2xl mt-8 !text-white text-center">
+            {intl.formatMessage({ id: "contact.email" })}
+          </h2>
           <p className="text-center text-sm mt-4">info@viacommunication.com</p>
         </div>
       </section>
@@ -93,10 +109,11 @@ export default function Contact() {
       <section className="w-full flex flex-col my-40 gap-y-20">
         {/* title subtitle */}
         <div className="text-center flex flex-col items-center">
-          <h2 className="section-title">Contactez-nous</h2>
+          <h2 className="section-title">
+            {intl.formatMessage({ id: "contact.2.title" })}
+          </h2>
           <p className="body-text">
-            Contactez-nous afin d'obtenir votre stratégie de marketing digital
-            sans frais!
+            {intl.formatMessage({ id: "contact.2.subtitle" })}
           </p>
         </div>
 
@@ -112,11 +129,10 @@ export default function Contact() {
           {/* Form */}
           <div className="w-full xl:w-5/12 px-4">
             <form
-            
               onSubmit={form.onSubmit((values) => {
                 setLoading(true);
                 if (!recaptchaRef.current) {
-                  toast.error("Merci de remplire le reCAPTCHA.");
+                  toast.error(intl.formatMessage({ id: "recaptcha.error" }));
                   setLoading(false);
                   return false;
                 }
@@ -129,8 +145,8 @@ export default function Contact() {
               <TextInput
                 withAsterisk
                 size="md"
-                label="Nom"
-                placeholder="Nom complet"
+                label={intl.formatMessage({ id: "contact.2.name" })}
+                placeholder={intl.formatMessage({ id: "contact.2.fullName" })}
                 {...form.getInputProps("name")}
                 className="lg:col-span-2"
               />
@@ -138,21 +154,21 @@ export default function Contact() {
               <TextInput
                 size="md"
                 withAsterisk
-                label="Téléphone"
+                label={intl.formatMessage({ id: "contact.phone" })}
                 placeholder="+1 123 456 789"
                 {...form.getInputProps("phone")}
               />
               <TextInput
                 size="md"
                 withAsterisk
-                label="Courriel"
+                label={intl.formatMessage({ id: "contact.email" })}
                 placeholder="Exemple@email.com"
                 {...form.getInputProps("email")}
               />
               <TextInput
                 size="md"
                 withAsterisk
-                label="Message"
+                label={intl.formatMessage({ id: "contact.2.message" })}
                 placeholder="message..."
                 {...form.getInputProps("message")}
                 className="lg:col-span-2"
@@ -161,13 +177,13 @@ export default function Contact() {
               <Group justify="flex-start" mt="sm">
                 <ReCAPTCHA
                   sitekey="6LeabKspAAAAAFrJCC4pPOza6OjR2Ap7fVXEyIaf"
-                  onChange={(token)=>{
-                    changed(token || "")
+                  onChange={(token) => {
+                    changed(token || "");
                   }}
                   className="h-fit"
                 />
                 <Button type="submit" color="#F05423" disabled={loading}>
-                  Envoyer
+                {intl.formatMessage({ id: "contact.2.send" })}
                 </Button>
               </Group>
             </form>

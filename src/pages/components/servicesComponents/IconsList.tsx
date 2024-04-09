@@ -1,7 +1,9 @@
 import Image from "next/image";
 import React from "react";
+import { useIntl } from "react-intl";
 
 export default function IconsList() {
+  const intl = useIntl();
   return (
     <div className="flex flex-col gap-y-10">
       <div className="flex gap-x-4 ">
@@ -13,11 +15,11 @@ export default function IconsList() {
           className="object-contain w-[100px]"
         />
         <div className="flex flex-col gap-y-3">
-          <h4 className="list-title">Nos services marketing</h4>
+          <h4 className="list-title">
+            {intl.formatMessage({ id: "services.1.1.title" })}
+          </h4>
           <p className="text-sm">
-            Publicités sur les médias sociaux, conception de site Web et SEO et
-            conception de pages de renvoi ne sont que quelques-uns des outils
-            utilisés afin d’augmenter la visibilité de votre entreprise.
+            {intl.formatMessage({ id: "services.1.1.text" })}
           </p>
         </div>
       </div>
@@ -30,9 +32,12 @@ export default function IconsList() {
           className="object-contain w-[100px]"
         />
         <div className="flex flex-col gap-y-3">
-          <h4 className="list-title">Notre stratégie</h4>
-          <p className="text-sm">{`Notre stratégie basée sur la combinaison de sites Web parfaitement conçus, de matériel marketing professionnel et de campagnes publicitaires Facebook, LinkedIn et AdWords permet de cibler vos clients potentiels au bon endroit, au bon moment pour un maximum de résultats.
-`}</p>
+          <h4 className="list-title">
+            {intl.formatMessage({ id: "services.1.2.title" })}
+          </h4>
+          <p className="text-sm">
+            {intl.formatMessage({ id: "services.1.2.text" })}
+          </p>
         </div>
       </div>
       <div className="flex gap-x-4 ">
@@ -44,10 +49,11 @@ export default function IconsList() {
           className="object-contain w-[100px]"
         />
         <div className="flex flex-col gap-y-3">
-          <h4 className="list-title">Notre expertise</h4>
+          <h4 className="list-title">
+            {intl.formatMessage({ id: "services.1.3.title" })}
+          </h4>
           <p className="text-sm">
-            Notre agence Web est fière d’être partenaire Google, honneur décerné
-            par Google pour la qualité de notre travail et notre expertise.
+            {intl.formatMessage({ id: "services.1.3.text" })}
           </p>
         </div>
       </div>
@@ -60,12 +66,11 @@ export default function IconsList() {
           className="object-contain w-[100px]"
         />
         <div className="flex flex-col gap-y-3">
-          <h4 className="list-title">Nos clients</h4>
+          <h4 className="list-title">
+            {intl.formatMessage({ id: "services.1.4.title" })}
+          </h4>
           <p className="text-sm">
-            Des dizaines d’entreprises du Québec et de partout au Canada font
-            déjà confiance à nos services de marketing digital. Joignez-vous à
-            elles et laissez-nous propulser votre entreprise vers de nouveaux
-            sommets!
+            {intl.formatMessage({ id: "services.1.4.text" })}
           </p>
         </div>
       </div>

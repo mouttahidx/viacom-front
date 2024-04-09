@@ -4,33 +4,22 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { FormattedMessage, useIntl } from "react-intl";
 
 export default function AgenceGoogleAds() {
+  const intl = useIntl();
   const faqs = [
     {
       value:
-        "Quelle Est La Différence Entre Le Référencement Naturel Et Google Ads ?",
+        intl.formatMessage({id:"google.faq.q1.title"}),
       description: (
-        <div className="text-primary">
-          Le référencement SEO et Google Ads sont deux stratégies distinctes
-          pour augmenter la présence en ligne, mais elles diffèrent
-          significativement.
-          <br />
-          <br />
-          Le référencement naturel, aussi appelé SEO, est un processus
-          organique. Son but est d’améliorer le positionnement d’un site sur les
-          moteurs de recherche. Pour cela, il optimise son contenu et sa
-          structure. De cette façon, il offre une performance durable.
-          Cependant, il faut noter que ce processus demande un certain temps
-          pour produire des résultats.
-          <br />
-          <br />
-          D’un autre côté, Google Ads, qui fait partie des stratégies
-          publicitaires payantes, assure une présence immédiate sur les pages de
-          résultats de recherche de Google, mais à un coût. Bien que son impact
-          puisse être rapide, la performance de cette méthode dépend directement
-          du budget investi.
-        </div>
+        <div
+          className="text-primary"
+          style={{ color: "#F05423" }}
+          dangerouslySetInnerHTML={{
+            __html: intl.formatMessage({ id: "google.faq.q1.text" }),
+          }}
+        />
       ),
     },
   ];
@@ -47,128 +36,84 @@ export default function AgenceGoogleAds() {
 
   const tabs = [
     {
-      label: "Annonces dans les résultats de recherche",
+      label: intl.formatMessage({ id: "google.4.tab1.title" }),
       text: (
         <div>
-          Les annonces de liens sponsorisés sont courantes sur Google Ads.
+          {intl.formatMessage({ id: "google.4.tab1.text1" })}
           <br />
           <br />
-          Leur but ? Vous positionner en tête des recherches. Lors d’une requête
-          Google, les annonces les plus pertinentes s’affichent en premier.
+          {intl.formatMessage({ id: "google.4.tab1.text2" })}
           <br />
           <br />
-          Elles sont généralement marquées comme « Sponsored » ou « Ad ». Cette
-          méthode place votre PME au cœur du processus d’achat. En effet, elle
-          utilise les liens sponsorisés de Google pour atteindre vos clients.
+          {intl.formatMessage({ id: "google.4.tab1.text3" })}
         </div>
       ),
     },
     {
-      label: "Display",
+      label: intl.formatMessage({ id: "google.4.tab2.title" }),
       text: (
         <div>
-          Le réseau Display de Google comprend des millions de sites web
-          partenaires sur lesquels vos annonces peuvent être diffusées.
+          {intl.formatMessage({ id: "google.4.tab2.text1" })}
           <br />
           <br />
-          Cela comprend des sites d’actualités, des blogs, et même YouTube. Ces
-          annonces peuvent être sous forme de textes, d’images ou de vidéos.
+          {intl.formatMessage({ id: "google.4.tab2.text2" })}
         </div>
       ),
     },
     {
-      label: "Discovery",
+      label: intl.formatMessage({ id: "google.4.tab3.title" }),
       text: (
         <div>
-          Le format Discovery, une extension de Display, offre une toute
-          nouvelle façon de toucher vos clients. Ces annonces sont diffusées de
-          manière plus visuelle et attrayante, apparaissant principalement dans
-          les onglets Discover de Google et dans la boîte de réception Gmail.
+          {intl.formatMessage({ id: "google.4.tab3.text1" })}
+
           <br />
           <br />
-          Grâce aux annonces Discovery, vous pouvez présenter des annonces
-          pertinentes à un public plus large, le tout dans des formats qui
-          attirent l’attention et captivent l’intérêt.
+          {intl.formatMessage({ id: "google.4.tab3.text2" })}
         </div>
       ),
     },
     {
-      label: "Google Shopping",
+      label: intl.formatMessage({ id: "google.4.tab4.title" }),
       text: (
         <div>
-          Si vous êtes un détaillant, Google Shopping est un outil précieux pour
-          vous. Il permet de présenter vos produits directement dans les
-          résultats de recherche de Google. Chaque annonce affiche une image de
-          votre produit, son prix, et le nom de votre boutique.
+          {intl.formatMessage({ id: "google.4.tab4.text1" })}
           <br /> <br />
-          Ce format offre à vos produits une visibilité auprès de clients prêts
-          à acheter. Il facilite leur processus d’achat, agissant ainsi comme un
-          véritable levier de ventes pour votre entreprise.
+          {intl.formatMessage({ id: "google.4.tab4.text2" })}
         </div>
       ),
     },
     {
-      label: "Publicité vidéo",
+      label: intl.formatMessage({ id: "google.4.tab5.title" }),
       text: (
         <div>
-          YouTube, en tant que deuxième moteur de recherche le plus utilisé
-          après Google, offre un support inégalé pour atteindre un public large
-          et engagé.
+          {intl.formatMessage({ id: "google.4.tab5.text1" })}
+
           <br />
           <br />
-          Avec Google Ads, nous pouvons créer et diffuser des publicités vidéo
-          attrayantes qui captent l’attention de votre audience cible.
+          {intl.formatMessage({ id: "google.4.tab5.text2" })}
+
           <br />
           <br />
-          Que ce soit pour présenter un nouveau produit, partager un témoignage
-          de client, ou démontrer l’efficacité de votre service, les publicités
-          vidéo sont un moyen visuellement percutant de transmettre votre
-          message.
+          {intl.formatMessage({ id: "google.4.tab5.text3" })}
+
           <br />
           <br />
-          En plus de YouTube, Google nous permet également de diffuser ces
-          publicités vidéo sur d’autres sites relevant du réseau Display. Ainsi,
-          vos annonces vidéo ne sont pas limitées à une seule plateforme, mais
-          peuvent atteindre votre audience là où elle passe du temps en ligne.
+          {intl.formatMessage({ id: "google.4.tab5.text4" })}
         </div>
       ),
     },
     {
-      label: "Campagnes de notoriété",
-      text: (
-        <div>
-          Elle est un élément fondamental de votre stratégie marketing. En
-          effet, elle vise à augmenter la visibilité de vos services sur le web.
-          Ce sont des campagnes clés pour mettre en avant votre marque et
-          atteindre vos objectifs de visibilité. Le but de cette stratégie est
-          de cibler des sites web pertinents pour diffuser vos annonces et
-          exploiter au mieux l’exposition de votre marque.
-        </div>
-      ),
+      label: intl.formatMessage({ id: "google.4.tab6.title" }),
+      text: <div>{intl.formatMessage({ id: "google.4.tab6.text" })}</div>,
     },
     {
-      label: "Remarketing",
+      label: intl.formatMessage({ id: "google.4.tab7.title" }),
       text: (
-        <div>
-          Dans notre palette de services, le remarketing occupe une place de
-          choix. Cette technique marketing stratégique vous permet d’atteindre à
-          nouveau les visiteurs de votre site web. Ceux-ci, ayant manifesté un
-          intérêt initial mais n’ayant pas conclu une action (comme un achat ou
-          un remplissage de formulaire), sont précisément ciblés.
-          <br />
-          <br />
-          Grâce au remarketing, nous proposons des annonces personnalisées pour
-          les encourager à revenir sur votre site. Que ce soit pour finaliser un
-          achat ou pour une autre interaction, ce processus contribue à
-          améliorer vos conversions.
-          <br />
-          <br />
-          Cette approche stratégique n’augmente pas seulement votre taux de
-          conversion. Elle maximise également l’efficacité de vos dépenses
-          marketing en optimisant l’utilisation de chaque dollar dépensé. En
-          résumé, notre objectif est de transformer chaque visiteur en client
-          potentiel, et le remarketing est un outil clé pour y parvenir.
-        </div>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: intl.formatMessage({ id: "google.4.tab7.text1" }),
+          }}
+        />
       ),
     },
   ];
@@ -182,8 +127,7 @@ export default function AgenceGoogleAds() {
       <div className="bg-facebook-hero bg-center bg-no-repeat bg-cover ">
         <div className="bg-secondary h-full pt-24 pb-24 lg:py-44 flex justify-center bg-opacity-60">
           <h1 className="capitalize text-center text-white text-3xl lg:text-4xl mt-10 max-w-4xl ">
-            Stimulez vos ventes et votre présence en ligne grâce à notre agence
-            Google Ads
+            <FormattedMessage id="google.hero.title" />
           </h1>
         </div>
       </div>
@@ -200,34 +144,15 @@ export default function AgenceGoogleAds() {
           {/* icons list */}
           <div className="w-full xl:w-6/12 ">
             <div className="body-text">
-              Google Ads domine la publicité en ligne avec plus de 90% des
-              revenus générés sur les moteurs de recherche. Mais comment
-              maximiser l’efficacité de cet outil puissant ? La clé réside dans
-              le partenariat avec une{" "}
-              <span className="text-primary font-medium">
-                agence Google Ads
-              </span>{" "}
-              spécialisée et certifiée comme{" "}
-              <span className="text-primary font-medium">
-                VIA Communication
-              </span>
-              .
+              <FormattedMessage id="google.1.1" />
               <br />
               <br />
-              Il est à noter que 65% des internautes qui cliquent sur une
-              publicité Google Ads ont une intention d’achat.
+              <FormattedMessage id="google.1.2" />
+              <br />
+              <br /> <FormattedMessage id="google.1.3" />
               <br />
               <br />
-              Une agence Google Ads experte sait précisément comment atteindre
-              ces consommateurs.
-              <br />
-              <br />
-              En offrant une{" "}
-              <span className="text-primary font-medium">
-                expertise unique
-              </span>{" "}
-              et des compétences dédiées, une agence peut transformer vos
-              campagnes Google Ads en véritables moteurs de croissance.
+              <FormattedMessage id="google.1.4" />
             </div>
             <Button
               component={Link}
@@ -235,7 +160,9 @@ export default function AgenceGoogleAds() {
               variant="filled"
               size="md"
               className="!bg-primary hover:!bg-opacity-90 mt-10 "
-            >{`Contactez-nous`}</Button>
+            >
+              <FormattedMessage id="btn.contact" />
+            </Button>
           </div>
           <Image
             src={"/img/google-page.webp"}
@@ -252,7 +179,7 @@ export default function AgenceGoogleAds() {
         {/* title subtitle */}
         <div className="text-center flex flex-col items-center">
           <h2 className="text-3xl capitalize font-semibold text-gray-600">
-            Pourquoi Google Ads est essentiel pour votre entreprise ?
+            <FormattedMessage id="google.2.title" />
           </h2>
           <div className="w-[50px] bg-primary h-1 mx-auto mt-3 mb-10 "></div>
         </div>
@@ -268,13 +195,10 @@ export default function AgenceGoogleAds() {
               className="w-full object-cover h-[280px] rounded-3xl hover:scale-105 duration-500"
             />
             <h4 className="text-xl font-semibold my-6 text-secondary">
-              Augmentation De La Visibilité
+              <FormattedMessage id="google.2.1.title" />
             </h4>
             <p className="text-secondary text-center">
-              Les campagnes Google Ads vous aident à augmenter votre visibilité
-              en ligne. Les annonces bien positionnées apparaissent dans les
-              résultats des recherches Google, attirant plus de clients
-              potentiels vers votre site web.
+              <FormattedMessage id="google.2.1.text" />
             </p>
           </div>
 
@@ -287,17 +211,14 @@ export default function AgenceGoogleAds() {
               className="w-full object-cover h-[280px] rounded-3xl hover:scale-105 duration-500"
             />
             <h4 className="text-xl font-semibold my-6 text-secondary">
-              Résultats Rapides
+              <FormattedMessage id="google.2.2.title" />
             </h4>
             <p className="text-secondary text-center">
-              Contrairement au référencement organique (SEO), qui peut prendre
-              des mois pour montrer des résultats, Google Ads génère du trafic
-              vers votre site presque immédiatement.
+              <FormattedMessage id="google.2.2.text1" />
+
               <br />
               <br />
-              Dans cette démarche, un de nos experts en campagnes Google est à
-              vos côtés pour vous assister dans l'élaboration et le paramétrage
-              de vos annonces Google Ads.
+              <FormattedMessage id="google.2.2.text2" />
             </p>
           </div>
 
@@ -310,17 +231,14 @@ export default function AgenceGoogleAds() {
               className="w-full object-cover h-[280px] rounded-3xl hover:scale-105 duration-500"
             />
             <h4 className="text-xl font-semibold my-6 text-secondary">
-              Ciblage Précis
+              <FormattedMessage id="google.2.3.title" />
             </h4>
             <p className="text-secondary text-center">
-              Google Ads vous permet de cibler spécifiquement votre public. Vous
-              pouvez cibler par localisation, âge, sexe, intérêts et même
-              comportement de navigation.
+              <FormattedMessage id="google.2.3.text1" />
+
               <br />
               <br />
-              Grâce à notre agence de publicité web, vos annonces sont
-              stratégiquement placées pour atteindre les personnes qui sont le
-              plus susceptibles d'être intéressées par vos produits ou services.
+              <FormattedMessage id="google.2.3.text2" />
             </p>
           </div>
         </div>
@@ -335,17 +253,14 @@ export default function AgenceGoogleAds() {
               className="w-full object-cover h-[280px] rounded-3xl hover:scale-105 duration-500"
             />
             <h4 className="text-xl font-semibold my-6 text-secondary">
-              Mesure De L'efficacité
+              <FormattedMessage id="google.2.4.title" />
             </h4>
             <p className="text-secondary text-center">
-              Google Ads offre des outils puissants pour mesurer l'efficacité de
-              vos publicités. Vous pouvez voir combien de personnes ont vu vos
-              annonces, combien ont cliqué, et combien ont effectué une action
-              (comme faire un achat) sur votre site.
+              <FormattedMessage id="google.2.4.text1" />
+
               <br />
               <br />
-              Notre agence Google Ads vous aide à comprendre ces données et à
-              les utiliser pour améliorer vos campagnes.
+              <FormattedMessage id="google.2.4.text2" />
             </p>
           </div>
 
@@ -358,18 +273,14 @@ export default function AgenceGoogleAds() {
               className="w-full object-cover h-[280px] rounded-3xl hover:scale-105 duration-500"
             />
             <h4 className="text-xl font-semibold my-6 text-secondary">
-              Flexibilité Budgétaire
+              <FormattedMessage id="google.2.5.title" />
             </h4>
             <p className="text-secondary text-center">
-              Avec Google Ads, vous contrôlez combien vous dépensez sur chaque
-              publicité Google Ads. Vous pouvez définir un budget quotidien ou
-              mensuel, et vous ne payez que lorsque quelqu'un clique sur votre
-              annonce.
+              <FormattedMessage id="google.2.5.text1" />
+
               <br />
               <br />
-              Dans cette optique, notre agence de publicité Google peut vous
-              aider à gérer votre budget efficacement, en s'assurant que chaque
-              dollar est bien dépensé.
+              <FormattedMessage id="google.2.5.text2" />
             </p>
           </div>
 
@@ -381,13 +292,11 @@ export default function AgenceGoogleAds() {
               height={400}
               className="w-full object-cover h-[280px] rounded-3xl hover:scale-105 duration-500"
             />
-            <h4 className="text-xl font-semibold my-6 text-secondary">
-              Amélioration De La Notoriété De La Marque
+            <h4 className="text-xl font-semibold my-6 text-secondary text-center">
+              <FormattedMessage id="google.2.6.title" />
             </h4>
             <p className="text-secondary text-center">
-              Même si les utilisateurs ne cliquent pas sur votre annonce, voir
-              votre nom en haut des résultats de recherche peut augmenter la
-              notoriété de votre marque.
+              <FormattedMessage id="google.2.6.text" />
             </p>
           </div>
         </div>
@@ -402,13 +311,10 @@ export default function AgenceGoogleAds() {
               className="w-full object-cover h-[280px] rounded-3xl hover:scale-105 duration-500"
             />
             <h4 className="text-xl font-semibold my-6 text-secondary">
-              ROI Mesurable
+              <FormattedMessage id="google.2.7.title" />
             </h4>
             <p className="text-secondary text-center">
-              Grâce à notre agence certifiée Google Partner, vous pouvez
-              calculer votre retour sur investissement de façon précise. Cela
-              vous permet d'ajuster votre stratégie et de gérer vos dépenses
-              publicitaires.
+              <FormattedMessage id="google.2.7.text" />
             </p>
           </div>
 
@@ -421,13 +327,10 @@ export default function AgenceGoogleAds() {
               className="w-full object-cover h-[280px] rounded-3xl hover:scale-105 duration-500"
             />
             <h4 className="text-xl font-semibold my-6 text-secondary">
-              Modèle PPC
+              <FormattedMessage id="google.2.8.title" />
             </h4>
             <p className="text-secondary text-center">
-              Google Ads utilise un modèle de tarification au coût par clic
-              (CPC). Cela implique que vous êtes facturé uniquement lorsque
-              quelqu'un clique sur votre annonce. L'avantage est que vous ne
-              payez que pour le trafic effectif vers votre site.
+              <FormattedMessage id="google.2.8.text" />
             </p>
           </div>
 
@@ -440,12 +343,10 @@ export default function AgenceGoogleAds() {
               className="w-full object-cover h-[280px] rounded-3xl hover:scale-105 duration-500"
             />
             <h4 className="text-xl font-semibold my-6 text-secondary">
-              Croissance{" "}
+              <FormattedMessage id="google.2.9.title" />
             </h4>
             <p className="text-secondary text-center">
-              En investissant dans Google Ads, vous donnez à votre entreprise
-              l'opportunité de croître plus rapidement, d'atteindre de nouveaux
-              clients et d'améliorer sa rentabilité.
+              <FormattedMessage id="google.2.9.text" />
             </p>
           </div>
         </div>
@@ -464,53 +365,29 @@ export default function AgenceGoogleAds() {
           />
           <div className="w-full xl:w-6/12 ">
             <h2 className="text-3xl font-semibold text-gray-600">
-              Qu’est-ce que Google ads ?
+              <FormattedMessage id="google.3.title" />
             </h2>
             <div className="w-[50px] bg-primary h-1 mt-1 mb-10"></div>
             <p className="body-text">
-              Google Ads, autrefois connu sous le nom de Google AdWords, est une
-              plateforme de publicité en ligne développée par Google. Elle
-              permet aux annonceurs de{" "}
-              <b>
-                diffuser des annonces dans les résultats de recherche Google
-              </b>
-              , sur les sites partenaires et sur d’autres propriétés Google
-              comme YouTube.
+              <FormattedMessage id="google.3.1" />
             </p>
             <h3 className="text-2xl font-semibold text-gray-600 my-12 ">
-              Pourquoi utiliser les publicités Google Ads ?
+              <FormattedMessage id="google.3.2.title" />
             </h3>
             <div className="body-text">
-              Un des principaux avantages de{" "}
-              <b>
-                Google Ads est sa capacité à cibler précisément les publicités
-              </b>
-              . En utilisant les outils de ciblage de Google, vous pouvez
-              afficher vos annonces à des <b>publics spécifiques</b> en fonction
-              de leur localisation, de leur âge, de leurs centres d’intérêt et
-              de bien d’autres critères. Cela permet de créer des campagnes
-              marketing Adwords incroyablement personnalisées.
+              <FormattedMessage id="google.3.2" />
+
               <br />
               <br />
-              De plus, avec le modèle de paiement au clic (PPC) de Google Ads,
-              <b>
-                vous ne payez que lorsque quelqu’un clique sur votre annonce.
-              </b>
-              C’est ce qui rend vos campagnes publicitaires non seulement
-              rentables, mais aussi efficaces en termes de coût.
+              <FormattedMessage id="google.3.3" />
+
               <br />
               <br />
-              Travailler avec une agence Google Ads certifiée, telle que{" "}
-              <span className="text-primary font-medium">
-                VIA Communication
-              </span>
-              , vous permet de développer une stratégie efficace pour optimiser
-              vos retours.
+              <FormattedMessage id="google.3.4" />
+
               <br />
               <br />
-              Nos experts en Google Ads peuvent vous aider à configurer, gérer
-              et optimiser vos campagnes, en vous assurant que chaque aspect est
-              aligné sur vos objectifs commerciaux.
+              <FormattedMessage id="google.3.5" />
             </div>
             <Button
               component={Link}
@@ -518,7 +395,9 @@ export default function AgenceGoogleAds() {
               variant="filled"
               size="md"
               className="!bg-primary hover:!bg-opacity-90 mt-10 "
-            >{`Contactez-nous`}</Button>
+            >
+              <FormattedMessage id="btn.contact" />
+            </Button>
           </div>
         </div>
       </section>
@@ -526,11 +405,11 @@ export default function AgenceGoogleAds() {
       {/* how it works */}
       <section className="w-full flex flex-col xl:container my-40 px-2 ">
         <h2 className="gray-section-title text-center">
-          Comment se déroule une campagne Google Ads optimisée ?
+          <FormattedMessage id="google.4.title" />
         </h2>
         <div className="divider"></div>
         <h4 className="text-2xl text-gray-600 mb-8 font-semibold">
-          1. Choix la campagne souhaitée
+          1. <FormattedMessage id="google.4.1" />
         </h4>
         <div className="bg-tabs py-20 px-8 rounded-3xl bg-cover bg-no-repeat">
           <Tabs
@@ -561,84 +440,46 @@ export default function AgenceGoogleAds() {
         </div>
 
         <h4 className="text-2xl text-gray-600 mt-12 mb-8 font-semibold">
-          2. Définition de l'objectif de la campagne
+          2. <FormattedMessage id="google.4.2" />
+        </h4>
+        <div
+          className="text-gray-500"
+          dangerouslySetInnerHTML={{
+            __html: intl.formatMessage({ id: "google.4.2.text" }),
+          }}
+        />
+
+        <h4 className="text-2xl text-gray-600 mt-12 mb-8 font-semibold">
+          3. <FormattedMessage id="google.4.3" />
         </h4>
         <div className="text-gray-500">
-          Pour chaque campagne Google Ads, notre équipe définit les objectifs :
-          <br />
-          <br />
-          <ul className="list-disc pl-6">
-            <li>
-              <b>Amélioration du taux de conversions en ligne</b> : Cela peut
-              comprendre les ventes, les téléchargements d’applications,
-              l’inscription à une newsletter, etc.
-            </li>
-            <li>
-              <b>Multiplication des remplissages de formulaires de contact</b> :
-              Idéal pour collecter des informations sur les prospects et établir
-              des contacts futurs.
-            </li>
-            <li>
-              <b>Élargissement du trafic sur votre site web</b> : Important pour
-              renforcer la visibilité de votre site et attirer plus de clients
-              potentiels vers vos produits ou services.
-            </li>
-          </ul>
-          <br />
-          Ces objectifs peuvent coexister dans une seule stratégie publicitaire,
-          permettant ainsi d’améliorer l’efficacité de vos efforts de promotion.
+          <span
+            dangerouslySetInnerHTML={{
+              __html: intl.formatMessage({ id: "google.4.3.text" }),
+            }}
+          />
         </div>
 
         <h4 className="text-2xl text-gray-600 mt-12 mb-8 font-semibold">
-          3. Choix de l'audience
+          4. <FormattedMessage id="google.4.4" />
         </h4>
         <div className="text-gray-500">
-          Cette audience devrait correspondre à vos <b>clients idéaux</b>, ceux
-          qui sont les plus{" "}
-          <b>susceptibles d’être intéressés par vos produits ou services</b>.
-          <br />
-          <br />
-          Définir votre audience cible se fait par une analyse détaillée,
-          permettant de préciser les critères de ciblage géographique et les
-          caractéristiques démographiques et comportementales de votre audience.
-          <br />
-          De cette manière, nos{" "}
-          <b>campagnes Google Ads touchent les bonnes personnes</b> au bon
-          moment, optimisant ainsi le rendement de votre investissement
-          publicitaire.
+          <span
+            dangerouslySetInnerHTML={{
+              __html: intl.formatMessage({ id: "google.4.4.text" }),
+            }}
+          />
         </div>
 
         <h4 className="text-2xl text-gray-600 mt-12 mb-8 font-semibold">
-          4. Mise en œuvre et suivi de la campagne
+          5. <FormattedMessage id="google.4.5" />
         </h4>
         <div className="text-gray-500">
-          Cette phase implique la <b>création des annonces</b>, qu’elles soient
-          textuelles, visuelles ou vidéo. Lors de la mise en œuvre de la
-          campagne, nous nous assurons que chaque annonce correspond à la
-          plateforme sur laquelle elle sera diffusée.
-          <br />
-          <br />
-          Que ce soit une annonce sponsorisée dans les résultats de recherche
-          Google, une bannière sur un site partenaire, une vidéo YouTube, une
-          annonce produit Google Shopping, une annonce Discovery, ou une
-          campagne de notoriété, chaque{" "}
-          <b>annonce est adaptée à son contexte pour augmenter son impact.</b>
-        </div>
-
-        <h4 className="text-2xl text-gray-600 mt-12 mb-8 font-semibold">
-          5. Optimisation et ajustement des performances de la campagne
-        </h4>
-        <div className="text-gray-500">
-          Cette étape implique{" "}
-          <b>d’examiner attentivement les performances de la campagne</b> et
-          d’apporter des ajustements nécessaires pour améliorer ses résultats.
-          <br />
-          <br />
-          Par exemple, si nous constatons qu’une annonce n’attire pas autant de
-          clics que prévu, nous pouvons la retravailler pour la rendre plus
-          attrayante. Si une campagne de remarketing n’a pas le taux de
-          conversion escompté, nous pouvons ajuster la stratégie de ciblage ou
-          modifier les annonces pour les rendre plus pertinentes et efficaces.
+          <span
+            dangerouslySetInnerHTML={{
+              __html: intl.formatMessage({ id: "google.4.5.text" }),
+            }}
+          />
         </div>
       </section>
 
@@ -651,80 +492,69 @@ export default function AgenceGoogleAds() {
           {/* icons list */}
           <div className="w-full lg:w-6/12 ">
             <h2 className="gray-section-title !text-primary">
-              Quels sont les avantages à collaborer avec une agence spécialisée
-              en publicité Google ?
+              {intl.formatMessage({ id: "google.5.title" })}
             </h2>
             <div className="w-[50px] bg-primary h-1 mt-6 mb-16"></div>
             <p className="body-text">
-              Collaborer avec une <b>agence spécialisée en publicité Google</b>{" "}
-              offre plusieurs avantages clés. Voici quelques-unes des raisons
-              pour lesquelles vous pourriez envisager de faire appel à nos
-              services.
+              <span
+                dangerouslySetInnerHTML={{
+                  __html: intl.formatMessage({ id: "google.5.subtitle" }),
+                }}
+              />
             </p>
             <h4 className="text-2xl text-gray-600 mt-12 mb-8 font-semibold">
-              1. Expertise professionnelle
+              1. <FormattedMessage id="google.5.1.title" />
             </h4>
             <div className="text-gray-500">
-              Nous détenons une{" "}
-              <b>connaissance précise de la plateforme Google Ads</b> pour vous
-              positionner dans les résultats de recherche.
-              <br />
-              <br />
-              Notre agence est experte en gestion et{" "}
-              <b>optimisation de diverses campagnes</b>. En veille constante,
-              nous suivons les dernières tendances et pratiques du secteur. Cela
-              nous permet d’utiliser efficacement les outils de Google Ads.
-              <br />
-              <br />
-              Grâce à cette stratégie, nous maximisons la portée de chaque
-              campagne. De plus, nous nous assurons dans l’amélioration des
-              résultats de vos recherches Google.
+              <span
+                dangerouslySetInnerHTML={{
+                  __html: intl.formatMessage({ id: "google.5.1.text" }),
+                }}
+              />
             </div>
 
             <h4 className="text-2xl text-gray-600 mt-12 mb-8 font-semibold">
-              2. Gain de temps
+              2. <FormattedMessage id="google.5.2.title" />
             </h4>
             <div className="text-gray-500">
-              Gérer des publicités Google Ads peut être chronophage, en
-              particulier pour ceux qui ne sont pas familiers avec la
-              plateforme. En déléguant cette tâche à une agence tel que{" "}
-              <span className="brand">VIA Communication</span>, vous pouvez{" "}
-              <b>vous concentrer sur d’autres aspects de votre entreprise.</b>
+              <span
+                dangerouslySetInnerHTML={{
+                  __html: intl.formatMessage({ id: "google.5.2.text" }),
+                }}
+              />
             </div>
 
             <h4 className="text-2xl text-gray-600 mt-12 mb-8 font-semibold">
-              3. Optimisation continue
+              3. <FormattedMessage id="google.5.3.title" />
             </h4>
             <div className="text-gray-500">
-              <b>
-                Nos experts Google Ads surveillent et optimisent constamment vos
-                campagnes
-              </b>{" "}
-              pour améliorer leur performance. Elles ajustent les enchères,
-              testent différents messages publicitaires et mettent en œuvre
-              d’autres stratégies pour améliorer votre ROI.
+              <span
+                dangerouslySetInnerHTML={{
+                  __html: intl.formatMessage({ id: "google.5.3.text" }),
+                }}
+              />
             </div>
 
             <h4 className="text-2xl text-gray-600 mt-12 mb-8 font-semibold">
-              4. Analyse et rapports
+              4. <FormattedMessage id="google.5.4.title" />
             </h4>
             <div className="text-gray-500">
-              <b>
-                Nous fournissons des rapports réguliers sur les performances de
-                vos campagnes.
-              </b>{" "}
-              Ces informations vous permettent de comprendre où va votre budget
-              publicitaire et comment vos annonces se comportent.
+              <span
+                dangerouslySetInnerHTML={{
+                  __html: intl.formatMessage({ id: "google.5.4.text" }),
+                }}
+              />
             </div>
 
             <h4 className="text-2xl text-gray-600 mt-12 mb-8 font-semibold">
-              5. Certification Google Partner
+              5. <FormattedMessage id="google.5.5.title" />
             </h4>
             <div className="text-gray-500">
-              <b>Notre agence est certifiée Google Partner.</b> Vous profitez
-              ainsi d’experts qualifiés. Ils suivent à la lettre les normes et
-              meilleures pratiques de Google. C’est une assurance de qualité
-              pour vous.
+              <span
+                dangerouslySetInnerHTML={{
+                  __html: intl.formatMessage({ id: "google.5.5.text" }),
+                }}
+              />
             </div>
           </div>
           <Image
@@ -746,59 +576,22 @@ export default function AgenceGoogleAds() {
             variant="filled"
             size="xl"
             className="!bg-primary hover:!bg-opacity-90 shadow-xl"
-          >{`Contactez-nous`}</Button>
+          >
+            {intl.formatMessage({ id: "btn.contact" })}
+          </Button>
         </div>
       </section>
 
       {/* competences */}
       <section className="w-full flex flex-col xl:container my-40 px-2 ">
         <h2 className="gray-section-title text-center">
-          Les compétences de notre agence Google Ads au Québec
+          <FormattedMessage id="google.6.title" />
         </h2>
         <div className="divider"></div>
         <div className="text-gray-600">
-          Pour propulser vos campagnes Google Ads et favoriser la réussite de
-          votre entreprise, nos gestionnaires offrent un accompagnement sur
-          mesure et complet.
-          <br />
-          <br />
-          De l’étude approfondie de votre marché à l’élaboration d’une stratégie
-          de marketing web efficace, nos experts en Google Ads au Québec
-          maîtrisent tous les aspects cruciaux pour votre succès en publicité
-          sur le web.
-          <br />
-          <br />
-          Notre agence de publicité Google, forte de son expertise, mettra en
-          œuvre des campagnes de publicité qui seront :
-          <br />
-          <br />
-          <CheckBadgeIcon className="w-5 h-5 mr-2 text-primary inline" />
-          Spécifiquement ajustées à vos objectifs et au budget que vous avez
-          défini
-          <br />
-          <br />
-          <CheckBadgeIcon className="w-5 h-5 mr-2 text-primary inline" />
-          Méticuleusement conçues sur la base des mots-clés que vos prospects
-          utilisent lorsqu’ils envisagent d’acheter un produit ou un service lié
-          à votre PME
-          <br />
-          <br />
-          <CheckBadgeIcon className="w-5 h-5 mr-2 text-primary inline" />
-          Idéalement positionnées au cœur de la recherche d’information et du
-          processus d’achat de vos prospects
-          <br />
-          <br />
-          <CheckBadgeIcon className="w-5 h-5 mr-2 text-primary inline" />
-          Optimisées en temps réel par votre expert pour s’adapter aux
-          évolutions des besoins de vos clients
-          <br />
-          <br />
-          <CheckBadgeIcon className="w-5 h-5 mr-2 text-primary inline" />
-          Profitables pour votre entreprise. Nos experts utilisent
-          judicieusement chaque dollar de votre budget publicitaire pour vous
-          assurer un retour sur investissement positif.
-          <br />
-          <br />
+        <span dangerouslySetInnerHTML={{__html:
+              intl.formatMessage({ id: "google.6.text" })
+              }} />
         </div>
       </section>
 
@@ -808,11 +601,10 @@ export default function AgenceGoogleAds() {
           {/* first div */}
           <div className="lg:w-9/12 ">
             <h2 className="second-title text-primary font-bold">
-              Appelez-nous ou envoyez un courriel
+              {intl.formatMessage({ id: "cta1.title" })}{" "}
             </h2>
             <p className="mt-4 body-text !text-black lg:w-10/12">
-              Nous sommes à l’écoute pour répondre à vos questions et vous
-              proposer la meilleure solution
+              {intl.formatMessage({ id: "cta1.subtitle" })}
             </p>
           </div>
           {/* cta */}
@@ -825,7 +617,7 @@ export default function AgenceGoogleAds() {
               className="!block !w-full"
               size="md"
             >
-              Contactez-nous{" "}
+              {intl.formatMessage({ id: "btn.contact" })}{" "}
             </Button>
           </div>
         </div>
@@ -833,7 +625,9 @@ export default function AgenceGoogleAds() {
 
       {/* FAQ */}
       <section className="2xl:container flex flex-col items-center mt-10 py-24 border-t border-secondary">
-        <h2 className="text-gray-600 text-3xl font-medium">FAQ</h2>
+        <h2 className="text-gray-600 text-3xl font-medium">
+          {intl.formatMessage({ id: "google.faq.title" })}
+        </h2>
         <div className="divider"></div>
         <Accordion
           defaultValue=""
@@ -853,20 +647,20 @@ export default function AgenceGoogleAds() {
       {/* other services */}
       <section className="2xl:container flex flex-col items-center mb-16 py-16">
         <h2 className="text-gray-600 text-3xl font-medium">
-          Nos autres services
+          {intl.formatMessage({ id: "other.title" })}
         </h2>
         <div className="divider"></div>
         <Link
           className="text-xl text-dark-secondary mt-4 font-semibold hover:scale-105 duration-300"
           href="/services/agence-seo"
         >
-          Référencement naturel - SEO
+          {intl.formatMessage({ id: "other.seo" })}
         </Link>
         <Link
           className="text-xl text-dark-secondary mt-4 font-semibold hover:scale-105 duration-300"
           href="/services/agence-facebook-ads"
         >
-          Facebook Ads{" "}
+          {intl.formatMessage({ id: "other.fb" })}
         </Link>
       </section>
     </div>

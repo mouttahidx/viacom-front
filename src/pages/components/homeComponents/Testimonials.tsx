@@ -1,31 +1,33 @@
 import Image from "next/image";
 import React from "react";
+import { useIntl } from "react-intl";
 
 export default function Testimonials() {
+  const intl = useIntl();
   const testimonials = [
     {
-      text: "François offre une grande valeur à nos clients mutuels. J’ai eu la chance de participer à l’un de ses séminaires de formation portant sur Facebook et j’ai été très impressionnée par la quantité d’informations qu’il a pu livrer sans submerger les participants. Sa formation était pertinente et divertissante. Il est clair qu’il est un expert dans les médias sociaux et il se soucie vraiment du succès des entreprises avec lesquelles il est partenaire. François a dépassé mes attentes.",
-      name: "SARAH VOIGT",
-      title: "Business Development Specialist at NAPA AUTO PARTS",
+      text: intl.formatMessage({id:"home.t.1text"}),
+      name:  intl.formatMessage({id:"home.t.1name"}),
+      title:  intl.formatMessage({id:"home.t.1job"}),
       img: "/img/sarah.webp",
     },
     
     {
-        text: "François Beaudry, donateur actif depuis quelques années au sein de La Société Alzheimer de Québec, est désormais notre référence en expertise numérique. C'est en raison de son approche humaine et transparente que l'équipe de La Société a souhaité collaborer avec son entreprise, Via Communication. Le milieu philanthropique ne se réfléchit pas de la même manière qu'une entreprise privée et les stratégies de communication en sont différentes. François et son équipe font preuve d'une grande compréhension à l'égard de ces différences fondamentales et nous assurent ainsi, une réussite dans nos divers projets! En plus d'être toujours aux faits des dernières tendances, les projets sont toujours réalisés avec humour et légèreté. Succès assuré!",
-        name: "ÉMILIE GAUDREAULT",
-        title: "Coordonnatrice aux événements et communications",
+      text: intl.formatMessage({id:"home.t.2text"}),
+      name:  intl.formatMessage({id:"home.t.2name"}),
+      title:  intl.formatMessage({id:"home.t.2job"}),
         img: "/img/alzeihmer.webp",
       },
     {
-        text: "Une équipe de professionnels qui s’occupe de nous, et ce, de façon exemplaire. En plus d’être à l’écoute de nos besoins, ces gens s’adaptent VRAIMENT à ce qu’on a besoin et font tout pour nous mettre en valeur. Un merci SPÉCIAL à François Beaudry qui est le maître d’œuvre.",
-        name: "ANDRÉ GERVAIS",
-        title: "Animateur, émission : L’objectif est à l’aventure",
+      text: intl.formatMessage({id:"home.t.3text"}),
+      name:  intl.formatMessage({id:"home.t.3name"}),
+      title:  intl.formatMessage({id:"home.t.3job"}),
         img: "/img/andre.webp",
       },
     {
-      text: "WOW! On vit dans l’ère des médias sociaux, ça prend du temps. Quand on le fait bien, ça marche! Merci d’aider notre communauté de garages à en profiter et merci aussi de gérer les nôtres.",
-      name: "MATHIEU BRUNEL",
-      title: "Directeur général, V2V Technology GEM-CAR",
+      text: intl.formatMessage({id:"home.t.4text"}),
+      name:  intl.formatMessage({id:"home.t.4name"}),
+      title:  intl.formatMessage({id:"home.t.4job"}),
       img: "/img/mathieu.webp",
     },
 
