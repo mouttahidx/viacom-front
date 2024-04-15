@@ -14,8 +14,12 @@ export default function Home() {
   return (
     <div>
       <Head>
+      <meta
+          name="description"
+          content={`${intl.formatMessage({ id: "nav.home" })} - ${intl.formatMessage({ id: "meta.description" })}`}
+        />
         <title>
-          VIA Communication - {intl.formatMessage({ id: "nav.home" })}
+         {`${intl.formatMessage({ id: "nav.home" })}`}
         </title>
       </Head>
       {/* // hero section */}
@@ -165,13 +169,13 @@ export default function Home() {
       <section className="my-40 grid grid-cols-1 lg:grid-cols-2">
         {/* first square */}
         <div className="w-full px-4 py-16 lg:py-20 lg:px-14 bg-secondary flex flex-col gap-y-8">
-          <h3 className="second-title !text-3xl text-white">
+          <h2 className="second-title !text-3xl text-white">
             <FormattedMessage id="home.4.1.title" />
 
             <span className="text-primary">
               <FormattedMessage id="home.4.1.title.tag" />
             </span>
-          </h3>
+          </h2>
           <p className="body-text !text-white">
             <span className="text-primary">O</span>{" "}
             <FormattedMessage id="home.4.1.1" />
@@ -192,16 +196,16 @@ export default function Home() {
 
         {/* second square */}
         <div className="w-full px-4 py-16 lg:py-20 lg:px-14 bg-primary flex flex-col gap-y-8">
-          <h3 className="second-title !text-3xl !text-white">
+          <h2 className="second-title !text-3xl !text-white">
             <FormattedMessage id="home.4.2.title" />
 
             <span className="text-secondary">
               <FormattedMessage id="home.4.2.title.tag" />
             </span>
-          </h3>
-          <h4 className="second-title !text-white">
+          </h2>
+          <h3 className="second-title !text-white">
             <FormattedMessage id="home.4.2.subtitle" />
-          </h4>
+          </h3>
           <div className="grid grid-cols-1 gap-y-6">
             <div className="text-white flex items-center gap-x-1">
               <CheckIcon className="w-8 h-8 fill-white" />
@@ -261,9 +265,9 @@ export default function Home() {
                 className="object-contain w-[100px]"
               />
               <div className="flex flex-col gap-y-3">
-                <h4 className="list-title font-medium">
+                <h3 className="list-title font-medium">
                   <FormattedMessage id="home.5.1.1" />
-                </h4>
+                </h3>
                 <p className="body-text">
                   <FormattedMessage id="home.5.1.2" />
 
@@ -293,9 +297,9 @@ export default function Home() {
                 className="object-contain w-[100px]"
               />
               <div className="flex flex-col gap-y-3">
-                <h4 className="list-title font-medium">
+                <h3 className="list-title font-medium">
                   <FormattedMessage id="home.5.2.1" />
-                </h4>
+                </h3>
                 <p className="body-text">
                   <FormattedMessage id="home.5.2.2before" />
                   <span className="text-primary font-medium">
@@ -328,9 +332,9 @@ export default function Home() {
             className="object-contain w-[100px]"
           />
           <div className="flex flex-col gap-y-3">
-            <h4 className="list-title font-medium">
+            <h3 className="list-title font-medium">
               <FormattedMessage id="home.5.3.1" />
-            </h4>
+            </h3>
             <p className="body-text">
               <FormattedMessage id="home.5.3.2" />
               <br />
@@ -355,9 +359,9 @@ export default function Home() {
         {/* 1st text */}
         <div className="bg-savoir-bg bg-cover bg-no-repeat bg-center">
           <div className="w-full pt-3 px-4 pb-10 text-center text-white bg-black bg-opacity-70">
-            <h4 className="second-title">
+            <h3 className="second-title">
               <FormattedMessage id="home.6.1.title" />
-            </h4>
+            </h3>
             <div className="w-[50px] bg-white h-1 mx-auto mt-1 mb-10"></div>
 
             <p className="body-text !text-white">
@@ -395,9 +399,9 @@ export default function Home() {
           {/* 1st div */}
           <div className="bg-approche-bg bg-cover bg-no-repeat bg-center">
             <div className="w-full pt-3 px-4 pb-10 text-center text-white bg-black bg-opacity-70">
-              <h4 className="second-title">
+              <h3 className="second-title">
                 <FormattedMessage id="home.6.2.title" />
-              </h4>
+              </h3>
               <div className="w-[50px] bg-white h-1 mx-auto mt-1 mb-10"></div>
 
               <p className="body-text !text-white">
@@ -429,9 +433,9 @@ export default function Home() {
           {/* 2nd div */}
           <div className="bg-faire-bg bg-cover bg-no-repeat bg-center">
             <div className="w-full pt-3 px-4 pb-10 text-center text-white bg-black bg-opacity-70">
-              <h4 className="second-title">
+              <h3 className="second-title">
                 <FormattedMessage id="home.6.3.title" />
-              </h4>
+              </h3>
               <div className="w-[50px] bg-white h-1 mx-auto mt-1 mb-10"></div>
 
               <p className="body-text !text-white">
@@ -464,9 +468,9 @@ export default function Home() {
         {/* 5th text */}
         <div className="bg-website-bg bg-cover bg-no-repeat bg-center mt-8">
           <div className="w-full pt-3 px-4 pb-10 text-center text-white bg-black bg-opacity-70">
-            <h4 className="second-title">
+            <h3 className="second-title">
               <FormattedMessage id="home.6.4.title" />
-            </h4>
+            </h3>
             <div className="w-[50px] bg-white h-1 mx-auto mt-1 mb-10"></div>
 
             <p className="body-text !text-white">
@@ -491,9 +495,9 @@ export default function Home() {
         {/* 6th text */}
         <div className="bg-optimization-seo-bg bg-cover bg-no-repeat bg-center mt-8">
           <div className="w-full pt-3 px-4 pb-10 text-center text-white bg-black bg-opacity-70">
-            <h4 className="second-title">
+            <h3 className="second-title">
               <FormattedMessage id="home.6.5.title" />
-            </h4>
+            </h3>
             <div className="w-[50px] bg-white h-1 mx-auto mt-1 mb-10"></div>
 
             <p className="body-text !text-white">
@@ -545,16 +549,17 @@ export default function Home() {
       {/* testimonials */}
       <section className="w-full bg-secondary text-white text-center pb-10 flex flex-col mb-10 ">
         <Testimonials />
-        <h4 className="text-white uppercase text-2xl font-bold">
-          <FormattedMessage id="home.8.title" />
-        </h4>
+        
       </section>
 
       {/* 9th section */}
       <section className="w-full bg-white text-white text-center pb-10 flex flex-col mb-20 px-4 max-w-6xl mx-auto ">
-        <p className="text-black text-lg">
+      <h4 className="text-secondary uppercase text-2xl font-bold mb-4">
+          <FormattedMessage id="home.8.title" />
+        </h4>
+        <h2 className="text-black text-lg">
           <FormattedMessage id="home.8.1" />
-        </p>
+        </h2>
         <div className="grid mt-16 w-full justify-items-center gap-x-6 gap-y-16 lg:gap-8 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
           <Image
             width={200}

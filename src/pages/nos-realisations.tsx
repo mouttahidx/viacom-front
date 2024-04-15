@@ -5,11 +5,24 @@ import "@mantine/carousel/styles.css";
 import { Carousel } from "@mantine/carousel";
 import Image from "next/image";
 import { useIntl } from "react-intl";
+import { ecommerce, showcase } from "@/utils/portfolio-items";
+import Head from "next/head";
 
 export default function NosRealisations() {
   const intl = useIntl();
+
   return (
     <div>
+      <Head>
+      <meta
+          name="description"
+          content={`${intl.formatMessage({ id: "nav.portfolio" })} - ${intl.formatMessage({ id: "meta.description" })}`}
+
+        />
+        <title>
+          {`${intl.formatMessage({ id: "nav.portfolio" })}`}
+        </title>
+      </Head>
       {/* hero */}
       <div className="pt-24 pb-24 lg:pt-44 bg-pages-hero-bg bg-no-repeat bg-cover flex justify-center items-center">
         <h1 className="uppercase text-white text-4xl mt-10">
@@ -20,18 +33,17 @@ export default function NosRealisations() {
       <section className=" bg-gradient-to-r from-[#0063a8] via-[#0063a8] to-primary">
         <div className="py-24 w-full h-full bg-secondary bg-opacity-65">
           <p className="max-w-6xl mx-auto text-white text-lg">
-          {intl.formatMessage({ id: "work.1.text" })}
+            {intl.formatMessage({ id: "work.1.text" })}
 
             <span className="text-sm text-white block mt-6">
-            {intl.formatMessage({ id: "work.1.team" })}
-
+              {intl.formatMessage({ id: "work.1.team" })}
             </span>
           </p>
         </div>
       </section>
 
       <h2 className="bg-secondary py-6 my-10 text-white text-center text-2xl font-semibold">
-      {intl.formatMessage({ id: "work.2.title" })}
+        {intl.formatMessage({ id: "work.2.title" })}
       </h2>
       <section className="py-16 bg-white max-w-8xl px-4 mx-auto">
         <Carousel
@@ -120,190 +132,54 @@ export default function NosRealisations() {
       </section>
 
       {/* ecommerce */}
-      <section className="max-w-7xl mx-auto my-24">
+      <section className="max-w-7xl mx-auto my-24 px-2">
         <h2 className="gray-section-title text-center mb-16">
-        {intl.formatMessage({ id: "work.3.title" })}
-
+          {intl.formatMessage({ id: "work.3.title" })}
         </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-1">
-          <Image
-            src={"/img/sunspace.webp"}
-            alt=""
-            width={250}
-            height={250}
-            className="bg-black hover:shadow-xl cursor-pointer"
-          />
-          <Image
-            src={"/img/sunspace.webp"}
-            alt=""
-            width={250}
-            height={250}
-            className="bg-black hover:shadow-xl cursor-pointer"
-          />
-          <Image
-            src={"/img/sunspace.webp"}
-            alt=""
-            width={250}
-            height={250}
-            className="bg-black hover:shadow-xl cursor-pointer"
-          />
-          <Image
-            src={"/img/sunspace.webp"}
-            alt=""
-            width={250}
-            height={250}
-            className="bg-black hover:shadow-xl cursor-pointer"
-          />
-          <Image
-            src={"/img/sunspace.webp"}
-            alt=""
-            width={250}
-            height={250}
-            className="bg-black hover:shadow-xl cursor-pointer"
-          />
-          <Image
-            src={"/img/sunspace.webp"}
-            alt=""
-            width={250}
-            height={250}
-            className="bg-black hover:shadow-xl cursor-pointer"
-          />
-          <Image
-            src={"/img/sunspace.webp"}
-            alt=""
-            width={250}
-            height={250}
-            className="bg-black hover:shadow-xl cursor-pointer"
-          />
-          <Image
-            src={"/img/sunspace.webp"}
-            alt=""
-            width={250}
-            height={250}
-            className="bg-black hover:shadow-xl cursor-pointer"
-          />
-          <Image
-            src={"/img/sunspace.webp"}
-            alt=""
-            width={250}
-            height={250}
-            className="bg-black hover:shadow-xl cursor-pointer"
-          />
-          <Image
-            src={"/img/sunspace.webp"}
-            alt=""
-            width={250}
-            height={250}
-            className="bg-black hover:shadow-xl cursor-pointer"
-          />
-          <Image
-            src={"/img/sunspace.webp"}
-            alt=""
-            width={250}
-            height={250}
-            className="bg-black hover:shadow-xl cursor-pointer"
-          />
-          <Image
-            src={"/img/sunspace.webp"}
-            alt=""
-            width={250}
-            height={250}
-            className="bg-black hover:shadow-xl cursor-pointer"
-          />
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 xl:gap-6">
+          {ecommerce.map((item) => (
+            <a
+              href={item.link}
+              target="_blank"
+              rel="nofollow"
+              className="w-full min-h-[200px]"
+              key={item.image}
+            >
+              <Image
+                src={"/portfolio/ecommerce/" + item.image}
+                alt=""
+                width={350}
+                height={250}
+                className="bg-black hover:shadow cursor-pointer object-cover min-h-[230px] border rounded"
+              />
+            </a>
+          ))}
         </div>
       </section>
 
       {/* vitrine */}
-      <section className="max-w-7xl mx-auto my-24">
+      <section className="max-w-7xl mx-auto my-24 px-2">
         <h2 className="gray-section-title text-center mb-16">
-        {intl.formatMessage({ id: "work.4.title" })}
-
+          {intl.formatMessage({ id: "work.4.title" })}
         </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-1">
-          <Image
-            src={"/img/sunspace.webp"}
-            alt=""
-            width={250}
-            height={250}
-            className="bg-black hover:shadow-xl cursor-pointer"
-          />
-          <Image
-            src={"/img/sunspace.webp"}
-            alt=""
-            width={250}
-            height={250}
-            className="bg-black hover:shadow-xl cursor-pointer"
-          />
-          <Image
-            src={"/img/sunspace.webp"}
-            alt=""
-            width={250}
-            height={250}
-            className="bg-black hover:shadow-xl cursor-pointer"
-          />
-          <Image
-            src={"/img/sunspace.webp"}
-            alt=""
-            width={250}
-            height={250}
-            className="bg-black hover:shadow-xl cursor-pointer"
-          />
-          <Image
-            src={"/img/sunspace.webp"}
-            alt=""
-            width={250}
-            height={250}
-            className="bg-black hover:shadow-xl cursor-pointer"
-          />
-          <Image
-            src={"/img/sunspace.webp"}
-            alt=""
-            width={250}
-            height={250}
-            className="bg-black hover:shadow-xl cursor-pointer"
-          />
-          <Image
-            src={"/img/sunspace.webp"}
-            alt=""
-            width={250}
-            height={250}
-            className="bg-black hover:shadow-xl cursor-pointer"
-          />
-          <Image
-            src={"/img/sunspace.webp"}
-            alt=""
-            width={250}
-            height={250}
-            className="bg-black hover:shadow-xl cursor-pointer"
-          />
-          <Image
-            src={"/img/sunspace.webp"}
-            alt=""
-            width={250}
-            height={250}
-            className="bg-black hover:shadow-xl cursor-pointer"
-          />
-          <Image
-            src={"/img/sunspace.webp"}
-            alt=""
-            width={250}
-            height={250}
-            className="bg-black hover:shadow-xl cursor-pointer"
-          />
-          <Image
-            src={"/img/sunspace.webp"}
-            alt=""
-            width={250}
-            height={250}
-            className="bg-black hover:shadow-xl cursor-pointer"
-          />
-          <Image
-            src={"/img/sunspace.webp"}
-            alt=""
-            width={250}
-            height={250}
-            className="bg-black hover:shadow-xl cursor-pointer"
-          />
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 xl:gap-6">
+          {showcase.map((item) => (
+            <a
+              href={item.link}
+              target="_blank"
+              rel="nofollow"
+              className="w-full min-h-[200px]"
+              key={item.image}
+            >
+              <Image
+                src={"/portfolio/showcase/" + item.image}
+                alt=""
+                width={350}
+                height={250}
+                className="bg-black hover:shadow cursor-pointer object-cover min-h-[230px] border rounded"
+              />
+            </a>
+          ))}
         </div>
       </section>
       {/* CTA */}
@@ -312,12 +188,10 @@ export default function NosRealisations() {
           {/* first div */}
           <div className="lg:w-9/12 ">
             <h2 className="second-title text-primary font-bold">
-            {intl.formatMessage({ id: "cta1.title" })}
-
+              {intl.formatMessage({ id: "cta1.title" })}
             </h2>
             <p className="mt-4 body-text !text-white">
-            {intl.formatMessage({ id: "cta1.subtitle" })}
-
+              {intl.formatMessage({ id: "cta1.subtitle" })}
             </p>
           </div>
           {/* cta */}
@@ -330,8 +204,7 @@ export default function NosRealisations() {
               component={Link}
               href={"/contact"}
             >
-                     {intl.formatMessage({ id: "btn.contact" })}
-
+              {intl.formatMessage({ id: "btn.contact" })}
             </Button>
           </div>
         </div>

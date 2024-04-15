@@ -15,9 +15,9 @@ export default function IconsList() {
           className="object-contain w-[100px]"
         />
         <div className="flex flex-col gap-y-3">
-          <h4 className="list-title">
+          <h3 className="list-title">
             {intl.formatMessage({ id: "services.1.1.title" })}
-          </h4>
+          </h3>
           <p className="text-sm">
             {intl.formatMessage({ id: "services.1.1.text" })}
           </p>
@@ -32,9 +32,9 @@ export default function IconsList() {
           className="object-contain w-[100px]"
         />
         <div className="flex flex-col gap-y-3">
-          <h4 className="list-title">
+          <h3 className="list-title">
             {intl.formatMessage({ id: "services.1.2.title" })}
-          </h4>
+          </h3>
           <p className="text-sm">
             {intl.formatMessage({ id: "services.1.2.text" })}
           </p>
@@ -49,9 +49,9 @@ export default function IconsList() {
           className="object-contain w-[100px]"
         />
         <div className="flex flex-col gap-y-3">
-          <h4 className="list-title">
+          <h3 className="list-title">
             {intl.formatMessage({ id: "services.1.3.title" })}
-          </h4>
+          </h3>
           <p className="text-sm">
             {intl.formatMessage({ id: "services.1.3.text" })}
           </p>
@@ -66,9 +66,9 @@ export default function IconsList() {
           className="object-contain w-[100px]"
         />
         <div className="flex flex-col gap-y-3">
-          <h4 className="list-title">
+          <h3 className="list-title">
             {intl.formatMessage({ id: "services.1.4.title" })}
-          </h4>
+          </h3>
           <p className="text-sm">
             {intl.formatMessage({ id: "services.1.4.text" })}
           </p>

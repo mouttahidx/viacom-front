@@ -21,7 +21,6 @@ type Props = {
   Component: any;
   pageProps: Array<any>;
 };
-type locale = string;
 const theme = createTheme({
   fontFamily: montserrat.style.fontFamily,
 });
@@ -34,18 +33,17 @@ export default function App({ Component, pageProps }: Props) {
   const { locale } = useRouter();
 
   return (
-    <MantineProvider theme={theme}>
-      <IntlProvider
-        locale={locale || "fr"}
-        messages={messages[locale as keyof typeof messages]}
-      >
+    <IntlProvider
+      locale={locale || "fr"}
+      messages={messages[locale as keyof typeof messages]}
+    >
+      <MantineProvider theme={theme}>
         <Layout>
           <NextNProgress
             color="#F05423"
             options={{ showSpinner: false }}
             height={5}
           />
-          <title>VIA Communication</title>
           <Head>
             <link
               rel="sitemap"
@@ -59,7 +57,7 @@ export default function App({ Component, pageProps }: Props) {
 
           <CookieConsent />
         </Layout>
-      </IntlProvider>
-    </MantineProvider>
+      </MantineProvider>
+    </IntlProvider>
   );
 }

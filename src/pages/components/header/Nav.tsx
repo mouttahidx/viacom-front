@@ -7,7 +7,6 @@ import { useIntl } from "react-intl";
 export default function Nav() {
   const intl = useIntl();
   const router = useRouter();
-  console.log(router);
   return (
     <nav className=" flex items-center gap-x-4 mx-6 text-gray-300 text-sm font-medium">
       <Menu

@@ -1,8 +1,9 @@
 import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
-import Image from "next/image";
 import PostCard from "../components/blogComponents/PostCard";
 import ReactPaginate from "react-paginate";
 import { useRef, useState } from "react";
+import { FormattedMessage, useIntl } from "react-intl";
+import Head from "next/head";
 
 type Post = {
   title: {
@@ -13,9 +14,10 @@ type Post = {
   content: {
     fr: string;
     en: string;
-  },
-  slug:{ fr: string; en: string },
+  };
+  slug: { fr: string; en: string };
   image: string;
+  categories:Array<any>
 };
 type Posts = Array<Post>;
 type Headers = {
@@ -28,11 +30,12 @@ export default function Blogue({
   headers,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const page = useRef(1);
-  const [perPage, setPerPage] = useState(30);
+  const [perPage, setPerPage] = useState(15);
   const [pageTotal, setPageTotal] = useState(headers.last_page);
   const [total, setTotal] = useState(headers.total);
   const [loading, setLoading] = useState(false);
   const [_posts, setPosts] = useState(posts);
+  const intl = useIntl();
 
   function handlePageClick({ selected }: { selected: number }) {
     page.current = selected + 1;
@@ -53,16 +56,27 @@ export default function Blogue({
     setLoading(false);
   };
 
-  console.log(posts)
+  console.log(posts);
   return (
     <div>
+      <Head>
+        <title>
+        {`VIA Communication - ${intl.formatMessage({ id: "nav.blog" })}`}
+        </title>
+        <meta
+          name="description"
+          content={`Blog - ${intl.formatMessage({ id: "meta.description" })}`}
+        />
+      </Head>
       <div className="pt-24 pb-24 lg:pt-44 bg-pages-hero-bg bg-no-repeat bg-cover flex justify-center items-center">
-        <h1 className="uppercase text-white text-4xl mt-10">Blogue</h1>
+        <h1 className="uppercase text-white text-4xl mt-10">
+          <FormattedMessage id="blog.hero.title" />
+        </h1>
       </div>
 
       <section className="text-gray-600 body-font">
-        <div className="container px-5 py-24 mx-auto">
-          <div className="flex flex-wrap -m-4 gap-x-16">
+        <div className="px-5 py-24 mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
             {!loading &&
               _posts.map((post) => (
                 <PostCard
@@ -71,15 +85,15 @@ export default function Blogue({
                   image={post.image}
                   key={post.id}
                   slug={post.slug}
+                  categories={post.categories}
                 />
               ))}
           </div>
         </div>
-        <iframe src='https://my.spline.design/macbookprocopy-c73b3d08c4025222fed95acf83a597e7/'  width='100%' height='100%' className="h-96"></iframe>
-        {!loading && pageTotal > 0 ? (
+        {!loading && pageTotal > 1 ? (
           <ReactPaginate
-            previousLabel={"← Précedent"}
-            nextLabel={"Suivant →"}
+            previousLabel={"← " + intl.formatMessage({ id: "previous" })}
+            nextLabel={intl.formatMessage({ id: "next" }) + " →"}
             pageCount={+pageTotal}
             forcePage={page.current - 1}
             onPageChange={handlePageClick}
@@ -102,7 +116,6 @@ export default function Blogue({
 }
 
 export const getServerSideProps = (async (ctx) => {
-
   // Fetch data from external API
   let posts: Posts = [];
   let headers = { total: 0, last_page: 0 };

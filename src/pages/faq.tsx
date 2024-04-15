@@ -1,86 +1,75 @@
 import { PlusIcon } from "@heroicons/react/20/solid";
 import { Accordion } from "@mantine/core";
+import Head from "next/head";
 import React from "react";
-import { useIntl } from "react-intl";
+import { FormattedMessage, useIntl } from "react-intl";
 
 export default function Faq() {
   const intl = useIntl();
 
   const faqs = [
     {
-      value: intl.formatMessage({id:"faq.q.1.title"}),
+      value: intl.formatMessage({ id: "faq.q.1.title" }),
       description: (
-        <div className="">
-          {intl.formatMessage({id:"faq.q.1.text"})}
-        </div>
+        <div className="">{intl.formatMessage({ id: "faq.q.1.text" })}</div>
       ),
     },
     {
-      value: intl.formatMessage({id:"faq.q.2.title"}),
+      value: intl.formatMessage({ id: "faq.q.2.title" }),
       description: (
-        <div className="">
-          {intl.formatMessage({id:"faq.q.2.text"})}
-        </div>
+        <div className="">{intl.formatMessage({ id: "faq.q.2.text" })}</div>
       ),
     },
     {
-      value: intl.formatMessage({id:"faq.q.3.title"}),
+      value: intl.formatMessage({ id: "faq.q.3.title" }),
       description: (
-        <div className="">
-          {intl.formatMessage({id:"faq.q.3.text"})}
-        </div>
+        <div className="">{intl.formatMessage({ id: "faq.q.3.text" })}</div>
       ),
     },
     {
-      value: intl.formatMessage({id:"faq.q.4.title"}),
+      value: intl.formatMessage({ id: "faq.q.4.title" }),
       description: (
-        <div className="">
-          {intl.formatMessage({id:"faq.q.4.text"})}
-        </div>
+        <div className="">{intl.formatMessage({ id: "faq.q.4.text" })}</div>
       ),
     },
     {
-      value: intl.formatMessage({id:"faq.q.5.title"}),
+      value: intl.formatMessage({ id: "faq.q.5.title" }),
       description: (
-        <div className="">
-          {intl.formatMessage({id:"faq.q.5.text"})}
-        </div>
+        <div className="">{intl.formatMessage({ id: "faq.q.5.text" })}</div>
       ),
     },
     {
-      value: intl.formatMessage({id:"faq.q.6.title"}),
+      value: intl.formatMessage({ id: "faq.q.6.title" }),
       description: (
-        <div className="">
-          {intl.formatMessage({id:"faq.q.6.text"})}
-        </div>
+        <div className="">{intl.formatMessage({ id: "faq.q.6.text" })}</div>
       ),
     },
     {
-      value: intl.formatMessage({id:"faq.q.7.title"}),
+      value: intl.formatMessage({ id: "faq.q.7.title" }),
       description: (
         <div className="">
-                    {intl.formatMessage({id:"faq.q.7.text"})}
+          {intl.formatMessage({ id: "faq.q.7.text" })}
 
-          <a href="https://www.facebook.com/VIACommunication/" target="_blank" className="text-primary font-medium block">
+          <a
+            href="https://www.facebook.com/VIACommunication/"
+            target="_blank"
+            className="text-primary font-medium block"
+          >
             Facebook
           </a>
         </div>
       ),
     },
     {
-      value: intl.formatMessage({id:"faq.q.8.title"}),
+      value: intl.formatMessage({ id: "faq.q.8.title" }),
       description: (
-        <div className="">
-          {intl.formatMessage({id:"faq.q.8.text"})}
-        </div>
+        <div className="">{intl.formatMessage({ id: "faq.q.8.text" })}</div>
       ),
     },
     {
-      value: intl.formatMessage({id:"faq.q.9.title"}),
+      value: intl.formatMessage({ id: "faq.q.9.title" }),
       description: (
-        <div className="">
-          {intl.formatMessage({id:"faq.q.9.text"})}
-        </div>
+        <div className="">{intl.formatMessage({ id: "faq.q.9.text" })}</div>
       ),
     },
   ];
@@ -98,6 +87,15 @@ export default function Faq() {
 
   return (
     <div>
+      <Head>
+      <meta
+          name="description"
+          content={`${intl.formatMessage({ id: "nav.faq" })} - ${intl.formatMessage({ id: "meta.description" })}`}
+        />
+        <title>
+          {`${intl.formatMessage({ id: "nav.faq" })}`}
+        </title>
+      </Head>
       {/* hero */}
       <div className="bg-faq-hero bg-center bg-no-repeat bg-cover ">
         <div className="bg-secondary h-full pt-24 pb-24 lg:py-44 flex justify-center bg-opacity-60">
@@ -110,7 +108,7 @@ export default function Faq() {
       {/* FAQ */}
       <section className="2xl:container flex flex-col items-center mt-10 pb-24">
         <h2 className="text-gray-600 text-3xl font-medium text-center">
-          FOIRE AUX QUESTIONS - FAQ VIA Communication
+          <FormattedMessage id="faq.1.title" />
         </h2>
         <div className="divider"></div>
         <Accordion

@@ -6,15 +6,20 @@ import Link from "next/link";
 import Head from "next/head";
 import { useIntl } from "react-intl";
 
-export default function services() {
+export default function Services() {
   const intl = useIntl();
 
   return (
     <div>
       <Head>
         <title>
-          VIA Communication - {intl.formatMessage({ id: "nav.services" })}
+          {`${intl.formatMessage({ id: "nav.services" })}`}
         </title>
+          <meta
+          name="description"
+          content={`${intl.formatMessage({ id: "nav.services" })} - ${intl.formatMessage({ id: "meta.description" })}`}
+
+        />
       </Head>
       {/* // hero section */}
       <section className="w-full py-28 text-white h-[780px] lg:h-[781px] bg-services-hero-bg bg-cover bg-no-repeat bg-center relative">
@@ -79,9 +84,9 @@ export default function services() {
         {/* 1st text */}
         <div className="bg-savoir-bg bg-cover bg-no-repeat bg-center">
           <div className="w-full pt-10 px-4 pb-10 text-center text-white bg-black bg-opacity-70">
-            <h4 className="second-title">
+            <h3 className="second-title">
               {intl.formatMessage({ id: "services.2.1.title" })}
-            </h4>
+            </h3>
             <div className="w-[50px] bg-white h-1 mx-auto mt-1 mb-10"></div>
 
             <p className="body-text !text-white">
@@ -91,6 +96,7 @@ export default function services() {
             <Button
               component={Link}
               href={"/"}
+              rel="canonical"
               variant="outline"
               color="white"
               className="mt-8 hover:scale-105 duration-300"
@@ -105,9 +111,9 @@ export default function services() {
           {/* 1st div */}
           <div className="bg-approche-bg bg-cover bg-no-repeat bg-center">
             <div className="w-full pt-10 px-4 pb-10 text-center text-white bg-black bg-opacity-70">
-            <h4 className="second-title">
+            <h3 className="second-title">
               {intl.formatMessage({ id: "services.2.2.title" })}
-            </h4>
+            </h3>
             <div className="w-[50px] bg-white h-1 mx-auto mt-1 mb-10"></div>
 
             <p className="body-text !text-white">
@@ -128,9 +134,9 @@ export default function services() {
           {/* 2nd div */}
           <div className="bg-faire-bg bg-cover bg-no-repeat bg-center">
             <div className="w-full pt-10 px-4 pb-10 text-center text-white bg-black bg-opacity-70">
-            <h4 className="second-title">
+            <h3 className="second-title">
               {intl.formatMessage({ id: "services.2.3.title" })}
-            </h4>
+            </h3>
             <div className="w-[50px] bg-white h-1 mx-auto mt-1 mb-10"></div>
 
             <p className="body-text !text-white">
@@ -152,9 +158,9 @@ export default function services() {
         {/* 5th text */}
         <div className="bg-website-bg bg-cover bg-no-repeat bg-center mt-8">
           <div className="w-full pt-10 px-4 pb-10 text-center text-white bg-black bg-opacity-70">
-          <h4 className="second-title">
+          <h3 className="second-title">
               {intl.formatMessage({ id: "services.2.4.title" })}
-            </h4>
+            </h3>
             <div className="w-[50px] bg-white h-1 mx-auto mt-1 mb-10"></div>
 
             <p className="body-text !text-white">

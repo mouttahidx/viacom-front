@@ -221,7 +221,14 @@ export default function AgenceSeo() {
   return (
     <div>
       <Head>
-        <title>VIA Communication - SEO</title>
+        <title>
+          {`${intl.formatMessage({ id: "nav.seo" })}`}
+        </title>
+        <meta
+          name="description"
+          content={`${intl.formatMessage({ id: "nav.seo" })} - ${intl.formatMessage({ id: "meta.description" })}`}
+
+        />
       </Head>
       {/* hero */}
       <div className="bg-facebook-hero bg-center bg-no-repeat bg-cover ">
@@ -294,9 +301,9 @@ export default function AgenceSeo() {
               height={400}
               className="w-full object-cover h-[280px] max-h-[380px] rounded-3xl hover:scale-105 duration-500"
             />
-            <h4 className="text-xl font-semibold my-6 text-secondary">
+            <h3 className="text-xl font-semibold my-6 text-secondary">
               {intl.formatMessage({ id: "seo.2.1.title" })}
-            </h4>
+            </h3>
             <p className="text-secondary text-center">
               {intl.formatMessage({ id: "seo.2.1.text" })}
             </p>
@@ -310,9 +317,9 @@ export default function AgenceSeo() {
               height={400}
               className="w-full object-cover h-[280px] max-h-[380px] rounded-3xl hover:scale-105 duration-500"
             />
-            <h4 className="text-xl font-semibold my-6 text-secondary">
+            <h3 className="text-xl font-semibold my-6 text-secondary">
               {intl.formatMessage({ id: "seo.2.2.title" })}
-            </h4>
+            </h3>
             <p className="text-secondary text-center">
               {intl.formatMessage({ id: "seo.2.2.text" })}
             </p>
@@ -326,9 +333,9 @@ export default function AgenceSeo() {
               height={400}
               className="w-full object-cover h-[280px] max-h-[380px] rounded-3xl hover:scale-105 duration-500"
             />
-            <h4 className="text-xl font-semibold my-6 text-secondary">
+            <h3 className="text-xl font-semibold my-6 text-secondary">
               {intl.formatMessage({ id: "seo.2.3.title" })}
-            </h4>
+            </h3>
             <p className="text-secondary text-center">
               {intl.formatMessage({ id: "seo.2.3.text" })}
             </p>
@@ -344,9 +351,9 @@ export default function AgenceSeo() {
               height={400}
               className="w-full object-cover h-[280px] max-h-[380px] rounded-3xl hover:scale-105 duration-500"
             />
-            <h4 className="text-xl font-semibold my-6 text-secondary">
+            <h3 className="text-xl font-semibold my-6 text-secondary">
               {intl.formatMessage({ id: "seo.2.4.title" })}
-            </h4>
+            </h3>
             <p className="text-secondary text-center">
               {intl.formatMessage({ id: "seo.2.4.text" })}
             </p>
@@ -360,9 +367,9 @@ export default function AgenceSeo() {
               height={400}
               className="w-full object-cover h-[280px] max-h-[380px] rounded-3xl hover:scale-105 duration-500"
             />
-            <h4 className="text-xl font-semibold my-6 text-secondary">
+            <h3 className="text-xl font-semibold my-6 text-secondary">
               {intl.formatMessage({ id: "seo.2.5.title" })}
-            </h4>
+            </h3>
             <p className="text-secondary text-center">
               {intl.formatMessage({ id: "seo.2.5.text" })}
             </p>
@@ -376,9 +383,9 @@ export default function AgenceSeo() {
               height={400}
               className="w-full object-cover h-[280px] max-h-[380px] rounded-3xl hover:scale-105 duration-500"
             />
-            <h4 className="text-xl font-semibold my-6 text-secondary">
+            <h3 className="text-xl font-semibold my-6 text-secondary">
               {intl.formatMessage({ id: "seo.2.6.title" })}
-            </h4>
+            </h3>
             <p className="text-secondary text-center">
               {intl.formatMessage({ id: "seo.2.6.text" })}
             </p>
@@ -586,6 +593,7 @@ export default function AgenceSeo() {
         <Link
           className="text-xl text-dark-secondary mt-4 font-semibold hover:scale-105 duration-300"
           href="/"
+          rel="canonical"
         >
           {intl.formatMessage({ id: "other.seo" })}
         </Link>

@@ -4,7 +4,7 @@ import { NextApiResponse,NextApiHandler} from "next";
 export default async function POST(req:Request, res:NextApiResponse) {
   const transport = nodemailer.createTransport({
     pool: true,
-    host: "mail.carwebdistribution.ca",
+    host: "mail.viacommunication.com",
     port: 465,
     secure: true, // use TLS
     auth: {
@@ -18,7 +18,7 @@ export default async function POST(req:Request, res:NextApiResponse) {
 
   const mailOptions = {
     from: process.env.EMAIL,
-    to: ["elmahdi.mouttahid@gmail.com"],
+    to: ["fbeaudry@viacommunication.com"],
     // cc: email, (uncomment this line if you want to send a copy to the sender)
     subject: `Message du siteweb: VIACOMMUNICATION (contact) (${email})`,
     html: `

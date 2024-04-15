@@ -14,9 +14,9 @@ export default function IconsList() {
           className="object-contain w-[100px]"
         />
         <div className="flex flex-col gap-y-3">
-          <h4 className="list-title">
+          <h3 className="list-title">
             <FormattedMessage id="home.3.1.title" />
-          </h4>
+          </h3>
           <p className="body-text">
             <FormattedMessage id="home.3.1.subtitle" />
           </p>
@@ -31,9 +31,9 @@ export default function IconsList() {
           className="object-contain w-[100px]"
         />
         <div className="flex flex-col gap-y-3">
-          <h4 className="list-title">
+          <h3 className="list-title">
             <FormattedMessage id="home.3.2.title" />
-          </h4>
+          </h3>
           <p className="body-text">
             <FormattedMessage id="home.3.2.subtitle" />
           </p>
@@ -48,9 +48,9 @@ export default function IconsList() {
           className="object-contain w-[100px]"
         />
         <div className="flex flex-col gap-y-3">
-          <h4 className="list-title">
+          <h3 className="list-title">
             <FormattedMessage id="home.3.3.title" />
-          </h4>
+          </h3>
           <p className="body-text">
             <FormattedMessage id="home.3.3.subtitle" />
           </p>
@@ -65,9 +65,9 @@ export default function IconsList() {
           className="object-contain w-[100px]"
         />
         <div className="flex flex-col gap-y-3">
-          <h4 className="list-title">
+          <h3 className="list-title">
             <FormattedMessage id="home.3.4.title" />
-          </h4>
+          </h3>
           <p className="body-text">
             <FormattedMessage id="home.3.4.subtitle" />
           </p>

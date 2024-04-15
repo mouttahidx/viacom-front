@@ -10,8 +10,7 @@ export default function AgenceGoogleAds() {
   const intl = useIntl();
   const faqs = [
     {
-      value:
-        intl.formatMessage({id:"google.faq.q1.title"}),
+      value: intl.formatMessage({ id: "google.faq.q1.title" }),
       description: (
         <div
           className="text-primary"
@@ -121,7 +120,13 @@ export default function AgenceGoogleAds() {
   return (
     <div>
       <Head>
-        <title>VIA Communication - Google ADS</title>
+        <title>
+          {`${intl.formatMessage({ id: "nav.google" })}`}
+        </title>
+        <meta
+          name="description"
+          content={`Google ADS - ${intl.formatMessage({ id: "meta.description" })}`}
+        />
       </Head>
       {/* hero */}
       <div className="bg-facebook-hero bg-center bg-no-repeat bg-cover ">
@@ -194,9 +199,9 @@ export default function AgenceGoogleAds() {
               height={400}
               className="w-full object-cover h-[280px] rounded-3xl hover:scale-105 duration-500"
             />
-            <h4 className="text-xl font-semibold my-6 text-secondary">
+            <h3 className="text-xl font-semibold my-6 text-secondary">
               <FormattedMessage id="google.2.1.title" />
-            </h4>
+            </h3>
             <p className="text-secondary text-center">
               <FormattedMessage id="google.2.1.text" />
             </p>
@@ -210,9 +215,9 @@ export default function AgenceGoogleAds() {
               height={400}
               className="w-full object-cover h-[280px] rounded-3xl hover:scale-105 duration-500"
             />
-            <h4 className="text-xl font-semibold my-6 text-secondary">
+            <h3 className="text-xl font-semibold my-6 text-secondary">
               <FormattedMessage id="google.2.2.title" />
-            </h4>
+            </h3>
             <p className="text-secondary text-center">
               <FormattedMessage id="google.2.2.text1" />
 
@@ -230,9 +235,9 @@ export default function AgenceGoogleAds() {
               height={400}
               className="w-full object-cover h-[280px] rounded-3xl hover:scale-105 duration-500"
             />
-            <h4 className="text-xl font-semibold my-6 text-secondary">
+            <h3 className="text-xl font-semibold my-6 text-secondary">
               <FormattedMessage id="google.2.3.title" />
-            </h4>
+            </h3>
             <p className="text-secondary text-center">
               <FormattedMessage id="google.2.3.text1" />
 
@@ -252,9 +257,9 @@ export default function AgenceGoogleAds() {
               height={400}
               className="w-full object-cover h-[280px] rounded-3xl hover:scale-105 duration-500"
             />
-            <h4 className="text-xl font-semibold my-6 text-secondary">
+            <h3 className="text-xl font-semibold my-6 text-secondary">
               <FormattedMessage id="google.2.4.title" />
-            </h4>
+            </h3>
             <p className="text-secondary text-center">
               <FormattedMessage id="google.2.4.text1" />
 
@@ -272,9 +277,9 @@ export default function AgenceGoogleAds() {
               height={400}
               className="w-full object-cover h-[280px] rounded-3xl hover:scale-105 duration-500"
             />
-            <h4 className="text-xl font-semibold my-6 text-secondary">
+            <h3 className="text-xl font-semibold my-6 text-secondary">
               <FormattedMessage id="google.2.5.title" />
-            </h4>
+            </h3>
             <p className="text-secondary text-center">
               <FormattedMessage id="google.2.5.text1" />
 
@@ -292,9 +297,9 @@ export default function AgenceGoogleAds() {
               height={400}
               className="w-full object-cover h-[280px] rounded-3xl hover:scale-105 duration-500"
             />
-            <h4 className="text-xl font-semibold my-6 text-secondary text-center">
+            <h3 className="text-xl font-semibold my-6 text-secondary text-center">
               <FormattedMessage id="google.2.6.title" />
-            </h4>
+            </h3>
             <p className="text-secondary text-center">
               <FormattedMessage id="google.2.6.text" />
             </p>
@@ -310,9 +315,9 @@ export default function AgenceGoogleAds() {
               height={400}
               className="w-full object-cover h-[280px] rounded-3xl hover:scale-105 duration-500"
             />
-            <h4 className="text-xl font-semibold my-6 text-secondary">
+            <h3 className="text-xl font-semibold my-6 text-secondary">
               <FormattedMessage id="google.2.7.title" />
-            </h4>
+            </h3>
             <p className="text-secondary text-center">
               <FormattedMessage id="google.2.7.text" />
             </p>
@@ -326,9 +331,9 @@ export default function AgenceGoogleAds() {
               height={400}
               className="w-full object-cover h-[280px] rounded-3xl hover:scale-105 duration-500"
             />
-            <h4 className="text-xl font-semibold my-6 text-secondary">
+            <h3 className="text-xl font-semibold my-6 text-secondary">
               <FormattedMessage id="google.2.8.title" />
-            </h4>
+            </h3>
             <p className="text-secondary text-center">
               <FormattedMessage id="google.2.8.text" />
             </p>
@@ -342,9 +347,9 @@ export default function AgenceGoogleAds() {
               height={400}
               className="w-full object-cover h-[280px] rounded-3xl hover:scale-105 duration-500"
             />
-            <h4 className="text-xl font-semibold my-6 text-secondary">
+            <h3 className="text-xl font-semibold my-6 text-secondary">
               <FormattedMessage id="google.2.9.title" />
-            </h4>
+            </h3>
             <p className="text-secondary text-center">
               <FormattedMessage id="google.2.9.text" />
             </p>
@@ -408,9 +413,9 @@ export default function AgenceGoogleAds() {
           <FormattedMessage id="google.4.title" />
         </h2>
         <div className="divider"></div>
-        <h4 className="text-2xl text-gray-600 mb-8 font-semibold">
+        <h3 className="text-2xl text-gray-600 mb-8 font-semibold">
           1. <FormattedMessage id="google.4.1" />
-        </h4>
+        </h3>
         <div className="bg-tabs py-20 px-8 rounded-3xl bg-cover bg-no-repeat">
           <Tabs
             color="orange"
@@ -439,9 +444,9 @@ export default function AgenceGoogleAds() {
           </Tabs>
         </div>
 
-        <h4 className="text-2xl text-gray-600 mt-12 mb-8 font-semibold">
+        <h3 className="text-2xl text-gray-600 mt-12 mb-8 font-semibold">
           2. <FormattedMessage id="google.4.2" />
-        </h4>
+        </h3>
         <div
           className="text-gray-500"
           dangerouslySetInnerHTML={{
@@ -449,9 +454,9 @@ export default function AgenceGoogleAds() {
           }}
         />
 
-        <h4 className="text-2xl text-gray-600 mt-12 mb-8 font-semibold">
+        <h3 className="text-2xl text-gray-600 mt-12 mb-8 font-semibold">
           3. <FormattedMessage id="google.4.3" />
-        </h4>
+        </h3>
         <div className="text-gray-500">
           <span
             dangerouslySetInnerHTML={{
@@ -460,9 +465,9 @@ export default function AgenceGoogleAds() {
           />
         </div>
 
-        <h4 className="text-2xl text-gray-600 mt-12 mb-8 font-semibold">
+        <h3 className="text-2xl text-gray-600 mt-12 mb-8 font-semibold">
           4. <FormattedMessage id="google.4.4" />
-        </h4>
+        </h3>
         <div className="text-gray-500">
           <span
             dangerouslySetInnerHTML={{
@@ -471,9 +476,9 @@ export default function AgenceGoogleAds() {
           />
         </div>
 
-        <h4 className="text-2xl text-gray-600 mt-12 mb-8 font-semibold">
+        <h3 className="text-2xl text-gray-600 mt-12 mb-8 font-semibold">
           5. <FormattedMessage id="google.4.5" />
-        </h4>
+        </h3>
         <div className="text-gray-500">
           <span
             dangerouslySetInnerHTML={{
@@ -502,9 +507,9 @@ export default function AgenceGoogleAds() {
                 }}
               />
             </p>
-            <h4 className="text-2xl text-gray-600 mt-12 mb-8 font-semibold">
+            <h3 className="text-2xl text-gray-600 mt-12 mb-8 font-semibold">
               1. <FormattedMessage id="google.5.1.title" />
-            </h4>
+            </h3>
             <div className="text-gray-500">
               <span
                 dangerouslySetInnerHTML={{
@@ -513,9 +518,9 @@ export default function AgenceGoogleAds() {
               />
             </div>
 
-            <h4 className="text-2xl text-gray-600 mt-12 mb-8 font-semibold">
+            <h3 className="text-2xl text-gray-600 mt-12 mb-8 font-semibold">
               2. <FormattedMessage id="google.5.2.title" />
-            </h4>
+            </h3>
             <div className="text-gray-500">
               <span
                 dangerouslySetInnerHTML={{
@@ -524,9 +529,9 @@ export default function AgenceGoogleAds() {
               />
             </div>
 
-            <h4 className="text-2xl text-gray-600 mt-12 mb-8 font-semibold">
+            <h3 className="text-2xl text-gray-600 mt-12 mb-8 font-semibold">
               3. <FormattedMessage id="google.5.3.title" />
-            </h4>
+            </h3>
             <div className="text-gray-500">
               <span
                 dangerouslySetInnerHTML={{
@@ -535,9 +540,9 @@ export default function AgenceGoogleAds() {
               />
             </div>
 
-            <h4 className="text-2xl text-gray-600 mt-12 mb-8 font-semibold">
+            <h3 className="text-2xl text-gray-600 mt-12 mb-8 font-semibold">
               4. <FormattedMessage id="google.5.4.title" />
-            </h4>
+            </h3>
             <div className="text-gray-500">
               <span
                 dangerouslySetInnerHTML={{
@@ -546,9 +551,9 @@ export default function AgenceGoogleAds() {
               />
             </div>
 
-            <h4 className="text-2xl text-gray-600 mt-12 mb-8 font-semibold">
+            <h3 className="text-2xl text-gray-600 mt-12 mb-8 font-semibold">
               5. <FormattedMessage id="google.5.5.title" />
-            </h4>
+            </h3>
             <div className="text-gray-500">
               <span
                 dangerouslySetInnerHTML={{
@@ -589,9 +594,11 @@ export default function AgenceGoogleAds() {
         </h2>
         <div className="divider"></div>
         <div className="text-gray-600">
-        <span dangerouslySetInnerHTML={{__html:
-              intl.formatMessage({ id: "google.6.text" })
-              }} />
+          <span
+            dangerouslySetInnerHTML={{
+              __html: intl.formatMessage({ id: "google.6.text" }),
+            }}
+          />
         </div>
       </section>
 

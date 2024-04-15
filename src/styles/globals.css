@@ -84,6 +84,35 @@ body {
   }
 
   @layer base {
+    .no-tailwindcss-base {
+      padding-left:10px !important;
+      padding-right:10px !important;
+      overflow-x: hidden!important;
+    }
+    .no-tailwindcss-base a{
+      color:#F05423;
+    }
+    .no-tailwindcss-base td{
+      display: table-cell;
+      width: 50%;
+    }
+    .no-tailwindcss-base tr{
+      vertical-align: top;
+    }
+    @media screen and (max-width:885px) {
+      .no-tailwindcss-base td{
+        display: block;
+        width: 100%!important;
+      }
+      .no-tailwindcss-base img{
+        margin-bottom: 15px;
+        display: block;
+        max-width: 100%;
+        float: none!important;
+        margin-left:0!important;
+      }
+      
+    }
     .no-tailwindcss-base, .no-tailwindcss-base * , .no-tailwindcss-base > * {
         font-size: revert;
         font-weight: revert;

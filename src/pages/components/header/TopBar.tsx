@@ -6,12 +6,11 @@ import { useIntl } from "react-intl";
 export default function TopBar() {
   const router = useRouter();
   const intl = useIntl();
-
   const {locales,locale} = useRouter();
   return (
     <div className="w-full bg-transparent hidden px-2 lg:flex absolute top-0 items-center border-b border-gray-600 max-w-6xl left-0 right-0 mx-auto h-14 z-10 ">
       {/* social media icons */}
-      <a href="facebook.com" className="mr-4">
+      <a href="https://www.facebook.com/VIACommunication/" target="_blank" className="mr-4">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           x="0px"
@@ -43,7 +42,7 @@ export default function TopBar() {
           </g>
         </svg>
       </a>
-      <a href="linkedin.com">
+      <a href="https://www.linkedin.com/company/via-communication/about/" target="_blank">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           x="0px"
@@ -82,12 +81,12 @@ export default function TopBar() {
         <a href="tel:+1418-825-2323" className="font-bold">418-825-2323</a>
       </span>
 
-      <a href="/outien.viacommunication.com" className="uppercase text-white text-xs font-medium ml-auto">
+      <a href="https://laravel.devvia.ca" className="uppercase text-white text-xs font-medium ml-auto">
       {intl.formatMessage({id:"nav.login"})}
         
       </a>
       {[...locales || []].filter(x => x !== locale).map((locale) => (
-            <Flag locale={locale} key={locale}/>
+            <Flag locale={locale} key={locale} current={router.route.includes('blog') ?  "/blogue" : router.pathname}/>
           ))}
     </div>
   );

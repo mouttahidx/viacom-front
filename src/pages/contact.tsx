@@ -56,8 +56,14 @@ export default function Contact() {
   return (
     <div>
       <Head>
+      <meta
+          name="description"
+          content={`${intl.formatMessage({ id: "nav.contact" })} - ${intl.formatMessage({ id: "meta.description" })}`}
+
+        />
         <title>
-          VIA Communication - {intl.formatMessage({ id: "nav.contact" })}
+        {`${intl.formatMessage({ id: "nav.contact" })}`}
+
         </title>
       </Head>
       <div className="pt-24 pb-24 lg:pt-44 bg-pages-hero-bg bg-no-repeat bg-cover flex justify-center items-center">
@@ -176,7 +182,7 @@ export default function Contact() {
 
               <Group justify="flex-start" mt="sm">
                 <ReCAPTCHA
-                  sitekey="6LeabKspAAAAAFrJCC4pPOza6OjR2Ap7fVXEyIaf"
+                  sitekey="6LfpNLgpAAAAAMJxMDeW89ER3_TdDwSf6ZqDTSP1"
                   onChange={(token) => {
                     changed(token || "");
                   }}

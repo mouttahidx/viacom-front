@@ -3,7 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { useIntl } from "react-intl";
+import { FormattedMessage, useIntl } from "react-intl";
 
 export default function AgenceMarketingDigital() {
   const intl = useIntl();
@@ -87,7 +87,13 @@ export default function AgenceMarketingDigital() {
   return (
     <div>
       <Head>
-        <title>VIA Communication - Marketing Digital</title>
+        <meta
+          name="description"
+          content={`${intl.formatMessage({ id: "nav.marketing" })} - ${intl.formatMessage({ id: "meta.description" })}`}
+        />
+        <title>
+          {`${intl.formatMessage({ id: "nav.marketing" })}`}
+        </title>
       </Head>
       {/* hero */}
       <div className="bg-facebook-hero bg-center bg-no-repeat bg-cover ">
@@ -191,6 +197,7 @@ export default function AgenceMarketingDigital() {
         <div className="w-full flex flex-wrap lg:flex-nowrap gap-y-16 gap-x-4 2xl:gap-x-16">
           <Link
             href={"/"}
+            rel="canonical"
             className="w-full xl:w-4/12 flex flex-col items-center"
           >
             <Image
@@ -200,11 +207,11 @@ export default function AgenceMarketingDigital() {
               height={400}
               className="w-full object-cover h-[280px] max-h-[380px] rounded-3xl hover:scale-105 duration-500"
             />
-            <h4 className="text-xl font-semibold my-6 text-secondary">
-            {intl.formatMessage({ id: "marketing.3.1.title" })}
-            </h4>
+            <h3 className="text-xl font-semibold my-6 text-secondary">
+              {intl.formatMessage({ id: "marketing.3.1.title" })}
+            </h3>
             <p className="text-secondary text-center">
-            {intl.formatMessage({ id: "marketing.3.1.text" })}
+              {intl.formatMessage({ id: "marketing.3.1.text" })}
             </p>
           </Link>
 
@@ -219,11 +226,11 @@ export default function AgenceMarketingDigital() {
               height={400}
               className="w-full object-cover h-[280px] max-h-[380px] rounded-3xl hover:scale-105 duration-500"
             />
-            <h4 className="text-xl font-semibold my-6 text-secondary">
-            {intl.formatMessage({ id: "marketing.3.2.title" })}
-            </h4>
+            <h3 className="text-xl font-semibold my-6 text-secondary">
+              {intl.formatMessage({ id: "marketing.3.2.title" })}
+            </h3>
             <p className="text-secondary text-center">
-            {intl.formatMessage({ id: "marketing.3.2.text" })}
+              {intl.formatMessage({ id: "marketing.3.2.text" })}
             </p>
           </Link>
 
@@ -238,11 +245,11 @@ export default function AgenceMarketingDigital() {
               height={400}
               className="w-full object-cover h-[280px] max-h-[380px] rounded-3xl hover:scale-105 duration-500"
             />
-            <h4 className="text-xl font-semibold my-6 text-secondary">
-            {intl.formatMessage({ id: "marketing.3.3.title" })}
-            </h4>
+            <h3 className="text-xl font-semibold my-6 text-secondary">
+              {intl.formatMessage({ id: "marketing.3.3.title" })}
+            </h3>
             <p className="text-secondary text-center">
-            {intl.formatMessage({ id: "marketing.3.3.text" })}
+              {intl.formatMessage({ id: "marketing.3.3.text" })}
             </p>
           </Link>
         </div>
@@ -259,11 +266,11 @@ export default function AgenceMarketingDigital() {
               height={400}
               className="w-full object-cover h-[280px] max-h-[380px] rounded-3xl hover:scale-105 duration-500"
             />
-            <h4 className="text-xl font-semibold my-6 text-secondary">
-            {intl.formatMessage({ id: "marketing.3.4.title" })}
-            </h4>
+            <h3 className="text-xl font-semibold my-6 text-secondary">
+              {intl.formatMessage({ id: "marketing.3.4.title" })}
+            </h3>
             <p className="text-secondary text-center">
-            {intl.formatMessage({ id: "marketing.3.4.text" })}
+              {intl.formatMessage({ id: "marketing.3.4.text" })}
             </p>
           </Link>
 
@@ -275,11 +282,11 @@ export default function AgenceMarketingDigital() {
               height={400}
               className="w-full object-cover h-[280px] max-h-[380px] rounded-3xl hover:scale-105 duration-500"
             />
-           <h4 className="text-xl font-semibold my-6 text-secondary">
-            {intl.formatMessage({ id: "marketing.3.5.title" })}
-            </h4>
+            <h3 className="text-xl font-semibold my-6 text-secondary">
+              {intl.formatMessage({ id: "marketing.3.5.title" })}
+            </h3>
             <p className="text-secondary text-center">
-            {intl.formatMessage({ id: "marketing.3.5.text" })}
+              {intl.formatMessage({ id: "marketing.3.5.text" })}
             </p>
           </div>
 
@@ -334,7 +341,9 @@ export default function AgenceMarketingDigital() {
             variant="filled"
             size="xl"
             className="!bg-primary hover:!bg-opacity-90 shadow-xl"
-          >{`Contactez-nous`}</Button>
+          >
+            <FormattedMessage id="btn.contact" />
+          </Button>
         </div>
       </section>
 
@@ -344,11 +353,10 @@ export default function AgenceMarketingDigital() {
           {/* first div */}
           <div className="lg:w-9/12 ">
             <h2 className="second-title text-primary font-bold">
-              Appelez-nous ou envoyez un courriel
+              <FormattedMessage id="cta1.title" />
             </h2>
             <p className="mt-4 body-text !text-black lg:w-10/12">
-              Nous sommes à l’écoute pour répondre à vos questions et vous
-              proposer la meilleure solution
+              <FormattedMessage id="cta1.subtitle" />
             </p>
           </div>
           {/* cta */}
@@ -361,7 +369,7 @@ export default function AgenceMarketingDigital() {
               className="!block !w-full"
               size="md"
             >
-              Contactez-nous
+              <FormattedMessage id="btn.contact" />
             </Button>
           </div>
         </div>
@@ -389,32 +397,33 @@ export default function AgenceMarketingDigital() {
       {/* other services */}
       <section className="2xl:container flex flex-col items-center mb-16 py-16">
         <h2 className="text-gray-600 text-3xl font-medium">
-          Nos autres services
+          <FormattedMessage id="other.title" />
         </h2>
         <div className="divider"></div>
         <Link
           className="text-xl text-dark-secondary mt-4 font-semibold hover:scale-105 duration-300"
           href="/services/agence-seo"
         >
-          Référencement naturel - SEO
+          <FormattedMessage id="other.seo" />
         </Link>
         <Link
           className="text-xl text-dark-secondary mt-4 font-semibold hover:scale-105 duration-300"
           href="/services/agence-facebook-ads"
         >
-          Facebook Ads
+          <FormattedMessage id="other.fb" />
         </Link>
         <Link
           className="text-xl text-dark-secondary mt-4 font-semibold hover:scale-105 duration-300"
           href="/services/agence-google-ads"
         >
-          Google Ads - SEA
+          <FormattedMessage id="other.google" />
         </Link>
         <Link
           className="text-xl text-dark-secondary mt-4 font-semibold hover:scale-105 duration-300"
           href="/"
+          rel="canonical"
         >
-          Conception web
+          <FormattedMessage id="other.web" />
         </Link>
       </section>
     </div>

@@ -112,7 +112,14 @@ export default function AgenceFacebookAds() {
   return (
     <div>
       <Head>
-        <title>VIA Communication - Facebook ADS</title>
+        <title>
+        {`${intl.formatMessage({ id: "nav.fb" })}`}
+
+        </title>
+        <meta
+          name="description"
+          content={`Facebook ADS - ${intl.formatMessage({ id: "meta.description" })}`}
+        />
       </Head>
       {/* hero */}
       <div className="bg-facebook-hero bg-center bg-no-repeat bg-cover ">
@@ -214,9 +221,9 @@ export default function AgenceFacebookAds() {
               height={400}
               className="w-full object-cover h-[280px] rounded-3xl hover:scale-105 duration-500"
             />
-            <h4 className="text-xl font-semibold my-6 text-secondary">
+            <h3 className="text-xl font-semibold my-6 text-secondary">
               <FormattedMessage id="fb.2.1.title" />
-            </h4>
+            </h3>
             <p className="text-secondary text-center">
               <FormattedMessage id="fb.2.1.text.1" />
 
@@ -234,9 +241,9 @@ export default function AgenceFacebookAds() {
               height={400}
               className="w-full object-cover h-[280px] rounded-3xl hover:scale-105 duration-500"
             />
-            <h4 className="text-xl font-semibold my-6 text-secondary">
+            <h3 className="text-xl font-semibold my-6 text-secondary">
               <FormattedMessage id="fb.2.2.title" />
-            </h4>
+            </h3>
             <p className="text-secondary text-center">
               <FormattedMessage id="fb.2.2.text.1" />
               <br />
@@ -256,9 +263,9 @@ export default function AgenceFacebookAds() {
               height={400}
               className="w-full object-cover h-[280px] rounded-3xl hover:scale-105 duration-500"
             />
-            <h4 className="text-xl font-semibold my-6 text-secondary">
+            <h3 className="text-xl font-semibold my-6 text-secondary">
               <FormattedMessage id="fb.2.3.title" />
-            </h4>
+            </h3>
             <p className="text-secondary text-center">
               <FormattedMessage id="fb.2.3.text.1" />
 
@@ -283,9 +290,9 @@ export default function AgenceFacebookAds() {
               height={400}
               className="w-full object-cover h-[280px] rounded-3xl hover:scale-105 duration-500"
             />
-            <h4 className="text-xl font-semibold my-6 text-secondary">
+            <h3 className="text-xl font-semibold my-6 text-secondary">
               <FormattedMessage id="fb.2.4.title" />
-            </h4>
+            </h3>
             <p className="text-secondary text-center">
               <FormattedMessage id="fb.2.4.text" />
             </p>
@@ -299,9 +306,9 @@ export default function AgenceFacebookAds() {
               height={400}
               className="w-full object-cover h-[280px] rounded-3xl hover:scale-105 duration-500"
             />
-            <h4 className="text-xl font-semibold my-6 text-secondary">
+            <h3 className="text-xl font-semibold my-6 text-secondary">
               <FormattedMessage id="fb.2.5.title" />
-            </h4>
+            </h3>
             <p className="text-secondary text-center">
               <FormattedMessage id="fb.2.5.text" />
             </p>
@@ -549,7 +556,9 @@ export default function AgenceFacebookAds() {
             variant="filled"
             size="xl"
             className="!bg-primary hover:!bg-opacity-90 shadow-xl"
-          >{`Contactez-nous`}</Button>
+          >
+            <FormattedMessage id="btn.contact" />
+            </Button>
         </div>
       </section>
 
@@ -611,6 +620,7 @@ export default function AgenceFacebookAds() {
         <Link
           className="text-xl text-dark-secondary mt-4 font-semibold hover:scale-105 duration-300"
           href="/"
+          rel="canonical"
         >
           <FormattedMessage id="other.web" />
         </Link>

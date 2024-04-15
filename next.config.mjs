@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+
 const nextConfig = {
   images: {
     remotePatterns: [
@@ -19,17 +20,23 @@ const nextConfig = {
   },
   async headers() {
     const headers = [];
-      headers.push({
-        headers: [
-          {
-            key: 'X-Robots-Tag',
-            value: 'noindex',
-          },
-        ],
-        source: '/:path*',
-      });
+     
     
     return headers;
+  },
+  async redirects() {
+    return [
+      {
+        source: '/rencontre-avec-dennis-yu-une-immersion-dans-le-monde-du-seo',
+        destination: '/blogue/rencontre-inspirante-entre-francois-beaudry-et-dennis-yu-a-affiliate-world-dubai-une-immersion-dans-le-monde-du-seo',
+        permanent: true,
+      },
+      {
+        source: '/via-communication-la-plus-grande-agence-web-a-quebec-pour-des-solutions-de-marketing-numerique-completes',
+        destination: '/blogue/via-communication-la-plus-grande-agence-web-a-quebec-pour-des-solutions-de-marketing-numerique-completes',
+        permanent: true,
+      },
+    ]
   },
 };
 

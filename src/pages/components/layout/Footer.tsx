@@ -12,9 +12,9 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto bg-secondary px-4 flex flex-col sm:flex-row flex-wrap pt-16 py-10 gap-y-16 items-start lg:items-start">
         {/* first column */}
         <div className="lg:w-5/12 md:w-4/12 sm:w-6/12">
-          <Link href="/">
+          <Link href="/" rel="canonical">
             <Image
-              src="/img/logo-footer.webp"
+              src="/img/Logo.webp"
               width={300}
               height={300}
               alt=""
@@ -25,14 +25,14 @@ export default function Footer() {
         {/* second column */}
         <div className="flex lg:w-4/12 flex-col gap-y-8 text-sm md:w-4/12 sm:w-6/12">
           <div className="">
-            <h5 className="text-white font-medium">
+            <h3 className="text-white font-medium">
               {" "}
               {intl.formatMessage({ id: "footer.contactus" })}
-            </h5>
+            </h3>
             <p className="text-white mt-2">Québec: 418-825-2323</p>
           </div>
 
-          <div className="mt-24 flex flex-col gap-y-10">
+          <div className=" flex flex-col gap-y-10">
             <p className="text-white mt-2">
               {intl.formatMessage({ id: "email" })}:{" "}
               <a href="mailto:info@viacommunication.com">
@@ -41,9 +41,9 @@ export default function Footer() {
             </p>
 
             <div className="">
-              <h5 className="text-white font-medium">
+              <h3 className="text-white font-medium">
                 {intl.formatMessage({ id: "address" })}:{" "}
-              </h5>
+              </h3>
               <p className="text-white mt-2">
                 1020, rue Bouvier, suite 400, Québec, QC G2K 0H3
               </p>
@@ -79,19 +79,19 @@ export default function Footer() {
           </div>
 
           <div className=" flex flex-col gap-y-6">
-            <h5 className="text-white font-medium">
+            <p className="text-white font-medium">
             {intl.formatMessage({ id: "footer.responsable" })}
-            </h5>
-            <p className="text-white mt-2">Francois Beaudry</p>
-            <p className="text-white mt-2">
+            </p>
+            <p className="text-white mt-2 font-semibold">Francois Beaudry</p>
+            {/* <p className="text-white mt-2">
             {intl.formatMessage({ id: "email" })}:{" "}
               <a href="mailto:info@viacommunication.com">
                 info@viacommunication.com
               </a>
             </p>
-            <p className="text-white mt-2">Québec: 418-825-2323</p>
+            <p className="text-white mt-2">Québec: 418-825-2323</p> */}
             <p className="text-white mt-2">
-              <Link href={"/"}>
+              <Link href={"/politiques-de-confidentialite"}>
             {intl.formatMessage({ id: "footer.policies" })}
                 
               </Link>
@@ -113,7 +113,7 @@ export default function Footer() {
             {intl.formatMessage({ id: "footer.followus" })}
               
             </span>
-            <a href="facebook.com" className="">
+            <a href="https://www.facebook.com/VIACommunication/" className="" target="_blank">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 x="0px"
@@ -145,7 +145,7 @@ export default function Footer() {
                 </g>
               </svg>
             </a>
-            <a href="linkedin.com">
+            <a href="https://www.linkedin.com/company/via-communication/about/" target="_blank">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 x="0px"
