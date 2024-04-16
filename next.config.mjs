@@ -1,3 +1,8 @@
+import withBundleAnalyzer from '@next/bundle-analyzer';
+const bundleAnalyzer = withBundleAnalyzer({
+	enabled: process.env.ANALYZE === 'true',
+})
+
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
@@ -10,6 +15,8 @@ const nextConfig = {
         pathname: '/storage/**',
       },
     ],
+    minimumCacheTTL: 60*60*24*120,  
+
   },
   reactStrictMode: true,
   i18n: {
@@ -36,8 +43,36 @@ const nextConfig = {
         destination: '/blogue/via-communication-la-plus-grande-agence-web-a-quebec-pour-des-solutions-de-marketing-numerique-completes',
         permanent: true,
       },
+      {
+        source: '/agence-google-ads',
+        destination: '/services/agence-google-ads',
+        permanent: true,
+      },
+      {
+        source: '/agence-marketing-digital',
+        destination: '/services/agence-marketing-digital',
+        permanent: true,
+      },
+      {
+        source: '/agence-seo',
+        destination: '/services/agence-seo',
+        permanent: true,
+      },
+      {
+        source: '/faq-via-communication',
+        destination: '/faq',
+        permanent: true,
+      },
+      {
+        source: '/:path*',
+        has: [{ type: 'header', key: 'host', value: 'www.viacommunication.com' }],
+        destination: 'https://viacommunication.com/:path*',
+        permanent: true,
+      },
     ]
   },
 };
 
-export default nextConfig;
+ 
+ 
+export default bundleAnalyzer(nextConfig)

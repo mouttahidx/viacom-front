@@ -13,7 +13,7 @@ export default function Services() {
     <div>
       <Head>
         <title>
-          {`${intl.formatMessage({ id: "nav.services" })}`}
+          {`${intl.formatMessage({ id: "services.hero.title" })}`}
         </title>
           <meta
           name="description"

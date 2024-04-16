@@ -62,7 +62,7 @@ export default function Contact() {
 
         />
         <title>
-        {`${intl.formatMessage({ id: "nav.contact" })}`}
+        {`${intl.formatMessage({ id: "contact.hero.title" })}`}
 
         </title>
       </Head>

@@ -40,7 +40,7 @@ export default function Slug({ post }: { post: Post }) {
   return (
     <div>
       <Head>
-        <title>{title}</title>
+        <title>{`${locale === "en" ? post?.title?.en : post?.title?.fr  }`}</title>
         <meta
           name="description"
           content={
@@ -134,7 +134,7 @@ export async function getStaticProps(ctx: any) {
     props: {
       post,
     },
-    revalidate: 120,
+    revalidate: 900,
   };
 }
 

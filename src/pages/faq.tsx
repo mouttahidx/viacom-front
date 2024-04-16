@@ -93,7 +93,7 @@ export default function Faq() {
           content={`${intl.formatMessage({ id: "nav.faq" })} - ${intl.formatMessage({ id: "meta.description" })}`}
         />
         <title>
-          {`${intl.formatMessage({ id: "nav.faq" })}`}
+          {`${intl.formatMessage({ id: "faq.hero.title" })}`}
         </title>
       </Head>
       {/* hero */}

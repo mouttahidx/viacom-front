@@ -14,16 +14,29 @@ export default function Home() {
   return (
     <div>
       <Head>
-      <meta
+        <meta
           name="description"
-          content={`${intl.formatMessage({ id: "nav.home" })} - ${intl.formatMessage({ id: "meta.description" })}`}
+          content={`${intl.formatMessage({
+            id: "nav.home",
+          })} - ${intl.formatMessage({ id: "meta.description" })}`}
         />
-        <title>
-         {`${intl.formatMessage({ id: "nav.home" })}`}
-        </title>
+        <title>{`${intl.formatMessage({ id: "nav.home" })}`}</title>
       </Head>
       {/* // hero section */}
-      <section className="w-full py-28 text-white h-[780px] lg:h-[781px] bg-hero-bg bg-cover bg-no-repeat bg-center relative">
+      <section className="w-full py-28 text-white h-[780px] lg:h-[781px] relative">
+        <Image
+          alt="Robot"
+          src={`/img/hero-home.webp`}
+          blurDataURL="/img/hero-home.webp"
+          placeholder="blur"
+          quality={100}
+          fill
+          sizes="100vw"
+          style={{
+            objectFit: "cover",
+          }}
+          priority
+        />
         <div className="absolute bg-dark-secondary left-0 bottom-0 right-0 top-0 bg-opacity-30 z-0"></div>
         <div className="z-10 absolute top-[16%] lg:top-[35%] max-w-6xl mx-auto  left-0 right-0 px-3">
           <h1 className="text-4xl w-full lg:w-1/2">
@@ -98,7 +111,7 @@ export default function Home() {
         <div className="w-full px-4 xl:pl-24 lg:pr-10 lg:w-6/12">
           <p className="body-text">
             <FormattedMessage id="home.2.discover" />
-            <span className="text-primary font-bold">VIA Communication</span>, 
+            <span className="text-primary font-bold">VIA Communication</span>,
             <FormattedMessage id="home.2.text" />
             <b>
               &nbsp;
@@ -549,12 +562,11 @@ export default function Home() {
       {/* testimonials */}
       <section className="w-full bg-secondary text-white text-center pb-10 flex flex-col mb-10 ">
         <Testimonials />
-        
       </section>
 
       {/* 9th section */}
       <section className="w-full bg-white text-white text-center pb-10 flex flex-col mb-20 px-4 max-w-6xl mx-auto ">
-      <h4 className="text-secondary uppercase text-2xl font-bold mb-4">
+        <h4 className="text-secondary uppercase text-2xl font-bold mb-4">
           <FormattedMessage id="home.8.title" />
         </h4>
         <h2 className="text-black text-lg">
