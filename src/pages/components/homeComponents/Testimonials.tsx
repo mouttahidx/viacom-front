@@ -1,33 +1,34 @@
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import React from "react";
-import { useIntl } from "react-intl";
 
 export default function Testimonials() {
-  const intl = useIntl();
+  const t = useTranslations();
+
   const testimonials = [
     {
-      text: intl.formatMessage({id:"home.t.1text"}),
-      name:  intl.formatMessage({id:"home.t.1name"}),
-      title:  intl.formatMessage({id:"home.t.1job"}),
+      text: t("home_t_1text"),
+      name:  t("home_t_1name"),
+      title:  t("home_t_1job"),
       img: "/img/sarah.webp",
     },
     
     {
-      text: intl.formatMessage({id:"home.t.2text"}),
-      name:  intl.formatMessage({id:"home.t.2name"}),
-      title:  intl.formatMessage({id:"home.t.2job"}),
+      text: t("home_t_2text"),
+      name:  t("home_t_2name"),
+      title:  t("home_t_2job"),
         img: "/img/alzeihmer.webp",
       },
     {
-      text: intl.formatMessage({id:"home.t.3text"}),
-      name:  intl.formatMessage({id:"home.t.3name"}),
-      title:  intl.formatMessage({id:"home.t.3job"}),
+      text: t("home_t_3text"),
+      name:  t("home_t_3name"),
+      title:  t("home_t_3job"),
         img: "/img/andre.webp",
       },
     {
-      text: intl.formatMessage({id:"home.t.4text"}),
-      name:  intl.formatMessage({id:"home.t.4name"}),
-      title:  intl.formatMessage({id:"home.t.4job"}),
+      text: t("home_t_4text"),
+      name:  t("home_t_4name"),
+      title:  t("home_t_4job"),
       img: "/img/mathieu.webp",
     },
 

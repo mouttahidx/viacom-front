@@ -10,7 +10,7 @@ import { createTheme, MantineProvider } from "@mantine/core";
 import { useRouter } from "next/router";
 import en from "../../i18n/en.json";
 import fr from "../../i18n/fr.json";
-import { IntlProvider } from "react-intl";
+import {NextIntlClientProvider} from 'next-intl';
 
 const montserrat = Montserrat({
   weight: ["300", "400", "500", "600", "700", "800"],
@@ -19,23 +19,20 @@ const montserrat = Montserrat({
 });
 type Props = {
   Component: any;
-  pageProps: Array<any>;
+  pageProps: any;
 };
 const theme = createTheme({
   fontFamily: montserrat.style.fontFamily,
 });
-const messages = {
-  en,
-  fr,
-};
 
 export default function App({ Component, pageProps }: Props) {
   const { locale } = useRouter();
 
   return (
-    <IntlProvider
-      locale={locale || "fr"}
-      messages={messages[locale as keyof typeof messages]}
+    <NextIntlClientProvider
+      locale={locale}
+      timeZone="Europe/Vienna"
+      messages={pageProps.messages}
     >
       <MantineProvider theme={theme}>
         <Layout>
@@ -58,6 +55,6 @@ export default function App({ Component, pageProps }: Props) {
           <CookieConsent />
         </Layout>
       </MantineProvider>
-    </IntlProvider>
+    </NextIntlClientProvider>
   );
 }

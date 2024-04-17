@@ -1,16 +1,16 @@
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import React from "react";
-import { useIntl } from "react-intl";
 
 export default function FreeQuote() {
-  const intl = useIntl();
+  const t = useTranslations();
 
   return (
     <Link
       href="/contact"
       className="group text-lg text-white hover:bg-white hover:text-primary bg-primary font-medium text-center p-1 relative -mb-3 h-14 rounded z-10"
     >
-      <span dangerouslySetInnerHTML={{__html:intl.formatMessage({ id: "nav.quote" })}} />
+      <span dangerouslySetInnerHTML={{__html:t.raw('nav_quote')}} />
       <svg
         version="1.1"
         className="w-full absolute h-[5px] left-0 top-full fill-primary group-hover:fill-white"

@@ -1,11 +1,11 @@
 import { Menu, NavLink } from "@mantine/core";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/navigation";
 import { useRouter } from "next/router";
 import React from "react";
-import { useIntl } from "react-intl";
 
 export default function Nav() {
-  const intl = useIntl();
+  const t = useTranslations();
   const router = useRouter();
   return (
     <nav className=" flex items-center gap-x-4 mx-6 text-gray-300 text-sm font-medium">
@@ -22,11 +22,12 @@ export default function Nav() {
         <Menu.Target>
           <Link
             href={"/services"}
+            locale="en"
             className={`menu-item ${
               router.pathname.includes("/services") && "menu-item-active"
             }`}
           >
-            {intl.formatMessage({ id: "nav.services" })}
+            {t("nav_services")}
           </Link>
         </Menu.Target>
         <Menu.Dropdown>
@@ -38,7 +39,7 @@ export default function Nav() {
             component={Link}
             href="/services/agence-facebook-ads"
           >
-            {intl.formatMessage({ id: "nav.fb" })}
+            {t("nav_fb")}
           </Menu.Item>
           <Menu.Divider />
 
@@ -50,7 +51,7 @@ export default function Nav() {
             component={Link}
             href="/services/agence-google-ads"
           >
-            {intl.formatMessage({ id: "nav.google" })}
+            {t("nav_google")}
           </Menu.Item>
           <Menu.Divider />
 
@@ -62,7 +63,7 @@ export default function Nav() {
             component={Link}
             href="/services/agence-marketing-digital"
           >
-            {intl.formatMessage({ id: "nav.marketing" })}
+            {t("nav_marketing")}
           </Menu.Item>
           <Menu.Divider />
 
@@ -73,7 +74,7 @@ export default function Nav() {
             component={Link}
             href="/services/agence-seo"
           >
-            {intl.formatMessage({ id: "nav.seo" })}
+            {t("nav_seo")}
           </Menu.Item>
         </Menu.Dropdown>
       </Menu>
@@ -83,7 +84,7 @@ export default function Nav() {
         }`}
         href="/nos-realisations"
       >
-        {intl.formatMessage({ id: "nav.portfolio" })}
+        {t("nav_portfolio")}
       </Link>
       <Link
         className={`menu-item ${
@@ -91,7 +92,7 @@ export default function Nav() {
         }`}
         href="/blogue"
       >
-        {intl.formatMessage({ id: "nav.blog" })}
+        {t("nav_blog")}
       </Link>
       <Link
         className={`menu-item ${
@@ -99,7 +100,7 @@ export default function Nav() {
         }`}
         href="/contact"
       >
-        {intl.formatMessage({ id: "nav.contact" })}
+        {t("nav_contact")}
       </Link>
       <Link
         className={`menu-item ${
@@ -107,7 +108,7 @@ export default function Nav() {
         }`}
         href="/faq"
       >
-        {intl.formatMessage({ id: "nav.faq" })}
+        {t("nav_faq")}
       </Link>
       <a
         target="_blank"

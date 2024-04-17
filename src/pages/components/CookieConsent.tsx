@@ -1,9 +1,9 @@
 import React from "react";
 import { hasCookie, setCookie } from "cookies-next";
-import { FormattedMessage } from "react-intl";
+import { useTranslations } from "next-intl";
 const CookieConsent = () => {
   const [showConsent, setShowConsent] = React.useState(true);
-
+  const t = useTranslations();
   React.useEffect(() => {
     setShowConsent(hasCookie("localConsent-viacom"));
   }, []);
@@ -21,15 +21,16 @@ const CookieConsent = () => {
     
     <div className="z-[1000] flex-col gap-y-6 md:flex-row fixed bottom-0 left-0 right-0 flex items-start md:items-center justify-between px-4 py-8 bg-gray-100 border border-gray-300">
       <span className="text-dark text-base mr-16">
-        <b><FormattedMessage id="rgpd.title" /></b>
+        <b>{t('rgpd.title')}</b>
         <br />
-        <FormattedMessage id="rgpd.text" />
+        {t('rgpd.text')}
       </span>
       <button
         className="bg-primary py-2 px-8 rounded text-white"
         onClick={() => acceptCookie()}
       >
-      <FormattedMessage id="btn.accept" />
+        {t('btn.accept')}
+
       </button>
     </div>
   );

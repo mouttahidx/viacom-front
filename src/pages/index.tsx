@@ -1,31 +1,30 @@
-import { Button, Divider } from "@mantine/core";
-import Image from "next/image";
-import { FormattedMessage, useIntl } from "react-intl";
-import IconsList from "./components/homeComponents/IconsList";
 import { CheckIcon } from "@heroicons/react/16/solid";
-import Testimonials from "./components/homeComponents/Testimonials";
-import Link from "next/link";
+import { Button, Divider } from "@mantine/core";
 import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
+import IconsList from "./components/homeComponents/IconsList";
+import Testimonials from "./components/homeComponents/Testimonials";
+import { GetStaticPropsContext } from "next"; 
+import { useTranslations } from "next-intl";
 
 /* tslint:disable:no-unused-variable */
 export default function Home() {
-  const intl = useIntl();
+  const t = useTranslations();
 
   return (
     <div>
       <Head>
         <meta
           name="description"
-          content={`${intl.formatMessage({
-            id: "nav.home",
-          })} - ${intl.formatMessage({ id: "meta.description" })}`}
+          content={`${t("nav_home")} - ${t("meta_description")}`}
         />
-        <title>{`${intl.formatMessage({ id: "nav.home" })}`}</title>
+        <title>{`${t("nav_home")}`}</title>
       </Head>
       {/* // hero section */}
       <section className="w-full py-28 text-white h-[780px] lg:h-[781px] relative">
         <Image
-          alt="Robot"
+          alt="Robot("
           src={`/img/hero-home.webp`}
           blurDataURL="/img/hero-home.webp"
           placeholder="blur"
@@ -40,11 +39,11 @@ export default function Home() {
         <div className="absolute bg-dark-secondary left-0 bottom-0 right-0 top-0 bg-opacity-30 z-0"></div>
         <div className="z-10 absolute top-[16%] lg:top-[35%] max-w-6xl mx-auto  left-0 right-0 px-3">
           <h1 className="text-4xl w-full lg:w-1/2">
-            {intl.formatMessage({ id: "home.hero.title" })}
+            {t("home_hero_title")}
           </h1>
           <Divider size="lg" className="w-[50px] my-10" />
           <h2 className="text-3xl w-full lg:w-1/2">
-            {intl.formatMessage({ id: "home.hero.subtitle" })}
+            {t("home_hero_subtitle")}
           </h2>
           <div className="mt-10 flex flex-wrap gap-y-6">
             <Button
@@ -54,7 +53,7 @@ export default function Home() {
               href={"/contact"}
             >
               {" "}
-              {intl.formatMessage({ id: "btn.info" })}
+              {t("btn_info")}
             </Button>
             <Button
               component={Link}
@@ -63,7 +62,7 @@ export default function Home() {
               color="white"
               className=""
             >
-              {intl.formatMessage({ id: "btn.services" })}
+              {t("btn_services")}
             </Button>
           </div>
         </div>
@@ -71,14 +70,14 @@ export default function Home() {
 
       {/* // 1st section */}
       <section className="w-full mx-auto max-w-6xl p-4 bottom-arrow relative">
-        <div className=" lg:-mt-14  bg-primary px-8 lg:px-16 py-16 lg:pb-8 lg:pt-12 rounded-xl flex flex-col lg:flex-row justify-center lg:justify-start items-center text-center lg:text-left">
+        <div className=" lg:-mt-14  bg-primary px-8 lg:px-16 py-16 lg:pb-8 lg:pt-12 rounded-xl flex flex-col lg:flex-row justify-center lg:justify-start items-center text-center lg:text-left(">
           {/* first div */}
           <div className="lg:w-8/12 ">
             <h2 className="second-title text-white ">
-              {intl.formatMessage({ id: "home.1.title" })}
+              {t("home_1_title")}
             </h2>
             <p className="mt-4 body-text !text-white">
-              {intl.formatMessage({ id: "home.1.subtitle" })}
+              {t("home_1_subtitle")}
             </p>
           </div>
           {/* cta */}
@@ -90,7 +89,7 @@ export default function Home() {
               color="white"
               className=""
             >
-              {intl.formatMessage({ id: "btn.services" })}
+              {t("btn_services")}
             </Button>
             <Button
               variant="filled"
@@ -99,7 +98,7 @@ export default function Home() {
               className="!bg-white !text-black hover:!bg-opacity-90 "
             >
               {" "}
-              {intl.formatMessage({ id: "btn.contact" })}
+              {t("btn_contact")}
             </Button>
           </div>
         </div>
@@ -109,26 +108,26 @@ export default function Home() {
       <section className="w-full flex flex-wrap lg:flex-nowrap mt-40 gap-y-24">
         {/* first div */}
         <div className="w-full px-4 xl:pl-24 lg:pr-10 lg:w-6/12">
-          <p className="body-text">
-            <FormattedMessage id="home.2.discover" />
+          <p className="body-text(">
+            {t("home_2_discover")}
             <span className="text-primary font-bold">VIA Communication</span>,
-            <FormattedMessage id="home.2.text" />
+            {t("home_2_text")}
             <b>
               &nbsp;
-              <FormattedMessage id="home.2.2.b" />
+              {t("home_2_2_b")}
             </b>
             <br />
             <br />
-            <FormattedMessage id="home.2.3" />
+            {t("home_2_3")}
             <br />
             <br />
-            <FormattedMessage id="home.2.4" />
+            {t("home_2_4")}
             <br />
             <br />
-            <FormattedMessage id="home.2.5" />
+            {t("home_2_5")}
             <b>
               &nbsp;
-              <FormattedMessage id="home.2.5b" />
+              {t("home_2_5b")}
             </b>
           </p>
           <Button
@@ -137,7 +136,7 @@ export default function Home() {
             variant="filled"
             className="!bg-primary hover:!bg-opacity-90 mt-10 !w-full md:!w-6/12"
           >
-            <FormattedMessage id="btn.contact" />
+            {t("btn_contact")}
           </Button>
         </div>
         <Image
@@ -155,10 +154,10 @@ export default function Home() {
         <div className="text-center flex flex-col items-center">
           <h2 className="section-title">
             {" "}
-            <FormattedMessage id="home.3.title" />
+            {t("home_3_title")}
           </h2>
-          <p className="body-text">
-            <FormattedMessage id="home.3.subtitle" />
+          <p className="body-text(">
+            {t("home_3_subtitle")}
           </p>
         </div>
 
@@ -183,19 +182,19 @@ export default function Home() {
         {/* first square */}
         <div className="w-full px-4 py-16 lg:py-20 lg:px-14 bg-secondary flex flex-col gap-y-8">
           <h2 className="second-title !text-3xl text-white">
-            <FormattedMessage id="home.4.1.title" />
+            {t("home_4_1_title")}
 
             <span className="text-primary">
-              <FormattedMessage id="home.4.1.title.tag" />
+              {t("home_4_1_title_tag")}
             </span>
           </h2>
           <p className="body-text !text-white">
             <span className="text-primary">O</span>{" "}
-            <FormattedMessage id="home.4.1.1" />
+            {t("home_4_1_1")}
           </p>
           <p className="body-text !text-white">
             <span className="text-primary">O</span>{" "}
-            <FormattedMessage id="home.4.1.2" />
+            {t("home_4_1_2")}
           </p>
           <Button
             component={Link}
@@ -203,51 +202,51 @@ export default function Home() {
             variant="filled"
             className="!bg-primary hover:!bg-opacity-90 mt-10 !w-full md:!w-6/12 mx-auto"
           >
-            <FormattedMessage id="btn.contact" />
+            {t("btn_contact")}
           </Button>
         </div>
 
         {/* second square */}
         <div className="w-full px-4 py-16 lg:py-20 lg:px-14 bg-primary flex flex-col gap-y-8">
           <h2 className="second-title !text-3xl !text-white">
-            <FormattedMessage id="home.4.2.title" />
+            {t("home_4_2_title")}
 
             <span className="text-secondary">
-              <FormattedMessage id="home.4.2.title.tag" />
+              {t("home_4_2_title_tag")}
             </span>
           </h2>
           <h3 className="second-title !text-white">
-            <FormattedMessage id="home.4.2.subtitle" />
+            {t("home_4_2_subtitle")}
           </h3>
           <div className="grid grid-cols-1 gap-y-6">
             <div className="text-white flex items-center gap-x-1">
               <CheckIcon className="w-8 h-8 fill-white" />
               <span className="text-xl">
-                <FormattedMessage id="home.4.2.1" />
+                {t("home_4_2_1")}
               </span>
             </div>
             <div className="text-white flex items-center gap-x-1">
               <CheckIcon className="w-8 h-8 fill-white" />
               <span className="text-xl">
-                <FormattedMessage id="home.4.2.2" />
+                {t("home_4_2_2")}
               </span>
             </div>
             <div className="text-white flex items-center gap-x-1">
               <CheckIcon className="w-8 h-8 fill-white" />
               <span className="text-xl">
-                <FormattedMessage id="home.4.2.3" />
+                {t("home_4_2_3")}
               </span>
             </div>
             <div className="text-white flex items-center gap-x-1">
               <CheckIcon className="w-8 h-8 fill-white" />
               <span className="text-xl">
-                <FormattedMessage id="home.4.2.4" />
+                {t("home_4_2_4")}
               </span>
             </div>
             <div className="text-white flex items-center gap-x-1">
               <CheckIcon className="w-8 h-8 fill-white" />
               <span className="text-xl">
-                <FormattedMessage id="home.4.2.5" />
+                {t("home_4_2_5")}
               </span>
             </div>
           </div>
@@ -259,10 +258,10 @@ export default function Home() {
         {/* title subtitle */}
         <div className="text-center flex flex-col items-center">
           <h2 className="section-title mb-4">
-            <FormattedMessage id="home.5.title" />
+            {t("home_5_title")}
           </h2>
           <p className="body-text max-w-5xl">
-            <FormattedMessage id="home.5.subtitle" />
+            {t("home_5_subtitle")}
           </p>
         </div>
 
@@ -279,22 +278,22 @@ export default function Home() {
               />
               <div className="flex flex-col gap-y-3">
                 <h3 className="list-title font-medium">
-                  <FormattedMessage id="home.5.1.1" />
+                  {t("home_5_1_1")}
                 </h3>
-                <p className="body-text">
-                  <FormattedMessage id="home.5.1.2" />
+                <p className="body-text(">
+                  {t("home_5_1_2")}
 
                   <br />
                   <br />
-                  <FormattedMessage id="home.5.1.3" />
+                  {t("home_5_1_3")}
 
                   <br />
                   <br />
-                  <FormattedMessage id="home.5.1.4" />
+                  {t("home_5_1_4")}
 
                   <br />
                   <br />
-                  <FormattedMessage id="home.5.1.5" />
+                  {t("home_5_1_5")}
                 </p>
               </div>
             </div>
@@ -311,25 +310,25 @@ export default function Home() {
               />
               <div className="flex flex-col gap-y-3">
                 <h3 className="list-title font-medium">
-                  <FormattedMessage id="home.5.2.1" />
+                  {t("home_5_2_1")}
                 </h3>
-                <p className="body-text">
-                  <FormattedMessage id="home.5.2.2before" />
+                <p className="body-text(">
+                  {t("home_5_2_2before")}
                   <span className="text-primary font-medium">
-                    <FormattedMessage id="home.5.2.2tag" />
+                    {t("home_5_2_2tag")}
                   </span>{" "}
-                  <FormattedMessage id="home.5.2.2after" />
+                  {t("home_5_2_2after")}
                   <b>
                     {" "}
-                    <FormattedMessage id="home.5.2.2b" />
+                    {t("home_5_2_2b")}
                   </b>{" "}
-                  <FormattedMessage id="home.5.2.2after.b" />
+                  {t("home_5_2_2after_b")}"
                   <br />
                   <br />
-                  <FormattedMessage id="home.5.2.3" />
+                  {t("home_5_2_3")}
                   <br />
                   <br />
-                  <FormattedMessage id="home.5.2.4" />
+                  {t("home_5_2_4")}
                 </p>
               </div>
             </div>
@@ -346,17 +345,17 @@ export default function Home() {
           />
           <div className="flex flex-col gap-y-3">
             <h3 className="list-title font-medium">
-              <FormattedMessage id="home.5.3.1" />
+              {t("home_5_3_1")}
             </h3>
-            <p className="body-text">
-              <FormattedMessage id="home.5.3.2" />
+            <p className="body-text(">
+              {t("home_5_3_2")}
               <br />
               <br />
-              <FormattedMessage id="home.5.3.2before" />
+              {t("home_5_3_2before")}
               <b>
-                <FormattedMessage id="home.5.3.2b" />{" "}
+                {t("home_5_3_2b")}{" "}
               </b>
-              <FormattedMessage id="home.5.3.2after" />
+              {t("home_5_3_2after")}
             </p>
           </div>
         </div>
@@ -365,7 +364,7 @@ export default function Home() {
       {/* 6th */}
       <section className="w-full flex flex-col container max-w-6xl my-40 ">
         <h2 className="second-title text-center ">
-          <FormattedMessage id="home.6.title" />
+          {t("home_6_title")}
         </h2>
         <div className="w-[50px] bg-primary h-1 mx-auto mt-1 mb-16"></div>
 
@@ -373,36 +372,36 @@ export default function Home() {
         <div className="bg-savoir-bg bg-cover bg-no-repeat bg-center">
           <div className="w-full pt-3 px-4 pb-10 text-center text-white bg-black bg-opacity-70">
             <h3 className="second-title">
-              <FormattedMessage id="home.6.1.title" />
+              {t("home_6_1_title")}
             </h3>
             <div className="w-[50px] bg-white h-1 mx-auto mt-1 mb-10"></div>
 
             <p className="body-text !text-white">
-              <FormattedMessage id="home.6.1.1" />
+              {t("home_6_1_1")}
 
               <br />
               <br />
-              <FormattedMessage id="home.6.1.2before" />
-
-              <span className="text-primary">
-                <FormattedMessage id="home.6.1.2tag" />
-              </span>
-              <FormattedMessage id="home.6.1.2after" />
-
-              <br />
-              <br />
-              <FormattedMessage id="home.6.1.3" />
-
-              <br />
-              <br />
-              <FormattedMessage id="home.6.1.4before" />
+              {t("home_6_1_2before")}
 
               <span className="text-primary">
-                <FormattedMessage id="home.6.1.4tag" />
+                {t("home_6_1_2tag")}
+              </span>
+              {t("home_6_1_2after")}
+
+              <br />
+              <br />
+              {t("home_6_1_3")}
+
+              <br />
+              <br />
+              {t("home_6_1_4before")}
+
+              <span className="text-primary">
+                {t("home_6_1_4tag")}
               </span>
               <br />
               <br />
-              <FormattedMessage id="home.6.1.5" />
+              {t("home_6_1_5")}
             </p>
           </div>
         </div>
@@ -413,31 +412,31 @@ export default function Home() {
           <div className="bg-approche-bg bg-cover bg-no-repeat bg-center">
             <div className="w-full pt-3 px-4 pb-10 text-center text-white bg-black bg-opacity-70">
               <h3 className="second-title">
-                <FormattedMessage id="home.6.2.title" />
+                {t("home_6_2_title")}
               </h3>
               <div className="w-[50px] bg-white h-1 mx-auto mt-1 mb-10"></div>
 
               <p className="body-text !text-white">
-                <FormattedMessage id="home.6.2.1before" />
+                {t("home_6_2_1before")}
 
                 <span className="text-primary">
-                  <FormattedMessage id="home.6.2.1tag" />
+                  {t("home_6_2_1tag")}
                 </span>
-                <FormattedMessage id="home.6.2.1after" />
+                {t("home_6_2_1after")}
                 <br />
                 <br />
-                <FormattedMessage id="home.6.2.2" />
+                {t("home_6_2_2")}
 
                 <br />
                 <br />
-                <FormattedMessage id="home.6.2.3" />
+                {t("home_6_2_3")}
 
                 <br />
                 <br />
-                <FormattedMessage id="home.6.2.4before" />
+                {t("home_6_2_4before")}
 
                 <span className="text-primary">
-                  <FormattedMessage id="home.6.2.4tag" />
+                  {t("home_6_2_4tag")}
                 </span>
               </p>
             </div>
@@ -447,31 +446,31 @@ export default function Home() {
           <div className="bg-faire-bg bg-cover bg-no-repeat bg-center">
             <div className="w-full pt-3 px-4 pb-10 text-center text-white bg-black bg-opacity-70">
               <h3 className="second-title">
-                <FormattedMessage id="home.6.3.title" />
+                {t("home_6_3_title")}
               </h3>
               <div className="w-[50px] bg-white h-1 mx-auto mt-1 mb-10"></div>
 
               <p className="body-text !text-white">
-                <FormattedMessage id="home.6.3.1" />
+                {t("home_6_3_1")}
 
                 <br />
                 <br />
-                <FormattedMessage id="home.6.3.2before" />
+                {t("home_6_3_2before")}
 
                 <span className="text-primary">
-                  <FormattedMessage id="home.6.3.2tag" />
+                  {t("home_6_3_2tag")}
                 </span>
 
                 <br />
                 <br />
-                <FormattedMessage id="home.6.3.3" />
+                {t("home_6_3_3")}
 
                 <br />
                 <br />
-                <FormattedMessage id="home.6.3.4before" />
+                {t("home_6_3_4before")}
 
                 <span className="text-primary">
-                  <FormattedMessage id="home.6.3.4tag" />
+                  {t("home_6_3_4tag")}
                 </span>
               </p>
             </div>
@@ -482,25 +481,25 @@ export default function Home() {
         <div className="bg-website-bg bg-cover bg-no-repeat bg-center mt-8">
           <div className="w-full pt-3 px-4 pb-10 text-center text-white bg-black bg-opacity-70">
             <h3 className="second-title">
-              <FormattedMessage id="home.6.4.title" />
+              {t("home_6_4_title")}
             </h3>
             <div className="w-[50px] bg-white h-1 mx-auto mt-1 mb-10"></div>
 
             <p className="body-text !text-white">
-              <FormattedMessage id="home.6.4.1" />
+              {t("home_6_4_1")}
 
               <br />
               <br />
-              <FormattedMessage id="home.6.4.2" />
+              {t("home_6_4_2")}
 
               <br />
               <br />
-              <FormattedMessage id="home.6.4.3before" />
+              {t("home_6_4_3before")}
 
               <span className="text-primary">
-                <FormattedMessage id="home.6.4.3tag" />
+                {t("home_6_4_3tag")}
               </span>
-              <FormattedMessage id="home.6.4.3after" />
+              {t("home_6_4_3after")}
             </p>
           </div>
         </div>
@@ -509,34 +508,34 @@ export default function Home() {
         <div className="bg-optimization-seo-bg bg-cover bg-no-repeat bg-center mt-8">
           <div className="w-full pt-3 px-4 pb-10 text-center text-white bg-black bg-opacity-70">
             <h3 className="second-title">
-              <FormattedMessage id="home.6.5.title" />
+              {t("home_6_5_title")}
             </h3>
             <div className="w-[50px] bg-white h-1 mx-auto mt-1 mb-10"></div>
 
             <p className="body-text !text-white">
-              <FormattedMessage id="home.6.5.1" />
+              {t("home_6_5_1")}
               <br />
               <br />
-              <FormattedMessage id="home.6.5.2before1" />
+              {t("home_6_5_2before1")}
               <span className="text-primary">
-                <FormattedMessage id="home.6.5.2tag1" />
+                {t("home_6_5_2tag1")}
               </span>{" "}
-              <FormattedMessage id="home.6.5.2after1" />
+              {t("home_6_5_2after1")}
               <span className="text-primary">
                 {" "}
-                <FormattedMessage id="home.6.5.2tag2" />
+                {t("home_6_5_2tag2")}
               </span>
-              <FormattedMessage id="home.6.5.2after2" />
+              {t("home_6_5_2after2")}
               <br />
               <br />
-              <FormattedMessage id="home.6.5.3before" />
+              {t("home_6_5_3before")}
               <span className="text-primary">
-                <FormattedMessage id="home.6.5.3tag" />
+                {t("home_6_5_3tag")}
               </span>{" "}
-              <FormattedMessage id="home.6.5.3after" />
+              {t("home_6_5_3after")}
               <br />
               <br />
-              <FormattedMessage id="home.6.5.4" />
+              {t("home_6_5_4")}
             </p>
           </div>
         </div>
@@ -545,17 +544,17 @@ export default function Home() {
       {/* 7th section */}
       <section className="w-full bg-secondary text-white text-center px-3 py-20 flex flex-col mt-40 ">
         <h2 className="text-white text-3xl">
-          <FormattedMessage id="home.7.title" />
+          {t("home_7_title")}
         </h2>
         <p className="body-text !text-white mt-12 max-w-6xl mx-auto">
-          <FormattedMessage id="home.7.1before" />
+          {t("home_7_1before")}
           <span className="text-primary">
-            <FormattedMessage id="home.7.1tag" />
+            {t("home_7_1tag")}
           </span>
           <br />
-          <br /> <FormattedMessage id="home.7.2" />
+          <br /> {t("home_7_2")}
           <br />
-          <br /> <FormattedMessage id="home.7.3" />
+          <br /> {t("home_7_3")}
         </p>
       </section>
 
@@ -567,10 +566,10 @@ export default function Home() {
       {/* 9th section */}
       <section className="w-full bg-white text-white text-center pb-10 flex flex-col mb-20 px-4 max-w-6xl mx-auto ">
         <h4 className="text-secondary uppercase text-2xl font-bold mb-4">
-          <FormattedMessage id="home.8.title" />
+          {t("home_8_title")}
         </h4>
         <h2 className="text-black text-lg">
-          <FormattedMessage id="home.8.1" />
+          {t("home_8_1")}
         </h2>
         <div className="grid mt-16 w-full justify-items-center gap-x-6 gap-y-16 lg:gap-8 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
           <Image
@@ -648,14 +647,14 @@ export default function Home() {
 
       {/* CTA */}
       <section className="w-full mx-auto max-w-7xl p-4 ">
-        <div className=" bg-white px-8 lg:px-12 py-16 lg:pb-8 lg:pt-12 rounded-xl flex flex-col lg:flex-row justify-center lg:justify-start items-center lg:items-start text-center lg:text-left">
+        <div className=" bg-white px-8 lg:px-12 py-16 lg:pb-8 lg:pt-12 rounded-xl flex flex-col lg:flex-row justify-center lg:justify-start items-center lg:items-start text-center lg:text-left(">
           {/* first div */}
           <div className="lg:w-9/12 ">
             <h2 className="second-title text-primary font-bold">
-              <FormattedMessage id="cta1.title" />
+              {t("cta1_title")}
             </h2>
             <p className="mt-4 body-text !text-black">
-              <FormattedMessage id="cta1.subtitle" />
+              {t("cta1_subtitle")}
             </p>
           </div>
           {/* cta */}
@@ -668,11 +667,18 @@ export default function Home() {
               className="!block !w-full"
               size="md"
             >
-              <FormattedMessage id="btn.contact" />
+              {t("btn_contact")}
             </Button>
           </div>
         </div>
       </section>
     </div>
   );
+}
+export async function getStaticProps({locale}: GetStaticPropsContext) {
+  return {
+    props: {
+      messages: (await import(`../../messages/${locale}.json`)).default
+    }
+  };
 }

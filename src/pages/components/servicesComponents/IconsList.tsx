@@ -1,9 +1,10 @@
+import { GetStaticPropsContext } from "next";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import React from "react";
-import { useIntl } from "react-intl";
 
 export default function IconsList() {
-  const intl = useIntl();
+  const t = useTranslations();
   return (
     <div className="flex flex-col gap-y-10">
       <div className="flex gap-x-4 ">
@@ -16,10 +17,10 @@ export default function IconsList() {
         />
         <div className="flex flex-col gap-y-3">
           <h3 className="list-title">
-            {intl.formatMessage({ id: "services.1.1.title" })}
+            {t("services_1_1_title")}
           </h3>
           <p className="text-sm">
-            {intl.formatMessage({ id: "services.1.1.text" })}
+            {t("services_1_1_text")}
           </p>
         </div>
       </div>
@@ -33,10 +34,10 @@ export default function IconsList() {
         />
         <div className="flex flex-col gap-y-3">
           <h3 className="list-title">
-            {intl.formatMessage({ id: "services.1.2.title" })}
+            {t("services_1_2_title")}
           </h3>
           <p className="text-sm">
-            {intl.formatMessage({ id: "services.1.2.text" })}
+            {t("services_1_2_text")}
           </p>
         </div>
       </div>
@@ -50,10 +51,10 @@ export default function IconsList() {
         />
         <div className="flex flex-col gap-y-3">
           <h3 className="list-title">
-            {intl.formatMessage({ id: "services.1.3.title" })}
+            {t("services_1_3_title")}
           </h3>
           <p className="text-sm">
-            {intl.formatMessage({ id: "services.1.3.text" })}
+            {t("services_1_3_text")}
           </p>
         </div>
       </div>
@@ -67,10 +68,10 @@ export default function IconsList() {
         />
         <div className="flex flex-col gap-y-3">
           <h3 className="list-title">
-            {intl.formatMessage({ id: "services.1.4.title" })}
+            {t("services_1_4_title")}
           </h3>
           <p className="text-sm">
-            {intl.formatMessage({ id: "services.1.4.text" })}
+            {t("services_1_4_text")}
           </p>
         </div>
       </div>

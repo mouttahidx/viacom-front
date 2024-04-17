@@ -1,8 +1,10 @@
+import { useTranslations } from "next-intl";
 import Head from "next/head";
 import Link from "next/link";
-import { FormattedMessage } from "react-intl";
 
 export default function NotFound() {
+  const t = useTranslations();
+
   return (
     <div>
       <Head>
@@ -15,10 +17,10 @@ export default function NotFound() {
       </div>
       <div className="!my-24 text-center">
         <h2 className="mb-10 text-primary text-xl">
-          <FormattedMessage id="404.title" />
+          {t("404.title")}
         </h2>
         <Link href="/" className="underline" rel="canonical">
-          <FormattedMessage id="404.btn" />
+          {t("404.btn")}
         </Link>
       </div>
     </div>

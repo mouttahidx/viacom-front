@@ -1,8 +1,10 @@
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import React from "react";
-import { FormattedMessage } from "react-intl";
 
 export default function IconsList() {
+  const t = useTranslations();
+
   return (
     <div className="flex flex-col gap-y-10">
       <div className="flex gap-x-4 ">
@@ -15,10 +17,10 @@ export default function IconsList() {
         />
         <div className="flex flex-col gap-y-3">
           <h3 className="list-title">
-            <FormattedMessage id="home.3.1.title" />
+            {t("home_3_1_title")}
           </h3>
           <p className="body-text">
-            <FormattedMessage id="home.3.1.subtitle" />
+            {t("home_3_1_subtitle")}
           </p>
         </div>
       </div>
@@ -32,10 +34,10 @@ export default function IconsList() {
         />
         <div className="flex flex-col gap-y-3">
           <h3 className="list-title">
-            <FormattedMessage id="home.3.2.title" />
+            {t("home_3_2_title")}
           </h3>
           <p className="body-text">
-            <FormattedMessage id="home.3.2.subtitle" />
+            {t("home_3_2_subtitle")}
           </p>
         </div>
       </div>
@@ -49,10 +51,10 @@ export default function IconsList() {
         />
         <div className="flex flex-col gap-y-3">
           <h3 className="list-title">
-            <FormattedMessage id="home.3.3.title" />
+            {t("home_3_3_title")}
           </h3>
           <p className="body-text">
-            <FormattedMessage id="home.3.3.subtitle" />
+            {t("home_3_3_subtitle")}
           </p>
         </div>
       </div>
@@ -66,10 +68,10 @@ export default function IconsList() {
         />
         <div className="flex flex-col gap-y-3">
           <h3 className="list-title">
-            <FormattedMessage id="home.3.4.title" />
+            {t("home_3_4_title")}
           </h3>
           <p className="body-text">
-            <FormattedMessage id="home.3.4.subtitle" />
+            {t("home_3_4_subtitle")}
           </p>
         </div>
       </div>

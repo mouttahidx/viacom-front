@@ -1,11 +1,11 @@
-import { MapIcon, MapPinIcon } from "@heroicons/react/16/solid";
+import { MapPinIcon } from "@heroicons/react/16/solid";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { useIntl } from "react-intl";
 
 export default function Footer() {
-  const intl = useIntl();
+  const t = useTranslations();
 
   return (
     <footer className="w-full bg-secondary">
@@ -27,23 +27,21 @@ export default function Footer() {
           <div className="">
             <h3 className="text-white font-medium">
               {" "}
-              {intl.formatMessage({ id: "footer.contactus" })}
+              {t("footer_contactus")}
             </h3>
             <p className="text-white mt-2">Québec: 418-825-2323</p>
           </div>
 
           <div className=" flex flex-col gap-y-10">
             <p className="text-white mt-2">
-              {intl.formatMessage({ id: "email" })}:{" "}
-              <a href="mailto:info@viacommunication.com">
+              {t("email")}:{" "}             <a href="mailto:info@viacommunication.com">
                 info@viacommunication.com
               </a>
             </p>
 
             <div className="">
               <h3 className="text-white font-medium">
-                {intl.formatMessage({ id: "address" })}:{" "}
-              </h3>
+                {t("address")}:{" "}             </h3>
               <p className="text-white mt-2">
                 1020, rue Bouvier, suite 400, Québec, QC G2K 0H3
               </p>
@@ -56,7 +54,7 @@ export default function Footer() {
                 href="https://www.google.com/maps/place/1020+Rue+Bouvier+%23400,+Qu%C3%A9bec,+QC+G2K+0H3,+Canada/@46.8308746,-71.2852567,17z/data=!3m1!4b1!4m5!3m4!1s0x4cb897c0ce7524e7:0x88a7c7e893518194!8m2!3d46.8308746!4d-71.283068"
                 className="text-white"
               >
-                {intl.formatMessage({ id: "footer.open.map" })}
+                {t("footer_open_map")}
               </a>
             </div>
           </div>
@@ -80,19 +78,18 @@ export default function Footer() {
 
           <div className=" flex flex-col gap-y-6">
             <p className="text-white font-medium">
-            {intl.formatMessage({ id: "footer.responsable" })}
+            {t("footer_responsable")}
             </p>
             <p className="text-white mt-2 font-semibold">Francois Beaudry</p>
             {/* <p className="text-white mt-2">
-            {intl.formatMessage({ id: "email" })}:{" "}
-              <a href="mailto:info@viacommunication.com">
+            {t("email" })}:{" "}             <a href="mailto:info@viacommunication.com">
                 info@viacommunication.com
               </a>
             </p>
             <p className="text-white mt-2">Québec: 418-825-2323</p> */}
             <p className="text-white mt-2">
               <Link href={"/politiques-de-confidentialite"}>
-            {intl.formatMessage({ id: "footer.policies" })}
+            {t("footer_policies") }
                 
               </Link>
             </p>
@@ -103,14 +100,14 @@ export default function Footer() {
         <div className="w-full text-gray-400 text-sm flex flex-col-reverse lg:flex-row justify-between lg:sitems-center">
           <div>
             <p>
-            {intl.formatMessage({ id: "footer.copyright" })}
+            {t("footer_copyright")}
               <b className="text-white">VIA Communication </b>
               {new Date().getFullYear()}.
             </p>
           </div>
           <div className="flex gap-x-2 items-center mb-8 lg:mb-0">
             <span>
-            {intl.formatMessage({ id: "footer.followus" })}
+            {t("footer_followus") }
               
             </span>
             <a href="https://www.facebook.com/VIACommunication/" className="" target="_blank">

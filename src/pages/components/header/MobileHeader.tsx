@@ -7,19 +7,19 @@ import { XMarkIcon } from "@heroicons/react/16/solid";
 import FreeQuote from "./FreeQuote";
 import { useRouter } from "next/router";
 import Flag from "./Flag";
-import { useIntl } from "react-intl";
+import { useTranslations } from "next-intl";
 
 export default function MobileHeader() {
   type locales = Array<string>;
   const router = useRouter();
   const [opened, { open, close }] = useDisclosure(false);
   const { locales, locale } = useRouter();
+  const t = useTranslations();
 
   useEffect(() => {
     close();
   }, [router]);
 
-  const intl = useIntl();
 
   return (
     <div>
@@ -91,7 +91,7 @@ export default function MobileHeader() {
             <Accordion.Item key="web" value={"web"}>
               <Accordion.Control>
                 <Link href="/services">
-                  {intl.formatMessage({ id: "nav.services" })}
+                  {t("nav.services")}
                 </Link>
               </Accordion.Control>
               <Accordion.Panel>
@@ -100,25 +100,25 @@ export default function MobileHeader() {
                     href={"/services/agence-facebook-ads"}
                     className="border-b pb-2 w-full"
                   >
-                    {intl.formatMessage({ id: "nav.fb" })}
+                    {t("nav.fb")}
                   </Link>
                   <Link
                     href={"/services/agence-google-ads"}
                     className="border-b py-2 w-full"
                   >
-                    {intl.formatMessage({ id: "nav.google" })}
+                    {t("nav.google")}
                   </Link>
                   <Link
                     href={"/services/agence-marketing-digital"}
                     className="border-b py-2 w-full"
                   >
-                    {intl.formatMessage({ id: "nav.marketing" })}
+                    {t("nav.marketing")}
                   </Link>
                   <Link
                     href={"/services/agence-seo"}
                     className="border-b py-2 w-full"
                   >
-                    {intl.formatMessage({ id: "nav.seo" })}
+                    {t("nav.seo")}
                   </Link>
                 </div>
               </Accordion.Panel>
@@ -128,16 +128,16 @@ export default function MobileHeader() {
             href={"/nos-realisations"}
             className="border-b py-2 pl-4 w-full"
           >
-            {intl.formatMessage({ id: "nav.portfolio" })}
+            {t("nav.portfolio")}
           </Link>
           <Link href={"/blogue"} className="border-b py-2 pl-4 w-full">
-            {intl.formatMessage({ id: "nav.blog" })}
+            {t("nav.blog")}
           </Link>
           <Link href={"/contact"} className="border-b py-2 pl-4 w-full">
-            {intl.formatMessage({ id: "nav.contact" })}
+            {t("nav.contact")}
           </Link>
           <Link href={"/faq"} className="border-b py-2 pl-4 w-full">
-            {intl.formatMessage({ id: "nav.faq" })}
+            {t("nav.faq")}
           </Link>
           <a
             target="_blank"
