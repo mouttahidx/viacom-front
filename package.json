@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "NODE_ENV=production next build",
-    "start": "next start",
+    "start": "NODE_ENV=production node server.js",
     "lint": "next lint"
   },
   "dependencies": {
@@ -31,7 +31,8 @@
     "react-dom": "^18",
     "react-google-recaptcha": "^3.1.0",
     "react-paginate": "^8.2.0",
-    "react-toastify": "^10.0.5"
+    "react-toastify": "^10.0.5",
+    "sharp": "^0.33.3"
   },
   "devDependencies": {
     "@types/node": "^20",
