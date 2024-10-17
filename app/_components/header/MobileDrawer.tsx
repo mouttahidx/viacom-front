@@ -4,12 +4,13 @@ import { Link, useRouter } from "@/navigation";
 import { XMarkIcon } from "@heroicons/react/16/solid";
 import { Accordion, Drawer } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
+import { useLocale } from "next-intl";
 import { usePathname } from "next/navigation";
 import React, { useEffect } from "react";
 
 export default function MobileDrawer({ translations }: any) {
   const [opened, { open, close }] = useDisclosure(false);
-
+  const locale = useLocale()
   const pathname = usePathname();
 
   useEffect(() => {
@@ -108,7 +109,7 @@ export default function MobileDrawer({ translations }: any) {
           </div>
           <a
             target="_blank"
-            href={"https://soutien.viacommunication.com/"}
+            href={locale === "fr" ? "https://soutien.viacommunication.com/":"https://support.viacommunication.com/"}
             className="border-b py-2 pl-4 w-full"
           >
             Support

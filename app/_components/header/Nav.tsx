@@ -1,6 +1,6 @@
 
 import { Button, Menu } from "@mantine/core";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/navigation";
 import React from "react";
 import { usePathname } from "next/navigation";
@@ -9,7 +9,7 @@ import DropDownServices from "./DropDownServices";
 
 export default function Nav() {
   const t = useTranslations();
-  
+  const locale = useLocale();
   const translations = {
     'nav_fb':t('nav_fb'),
     'nav_google':t('nav_google'),
@@ -32,10 +32,9 @@ export default function Nav() {
       <NavigationLink href="/contact">{t("nav_contact")}</NavigationLink>
       <NavigationLink href="/faq">{t("nav_faq")}</NavigationLink>
       <a
-        target="_blank"
-        className="menu-item"
-        href="https://soutien.viacommunication.com/"
-      >
+            target="_blank"
+            href={locale === "fr" ? "https://soutien.viacommunication.com/":"https://support.viacommunication.com/"}
+          >
         Support
       </a>
     </nav>
