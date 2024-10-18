@@ -336,6 +336,6 @@ export const showcase = [
   },
   {
     link: "https://progim.com/fr/",
-    image: "16.JPG",
+    image: "progim.webp",
   },
 ];
