@@ -137,10 +137,7 @@ export const showcase = [
     link: "https://genialequipements.com/",
     image: "15.webp",
   },
-  {
-    link: "https://progim.com/fr/",
-    image: "16.webp",
-  },
+  
   {
     link: "https://ledetectiveduvin.com/",
     image: "17.jpg",
@@ -266,10 +263,6 @@ export const showcase = [
     image: "47.webp",
   },
   {
-    link: "https://www.suncomfortwi.com/",
-    image: "48.webp",
-  },
-  {
     link: "https://installationms.ca/",
     image: "49.webp",
   },
@@ -288,5 +281,61 @@ export const showcase = [
   {
     link: "https://thepatioscreenroom.com/",
     image: "53.webp",
+  },
+  {
+    link: "https://greybrucepatio.com/",
+    image: "grey.JPG",
+  },
+  {
+    link: "https://easternsunrooms.com/",
+    image: "eastern.JPG",
+  },
+  {
+    link: "https://mountainstateloghomes.com/",
+    image: "loghomes.JPG",
+  },
+  {
+    link: "https://sunspacebysunrisesunrooms.com/",
+    image: "sunrise.JPG",
+  },
+  {
+    link: "https://elitesunrooms.ca/",
+    image: "elite sunrooms.JPG",
+  },
+  {
+    link: "https://deckandshadesolutions.com/",
+    image: "shade.JPG",
+  },
+  {
+    link: "https://sunspacebyexpress.com/",
+    image: "express.JPG",
+  },
+  {
+    link: "https://powersgym.ca/",
+    image: "power.JPG",
+  },
+  {
+    link: "https://www.waysidesunrooms.com/",
+    image: "waysidesunrooms.webp",
+  },
+  {
+    link: "http://jerseyshoresunrooms.com/",
+    image: "sunspaceofthejerseyshore.webp",
+  },
+  {
+    link: "https://trenkleconstruction.com/",
+    image: "trenkleconstruction.webp",
+  },
+  {
+    link: "http://sunspacegta.ca/",
+    image: "sunspacegta.webp",
+  },
+  {
+    link: "https://industrieconstruction.com/",
+    image: "industrie.JPG",
+  },
+  {
+    link: "https://progim.com/fr/",
+    image: "16.JPG",
   },
 ];
