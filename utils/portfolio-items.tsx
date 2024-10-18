@@ -284,35 +284,35 @@ export const showcase = [
   },
   {
     link: "https://greybrucepatio.com/",
-    image: "grey.JPG",
+    image: "grey.webp",
   },
   {
     link: "https://easternsunrooms.com/",
-    image: "eastern.JPG",
+    image: "eastern.webp",
   },
   {
     link: "https://mountainstateloghomes.com/",
-    image: "loghomes.JPG",
+    image: "loghomes.webp",
   },
   {
     link: "https://sunspacebysunrisesunrooms.com/",
-    image: "sunrise.JPG",
+    image: "sunrise.webp",
   },
   {
     link: "https://elitesunrooms.ca/",
-    image: "elite sunrooms.JPG",
+    image: "elite sunrooms.webp",
   },
   {
     link: "https://deckandshadesolutions.com/",
-    image: "shade.JPG",
+    image: "shade.webp",
   },
   {
     link: "https://sunspacebyexpress.com/",
-    image: "express.JPG",
+    image: "express.webp",
   },
   {
     link: "https://powersgym.ca/",
-    image: "power.JPG",
+    image: "power.webp",
   },
   {
     link: "https://www.waysidesunrooms.com/",
@@ -332,7 +332,7 @@ export const showcase = [
   },
   {
     link: "https://industrieconstruction.com/",
-    image: "industrie.JPG",
+    image: "industrie.webp",
   },
   {
     link: "https://progim.com/fr/",
