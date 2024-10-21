@@ -320,7 +320,7 @@ export const showcase = [
   },
   {
     link: "http://jerseyshoresunrooms.com/",
-    image: "sunspaceofthejerseyshore.webp",
+    image: "jersey.webp",
   },
   {
     link: "https://trenkleconstruction.com/",
@@ -328,11 +328,11 @@ export const showcase = [
   },
   {
     link: "http://sunspacegta.ca/",
-    image: "sunspacegta.webp",
+    image: "gta.webp",
   },
   {
     link: "https://industrieconstruction.com/",
-    image: "industrie.webp",
+    image: "industri.webp",
   },
   {
     link: "https://progim.com/fr/",
