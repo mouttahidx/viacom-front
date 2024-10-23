@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import ButtonClient from "@/app/_components/ButtonClient";
 
 type Post = {
-  title:{
+  title:{ 
     
     fr: string;
     en: string;
