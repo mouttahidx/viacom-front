@@ -480,10 +480,10 @@ export default function Page({
 
       {/* 9th section */}
       <section className="w-full bg-white text-white text-center pb-10 flex flex-col mb-20 px-4 max-w-6xl mx-auto ">
-        <h4 className="text-secondary uppercase text-2xl font-bold mb-4">
+        <h2 className="text-secondary uppercase text-2xl font-bold mb-4">
           {t("home_8_title")}
-        </h4>
-        <h2 className="text-black text-lg">{t("home_8_1")}</h2>
+        </h2>
+        <h3 className="text-black text-lg">{t("home_8_1")}</h3>
         <div className="grid mt-16 w-full justify-items-center gap-x-6 gap-y-16 lg:gap-8 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
           <Image
             width={200}
