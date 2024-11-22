@@ -16,7 +16,7 @@ export default function PortflioSections({title1,title2}:{title1:string,title2:s
               href={item.link}
               target="_blank"
               rel="nofollow"
-              className="w-full min-h-[200px]"
+              className="w-full h-[200px]"
               key={item.image}
             >
               <Image
@@ -24,7 +24,7 @@ export default function PortflioSections({title1,title2}:{title1:string,title2:s
                 alt=""
                 width={350}
                 height={250}
-                className="bg-black hover:shadow cursor-pointer object-cover min-h-[230px] border rounded"
+                className="bg-black hover:shadow  hover:scale-105 duration-300 cursor-pointer object-contain aspect-square w-full h-full border rounded"
               />
             </a>
           ))}
@@ -42,7 +42,7 @@ export default function PortflioSections({title1,title2}:{title1:string,title2:s
               href={item.link}
               target="_blank"
               rel="nofollow"
-              className="w-full min-h-[200px]"
+              className="w-full h-[200px]"
               key={item.image}
             >
               <Image
@@ -50,7 +50,7 @@ export default function PortflioSections({title1,title2}:{title1:string,title2:s
                 alt=""
                 width={350}
                 height={250}
-                className="bg-black hover:shadow cursor-pointer object-cover min-h-[230px] border rounded"
+                className="bg-black hover:shadow hover:scale-105 duration-300 cursor-pointer object-contain aspect-square w-full h-full border rounded"
               />
             </a>
           ))}

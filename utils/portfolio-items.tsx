@@ -338,4 +338,19 @@ export const showcase = [
     link: "https://progim.com/fr/",
     image: "progim.webp",
   },
+  {
+    link: "https://jerryzister.com/ ",
+       image: "jerryzister.webp",
+   },
+   
+   {
+    link: "https://www.brlifestyles.ca/ ",
+       image: "brilifestyles.webp",
+   },
+   
+   {
+    link: "https://paltekpro.com/ ",
+       image: "paltekpro.webp",
+   },
+   
 ];
