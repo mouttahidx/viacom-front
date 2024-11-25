@@ -5,7 +5,7 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(request:NextRequest) {
   const transport = nodemailer.createTransport({
     pool: true,
-    host: "mail.viacommunication.com",
+    host: "mail.devvia.ca",
     port: 465,
     secure: true, // use TLS
     auth: {
@@ -359,7 +359,7 @@ export async function POST(request:NextRequest) {
               
                 <tr>
                   <td class="content-block powered-by">
-                    Carwebdistribution.ca</a>
+                    Viacommunication.com</a>
                   </td>
                 </tr>
               </table>
