@@ -151,10 +151,6 @@ export const showcase = [
     image: "19.webp",
   },
   {
-    link: "https://endettementsolution.ca/",
-    image: "20.webp",
-  },
-  {
     link: "https://www.rectoversoergo.ca/",
     image: "21.webp",
   },
