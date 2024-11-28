@@ -13,6 +13,7 @@ export async function generateMetadata() {
   return {
     title: t("nav_home"),
     description: `${t("nav_home")} - ${t("meta_description")}`,
+   
   };
 }
 

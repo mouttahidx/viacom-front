@@ -39,6 +39,7 @@ export default function LocaleLayout({
   return (
     <html lang={locale}>
       <head>
+      <meta name="google-site-verification" content="FD-gdKgAlNtkC7aayVG0w9EbqpeWG-k7h4jwnnbYuT4" />
         <ColorSchemeScript />
       </head>
       <body>
