@@ -203,10 +203,6 @@ export const showcase = [
     image: "33.webp",
   },
   {
-    link: "https://www.multitest.ca/",
-    image: "34.webp",
-  },
-  {
     link: "https://jpesant.com/fr/",
     image: "35.webp",
   },
