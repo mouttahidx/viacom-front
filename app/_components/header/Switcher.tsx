@@ -4,6 +4,7 @@ import clsx from "clsx";
 import { useParams } from "next/navigation";
 import { ChangeEvent, ReactNode, useTransition } from "react";
 import { useRouter, usePathname } from "@/navigation";
+import Script from "next/script";
 
 type Props = {
   children: ReactNode;
