@@ -12,6 +12,12 @@ const nextConfig = {
         port: "",
         pathname: "/storage/**",
       },
+      {
+        protocol: "https",
+        hostname: "cdn.livechatinc.com",
+        port: "",
+        pathname: "/**",
+      },
     ],
     minimumCacheTTL: 60 * 60 * 24 * 120,
   },

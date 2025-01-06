@@ -3,14 +3,15 @@ import { LiveChatWidget, EventHandlerPayload } from "@livechat/widget-react";
 import { useLocale } from "next-intl";
 
 export default function ChatSupport() {
-    const locale = useLocale();
+  const locale = useLocale();
 
   return (
-    <LiveChatWidget
-      license="18971658"
-      visibility="maximized"
-      group={locale === "en" ? "1" : "0"}
-    />
+    <>
+      <LiveChatWidget
+        license="18971658"
+        visibility="minimized"
+        group={locale === "en" ? "1" : "0"}
+      />
+    </>
   );
 }
-
