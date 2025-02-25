@@ -31,6 +31,7 @@ export default function Page({
       {/* // hero section */}
       <section className="w-full py-28 text-white h-[780px] lg:h-[781px] relative">
         <Image
+          unoptimized
           alt="Robot("
           src={`/img/hero-home.webp`}
           blurDataURL="/img/hero-home.webp"
@@ -132,6 +133,7 @@ export default function Page({
           />
         </div>
         <Image
+          unoptimized
           src={"/img/home-second-section.webp"}
           alt="robot finger"
           width={400}
@@ -151,6 +153,7 @@ export default function Page({
         {/* inner section */}
         <div className="w-full flex flex-wrap lg:flex-nowrap gap-y-16 gap-x-16">
           <Image
+            unoptimized
             src={"/img/robot.jpg"}
             alt="robot finger"
             width={400}
@@ -235,6 +238,7 @@ export default function Page({
           <div className="w-full xl:w-6/12 ">
             <div className="flex gap-x-4 items-start ">
               <Image
+                unoptimized
                 src={"/img/facebook-ads.webp"}
                 alt=""
                 width={100}
@@ -265,6 +269,7 @@ export default function Page({
           <div className="w-full xl:w-6/12 ">
             <div className="flex gap-x-4 items-start ">
               <Image
+                unoptimized
                 src={"/img/campaign.webp"}
                 alt=""
                 width={100}
@@ -294,6 +299,7 @@ export default function Page({
 
         <div className="flex gap-x-4 items-start max-w-3xl mx-auto ">
           <Image
+            unoptimized
             src={"/img/report.webp"}
             alt=""
             width={100}
@@ -487,6 +493,7 @@ export default function Page({
         <h3 className="text-black text-lg">{t("home_8_1")}</h3>
         <div className="grid mt-16 w-full justify-items-center gap-x-6 gap-y-16 lg:gap-8 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
           <Image
+            unoptimized
             width={200}
             height={200}
             className="object-contain w-10/12 lg:w-full"
@@ -494,6 +501,7 @@ export default function Page({
             alt="logo"
           />
           <Image
+            unoptimized
             width={200}
             height={200}
             className="object-contain w-10/12 lg:w-full"
@@ -501,6 +509,7 @@ export default function Page({
             alt="logo"
           />
           <Image
+            unoptimized
             width={200}
             height={200}
             className="object-contain w-10/12 lg:w-full"
@@ -508,6 +517,7 @@ export default function Page({
             alt="logo"
           />
           <Image
+            unoptimized
             width={200}
             height={200}
             className="object-contain w-10/12 lg:w-full"
@@ -515,6 +525,7 @@ export default function Page({
             alt="logo"
           />
           <Image
+            unoptimized
             width={200}
             height={200}
             className="object-contain w-10/12 lg:w-full"
@@ -522,6 +533,7 @@ export default function Page({
             alt="logo"
           />
           <Image
+            unoptimized
             width={200}
             height={200}
             className="object-contain w-10/12 lg:w-full"
@@ -529,6 +541,7 @@ export default function Page({
             alt="logo"
           />
           <Image
+            unoptimized
             width={200}
             height={200}
             className="object-contain w-10/12 lg:w-full"
@@ -536,6 +549,7 @@ export default function Page({
             alt="logo"
           />
           <Image
+            unoptimized
             width={200}
             height={200}
             className="object-contain w-10/12 lg:w-full"
@@ -543,6 +557,7 @@ export default function Page({
             alt="logo"
           />
           <Image
+            unoptimized
             width={200}
             height={200}
             className="object-contain w-10/12 lg:w-full"
@@ -550,6 +565,7 @@ export default function Page({
             alt="logo"
           />
           <Image
+            unoptimized
             width={200}
             height={200}
             className="object-contain w-10/12 lg:w-full"

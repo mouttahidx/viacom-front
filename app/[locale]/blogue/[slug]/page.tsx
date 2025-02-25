@@ -62,7 +62,6 @@ export default async function Page({ params }: { params: any }) {
 
   return (
     <div>
-    
       <div className="pt-24 pb-24 lg:pt-44 bg-pages-hero-bg bg-no-repeat bg-cover flex justify-center items-center">
         <h1 className="uppercase text-white text-3xl mt-10 max-w-6xl text-center">
           {locale === "fr" ? post?.title?.fr : post?.title?.en}
@@ -71,6 +70,7 @@ export default async function Page({ params }: { params: any }) {
       <section className="max-w-5xl mx-auto  py-24">
         <article className="w-full">
           <Image
+            unoptimized
             className="w-full h-full max-h-[450px] object-cover object-center rounded-lg shadow mb-12"
             src={
               post?.image

@@ -17,6 +17,7 @@ export default function CarouselClient() {
     >
       <Carousel.Slide>
         <Image
+          unoptimized
           alt=""
           width={300}
           height={300}
@@ -26,6 +27,7 @@ export default function CarouselClient() {
       </Carousel.Slide>
       <Carousel.Slide>
         <Image
+          unoptimized
           alt=""
           width={300}
           height={200}
@@ -35,6 +37,7 @@ export default function CarouselClient() {
       </Carousel.Slide>
       <Carousel.Slide>
         <Image
+          unoptimized
           alt=""
           width={300}
           height={200}
@@ -44,6 +47,7 @@ export default function CarouselClient() {
       </Carousel.Slide>
       <Carousel.Slide>
         <Image
+          unoptimized
           alt=""
           width={300}
           height={200}
@@ -53,6 +57,7 @@ export default function CarouselClient() {
       </Carousel.Slide>
       <Carousel.Slide>
         <Image
+          unoptimized
           alt=""
           width={300}
           height={200}
@@ -62,6 +67,7 @@ export default function CarouselClient() {
       </Carousel.Slide>
       <Carousel.Slide>
         <Image
+          unoptimized
           alt=""
           width={300}
           height={200}
@@ -71,6 +77,7 @@ export default function CarouselClient() {
       </Carousel.Slide>
       <Carousel.Slide>
         <Image
+          unoptimized
           alt=""
           width={300}
           height={200}
@@ -80,6 +87,7 @@ export default function CarouselClient() {
       </Carousel.Slide>
       <Carousel.Slide>
         <Image
+          unoptimized
           alt=""
           width={300}
           height={200}

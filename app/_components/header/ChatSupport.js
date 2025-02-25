@@ -1,5 +1,5 @@
 "use client";
-import { LiveChatWidget, EventHandlerPayload } from "@livechat/widget-react";
+import { LiveChatWidget } from "@livechat/widget-react";
 import { useLocale } from "next-intl";
 
 export default function ChatSupport() {

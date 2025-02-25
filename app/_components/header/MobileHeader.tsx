@@ -25,6 +25,7 @@ export default function MobileHeader() {
         <div className="w-full flex justify-between items-center border-b border-gray-300">
           <Link href={"/"} rel="canonical">
             <Image
+              unoptimized
               src="/img/Logo-dark.webp"
               width={100}
               height={80}

@@ -143,6 +143,7 @@ export default function AgenceFacebookAds({params:{locale}}:{params:{locale:stri
             />
           </div>
           <Image
+            unoptimized
             src={"/img/facebook-phone.webp"}
             alt="facebook-phone"
             width={400}
@@ -168,6 +169,7 @@ export default function AgenceFacebookAds({params:{locale}}:{params:{locale:stri
         <div className="w-full flex flex-wrap lg:flex-nowrap gap-y-16 gap-x-4 2xl:gap-x-16">
           <div className="w-full xl:w-4/12 flex flex-col items-center">
             <Image
+              unoptimized
               src={"/img/public.webp"}
               alt=""
               width={400}
@@ -188,6 +190,7 @@ export default function AgenceFacebookAds({params:{locale}}:{params:{locale:stri
 
           <div className="w-full xl:w-4/12 flex flex-col items-center">
             <Image
+              unoptimized
               src={"/img/medias.webp"}
               alt=""
               width={400}
@@ -210,6 +213,7 @@ export default function AgenceFacebookAds({params:{locale}}:{params:{locale:stri
 
           <div className="w-full xl:w-4/12 flex flex-col items-center">
             <Image
+              unoptimized
               src={"/img/robot-finger.webp"}
               alt=""
               width={400}
@@ -237,6 +241,7 @@ export default function AgenceFacebookAds({params:{locale}}:{params:{locale:stri
         <div className="max-w-5xl mx-auto w-full flex flex-wrap lg:flex-nowrap gap-y-16 gap-x-16">
           <div className="w-full xl:w-6/12 flex flex-col items-center">
             <Image
+              unoptimized
               src={"/img/generate.webp"}
               alt=""
               width={400}
@@ -251,6 +256,7 @@ export default function AgenceFacebookAds({params:{locale}}:{params:{locale:stri
 
           <div className="w-full xl:w-6/12 flex flex-col items-center text-center">
             <Image
+              unoptimized
               src={"/img/marque.jpg"}
               alt=""
               width={400}
@@ -270,6 +276,7 @@ export default function AgenceFacebookAds({params:{locale}}:{params:{locale:stri
         {/* inner section */}
         <div className="w-full flex flex-wrap lg:flex-nowrap gap-y-16 gap-x-16 items-center">
           <Image
+            unoptimized
             src={"/img/ad.webp"}
             alt="ad"
             width={400}
@@ -444,6 +451,7 @@ export default function AgenceFacebookAds({params:{locale}}:{params:{locale:stri
 
           <div className="w-full xl:w-6/12 flex flex-col items-center text-center">
             <Image
+              unoptimized
               src={"/img/man.webp"}
               alt="man"
               width={400}

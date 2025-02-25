@@ -9,6 +9,7 @@ export default function IconsList() {
     <div className="flex flex-col gap-y-10">
       <div className="flex gap-x-4 ">
         <Image
+          unoptimized
           src={"/img/report.webp"}
           alt=""
           width={100}
@@ -16,16 +17,13 @@ export default function IconsList() {
           className="object-contain w-[100px]"
         />
         <div className="flex flex-col gap-y-3">
-          <h3 className="list-title">
-            {t("services_1_1_title")}
-          </h3>
-          <p className="text-sm">
-            {t("services_1_1_text")}
-          </p>
+          <h3 className="list-title">{t("services_1_1_title")}</h3>
+          <p className="text-sm">{t("services_1_1_text")}</p>
         </div>
       </div>
       <div className="flex gap-x-4 ">
         <Image
+          unoptimized
           src={"/img/strategy.webp"}
           alt=""
           width={100}
@@ -33,16 +31,13 @@ export default function IconsList() {
           className="object-contain w-[100px]"
         />
         <div className="flex flex-col gap-y-3">
-          <h3 className="list-title">
-            {t("services_1_2_title")}
-          </h3>
-          <p className="text-sm">
-            {t("services_1_2_text")}
-          </p>
+          <h3 className="list-title">{t("services_1_2_title")}</h3>
+          <p className="text-sm">{t("services_1_2_text")}</p>
         </div>
       </div>
       <div className="flex gap-x-4 ">
         <Image
+          unoptimized
           src={"/img/banner.webp"}
           alt=""
           width={100}
@@ -50,16 +45,13 @@ export default function IconsList() {
           className="object-contain w-[100px]"
         />
         <div className="flex flex-col gap-y-3">
-          <h3 className="list-title">
-            {t("services_1_3_title")}
-          </h3>
-          <p className="text-sm">
-            {t("services_1_3_text")}
-          </p>
+          <h3 className="list-title">{t("services_1_3_title")}</h3>
+          <p className="text-sm">{t("services_1_3_text")}</p>
         </div>
       </div>
       <div className="flex gap-x-4 ">
         <Image
+          unoptimized
           src={"/img/reviews.webp"}
           alt=""
           width={100}
@@ -67,12 +59,8 @@ export default function IconsList() {
           className="object-contain w-[100px]"
         />
         <div className="flex flex-col gap-y-3">
-          <h3 className="list-title">
-            {t("services_1_4_title")}
-          </h3>
-          <p className="text-sm">
-            {t("services_1_4_text")}
-          </p>
+          <h3 className="list-title">{t("services_1_4_title")}</h3>
+          <p className="text-sm">{t("services_1_4_text")}</p>
         </div>
       </div>
     </div>

@@ -93,7 +93,6 @@ export default function AgenceMarketingDigital({params:{locale}}:{params:{locale
 
   return (
     <div>
-     
       {/* hero */}
       <div className="bg-facebook-hero bg-center bg-no-repeat bg-cover ">
         <div className="bg-secondary h-full pt-24 pb-24 lg:py-44 flex justify-center bg-opacity-60">
@@ -134,6 +133,7 @@ export default function AgenceMarketingDigital({params:{locale}}:{params:{locale
             />
           </div>
           <Image
+            unoptimized
             src={"/img/agence-marketing.webp"}
             alt="agence-marketing"
             width={500}
@@ -148,6 +148,7 @@ export default function AgenceMarketingDigital({params:{locale}}:{params:{locale
         {/* inner section */}
         <div className="w-full flex flex-wrap lg:flex-nowrap gap-y-16 gap-x-16 items-center">
           <Image
+            unoptimized
             src={"/img/why-us.webp"}
             alt="ad"
             width={400}
@@ -197,6 +198,7 @@ export default function AgenceMarketingDigital({params:{locale}}:{params:{locale
             className="w-full xl:w-4/12 flex flex-col items-center"
           >
             <Image
+              unoptimized
               src={"/img/website-creation.webp"}
               alt=""
               width={400}
@@ -216,6 +218,7 @@ export default function AgenceMarketingDigital({params:{locale}}:{params:{locale
             className="w-full xl:w-4/12 flex flex-col items-center"
           >
             <Image
+              unoptimized
               src={"/img/seo-card.webp"}
               alt=""
               width={400}
@@ -235,6 +238,7 @@ export default function AgenceMarketingDigital({params:{locale}}:{params:{locale
             className="w-full xl:w-4/12 flex flex-col items-center"
           >
             <Image
+              unoptimized
               src={"/img/sem.webp"}
               alt=""
               width={400}
@@ -256,6 +260,7 @@ export default function AgenceMarketingDigital({params:{locale}}:{params:{locale
             className="w-full xl:w-4/12 flex flex-col items-center"
           >
             <Image
+              unoptimized
               src={"/img/facebook-phone.webp"}
               alt=""
               width={400}
@@ -272,6 +277,7 @@ export default function AgenceMarketingDigital({params:{locale}}:{params:{locale
 
           <div className="w-full xl:w-4/12 flex flex-col items-center">
             <Image
+              unoptimized
               src={"/img/kpi.webp"}
               alt=""
               width={400}
@@ -300,7 +306,7 @@ export default function AgenceMarketingDigital({params:{locale}}:{params:{locale
           <div className="w-[50px] bg-primary h-1 mx-auto mt-3 "></div>
         </div>
         <div className="bg-tabs py-20 px-8 rounded-3xl bg-cover bg-no-repeat">
-          <TabsClient tabs={tabs}/>
+          <TabsClient tabs={tabs} />
         </div>
       </section>
 

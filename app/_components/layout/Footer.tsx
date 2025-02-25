@@ -14,6 +14,7 @@ export default function Footer() {
         <div className="lg:w-5/12 md:w-4/12 sm:w-6/12">
           <Link href="/" rel="canonical">
             <Image
+              unoptimized
               src="/img/Logo.webp"
               width={300}
               height={300}
@@ -25,23 +26,20 @@ export default function Footer() {
         {/* second column */}
         <div className="flex lg:w-4/12 flex-col gap-y-8 text-sm md:w-4/12 sm:w-6/12">
           <div className="">
-            <h3 className="text-white font-medium">
-              {" "}
-              {t("footer_contactus")}
-            </h3>
+            <h3 className="text-white font-medium"> {t("footer_contactus")}</h3>
             <p className="text-white mt-2">Québec: 418-825-2323</p>
           </div>
 
           <div className=" flex flex-col gap-y-10">
             <p className="text-white mt-2">
-              {t("email")}:{" "}             <a href="mailto:info@viacommunication.com">
+              {t("email")}:{" "}
+              <a href="mailto:info@viacommunication.com">
                 info@viacommunication.com
               </a>
             </p>
 
             <div className="">
-              <h3 className="text-white font-medium">
-                {t("address")}:{" "}             </h3>
+              <h3 className="text-white font-medium">{t("address")}: </h3>
               <p className="text-white mt-2">
                 1020, rue Bouvier, suite 400, Québec, QC G2K 0H3
               </p>
@@ -67,6 +65,7 @@ export default function Footer() {
               target="_blank"
             >
               <Image
+                unoptimized
                 src="/img/google-partner.webp"
                 width={300}
                 height={300}
@@ -77,9 +76,7 @@ export default function Footer() {
           </div>
 
           <div className=" flex flex-col gap-y-6">
-            <p className="text-white font-medium">
-            {t("footer_responsable")}
-            </p>
+            <p className="text-white font-medium">{t("footer_responsable")}</p>
             <p className="text-white mt-2 font-semibold">Francois Beaudry</p>
             {/* <p className="text-white mt-2">
             {t("email" })}:{" "}             <a href="mailto:info@viacommunication.com">
@@ -89,8 +86,7 @@ export default function Footer() {
             <p className="text-white mt-2">Québec: 418-825-2323</p> */}
             <p className="text-white mt-2">
               <Link href={"/politiques-de-confidentialite"}>
-            {t("footer_policies") }
-                
+                {t("footer_policies")}
               </Link>
             </p>
           </div>
@@ -100,17 +96,18 @@ export default function Footer() {
         <div className="w-full text-gray-400 text-sm flex flex-col-reverse lg:flex-row justify-between lg:sitems-center">
           <div>
             <p>
-            {t("footer_copyright")}
+              {t("footer_copyright")}
               <b className="text-white">VIA Communication </b>
               {new Date().getFullYear()}.
             </p>
           </div>
           <div className="flex gap-x-2 items-center mb-8 lg:mb-0">
-            <span>
-            {t("footer_followus") }
-              
-            </span>
-            <a href="https://www.facebook.com/VIACommunication/" className="" target="_blank">
+            <span>{t("footer_followus")}</span>
+            <a
+              href="https://www.facebook.com/VIACommunication/"
+              className=""
+              target="_blank"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 x="0px"
@@ -142,7 +139,10 @@ export default function Footer() {
                 </g>
               </svg>
             </a>
-            <a href="https://www.linkedin.com/company/via-communication/about/" target="_blank">
+            <a
+              href="https://www.linkedin.com/company/via-communication/about/"
+              target="_blank"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 x="0px"

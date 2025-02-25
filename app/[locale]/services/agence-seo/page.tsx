@@ -225,7 +225,6 @@ export default function AgenceSeo({params:{locale}}:{params:{locale:string}}) {
 
   return (
     <div>
-  
       {/* hero */}
       <div className="bg-facebook-hero bg-center bg-no-repeat bg-cover ">
         <div className="bg-secondary h-full pt-24 pb-24 lg:py-44 flex justify-center bg-opacity-60">
@@ -267,6 +266,7 @@ export default function AgenceSeo({params:{locale}}:{params:{locale:string}}) {
             />
           </div>
           <Image
+            unoptimized
             src={"/img/seo-page.webp"}
             alt="agence-marketing"
             width={500}
@@ -290,6 +290,7 @@ export default function AgenceSeo({params:{locale}}:{params:{locale:string}}) {
         <div className="w-full flex flex-wrap lg:flex-nowrap gap-y-16 gap-x-4 2xl:gap-x-16">
           <div className="w-full xl:w-4/12 flex flex-col items-center">
             <Image
+              unoptimized
               src={"/img/s1.webp"}
               alt=""
               width={400}
@@ -304,6 +305,7 @@ export default function AgenceSeo({params:{locale}}:{params:{locale:string}}) {
 
           <div className="w-full xl:w-4/12 flex flex-col items-center">
             <Image
+              unoptimized
               src={"/img/seo-card.webp"}
               alt=""
               width={400}
@@ -318,6 +320,7 @@ export default function AgenceSeo({params:{locale}}:{params:{locale:string}}) {
 
           <div className="w-full xl:w-4/12 flex flex-col items-center">
             <Image
+              unoptimized
               src={"/img/finger-up.jpeg"}
               alt=""
               width={400}
@@ -334,6 +337,7 @@ export default function AgenceSeo({params:{locale}}:{params:{locale:string}}) {
         <div className="w-full flex flex-wrap lg:flex-nowrap gap-y-16 gap-x-4 2xl:gap-x-16">
           <div className="w-full xl:w-4/12 flex flex-col items-center">
             <Image
+              unoptimized
               src={"/img/revenues.webp"}
               alt=""
               width={400}
@@ -348,6 +352,7 @@ export default function AgenceSeo({params:{locale}}:{params:{locale:string}}) {
 
           <div className="w-full xl:w-4/12 flex flex-col items-center">
             <Image
+              unoptimized
               src={"/img/yes.webp"}
               alt=""
               width={400}
@@ -362,6 +367,7 @@ export default function AgenceSeo({params:{locale}}:{params:{locale:string}}) {
 
           <div className="w-full xl:w-4/12 flex flex-col items-center">
             <Image
+              unoptimized
               src={"/img/stars.jpeg"}
               alt=""
               width={400}
@@ -381,6 +387,7 @@ export default function AgenceSeo({params:{locale}}:{params:{locale:string}}) {
         {/* inner section */}
         <div className="w-full flex flex-wrap lg:flex-nowrap gap-y-16 gap-x-16 items-center">
           <Image
+            unoptimized
             src={"/img/seo-pc.webp"}
             alt="ad"
             width={400}
@@ -448,6 +455,7 @@ export default function AgenceSeo({params:{locale}}:{params:{locale:string}}) {
             </div>
           </div>
           <Image
+            unoptimized
             src={"/img/seo-avantages.webp"}
             alt="google"
             width={400}

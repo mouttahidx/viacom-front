@@ -55,6 +55,7 @@ export default function Page({params:{locale}}:{params:{locale:string}}) {
             <IconsList />
           </div>
           <Image
+            unoptimized
             src={"/img/robot-finger.webp"}
             alt="robot finger"
             width={400}

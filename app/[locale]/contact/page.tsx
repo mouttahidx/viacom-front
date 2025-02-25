@@ -40,7 +40,7 @@ export default function Contact({params:{locale}}:{params:{locale:string}}) {
 
   return (
     <div>
-           <div className="pt-24 pb-24 lg:pt-44 bg-pages-hero-bg bg-no-repeat bg-cover flex justify-center items-center">
+      <div className="pt-24 pb-24 lg:pt-44 bg-pages-hero-bg bg-no-repeat bg-cover flex justify-center items-center">
         <h1 className="uppercase text-white text-4xl mt-10">
           {t("contact_hero_title")}
         </h1>
@@ -52,9 +52,7 @@ export default function Contact({params:{locale}}:{params:{locale:string}}) {
           <h2 className="text-3xl !text-white text-center">
             {t("contact_1_title")}
           </h2>
-          <p className="text-center text-sm mt-4">
-            {t("contact_1_subtitle")}
-          </p>
+          <p className="text-center text-sm mt-4">{t("contact_1_subtitle")}</p>
         </div>
         <div className="bg-[#1C4D83] px-2 text-centers min-h-[250px] flex items-center flex-col justify-center border-y border-white md:border-none">
           <MapPinIcon className="text-white w-12 h-12" />
@@ -89,17 +87,14 @@ export default function Contact({params:{locale}}:{params:{locale:string}}) {
       <section className="w-full flex flex-col my-40 gap-y-20">
         {/* title subtitle */}
         <div className="text-center flex flex-col items-center">
-          <h2 className="section-title">
-            {t("contact_2_title")}
-          </h2>
-          <p className="body-text">
-            {t("contact_2_subtitle")}
-          </p>
+          <h2 className="section-title">{t("contact_2_title")}</h2>
+          <p className="body-text">{t("contact_2_subtitle")}</p>
         </div>
 
         {/* inner section */}
         <div className="w-full flex flex-wrap lg:flex-nowrap gap-y-16 gap-x-16">
           <Image
+            unoptimized
             src={"/img/robot-finger-pc.webp"}
             alt="robot finger"
             width={400}
@@ -108,7 +103,7 @@ export default function Contact({params:{locale}}:{params:{locale:string}}) {
           />
           {/* Form */}
           <div className="w-full xl:w-5/12 px-4">
-            <FormClient translations={translations}/>
+            <FormClient translations={translations} />
           </div>
         </div>
       </section>

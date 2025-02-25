@@ -37,10 +37,14 @@ export default function Testimonials() {
     <section className="bg-secondary">
       <div className="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
         <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
-          {testimonials.map((testi,index) => (
-            <blockquote key={index} className="rounded-lg bg-[#213357] !text-white bg-opacity-40 p-6 shadow-sm sm:p-8 h-fit">
+          {testimonials.map((testi, index) => (
+            <blockquote
+              key={index}
+              className="rounded-lg bg-[#213357] !text-white bg-opacity-40 p-6 shadow-sm sm:p-8 h-fit"
+            >
               <div className="flex items-center gap-4">
                 <Image
+                  unoptimized
                   width={100}
                   height={100}
                   alt=""
@@ -98,7 +102,9 @@ export default function Testimonials() {
                 </div>
               </div>
               <p className="mt-4 text-gray-200 text-left">{testi.text}</p>{" "}
-              <p className="mt-4 text-sm text-gray-500 font-medium text-left">{testi.title}</p>
+              <p className="mt-4 text-sm text-gray-500 font-medium text-left">
+                {testi.title}
+              </p>
             </blockquote>
           ))}
         </div>

@@ -126,7 +126,6 @@ export default function AgenceGoogleAds({params:{locale}}:{params:{locale:string
 
   return (
     <div>
-     
       {/* hero */}
       <div className="bg-facebook-hero bg-center bg-no-repeat bg-cover ">
         <div className="bg-secondary h-full pt-24 pb-24 lg:py-44 flex justify-center bg-opacity-60">
@@ -159,15 +158,15 @@ export default function AgenceGoogleAds({params:{locale}}:{params:{locale:string
               {t("google_1_4")}
             </div>
             <ButtonClient
-             href={"/contact"}
-             variant="filled"
-             size="md"
-             classes="!bg-primary hover:!bg-opacity-90 mt-10 "
-             text={t("btn_contact")}
+              href={"/contact"}
+              variant="filled"
+              size="md"
+              classes="!bg-primary hover:!bg-opacity-90 mt-10 "
+              text={t("btn_contact")}
             />
-            
           </div>
           <Image
+            unoptimized
             src={"/img/google-page.webp"}
             alt="google"
             width={400}
@@ -191,6 +190,7 @@ export default function AgenceGoogleAds({params:{locale}}:{params:{locale:string
         <div className="w-full flex flex-wrap lg:flex-nowrap gap-y-16 gap-x-4 2xl:gap-x-16">
           <div className="w-full xl:w-4/12 flex flex-col items-center">
             <Image
+              unoptimized
               src={"/img/visibility.webp"}
               alt=""
               width={400}
@@ -200,13 +200,12 @@ export default function AgenceGoogleAds({params:{locale}}:{params:{locale:string
             <h3 className="text-xl font-semibold my-6 text-secondary">
               {t("google_2_1_title")}
             </h3>
-            <p className="text-secondary text-center">
-              {t("google_2_1_text")}
-            </p>
+            <p className="text-secondary text-center">{t("google_2_1_text")}</p>
           </div>
 
           <div className="w-full xl:w-4/12 flex flex-col items-center">
             <Image
+              unoptimized
               src={"/img/fast.webp"}
               alt=""
               width={400}
@@ -227,6 +226,7 @@ export default function AgenceGoogleAds({params:{locale}}:{params:{locale:string
 
           <div className="w-full xl:w-4/12 flex flex-col items-center">
             <Image
+              unoptimized
               src={"/img/target.webp"}
               alt=""
               width={400}
@@ -249,6 +249,7 @@ export default function AgenceGoogleAds({params:{locale}}:{params:{locale:string
         <div className="w-full flex flex-wrap lg:flex-nowrap gap-y-16 gap-x-4 2xl:gap-x-16">
           <div className="w-full xl:w-4/12 flex flex-col items-center">
             <Image
+              unoptimized
               src={"/img/mesures.webp"}
               alt=""
               width={400}
@@ -269,6 +270,7 @@ export default function AgenceGoogleAds({params:{locale}}:{params:{locale:string
 
           <div className="w-full xl:w-4/12 flex flex-col items-center">
             <Image
+              unoptimized
               src={"/img/budget.webp"}
               alt=""
               width={400}
@@ -289,6 +291,7 @@ export default function AgenceGoogleAds({params:{locale}}:{params:{locale:string
 
           <div className="w-full xl:w-4/12 flex flex-col items-center">
             <Image
+              unoptimized
               src={"/img/notor.webp"}
               alt=""
               width={400}
@@ -298,15 +301,14 @@ export default function AgenceGoogleAds({params:{locale}}:{params:{locale:string
             <h3 className="text-xl font-semibold my-6 text-secondary text-center">
               {t("google_2_6_title")}
             </h3>
-            <p className="text-secondary text-center">
-              {t("google_2_6_text")}
-            </p>
+            <p className="text-secondary text-center">{t("google_2_6_text")}</p>
           </div>
         </div>
         {/* inner 3 */}
         <div className="w-full flex flex-wrap lg:flex-nowrap gap-y-16 gap-x-4 2xl:gap-x-16">
           <div className="w-full xl:w-4/12 flex flex-col items-center">
             <Image
+              unoptimized
               src={"/img/roi.webp"}
               alt=""
               width={400}
@@ -316,13 +318,12 @@ export default function AgenceGoogleAds({params:{locale}}:{params:{locale:string
             <h3 className="text-xl font-semibold my-6 text-secondary">
               {t("google_2_7_title")}
             </h3>
-            <p className="text-secondary text-center">
-              {t("google_2_7_text")}
-            </p>
+            <p className="text-secondary text-center">{t("google_2_7_text")}</p>
           </div>
 
           <div className="w-full xl:w-4/12 flex flex-col items-center">
             <Image
+              unoptimized
               src={"/img/ppc.webp"}
               alt=""
               width={400}
@@ -332,13 +333,12 @@ export default function AgenceGoogleAds({params:{locale}}:{params:{locale:string
             <h3 className="text-xl font-semibold my-6 text-secondary">
               {t("google_2_8_title")}
             </h3>
-            <p className="text-secondary text-center">
-              {t("google_2_8_text")}
-            </p>
+            <p className="text-secondary text-center">{t("google_2_8_text")}</p>
           </div>
 
           <div className="w-full xl:w-4/12 flex flex-col items-center">
             <Image
+              unoptimized
               src={"/img/up.webp"}
               alt=""
               width={400}
@@ -348,9 +348,7 @@ export default function AgenceGoogleAds({params:{locale}}:{params:{locale:string
             <h3 className="text-xl font-semibold my-6 text-secondary">
               {t("google_2_9_title")}
             </h3>
-            <p className="text-secondary text-center">
-              {t("google_2_9_text")}
-            </p>
+            <p className="text-secondary text-center">{t("google_2_9_text")}</p>
           </div>
         </div>
       </section>
@@ -360,6 +358,7 @@ export default function AgenceGoogleAds({params:{locale}}:{params:{locale:string
         {/* inner section */}
         <div className="w-full flex flex-wrap lg:flex-nowrap gap-y-16 gap-x-16 items-center">
           <Image
+            unoptimized
             src={"/img/ad.webp"}
             alt="ad"
             width={400}
@@ -371,9 +370,7 @@ export default function AgenceGoogleAds({params:{locale}}:{params:{locale:string
               {t("google_3_title")}
             </h2>
             <div className="w-[50px] bg-primary h-1 mt-1 mb-10"></div>
-            <p className="body-text">
-              {t("google_3_1")}
-            </p>
+            <p className="body-text">{t("google_3_1")}</p>
             <h3 className="text-2xl font-semibold text-gray-600 my-12 ">
               {t("google_3_2_title")}
             </h3>
@@ -392,14 +389,14 @@ export default function AgenceGoogleAds({params:{locale}}:{params:{locale:string
               <br />
               {t("google_3_5")}
             </div>
-            
+
             <ButtonClient
-            href={"/contact"}
-            variant="filled"
-            size="md"
-            classes="!bg-primary hover:!bg-opacity-90 mt-10 "
-            text={t("btn_contact")}
-           />
+              href={"/contact"}
+              variant="filled"
+              size="md"
+              classes="!bg-primary hover:!bg-opacity-90 mt-10 "
+              text={t("btn_contact")}
+            />
           </div>
         </div>
       </section>
@@ -414,7 +411,7 @@ export default function AgenceGoogleAds({params:{locale}}:{params:{locale:string
           1. {t("google_4_1")}
         </h3>
         <div className="bg-tabs py-20 px-8 rounded-3xl bg-cover bg-no-repeat">
-         <TabsClient tabs={tabs} />
+          <TabsClient tabs={tabs} />
         </div>
 
         <h3 className="text-2xl text-gray-600 mt-12 mb-8 font-semibold">
@@ -423,7 +420,7 @@ export default function AgenceGoogleAds({params:{locale}}:{params:{locale:string
         <div
           className="text-gray-500"
           dangerouslySetInnerHTML={{
-            __html: t.raw("google_4_2_text" ),
+            __html: t.raw("google_4_2_text"),
           }}
         />
 
@@ -433,7 +430,8 @@ export default function AgenceGoogleAds({params:{locale}}:{params:{locale:string
         <div className="text-gray-500">
           <span
             dangerouslySetInnerHTML={{
-              __html: t.raw("google_4_3_text" )}}
+              __html: t.raw("google_4_3_text"),
+            }}
           />
         </div>
 
@@ -443,7 +441,8 @@ export default function AgenceGoogleAds({params:{locale}}:{params:{locale:string
         <div className="text-gray-500">
           <span
             dangerouslySetInnerHTML={{
-              __html: t.raw("google_4_4_text" )}}
+              __html: t.raw("google_4_4_text"),
+            }}
           />
         </div>
 
@@ -453,7 +452,8 @@ export default function AgenceGoogleAds({params:{locale}}:{params:{locale:string
         <div className="text-gray-500">
           <span
             dangerouslySetInnerHTML={{
-              __html: t.raw("google_4_5_text" )}}
+              __html: t.raw("google_4_5_text"),
+            }}
           />
         </div>
       </section>
@@ -467,13 +467,14 @@ export default function AgenceGoogleAds({params:{locale}}:{params:{locale:string
           {/* icons list */}
           <div className="w-full lg:w-6/12 ">
             <h2 className="gray-section-title !text-primary">
-              {t("google_5_title")}</h2>
+              {t("google_5_title")}
+            </h2>
             <div className="w-[50px] bg-primary h-1 mt-6 mb-16"></div>
             <p className="body-text">
               <span
                 dangerouslySetInnerHTML={{
-                  __html: t.raw("google_5_subtitle")}
-                }
+                  __html: t.raw("google_5_subtitle"),
+                }}
               />
             </p>
             <h3 className="text-2xl text-gray-600 mt-12 mb-8 font-semibold">
@@ -482,7 +483,7 @@ export default function AgenceGoogleAds({params:{locale}}:{params:{locale:string
             <div className="text-gray-500">
               <span
                 dangerouslySetInnerHTML={{
-                  __html: t.raw("google_5_1_text" ),
+                  __html: t.raw("google_5_1_text"),
                 }}
               />
             </div>
@@ -493,7 +494,7 @@ export default function AgenceGoogleAds({params:{locale}}:{params:{locale:string
             <div className="text-gray-500">
               <span
                 dangerouslySetInnerHTML={{
-                  __html: t.raw("google_5_2_text" ),
+                  __html: t.raw("google_5_2_text"),
                 }}
               />
             </div>
@@ -504,7 +505,7 @@ export default function AgenceGoogleAds({params:{locale}}:{params:{locale:string
             <div className="text-gray-500">
               <span
                 dangerouslySetInnerHTML={{
-                  __html: t.raw("google_5_3_text" ),
+                  __html: t.raw("google_5_3_text"),
                 }}
               />
             </div>
@@ -515,7 +516,7 @@ export default function AgenceGoogleAds({params:{locale}}:{params:{locale:string
             <div className="text-gray-500">
               <span
                 dangerouslySetInnerHTML={{
-                  __html: t.raw("google_5_4_text" ),
+                  __html: t.raw("google_5_4_text"),
                 }}
               />
             </div>
@@ -526,12 +527,13 @@ export default function AgenceGoogleAds({params:{locale}}:{params:{locale:string
             <div className="text-gray-500">
               <span
                 dangerouslySetInnerHTML={{
-                  __html: t.raw("google_5_5_text" ),
+                  __html: t.raw("google_5_5_text"),
                 }}
               />
             </div>
           </div>
           <Image
+            unoptimized
             src={"/img/agence-ads.webp"}
             alt="google"
             width={400}
@@ -544,13 +546,13 @@ export default function AgenceGoogleAds({params:{locale}}:{params:{locale:string
       {/* cta */}
       <section className="w-full bg-no-repeat bg-cover bg-fixed bg-center mt-40 text-center bg-google-cta">
         <div className="w-full h-full bg-white bg-opacity-40  p-24">
-         <ButtonClient
+          <ButtonClient
             href={"/contact"}
             variant="filled"
             size="xl"
             classes="!bg-primary hover:!bg-opacity-90 shadow-xl"
-             text={t("btn_contact")}
-            />
+            text={t("btn_contact")}
+          />
         </div>
       </section>
 
@@ -563,7 +565,8 @@ export default function AgenceGoogleAds({params:{locale}}:{params:{locale:string
         <div className="text-gray-600">
           <span
             dangerouslySetInnerHTML={{
-              __html: t.raw("google_6_text")}}
+              __html: t.raw("google_6_text"),
+            }}
           />
         </div>
       </section>
@@ -574,20 +577,21 @@ export default function AgenceGoogleAds({params:{locale}}:{params:{locale:string
           {/* first div */}
           <div className="lg:w-9/12 ">
             <h2 className="second-title text-primary font-bold">
-              {t("cta1_title")}{" "}</h2>
+              {t("cta1_title")}{" "}
+            </h2>
             <p className="mt-4 body-text !text-black lg:w-10/12">
               {t("cta1_subtitle")}
             </p>
           </div>
           {/* cta */}
           <div className="mt-10 lg:mt-0 flex flex-wrap gap-y-6 gap-x-4 w-full justify-center lg:w-3/12">
-           <ButtonClient
-            href={"/contact"}
-            variant="outline"
-            color="#EE5422"
-            classes="!block !w-full"
-            size="md"
-            text={t("btn_contact")}
+            <ButtonClient
+              href={"/contact"}
+              variant="outline"
+              color="#EE5422"
+              classes="!block !w-full"
+              size="md"
+              text={t("btn_contact")}
             />
           </div>
         </div>
@@ -599,7 +603,7 @@ export default function AgenceGoogleAds({params:{locale}}:{params:{locale:string
           {t("google_faq_title")}
         </h2>
         <div className="divider"></div>
-        <FaqAccordion faqs={faqs}/>
+        <FaqAccordion faqs={faqs} />
       </section>
 
       {/* other services */}
