@@ -1,5 +1,5 @@
 import PostsClient from "@/app/_components/blogComponents/PostsClient";
-import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
 type Post = {
   title: {
@@ -35,7 +35,6 @@ export default async function Page({
 }: {
   params: { locale: any };
 }) {
-  unstable_setRequestLocale(locale);
   const t = await getTranslations();
     const translations = {
         'previous':t('previous'),

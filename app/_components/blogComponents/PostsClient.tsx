@@ -27,10 +27,9 @@ export default function PostsClient({
   const paginate = async () => {
     setLoading(true);
     try {
-      const res =
-        (await fetch(
-          "https://laravel.devvia.ca/api/posts?page=" + page.current
-        )) || {};
+      const res = await fetch(
+        "https://laravel.devvia.ca/api/posts?page=" + page.current
+      );
       const data = await res.json();
       setPosts(data.data);
     } catch (error) {}

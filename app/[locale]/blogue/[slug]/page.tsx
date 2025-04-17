@@ -116,6 +116,7 @@ async function getPost(slug: string) {
     // Call an external API endpoint to get posts
     const res = await fetch(process.env.NEXT_BACKEND_LINK + "posts/" + slug);
     post = await res.json();
+
   } catch (error) {
     // console.log(error);
     notFound();
