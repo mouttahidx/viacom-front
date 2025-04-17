@@ -57,15 +57,15 @@ export default function FormClientranslations({
   return (
     <div>
      <form
-        onSubmit={form.onSubmit((values: any) => {
+        onSubmit={form.onSubmit((values: { name: string; phone: string; email: string; message: string; }) => {
           setLoading(true);
           if (!recaptchaRef.current) {
             toast.error(translations["recaptcha_error"]);
             setLoading(false);
-            return false;
+            return;
           }
           try {
-            send(values);
+            void send(values);
           } catch (error) {}
         })}
         className="grid grid-cols-1 lg:grid-cols-2 gap-6"
