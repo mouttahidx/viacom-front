@@ -1,6 +1,5 @@
-import { Link } from "@/navigation";
 import Image from "next/image";
-import React from "react";
+import { Link } from "../../../navigation";
 
 export default function Logo() {
   return (

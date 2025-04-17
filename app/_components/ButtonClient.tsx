@@ -1,7 +1,7 @@
 "use client";
 
-import { Link } from "@/navigation";
 import { Button } from "@mantine/core";
+import { Link } from "@/navigation";
 import React from "react";
 
 export default function ButtonClient({
