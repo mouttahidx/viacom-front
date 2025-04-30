@@ -30,11 +30,7 @@ export async function generateMetadata() {
   };
 }
 
-export default async function Page({
-  params: { locale },
-}: {
-  params: { locale: any };
-}) {
+export default async function Page() {
   const t = await getTranslations();
     const translations = {
         'previous':t('previous'),

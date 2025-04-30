@@ -4,9 +4,10 @@ import Header from "../_components/header";
 import Footer from "../_components/layout/Footer";
 import { Montserrat } from "next/font/google";
 import "@mantine/core/styles.css";
-import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import { locales } from "@/config";
 import ChatSupport from "../_components/header/ChatSupport";
+import { NextIntlClientProvider } from "next-intl";
 
 const montserrat = Montserrat({
   weight: ["300", "400", "500", "600", "700", "800"],
@@ -34,27 +35,26 @@ export default function LocaleLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  unstable_setRequestLocale(locale);
-
   return (
     <html lang={locale}>
-      <head>
-        <meta
-          name="google-site-verification"
-          content="FD-gdKgAlNtkC7aayVG0w9EbqpeWG-k7h4jwnnbYuT4"
-        />
-        <ColorSchemeScript />
-      </head>
-      <body>
-        
-        <ChatSupport />
-        <NextProgressClient />
-        <MantineProvider theme={theme}>
-          <Header />
-          {children}
-          <Footer />
-        </MantineProvider>
-      </body>
+      <NextIntlClientProvider locale={locale}>
+        <head>
+          <meta
+            name="google-site-verification"
+            content="FD-gdKgAlNtkC7aayVG0w9EbqpeWG-k7h4jwnnbYuT4"
+          />
+          <ColorSchemeScript />
+        </head>
+        <body>
+          <ChatSupport />
+          <NextProgressClient />
+          <MantineProvider theme={theme}>
+            <Header />
+            {children}
+            <Footer />
+          </MantineProvider>
+        </body>
+      </NextIntlClientProvider>
     </html>
   );
 }

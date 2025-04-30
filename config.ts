@@ -1,8 +1,6 @@
-import { Pathnames } from 'next-intl/navigation';
-
 export const locales = ["fr", "en"] as const;
 export const defaultLocale = 'fr' as const;
-export const pathnames: Pathnames<typeof locales> =  {// put here subpathes
+export const pathnames =  {// put here subpathes
 "/":{
     fr:"/",
     en:'/'
