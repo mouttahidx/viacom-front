@@ -103,7 +103,7 @@ export default function MobileDrawer({ translations }: any) {
             <Link href={"/contact"} className="border-b py-2 pl-4 w-full">
               {translations["nav_contact"]}
             </Link>
-            <Link href={"/faq"} className="border-b py-2 pl-4 w-full">
+            <Link href={"/faq" as any} className="border-b py-2 pl-4 w-full">
               {translations["nav_faq"]}
             </Link>
           </div>

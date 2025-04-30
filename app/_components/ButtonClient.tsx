@@ -12,7 +12,7 @@ export default function ButtonClient({
   color = undefined,
   size = undefined,
 }: {
-  href: string;
+  href: any;
   classes: any;
   variant: string;
   text: string;
@@ -22,7 +22,7 @@ export default function ButtonClient({
   return (
     <Button
       component={Link}
-      href={href as any}
+      href={href}
       variant={variant}
       className={classes}
       color={color}

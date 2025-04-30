@@ -10,11 +10,11 @@ export default function Flag({ locale }: Props) {
   return (
     <div className="ml-10 w-[40px] !text-sm text-black lg:text-white">
       {locale === "fr" ? (
-        <Link href={pathname} locale="fr">
+        <Link href={pathname as any} locale="fr">
           FR
         </Link>
       ) : (
-        <Link href={pathname} locale="en">
+        <Link href={pathname as any} locale="en">
           EN
         </Link>
       )}

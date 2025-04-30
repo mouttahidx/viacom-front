@@ -17,7 +17,7 @@ const NavigationLink = forwardRef(
         ref={ref as any}
         aria-current={isActive ? "page" : undefined}
         className="menu-item"
-        href={href}
+        href={href as any}
         {...others}
       >
         {children}</Link>

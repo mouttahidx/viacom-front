@@ -85,7 +85,7 @@ export default function Footer() {
             </p>
             <p className="text-white mt-2">Québec: 418-825-2323</p> */}
             <p className="text-white mt-2">
-              <Link href={"/politiques-de-confidentialite"}>
+              <Link href={"/politiques-de-confidentialite" as any}>
                 {t("footer_policies")}
               </Link>
             </p>
