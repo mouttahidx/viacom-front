@@ -22,7 +22,7 @@ export default function ButtonClient({
   return (
     <Button
       component={Link}
-      href={href}
+      href={href as any}
       variant={variant}
       className={classes}
       color={color}
