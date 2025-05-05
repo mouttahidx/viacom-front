@@ -31,6 +31,7 @@ export default function Nav() {
       <NavigationLink href="/blogue">{t("nav_blog")}</NavigationLink>
       <NavigationLink href="/contact">{t("nav_contact")}</NavigationLink>
       <NavigationLink href="/faq">{t("nav_faq")}</NavigationLink>
+      <NavigationLink href="/CRM">{t("nav_crm")}</NavigationLink>
       <a
             target="_blank"
             href={locale === "fr" ? "https://soutien.viacommunication.com/":"https://support.viacommunication.com/"}
