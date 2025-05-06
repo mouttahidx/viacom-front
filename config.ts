@@ -42,7 +42,10 @@ export const pathnames =  {// put here subpathes
   en:"/our-services/digital-marketing-agency",
   fr:"/nos-services/agence-marketing-digital"
 },
-
+"/services/via-crm":{
+  en:"/our-services/via-crm",
+  fr:"/nos-services/via-crm"
+},
 
 };
 
