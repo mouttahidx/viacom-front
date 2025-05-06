@@ -1,29 +1,66 @@
-import { useLocale, useTranslations } from "next-intl";
-import { Link } from "@/navigation";
-import React from "react";
-import { usePathname } from "next/navigation";
+"use client";
+
+import { Button, Menu } from "@mantine/core";
 import NavigationLink from "./NavLink";
-import DropDownServices from "./DropDownServices";
+import { Link } from "@/navigation";
 
-export default function Nav() {
-  const t = useTranslations();
-  const locale = useLocale();
-
+export default function DropDownServices({ translations }: { translations: any }) {
   return (
-    <nav className="flex items-center gap-x-4 mx-6 text-gray-300 text-sm font-medium relative">
-      {/* Services Dropdown with direct t passed */}
-      <DropDownServices t={t} />
+    <Menu
+      shadow="md"
+      position="bottom-start"
+      offset={10}
+      withArrow
+      trigger="click-hover"
+      openDelay={50}
+      closeDelay={200}
+      transitionProps={{ transition: "slide-up", duration: 250 }}
+    >
+      <Menu.Target>
+        <NavigationLink href={"/services"}>{translations['nav_services']}</NavigationLink>
+      </Menu.Target>
+      <Menu.Dropdown>
+        <Menu.Item
+        className="menu-item"
+        component={Link}
+        href="/services/via-crm"
+        >
+          {translations['nav_crm']}
+       </Menu.Item>
+        <Menu.Divider />
+        <Menu.Item
+          className="menu-item"
+          component={Link}
+          href="/services/agence-facebook-ads"
+        >
+          {translations['nav_fb']}
+        </Menu.Item>
+        <Menu.Divider />
+        <Menu.Item
+          className="menu-item"
+          component={Link}
+          href="/services/agence-google-ads"
+        >
+          {translations['nav_google']}
+        </Menu.Item>
+        <Menu.Divider />
+        <Menu.Item
+          className="menu-item"
+          component={Link}
+          href="/services/agence-marketing-digital"
+        >
+          {translations['nav_marketing']}
+        </Menu.Item>
+        <Menu.Divider />
 
-      {/* Navigation Links */}
-      <NavigationLink href="/nos-realisations">{t("nav_portfolio")}</NavigationLink>
-      <NavigationLink href="/blogue">{t("nav_blog")}</NavigationLink>
-      <NavigationLink href="/contact">{t("nav_contact")}</NavigationLink>
-      <NavigationLink href="/faq">{t("nav_faq")}</NavigationLink>
-
-      {/* Support link */}
-      <a target="_blank" href={locale === "fr" ? "https://soutien.viacommunication.com/" : "https://support.viacommunication.com/"}>
-        {t("nav_support")}
-      </a>
-    </nav>
+        <Menu.Item
+          className="menu-item"
+          component={Link}
+          href="/services/agence-seo"
+        >
+          {translations['nav_seo']}
+        </Menu.Item>
+      </Menu.Dropdown>
+    </Menu>
   );
 }
