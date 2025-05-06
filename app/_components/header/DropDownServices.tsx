@@ -36,7 +36,14 @@ export default function DropDownServices({ translations }: { translations: any }
           {translations['nav_google']}
         </Menu.Item>
         <Menu.Divider />
-
+        <Menu.Item
+          className="menu-item"
+          component={Link}
+          href="/services/via-crm"
+        >
+          {translations['nav_crm']}
+        </Menu.Item>
+        <Menu.Divider />
         <Menu.Item
           className="menu-item"
           component={Link}
