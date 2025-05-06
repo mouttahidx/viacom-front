@@ -38,7 +38,93 @@
   "previous":"Précedent",
   "blog_hero_title":"Blogue",
 
-
+  // Page metadata
+  "via_crm_title": "VIA CRM | Solution CRM Tout-en-Un",
+  
+  // Hero section
+  "crm_hero_title": "Simplifiez votre gestion de la relation client avec <span class='text-primary'>VIA CRM</span>",
+  
+  // Intro section
+  "crm_intro_text": "<p>VIA CRM est notre solution de gestion de la relation client tout-en-un qui transforme votre façon de gérer vos clients et votre marketing. Notre plateforme centralise toutes vos interactions client tout en offrant de puissants outils d'automatisation pour aider votre entreprise à se développer.</p><p>Conçu pour les entreprises de toutes tailles, VIA CRM vous aide à organiser vos contacts, suivre les opportunités de vente, automatiser les campagnes marketing et obtenir des informations précieuses grâce à des rapports complets.</p>",
+  
+  // Features section
+  "crm_features_title": "Toutes les fonctionnalités du VIA CRM",
+  "crm_feature_1_title": "Gestion de la Relation Client",
+  "crm_feature_1_text": "Centralisez toutes vos interactions client dans un système CRM puissant et facile à utiliser.",
+  "crm_feature_2_title": "Automatisation Marketing",
+  "crm_feature_2_text": "Créez et automatisez des campagnes par email, SMS, et messages vocaux pour engager vos prospects.",
+  "crm_feature_3_title": "Création de Sites Web",
+  "crm_feature_3_text": "Concevez des sites web et des entonnoirs de conversion qui génèrent des résultats, sans compétences techniques.",
+  "crm_feature_4_title": "Prise de Rendez-vous",
+  "crm_feature_4_text": "Permettez à vos clients de réserver des consultations directement dans votre calendrier, sans confusion.",
+  "crm_feature_5_title": "Gestion de Réputation",
+  "crm_feature_5_text": "Collectez et affichez des avis clients pour renforcer votre crédibilité et améliorer votre visibilité en ligne.",
+  "crm_feature_6_title": "Rapports et Analyses",
+  "crm_feature_6_text": "Suivez vos performances marketing avec des tableaux de bord détaillés et des rapports personnalisables.",
+  
+  // Benefits section
+  "crm_benefits_title": "Pourquoi choisir VIA CRM?",
+  "crm_benefits_text": "<p><strong>Tout en un seul endroit</strong><br>Fini les jonglages entre différents outils. Notre plateforme regroupe tous vos besoins marketing et CRM dans une interface unique.</p><p><strong>Support personnalisé</strong><br>Notre équipe d'experts est toujours disponible pour vous aider à maximiser les résultats de votre stratégie client.</p><p><strong>Solution évolutive</strong><br>Que vous soyez une petite entreprise ou une grande organisation, notre VIA CRM s'adapte à vos besoins spécifiques.</p><p><strong>Retour sur investissement prouvé</strong><br>Nos clients constatent une amélioration significative de leurs conversions et de leur efficacité commerciale.</p>",
+  
+  // Pricing section
+  "crm_pricing_title": "Nos Forfaits VIA CRM",
+  "crm_price_period": "/mois",
+  "crm_popular_badge": "Populaire",
+  "crm_plan_cta": "Choisir ce forfait",
+  
+  // Essential plan
+  "crm_plan_1_id": "essentiel",
+  "crm_plan_1_title": "Essentiel",
+  "crm_plan_1_subtitle": "Idéal pour les petites entreprises",
+  "crm_plan_1_price": "49€",
+  "crm_plan_1_feature_1": "Jusqu'à 1000 contacts",
+  "crm_plan_1_feature_2": "Gestion des contacts",
+  "crm_plan_1_feature_3": "Email Marketing de base",
+  "crm_plan_1_feature_4": "1 utilisateur",
+  
+  // Business plan
+  "crm_plan_2_id": "business",
+  "crm_plan_2_title": "Business",
+  "crm_plan_2_subtitle": "Pour les entreprises en croissance",
+  "crm_plan_2_price": "99€",
+  "crm_plan_2_feature_1": "Jusqu'à 10 000 contacts",
+  "crm_plan_2_feature_2": "Automatisation marketing complète",
+  "crm_plan_2_feature_3": "Email + SMS Marketing",
+  "crm_plan_2_feature_4": "Création de pages web",
+  "crm_plan_2_feature_5": "5 utilisateurs",
+  
+  // Enterprise plan
+  "crm_plan_3_id": "enterprise",
+  "crm_plan_3_title": "Enterprise",
+  "crm_plan_3_subtitle": "Solution complète pour grandes entreprises",
+  "crm_plan_3_price": "249€",
+  "crm_plan_3_feature_1": "Contacts illimités",
+  "crm_plan_3_feature_2": "Toutes les fonctionnalités Business",
+  "crm_plan_3_feature_3": "Intégrations avancées",
+  "crm_plan_3_feature_4": "Utilisateurs illimités",
+  "crm_plan_3_feature_5": "Support premium dédié",
+  
+  // Testimonials
+  "crm_testimonials_title": "Ce que nos clients disent",
+  "crm_testimonial_1_text": "\"VIA CRM nous a permis de multiplier nos leads par trois en seulement deux mois. Leur plateforme est intuitive et complète.\"",
+  "crm_testimonial_1_author": "Marie Dubois, PDG de Design Moderne",
+  "crm_testimonial_2_text": "\"L'automatisation proposée par VIA CRM a transformé notre façon de communiquer avec nos clients. Nous gagnons un temps précieux.\"",
+  "crm_testimonial_2_author": "Thomas Martin, Directeur Marketing chez Tech Solutions",
+  "crm_testimonial_3_text": "\"Le rapport qualité-prix est imbattable. Une plateforme complète avec un support client exceptionnel.\"",
+  "crm_testimonial_3_author": "Sophie Leclerc, Propriétaire de Café Parisien",
+  
+  // FAQ
+  "crm_faq_title": "Foire Aux Questions",
+  "crm_faq_q1_title": "Qu'est-ce que VIA CRM et comment peut-il aider mon entreprise?",
+  "crm_faq_q1_text": "VIA CRM est une plateforme de gestion de la relation client tout-en-un qui aide les entreprises à organiser leurs contacts, simplifier la communication, automatiser les tâches marketing et obtenir des informations précieuses grâce aux rapports. Elle centralise toutes vos données et interactions client, vous aidant à construire des relations plus solides et à augmenter l'efficacité des ventes.",
+  "crm_faq_q2_title": "Combien de temps faut-il pour configurer VIA CRM?",
+  "crm_faq_q2_text": "La plupart des entreprises peuvent être opérationnelles avec VIA CRM en seulement 1 à 2 jours. Notre équipe fournit une assistance complète pour l'intégration, y compris la migration des données, la formation des utilisateurs et une configuration personnalisée basée sur vos besoins spécifiques. Nous assurons une transition en douceur pour vous aider à voir rapidement des résultats.",
+  "crm_faq_q3_title": "Puis-je intégrer VIA CRM à mes outils existants?",
+  "crm_faq_q3_text": "Oui, VIA CRM offre des intégrations avec des outils d'entreprise populaires, notamment les fournisseurs de messagerie, les processeurs de paiement, les calendriers et bien plus encore. Nos forfaits Business et Enterprise incluent des capacités d'intégration supplémentaires. Si vous avez des besoins d'intégration spécifiques, notre équipe peut discuter de solutions personnalisées lors de votre consultation.",
+  "crm_faq_q4_title": "Mes données sont-elles sécurisées avec VIA CRM?",
+  "crm_faq_q4_text": "Absolument. Nous prenons la sécurité des données très au sérieux. VIA CRM utilise un chiffrement de niveau bancaire, des audits de sécurité réguliers et des contrôles d'accès stricts pour protéger vos données. Nous sommes entièrement conformes au RGPD et ne partageons jamais vos informations avec des tiers. Toutes les données sont sauvegardées régulièrement pour éviter toute perte.",
+  "crm_faq_q5_title": "Puis-je changer de forfait ultérieurement?",
+  "crm_faq_q5_text": "Oui, vous pouvez changer de forfait à tout moment en fonction de l'évolution des besoins de votre entreprise. La mise à niveau est transparente et prend effet immédiatement, tandis que les rétrogradations s'appliqueront au début de votre prochain cycle de facturation. Il n'y a aucune pénalité pour changer de forfait, ce qui vous donne une flexibilité totale."
   "cta1_title": "Appelez-nous ou envoyez un courriel",
   "cta1_subtitle": "Nous sommes à l’écoute pour répondre à vos questions et vous proposer la meilleure solution",
 
