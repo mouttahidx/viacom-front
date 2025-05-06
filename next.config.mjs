@@ -41,11 +41,6 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: "/CRM",
-        destination: "/services/via-crm",
-        permanent: true,
-      },
-      {
         source: "/agence-google-ads",
         destination: "/services/agence-google-ads",
         permanent: true,
