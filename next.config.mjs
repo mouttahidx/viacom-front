@@ -32,5 +32,15 @@ const nextConfig = {
     return headers;
   },
 };
-
+module.exports = {
+  async redirects() {
+    return [
+      {
+        source: '/CRM',
+        destination: '/services/via-crm',
+        permanent: true,
+      },
+    ]
+  },
+}
 export default nextConfig;
