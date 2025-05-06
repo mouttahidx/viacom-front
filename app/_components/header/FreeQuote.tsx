@@ -3,13 +3,15 @@ import { useTranslations } from "next-intl";
 
 export default function FreeQuote() {
   const t = useTranslations();
-
   return (
     <Link
       href="/contact"
-      className="group text-lg text-white hover:bg-white hover:text-primary bg-primary font-medium text-center p-1 relative -mb-3 h-14 rounded z-10"
+      className="group text-lg text-white hover:bg-white hover:text-primary bg-primary font-medium text-center p-1 px-6 sm:px-8 md:px-10 relative -mb-3 h-14 rounded z-10 min-w-[160px] sm:min-w-[180px] md:min-w-[200px] flex items-center justify-center"
     >
-      <span dangerouslySetInnerHTML={{__html:t.raw('nav_quote')}} />
+      <span 
+        className="w-full"
+        dangerouslySetInnerHTML={{__html:t.raw('nav_quote')}} 
+      />
       <svg
         version="1.1"
         className="w-full absolute h-[5px] left-0 top-full fill-primary group-hover:fill-white"
