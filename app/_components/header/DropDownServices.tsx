@@ -53,7 +53,6 @@ export default function DropDownServices({ translations }: { translations: any }
         >
           {translations['nav_seo']}
         </Menu.Item>
-      </Menu.Dropdown>
       <Menu.Item
           className="menu-item"
           component={Link}
