@@ -63,6 +63,12 @@ export default function MobileDrawer({ translations }: any) {
               <Accordion.Panel>
                 <div className="pl-4 w-full flex flex-col">
                   <Link
+                    href={"/services/via-crm"}
+                    className="border-b pb-2 w-full"
+                  >
+                    {translations["nav_crm"]}
+                  </Link>
+                  <Link
                     href={"/services/agence-facebook-ads"}
                     className="border-b pb-2 w-full"
                   >
