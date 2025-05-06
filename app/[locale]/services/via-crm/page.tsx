@@ -1,341 +1,450 @@
-// pages/plateforme-marketing.js
-import Head from 'next/head';
-import Link from 'next/link';
+import ButtonClient from "@/app/_components/ButtonClient";
+import FaqAccordion from "@/app/_components/FaqAccordion";
+import { Button } from "@mantine/core";
+import { useTranslations } from "next-intl";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 
-export default function PlateformeMarketing() {
+export async function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
+  const t = await getTranslations();
+ 
+  return {
+    title: t('via_crm_title'),
+    description: `${t("via_crm_title")} - ${t("meta_description")}`
+  };
+}
+
+export default function ViaCrm({ params: { locale } }: { params: { locale: string } }) {
+  unstable_setRequestLocale(locale);
+
+  const t = useTranslations();
+
+  const faqs = [
+    {
+      value: t("crm_faq_q1_title"),
+      description: (
+        <div className="text-primary">
+          <span
+            dangerouslySetInnerHTML={{
+              __html: t.raw("crm_faq_q1_text"),
+            }}
+          />
+        </div>
+      ),
+    },
+    {
+      value: t("crm_faq_q2_title"),
+      description: (
+        <div className="text-primary">
+          <span
+            dangerouslySetInnerHTML={{
+              __html: t.raw("crm_faq_q2_text"),
+            }}
+          />
+        </div>
+      ),
+    },
+    {
+      value: t("crm_faq_q3_title"),
+      description: (
+        <div className="text-primary">
+          <span
+            dangerouslySetInnerHTML={{
+              __html: t.raw("crm_faq_q3_text"),
+            }}
+          />
+        </div>
+      ),
+    },
+    {
+      value: t("crm_faq_q4_title"),
+      description: (
+        <div className="text-primary">
+          <span
+            dangerouslySetInnerHTML={{
+              __html: t.raw("crm_faq_q4_text"),
+            }}
+          />
+        </div>
+      ),
+    },
+    {
+      value: t("crm_faq_q5_title"),
+      description: (
+        <div className="text-primary">
+          <span
+            dangerouslySetInnerHTML={{
+              __html: t.raw("crm_faq_q5_text"),
+            }}
+          />
+        </div>
+      ),
+    },
+  ];
+
   return (
-    <div className="container mx-auto px-4 py-8">
-      <Head>
-        <title>VIA CRM | Solution CRM Tout-en-Un | VIA Communication Inc.</title>
-        <meta name="description" content="VIA CRM est notre solution de gestion de la relation client tout-en-un qui vous permet de gérer tous vos besoins en marketing et ventes au même endroit. VIA Communication Inc." />
-        <style jsx global>{`
-          :root {
-            --via-blue: rgb(12, 34, 73);
-            --via-orange: rgb(240, 84, 35);
-          }
-        `}</style>
-      </Head>
+    <div>
+      {/* hero */}
+      <div className="bg-facebook-hero bg-center bg-no-repeat bg-cover">
+        <div className="bg-secondary h-full pt-24 pb-24 lg:py-44 flex justify-center bg-opacity-60">
+          <h1 className="capitalize text-center text-white text-3xl lg:text-4xl mt-10 max-w-4xl">
+            <span
+              dangerouslySetInnerHTML={{
+                __html: t.raw("crm_hero_title"),
+              }}
+            />
+          </h1>
+        </div>
+      </div>
 
-      {/* Hero Section */}
-      <section className="text-center py-12 md:py-20" style={{ backgroundColor: 'rgb(12, 34, 73)', color: 'white', borderRadius: '0.5rem' }}>
-        <h1 className="text-4xl md:text-5xl font-bold mb-6">VIA CRM</h1>
-        <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-8">
-          La solution CRM tout-en-un qui transforme votre façon de gérer vos clients et votre marketing.
-        </p>
-        <div>
-          <Link href="/contact" className="bg-white hover:bg-gray-100 text-[rgb(12,34,73)] font-semibold py-3 px-6 rounded-lg mr-4">
-            Demander une démo
-          </Link>
-          <Link href="#forfaits" className="bg-[rgb(240,84,35)] hover:bg-[rgb(220,70,25)] text-white border border-[rgb(240,84,35)] font-semibold py-3 px-6 rounded-lg">
-            Voir les forfaits
-          </Link>
+      {/* intro section */}
+      <section className="w-full flex flex-col container my-40 gap-y-20">
+        {/* title subtitle */}
+        <div className="text-center flex flex-col items-start">
+          <div className="w-[50px] bg-primary h-1 mt-1"></div>
+        </div>
+
+        {/* inner section */}
+        <div className="w-full flex flex-wrap lg:flex-nowrap gap-y-16 gap-x-16 items-center">
+          {/* text content */}
+          <div className="w-full xl:w-6/12">
+            <div className="body-text">
+              <span
+                dangerouslySetInnerHTML={{
+                  __html: t.raw("crm_intro_text"),
+                }}
+              />
+            </div>
+
+            <ButtonClient
+              href={"/contact"}
+              variant="filled"
+              size="md"
+              classes="!bg-primary hover:!bg-opacity-90 mt-10"
+              text={t("btn_contact")}
+            />
+          </div>
+          <Image
+            unoptimized
+            src={"/img/via-crm-overview.webp"}
+            alt="via-crm-platform"
+            width={500}
+            height={500}
+            className="aspect-video w-full lg:w-6/12 object-cover h-full rounded-3xl shadow"
+          />
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-12 rounded-xl my-12 px-6" style={{ backgroundColor: 'rgba(12, 34, 73, 0.05)' }}>
-        <h2 className="text-3xl font-bold text-center mb-12 text-[rgb(12,34,73)]">Toutes les fonctionnalités du VIA CRM</h2>
-        
+      {/* features section */}
+      <section className="w-full flex flex-col xl:container my-40 gap-y-20 px-2">
+        {/* title subtitle */}
+        <div className="text-center flex flex-col items-center">
+          <h2 className="text-3xl capitalize font-semibold text-gray-600">
+            {t("crm_features_title")}
+          </h2>
+          <div className="w-[50px] bg-primary h-1 mx-auto mt-3 mb-10"></div>
+        </div>
+
+        {/* features grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="bg-white p-6 rounded-lg shadow-md border-t-4 border-[rgb(240,84,35)]">
-            <h3 className="text-xl font-semibold mb-4 text-[rgb(12,34,73)]">Gestion de la Relation Client</h3>
-            <p>Centralisez toutes vos interactions client dans un système CRM puissant et facile à utiliser.</p>
+          {/* Feature 1 */}
+          <div className="bg-white p-6 rounded-lg shadow-md border-t-4 border-primary">
+            <h3 className="text-xl font-semibold mb-4 text-secondary">
+              {t("crm_feature_1_title")}
+            </h3>
+            <p>{t("crm_feature_1_text")}</p>
           </div>
           
-          <div className="bg-white p-6 rounded-lg shadow-md border-t-4 border-[rgb(240,84,35)]">
-            <h3 className="text-xl font-semibold mb-4 text-[rgb(12,34,73)]">Automatisation Marketing</h3>
-            <p>Créez et automatisez des campagnes par email, SMS, et messages vocaux pour engager vos prospects.</p>
+          {/* Feature 2 */}
+          <div className="bg-white p-6 rounded-lg shadow-md border-t-4 border-primary">
+            <h3 className="text-xl font-semibold mb-4 text-secondary">
+              {t("crm_feature_2_title")}
+            </h3>
+            <p>{t("crm_feature_2_text")}</p>
           </div>
           
-          <div className="bg-white p-6 rounded-lg shadow-md border-t-4 border-[rgb(240,84,35)]">
-            <h3 className="text-xl font-semibold mb-4 text-[rgb(12,34,73)]">Création de Sites Web</h3>
-            <p>Concevez des sites web et des entonnoirs de conversion qui génèrent des résultats, sans compétences techniques.</p>
+          {/* Feature 3 */}
+          <div className="bg-white p-6 rounded-lg shadow-md border-t-4 border-primary">
+            <h3 className="text-xl font-semibold mb-4 text-secondary">
+              {t("crm_feature_3_title")}
+            </h3>
+            <p>{t("crm_feature_3_text")}</p>
           </div>
           
-          <div className="bg-white p-6 rounded-lg shadow-md border-t-4 border-[rgb(240,84,35)]">
-            <h3 className="text-xl font-semibold mb-4 text-[rgb(12,34,73)]">Prise de Rendez-vous</h3>
-            <p>Permettez à vos clients de réserver des consultations directement dans votre calendrier, sans confusion.</p>
+          {/* Feature 4 */}
+          <div className="bg-white p-6 rounded-lg shadow-md border-t-4 border-primary">
+            <h3 className="text-xl font-semibold mb-4 text-secondary">
+              {t("crm_feature_4_title")}
+            </h3>
+            <p>{t("crm_feature_4_text")}</p>
           </div>
           
-          <div className="bg-white p-6 rounded-lg shadow-md border-t-4 border-[rgb(240,84,35)]">
-            <h3 className="text-xl font-semibold mb-4 text-[rgb(12,34,73)]">Gestion de Réputation</h3>
-            <p>Collectez et affichez des avis clients pour renforcer votre crédibilité et améliorer votre visibilité en ligne.</p>
+          {/* Feature 5 */}
+          <div className="bg-white p-6 rounded-lg shadow-md border-t-4 border-primary">
+            <h3 className="text-xl font-semibold mb-4 text-secondary">
+              {t("crm_feature_5_title")}
+            </h3>
+            <p>{t("crm_feature_5_text")}</p>
           </div>
           
-          <div className="bg-white p-6 rounded-lg shadow-md border-t-4 border-[rgb(240,84,35)]">
-            <h3 className="text-xl font-semibold mb-4 text-[rgb(12,34,73)]">Rapports et Analyses</h3>
-            <p>Suivez vos performances marketing avec des tableaux de bord détaillés et des rapports personnalisables.</p>
+          {/* Feature 6 */}
+          <div className="bg-white p-6 rounded-lg shadow-md border-t-4 border-primary">
+            <h3 className="text-xl font-semibold mb-4 text-secondary">
+              {t("crm_feature_6_title")}
+            </h3>
+            <p>{t("crm_feature_6_text")}</p>
           </div>
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section className="py-12 my-12">
-        <h2 className="text-3xl font-bold text-center mb-12 text-[rgb(12,34,73)]">Pourquoi choisir VIA CRM?</h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h3 className="text-2xl font-semibold mb-4 text-[rgb(12,34,73)]">Tout en un seul endroit</h3>
-            <p className="mb-6">
-              Fini les jonglages entre différents outils. Notre plateforme regroupe tous vos besoins marketing et CRM dans une interface unique.
-            </p>
-            
-            <h3 className="text-2xl font-semibold mb-4 text-[rgb(12,34,73)]">Support personnalisé</h3>
-            <p>
-              Notre équipe d'experts est toujours disponible pour vous aider à maximiser les résultats de votre stratégie client.
-            </p>
-          </div>
-          
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h3 className="text-2xl font-semibold mb-4 text-[rgb(12,34,73)]">Solution évolutive</h3>
-            <p className="mb-6">
-              Que vous soyez une petite entreprise ou une grande organisation, notre VIA CRM s'adapte à vos besoins spécifiques.
-            </p>
-            
-            <h3 className="text-2xl font-semibold mb-4 text-[rgb(12,34,73)]">Retour sur investissement prouvé</h3>
-            <p>
-              Nos clients constatent une amélioration significative de leurs conversions et de leur efficacité commerciale.
-            </p>
+      {/* benefits section */}
+      <section className="w-full flex flex-col container px-4 my-40 gap-y-20">
+        {/* inner section */}
+        <div className="w-full flex flex-wrap lg:flex-nowrap gap-y-16 gap-x-16 items-center">
+          <Image
+            unoptimized
+            src={"/img/via-crm-benefits.webp"}
+            alt="crm-benefits"
+            width={400}
+            height={400}
+            className="w-full lg:w-6/12 object-cover h-full rounded-2xl shadow"
+          />
+          <div className="w-full xl:w-6/12">
+            <h2 className="text-3xl font-semibold text-gray-600">
+              {t("crm_benefits_title")}
+            </h2>
+            <div className="w-[50px] bg-primary h-1 mt-4 mb-6"></div>
+            <div className="body-text">
+              <span
+                dangerouslySetInnerHTML={{
+                  __html: t.raw("crm_benefits_text"),
+                }}
+              />
+            </div>
+
+            <ButtonClient
+              href={"/contact"}
+              variant="filled"
+              size="md"
+              classes="!bg-primary hover:!bg-opacity-90 mt-10"
+              text={t("btn_contact")}
+            />
           </div>
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section id="forfaits" className="py-12 my-12 rounded-xl px-6" style={{ backgroundColor: 'rgba(12, 34, 73, 0.05)' }}>
-        <h2 className="text-3xl font-bold text-center mb-12 text-[rgb(12,34,73)]">Nos Forfaits VIA CRM</h2>
-        
+      {/* pricing section */}
+      <section id="forfaits" className="w-full flex flex-col xl:container my-40 gap-y-20 px-2">
+        {/* title subtitle */}
+        <div className="text-center flex flex-col items-center">
+          <h2 className="text-3xl capitalize font-semibold text-gray-600">
+            {t("crm_pricing_title")}
+          </h2>
+          <div className="w-[50px] bg-primary h-1 mx-auto mt-3 mb-10"></div>
+        </div>
+
+        {/* pricing grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Forfait Essentiel */}
           <div className="bg-white p-8 rounded-lg shadow-md flex flex-col">
-            <h3 className="text-2xl font-bold mb-4 text-center text-[rgb(12,34,73)]">Essentiel</h3>
-            <p className="text-center text-gray-600 mb-4">Idéal pour les petites entreprises</p>
+            <h3 className="text-2xl font-bold mb-4 text-center text-secondary">
+              {t("crm_plan_1_title")}
+            </h3>
+            <p className="text-center text-gray-600 mb-4">
+              {t("crm_plan_1_subtitle")}
+            </p>
             <div className="text-center mb-6">
-              <span className="text-4xl font-bold text-[rgb(12,34,73)]">49€</span>
-              <span className="text-gray-600">/mois</span>
+              <span className="text-4xl font-bold text-secondary">
+                {t("crm_plan_1_price")}
+              </span>
+              <span className="text-gray-600">{t("crm_price_period")}</span>
             </div>
             <ul className="mb-8 flex-grow">
-              <li className="flex items-start mb-3">
-                <svg className="h-5 w-5 text-[rgb(240,84,35)] mr-2 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                </svg>
-                <span>Jusqu'à 1000 contacts</span>
-              </li>
-              <li className="flex items-start mb-3">
-                <svg className="h-5 w-5 text-[rgb(240,84,35)] mr-2 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                </svg>
-                <span>Gestion des contacts</span>
-              </li>
-              <li className="flex items-start mb-3">
-                <svg className="h-5 w-5 text-[rgb(240,84,35)] mr-2 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                </svg>
-                <span>Email Marketing de base</span>
-              </li>
-              <li className="flex items-start mb-3">
-                <svg className="h-5 w-5 text-[rgb(240,84,35)] mr-2 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                </svg>
-                <span>1 utilisateur</span>
-              </li>
+              {Array.from({ length: 4 }).map((_, index) => (
+                <li key={index} className="flex items-start mb-3">
+                  <svg 
+                    className="h-5 w-5 text-primary mr-2 mt-1" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>{t(`crm_plan_1_feature_${index + 1}`)}</span>
+                </li>
+              ))}
             </ul>
-            <Link href="/contact?forfait=essentiel" className="text-center bg-[rgb(240,84,35)] hover:bg-[rgb(220,70,25)] text-white font-semibold py-3 px-6 rounded-lg mt-auto">
-              Choisir ce forfait
+            <Link 
+              href={`/contact?forfait=${t("crm_plan_1_id")}`} 
+              className="text-center bg-primary hover:bg-opacity-90 text-white font-semibold py-3 px-6 rounded-lg mt-auto"
+            >
+              {t("crm_plan_cta")}
             </Link>
           </div>
           
           {/* Forfait Business */}
-          <div className="bg-white p-8 rounded-lg shadow-md border-2 border-[rgb(240,84,35)] flex flex-col relative">
-            <div className="absolute top-0 right-0 bg-[rgb(240,84,35)] text-white px-4 py-1 rounded-bl-lg font-semibold">
-              Populaire
+          <div className="bg-white p-8 rounded-lg shadow-md border-2 border-primary flex flex-col relative">
+            <div className="absolute top-0 right-0 bg-primary text-white px-4 py-1 rounded-bl-lg font-semibold">
+              {t("crm_popular_badge")}
             </div>
-            <h3 className="text-2xl font-bold mb-4 text-center text-[rgb(12,34,73)]">Business</h3>
-            <p className="text-center text-gray-600 mb-4">Pour les entreprises en croissance</p>
+            <h3 className="text-2xl font-bold mb-4 text-center text-secondary">
+              {t("crm_plan_2_title")}
+            </h3>
+            <p className="text-center text-gray-600 mb-4">
+              {t("crm_plan_2_subtitle")}
+            </p>
             <div className="text-center mb-6">
-              <span className="text-4xl font-bold text-[rgb(12,34,73)]">99€</span>
-              <span className="text-gray-600">/mois</span>
+              <span className="text-4xl font-bold text-secondary">
+                {t("crm_plan_2_price")}
+              </span>
+              <span className="text-gray-600">{t("crm_price_period")}</span>
             </div>
             <ul className="mb-8 flex-grow">
-              <li className="flex items-start mb-3">
-                <svg className="h-5 w-5 text-[rgb(240,84,35)] mr-2 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                </svg>
-                <span>Jusqu'à 10 000 contacts</span>
-              </li>
-              <li className="flex items-start mb-3">
-                <svg className="h-5 w-5 text-[rgb(240,84,35)] mr-2 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                </svg>
-                <span>Automatisation marketing complète</span>
-              </li>
-              <li className="flex items-start mb-3">
-                <svg className="h-5 w-5 text-[rgb(240,84,35)] mr-2 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                </svg>
-                <span>Email + SMS Marketing</span>
-              </li>
-              <li className="flex items-start mb-3">
-                <svg className="h-5 w-5 text-[rgb(240,84,35)] mr-2 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                </svg>
-                <span>Création de pages web</span>
-              </li>
-              <li className="flex items-start mb-3">
-                <svg className="h-5 w-5 text-[rgb(240,84,35)] mr-2 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                </svg>
-                <span>5 utilisateurs</span>
-              </li>
+              {Array.from({ length: 5 }).map((_, index) => (
+                <li key={index} className="flex items-start mb-3">
+                  <svg 
+                    className="h-5 w-5 text-primary mr-2 mt-1" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>{t(`crm_plan_2_feature_${index + 1}`)}</span>
+                </li>
+              ))}
             </ul>
-            <Link href="/contact?forfait=business" className="text-center bg-[rgb(240,84,35)] hover:bg-[rgb(220,70,25)] text-white font-semibold py-3 px-6 rounded-lg mt-auto">
-              Choisir ce forfait
+            <Link 
+              href={`/contact?forfait=${t("crm_plan_2_id")}`}
+              className="text-center bg-primary hover:bg-opacity-90 text-white font-semibold py-3 px-6 rounded-lg mt-auto"
+            >
+              {t("crm_plan_cta")}
             </Link>
           </div>
           
           {/* Forfait Enterprise */}
           <div className="bg-white p-8 rounded-lg shadow-md flex flex-col">
-            <h3 className="text-2xl font-bold mb-4 text-center text-[rgb(12,34,73)]">Enterprise</h3>
-            <p className="text-center text-gray-600 mb-4">Solution complète pour grandes entreprises</p>
+            <h3 className="text-2xl font-bold mb-4 text-center text-secondary">
+              {t("crm_plan_3_title")}
+            </h3>
+            <p className="text-center text-gray-600 mb-4">
+              {t("crm_plan_3_subtitle")}
+            </p>
             <div className="text-center mb-6">
-              <span className="text-4xl font-bold text-[rgb(12,34,73)]">249€</span>
-              <span className="text-gray-600">/mois</span>
+              <span className="text-4xl font-bold text-secondary">
+                {t("crm_plan_3_price")}
+              </span>
+              <span className="text-gray-600">{t("crm_price_period")}</span>
             </div>
             <ul className="mb-8 flex-grow">
-              <li className="flex items-start mb-3">
-                <svg className="h-5 w-5 text-[rgb(240,84,35)] mr-2 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                </svg>
-                <span>Contacts illimités</span>
-              </li>
-              <li className="flex items-start mb-3">
-                <svg className="h-5 w-5 text-[rgb(240,84,35)] mr-2 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                </svg>
-                <span>Toutes les fonctionnalités Business</span>
-              </li>
-              <li className="flex items-start mb-3">
-                <svg className="h-5 w-5 text-[rgb(240,84,35)] mr-2 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                </svg>
-                <span>Intégrations avancées</span>
-              </li>
-              <li className="flex items-start mb-3">
-                <svg className="h-5 w-5 text-[rgb(240,84,35)] mr-2 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                </svg>
-                <span>Utilisateurs illimités</span>
-              </li>
-              <li className="flex items-start mb-3">
-                <svg className="h-5 w-5 text-[rgb(240,84,35)] mr-2 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                </svg>
-                <span>Support premium dédié</span>
-              </li>
+              {Array.from({ length: 5 }).map((_, index) => (
+                <li key={index} className="flex items-start mb-3">
+                  <svg 
+                    className="h-5 w-5 text-primary mr-2 mt-1" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>{t(`crm_plan_3_feature_${index + 1}`)}</span>
+                </li>
+              ))}
             </ul>
-            <Link href="/contact?forfait=enterprise" className="text-center bg-[rgb(240,84,35)] hover:bg-[rgb(220,70,25)] text-white font-semibold py-3 px-6 rounded-lg mt-auto">
-              Choisir ce forfait
-            </Link>
-          </div>
-        </div>
-      </section> strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                </svg>
-                <span>Création de pages web</span>
-              </li>
-              <li className="flex items-start mb-3">
-                <svg className="h-5 w-5 text-green-500 mr-2 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                </svg>
-                <span>5 utilisateurs</span>
-              </li>
-            </ul>
-            <Link href="/contact?forfait=business" className="text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg mt-auto">
-              Choisir ce forfait
-            </Link>
-          </div>
-          
-          {/* Forfait Enterprise */}
-          <div className="bg-white p-8 rounded-lg shadow-md flex flex-col">
-            <h3 className="text-2xl font-bold mb-4 text-center">Enterprise</h3>
-            <p className="text-center text-gray-600 mb-4">Solution complète pour grandes entreprises</p>
-            <div className="text-center mb-6">
-              <span className="text-4xl font-bold">249€</span>
-              <span className="text-gray-600">/mois</span>
-            </div>
-            <ul className="mb-8 flex-grow">
-              <li className="flex items-start mb-3">
-                <svg className="h-5 w-5 text-green-500 mr-2 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                </svg>
-                <span>Contacts illimités</span>
-              </li>
-              <li className="flex items-start mb-3">
-                <svg className="h-5 w-5 text-green-500 mr-2 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                </svg>
-                <span>Toutes les fonctionnalités Business</span>
-              </li>
-              <li className="flex items-start mb-3">
-                <svg className="h-5 w-5 text-green-500 mr-2 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                </svg>
-                <span>Intégrations avancées</span>
-              </li>
-              <li className="flex items-start mb-3">
-                <svg className="h-5 w-5 text-green-500 mr-2 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                </svg>
-                <span>Utilisateurs illimités</span>
-              </li>
-              <li className="flex items-start mb-3">
-                <svg className="h-5 w-5 text-green-500 mr-2 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                </svg>
-                <span>Support premium dédié</span>
-              </li>
-            </ul>
-            <Link href="/contact?forfait=enterprise" className="text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg mt-auto">
-              Choisir ce forfait
+            <Link 
+              href={`/contact?forfait=${t("crm_plan_3_id")}`}
+              className="text-center bg-primary hover:bg-opacity-90 text-white font-semibold py-3 px-6 rounded-lg mt-auto"
+            >
+              {t("crm_plan_cta")}
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-12 bg-gray-50 rounded-xl my-12 px-6">
-        <h2 className="text-3xl font-bold text-center mb-12">Ce que nos clients disent</h2>
+      {/* testimonials */}
+      <section className="w-full flex flex-col xl:container my-40 gap-y-20 px-2">
+        <div className="text-center flex flex-col items-center">
+          <h2 className="text-3xl capitalize font-semibold text-gray-600">
+            {t("crm_testimonials_title")}
+          </h2>
+          <div className="w-[50px] bg-primary h-1 mx-auto mt-3 mb-10"></div>
+        </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <p className="italic mb-4">
-              "VIA CRM nous a permis de multiplier nos leads par trois en seulement deux mois. Leur plateforme est intuitive et complète."
+          {Array.from({ length: 3 }).map((_, index) => (
+            <div key={index} className="bg-white p-6 rounded-lg shadow-md border-l-4 border-primary">
+              <p className="italic mb-4">
+                {t(`crm_testimonial_${index + 1}_text`)}
+              </p>
+              <p className="font-semibold text-secondary">
+                {t(`crm_testimonial_${index + 1}_author`)}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="w-full mx-auto max-w-7xl p-4 py-16">
+        <div className="bg-white px-8 lg:px-12 py-16 lg:pb-8 lg:pt-12 rounded-xl flex flex-col lg:flex-row justify-center lg:justify-start items-center lg:items-start text-center lg:text-left">
+          {/* first div */}
+          <div className="lg:w-9/12">
+            <h2 className="second-title text-primary font-bold">
+              {t("cta1_title")}
+            </h2>
+            <p className="mt-4 body-text !text-black lg:w-10/12">
+              {t("cta1_subtitle")}
             </p>
-            <p className="font-semibold">Marie Dubois, PDG de Design Moderne</p>
           </div>
-          
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <p className="italic mb-4">
-              "L'automatisation proposée par VIA CRM a transformé notre façon de communiquer avec nos clients. Nous gagnons un temps précieux."
-            </p>
-            <p className="font-semibold">Thomas Martin, Directeur Marketing chez Tech Solutions</p>
-          </div>
-          
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <p className="italic mb-4">
-              "Le rapport qualité-prix est imbattable. Une plateforme complète avec un support client exceptionnel."
-            </p>
-            <p className="font-semibold">Sophie Leclerc, Propriétaire de Café Parisien</p>
+          {/* cta */}
+          <div className="mt-10 lg:mt-0 flex flex-wrap gap-y-6 gap-x-4 w-full justify-center lg:w-3/12">
+            <ButtonClient
+              href={"/contact"}
+              variant="outline"
+              color="#EE5422"
+              classes="!block !w-full"
+              size="md"
+              text={t("btn_contact")}
+            />
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="text-center py-12 md:py-20">
-        <h2 className="text-3xl font-bold mb-6">Prêt à transformer votre relation client?</h2>
-        <p className="text-xl max-w-3xl mx-auto mb-8">
-          Contactez-nous aujourd'hui pour découvrir comment VIA CRM peut vous aider à atteindre vos objectifs.
-        </p>
-        <Link href="/contact" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg">
-          Commencer maintenant
+      {/* FAQ */}
+      <section className="2xl:container flex flex-col items-center mt-10 pb-24">
+        <h2 className="text-gray-600 text-3xl font-medium">
+          {t("crm_faq_title")}
+        </h2>
+        <div className="divider"></div>
+        <FaqAccordion faqs={faqs} />
+      </section>
+
+      {/* other services */}
+      <section className="2xl:container flex flex-col items-center mb-16 py-16">
+        <h2 className="text-gray-600 text-3xl font-medium">
+          {t("other_title")}
+        </h2>
+        <div className="divider"></div>
+
+        <Link
+          className="text-xl text-dark-secondary mt-4 font-semibold hover:scale-105 duration-300"
+          href="/services/agence-facebook-ads"
+        >
+          {t("other_fb")}
+        </Link>
+        <Link
+          className="text-xl text-dark-secondary mt-4 font-semibold hover:scale-105 duration-300"
+          href="/services/agence-google-ads"
+        >
+          {t("other_google")}
+        </Link>
+        <Link
+          className="text-xl text-dark-secondary mt-4 font-semibold hover:scale-105 duration-300"
+          href="/services/agence-seo"
+        >
+          {t("other_seo")}
         </Link>
       </section>
     </div>
