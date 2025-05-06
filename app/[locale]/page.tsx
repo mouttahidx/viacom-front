@@ -69,7 +69,73 @@ export default function Page({
           </div>
         </div>
       </section>
-
+      {/* CRM section - to be added before the testimonials or CTA section */}
+<section className="w-full bg-gray-50 py-16 my-40">
+  <div className="max-w-6xl mx-auto px-4">
+    <div className="flex flex-col lg:flex-row items-center gap-x-12 gap-y-10">
+      {/* CRM image */}
+      <div className="w-full lg:w-5/12 relative h-[350px] rounded-xl overflow-hidden shadow-lg">
+        <Image
+          unoptimized
+          src={"/img/via-crm-dashboard.webp"}
+          alt="VIA CRM Dashboard"
+          fill
+          sizes="(max-width: 768px) 100vw, 42vw"
+          style={{
+            objectFit: "cover",
+          }}
+          className="transition-transform duration-500 hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-tr from-secondary/40 to-transparent pointer-events-none"></div>
+      </div>
+      
+      {/* CRM content */}
+      <div className="w-full lg:w-7/12">
+        <h2 className="section-title mb-6">{t("home_crm_title") || "VIA CRM"}</h2>
+        <div className="w-[50px] bg-primary h-1 mb-6"></div>
+        <p className="body-text mb-8">
+          {t("home_crm_text") || "Optimisez votre gestion de la relation client avec notre solution CRM intuitive. Centralisez vos contacts, automatisez vos processus et prenez des décisions basées sur des données précises. Découvrez comment VIA CRM peut transformer votre entreprise."}
+        </p>
+        
+        <div className="flex flex-wrap gap-4 mb-8">
+          <div className="flex items-center">
+            <div className="bg-primary/10 p-2 rounded-full mr-3">
+              <svg className="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <p className="text-gray-700">{t("home_crm_feature_1") || "Gestion centralisée"}</p>
+          </div>
+          
+          <div className="flex items-center">
+            <div className="bg-primary/10 p-2 rounded-full mr-3">
+              <svg className="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <p className="text-gray-700">{t("home_crm_feature_2") || "Tableaux de bord"}</p>
+          </div>
+          
+          <div className="flex items-center">
+            <div className="bg-primary/10 p-2 rounded-full mr-3">
+              <svg className="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <p className="text-gray-700">{t("home_crm_feature_3") || "Automatisation"}</p>
+          </div>
+        </div>
+        
+        <ButtonClient
+          href="/services/via-crm"
+          variant="filled"
+          classes={"!bg-primary hover:!bg-opacity-90"}
+          text={t("btn_crm_discover") || "Découvrir VIA CRM"}
+        />
+      </div>
+    </div>
+  </div>
+</section>
       {/* // 1st section */}
       <section className="w-full mx-auto max-w-6xl p-4 bottom-arrow relative">
         <div className=" lg:-mt-14  bg-primary px-8 lg:px-16 py-16 lg:pb-8 lg:pt-12 rounded-xl flex flex-col lg:flex-row justify-center lg:justify-start items-center text-center lg:text-left(">
