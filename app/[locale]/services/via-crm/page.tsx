@@ -1,8 +1,4 @@
-import ButtonClient from "@/app/_components/ButtonClient";
-import FaqAccordion from "@/app/_components/FaqAccordion";
-import { Button } from "@mantine/core";
-import { useTranslations } from "next-intl";
-import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
