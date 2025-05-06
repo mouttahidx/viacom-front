@@ -20,6 +20,7 @@ export default function Nav() {
     'nav_blog':t('nav_blog'),
     'nav_contact':t('nav_contact'),
     'nav_faq':t('nav_faq'),
+    'nav_crm': t('nav_crm'),
   }
 
   return (
