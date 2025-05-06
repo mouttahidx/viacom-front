@@ -19,7 +19,6 @@ const nextConfig = {
         pathname: "/**",
       },
     ],
-    minimumCacheTTL: 60 * 60 * 24 * 120,
   },
   reactStrictMode: true,
   async headers() {
@@ -72,7 +71,7 @@ const nextConfig = {
   },
   eslint: {
     ignoreDuringBuilds: true,
-  }
+  },
 };
 
 export default withNextIntl(nextConfig);
