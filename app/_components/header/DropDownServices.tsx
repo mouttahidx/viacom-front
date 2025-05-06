@@ -53,13 +53,6 @@ export default function DropDownServices({ translations }: { translations: any }
         >
           {translations['nav_seo']}
         </Menu.Item>
-      <Menu.Item
-          className="menu-item"
-          component={Link}
-          href="/services/via-crm"
-        >
-          {translations['nav_crm']}
-        </Menu.Item>
       </Menu.Dropdown>
     </Menu>
   );
