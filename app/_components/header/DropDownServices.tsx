@@ -21,6 +21,14 @@ export default function DropDownServices({ translations }: { translations: any }
       </Menu.Target>
       <Menu.Dropdown>
         <Menu.Item
+        className="menu-item"
+        component={Link}
+        href="/services/via-crm"
+        >
+          {translations['nav_crm']}
+       </Menu.Item>
+        <Menu.Divider />
+        <Menu.Item
           className="menu-item"
           component={Link}
           href="/services/agence-facebook-ads"
@@ -34,14 +42,6 @@ export default function DropDownServices({ translations }: { translations: any }
           href="/services/agence-google-ads"
         >
           {translations['nav_google']}
-        </Menu.Item>
-        <Menu.Divider />
-        <Menu.Item
-          className="menu-item"
-          component={Link}
-          href="/services/via-crm"
-        >
-          {translations['nav_crm']}
         </Menu.Item>
         <Menu.Divider />
         <Menu.Item
