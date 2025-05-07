@@ -521,7 +521,7 @@ export default function ViaCrm({ params: { locale } }: { params: { locale: strin
           </section>
         
         {/* CTA - full width background */}
-        <section className="w-full bg-secondary py-20">
+        <section className="w-full bg-orange-500 py-20">
           <div className="mx-auto max-w-7xl px-4">
             <div className="flex flex-col lg:flex-row justify-between items-center lg:items-center text-center lg:text-left">
               <div className="lg:w-8/12">
