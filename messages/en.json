@@ -39,6 +39,14 @@
   "previous":"Previous",
   "blog_hero_title":"Blog",
 
+  "home_crm_section_title": "Customer Relationship Management",
+  "home_crm_section_subtitle": "Streamline Your Business Processes",
+  "home_crm_section_description": "Our CRM solution helps businesses of all sizes manage and analyze customer interactions throughout the customer lifecycle, with the goal of improving business relationships, customer retention, and driving sales growth.",
+  "home_crm_section_feature_1": "Centralized customer information and interaction history",
+  "home_crm_section_feature_2": "Automated workflow and task management",
+  "home_crm_section_feature_3": "Comprehensive analytics and reporting capabilities",
+  "home_crm_section_button": "Learn More About Our CRM",
+
   "via_crm_title": "VIA CRM | All-in-One CRM Solution",
   "crm_hero_title": "Simplify Your Customer Relationship Management with <span class='text-primary'>VIA CRM</span>",
   "crm_intro_text": "<p>VIA CRM is our all-in-one customer relationship management solution that transforms how you manage your clients and marketing. Our platform centralizes all your customer interactions while providing powerful automation tools to help your business grow.</p><p>Designed for businesses of all sizes, VIA CRM helps you organize contacts, track sales opportunities, automate marketing campaigns, and gain valuable insights through comprehensive reporting.</p>",
