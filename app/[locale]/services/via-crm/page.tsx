@@ -131,7 +131,7 @@ export default function ViaCrm({ params: { locale } }: { params: { locale: strin
           <div className="relative w-full lg:w-6/12 rounded-3xl shadow-lg overflow-hidden group">
             <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <img
-              src="/api/placeholder/800/600"
+              src="/img/crm-overview.jpg"
               alt="CRM Platform Overview"
               className="aspect-video w-full object-cover h-full rounded-3xl transition-transform duration-300 group-hover:scale-105"
             />
