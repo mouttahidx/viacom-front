@@ -99,51 +99,49 @@ export default function ViaCrm({ params: { locale } }: { params: { locale: strin
         </div>
       </div>
 
-      {/* intro section - improved layout */}
-      <section className="w-full py-20 md:py-32">
-        <div className="container mx-auto px-4">
-          <div className="text-center flex flex-col items-center mb-10">
-            <h2 className="text-3xl capitalize font-semibold text-gray-600">
-              {t("via_crm_title")}
-            </h2>
-            <div className="w-[50px] bg-primary h-1 mt-3"></div>
+      {/* intro section - improved layout and consistent width */}
+      <section className="w-full flex flex-col max-w-7xl mx-auto my-20 md:my-32 px-4">
+        <div className="text-center flex flex-col items-center mb-10">
+          <h2 className="text-3xl capitalize font-semibold text-gray-600">
+            {t("via_crm_title")}
+          </h2>
+          <div className="w-[50px] bg-primary h-1 mt-3"></div>
+        </div>
+
+        {/* inner section */}
+        <div className="w-full flex flex-col-reverse lg:flex-row gap-y-12 gap-x-16 items-center">
+          {/* text content */}
+          <div className="w-full lg:w-6/12">
+            <div className="body-text text-lg">
+              <span
+                dangerouslySetInnerHTML={{
+                  __html: t.raw("crm_intro_text"),
+                }}
+              />
+            </div>
+
+            <ButtonClient
+              href={"/contact"}
+              variant="filled"
+              size="md"
+              classes="!bg-primary hover:!bg-opacity-90 mt-10"
+              text={t("btn_contact")}
+            />
           </div>
-
-          {/* inner section */}
-          <div className="w-full flex flex-col-reverse lg:flex-row gap-y-12 gap-x-16 items-center">
-            {/* text content */}
-            <div className="w-full lg:w-6/12">
-              <div className="body-text text-lg">
-                <span
-                  dangerouslySetInnerHTML={{
-                    __html: t.raw("crm_intro_text"),
-                  }}
-                />
-              </div>
-
-              <ButtonClient
-                href={"/contact"}
-                variant="filled"
-                size="md"
-                classes="!bg-primary hover:!bg-opacity-90 mt-10"
-                text={t("btn_contact")}
-              />
-            </div>
-            <div className="relative w-full lg:w-6/12 rounded-3xl shadow-lg overflow-hidden group">
-              <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <img
-                src="/images/crm/crm-overview.jpg"
-                alt="CRM Platform Overview"
-                className="aspect-video w-full object-cover h-full rounded-3xl transition-transform duration-300 group-hover:scale-105"
-              />
-            </div>
+          <div className="relative w-full lg:w-6/12 rounded-3xl shadow-lg overflow-hidden group">
+            <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <img
+              src="/api/placeholder/800/600"
+              alt="CRM Platform Overview"
+              className="aspect-video w-full object-cover h-full rounded-3xl transition-transform duration-300 group-hover:scale-105"
+            />
           </div>
         </div>
       </section>
 
       {/* features section - improved with icons */}
-      <section className="w-full bg-gray-50 py-20">
-        <div className="container mx-auto px-4">
+      <section className="w-full bg-gray-50 py-20 px-4">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center flex flex-col items-center mb-12">
             <h2 className="text-3xl capitalize font-semibold text-gray-600">
               {t("crm_features_title")}
@@ -245,50 +243,48 @@ export default function ViaCrm({ params: { locale } }: { params: { locale: strin
         </div>
       </section>
 
-      {/* benefits section - improved with image hover effect */}
-      <section className="w-full py-20 md:py-32">
-        <div className="container mx-auto px-4">
-          <div className="w-full flex flex-col-reverse lg:flex-row gap-y-12 gap-x-16 items-center">
-            <div className="relative w-full lg:w-6/12 rounded-2xl shadow-lg overflow-hidden group">
-              <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <div className="bg-white/80 px-6 py-4 rounded-lg transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                  <p className="text-primary font-semibold text-lg">{t("crm_benefits_title")}</p>
-                </div>
+      {/* benefits section - with consistent width */}
+      <section className="w-full flex flex-col max-w-7xl mx-auto px-4 my-20 md:my-32">
+        <div className="w-full flex flex-col-reverse lg:flex-row gap-y-12 gap-x-16 items-center">
+          <div className="relative w-full lg:w-6/12 rounded-2xl shadow-lg overflow-hidden group">
+            <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <div className="bg-white/80 px-6 py-4 rounded-lg transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                <p className="text-primary font-semibold text-lg">{t("crm_benefits_title")}</p>
               </div>
-              <img
-                src="/images/crm/crm-benefits.jpg"
-                alt="CRM Benefits"
-                className="w-full object-cover h-full rounded-2xl transition-transform duration-500 group-hover:scale-105"
+            </div>
+            <img
+              src="/api/placeholder/800/600"
+              alt="CRM Benefits"
+              className="w-full object-cover h-full rounded-2xl transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+          <div className="w-full lg:w-6/12">
+            <h2 className="text-3xl font-semibold text-gray-600">
+              {t("crm_benefits_title")}
+            </h2>
+            <div className="w-[50px] bg-primary h-1 mt-4 mb-6"></div>
+            <div className="body-text text-lg">
+              <span
+                dangerouslySetInnerHTML={{
+                  __html: t.raw("crm_benefits_text"),
+                }}
               />
             </div>
-            <div className="w-full lg:w-6/12">
-              <h2 className="text-3xl font-semibold text-gray-600">
-                {t("crm_benefits_title")}
-              </h2>
-              <div className="w-[50px] bg-primary h-1 mt-4 mb-6"></div>
-              <div className="body-text text-lg">
-                <span
-                  dangerouslySetInnerHTML={{
-                    __html: t.raw("crm_benefits_text"),
-                  }}
-                />
-              </div>
 
-              <ButtonClient
-                href={"/contact"}
-                variant="filled"
-                size="md"
-                classes="!bg-primary hover:!bg-opacity-90 mt-10"
-                text={t("btn_contact")}
-              />
-            </div>
+            <ButtonClient
+              href={"/contact"}
+              variant="filled"
+              size="md"
+              classes="!bg-primary hover:!bg-opacity-90 mt-10"
+              text={t("btn_contact")}
+            />
           </div>
         </div>
       </section>
 
-      {/* pricing section - improved cards with icons instead of images */}
-      <section id="forfaits" className="w-full bg-gray-50 py-20">
-        <div className="container mx-auto px-4">
+      {/* pricing section - using icons instead of images */}
+      <section id="forfaits" className="w-full bg-gray-50 py-20 px-4">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center flex flex-col items-center mb-12">
             <h2 className="text-3xl capitalize font-semibold text-gray-600">
               {t("crm_pricing_title")}
@@ -301,7 +297,7 @@ export default function ViaCrm({ params: { locale } }: { params: { locale: strin
             <div className="bg-white p-8 rounded-lg shadow-md flex flex-col hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="w-full flex justify-center mb-6">
                 <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center">
-                  <svg className="w-12 h-12 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="h-12 w-12 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
@@ -342,8 +338,8 @@ export default function ViaCrm({ params: { locale } }: { params: { locale: strin
               </div>
               <div className="w-full flex justify-center mb-6">
                 <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center">
-                  <svg className="w-12 h-12 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  <svg className="h-12 w-12 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
                   </svg>
                 </div>
               </div>
@@ -380,7 +376,7 @@ export default function ViaCrm({ params: { locale } }: { params: { locale: strin
             <div className="bg-white p-8 rounded-lg shadow-md flex flex-col hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="w-full flex justify-center mb-6">
                 <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center">
-                  <svg className="w-12 h-12 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="h-12 w-12 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                   </svg>
                 </div>
@@ -417,55 +413,55 @@ export default function ViaCrm({ params: { locale } }: { params: { locale: strin
         </div>
       </section>
 
-      {/* testimonials - with icons instead of placeholder images */}
-      <section className="w-full py-20 md:py-32">
-        <div className="container mx-auto px-4">
-          <div className="text-center flex flex-col items-center mb-12">
-            <h2 className="text-3xl capitalize font-semibold text-gray-600">
-              {t("crm_testimonials_title")}
-            </h2>
-            <div className="w-[50px] bg-primary h-1 mx-auto mt-3"></div>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {Array.from({ length: 3 }).map((_, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md border-l-4 border-primary hover:shadow-xl transition-all duration-300">
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4">
-                    <svg className="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                    </svg>
-                  </div>
-                  <p className="font-semibold text-secondary">
-                    {t(`crm_testimonial_${index + 1}_author`)}
-                  </p>
+      {/* testimonials - without images, consistent width */}
+      <section className="w-full flex flex-col max-w-7xl mx-auto px-4 my-20 md:my-32">
+        <div className="text-center flex flex-col items-center mb-12">
+          <h2 className="text-3xl capitalize font-semibold text-gray-600">
+            {t("crm_testimonials_title")}
+          </h2>
+          <div className="w-[50px] bg-primary h-1 mx-auto mt-3"></div>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {Array.from({ length: 3 }).map((_, index) => (
+            <div key={index} className="bg-white p-6 rounded-lg shadow-md border-l-4 border-primary hover:shadow-xl transition-all duration-300">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                  <svg className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  </svg>
                 </div>
-                <p className="italic mb-4 text-gray-700">
-                  {t(`crm_testimonial_${index + 1}_text`)}
+                <p className="font-semibold text-secondary">
+                  {t(`crm_testimonial_${index + 1}_author`)}
                 </p>
-                <div className="flex text-primary mt-2">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <svg key={i} className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                    </svg>
-                  ))}
-                </div>
               </div>
-            ))}
-          </div>
+              <p className="italic mb-4 text-gray-700">
+                {t(`crm_testimonial_${index + 1}_text`)}
+              </p>
+              <div className="flex text-primary mt-2">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <svg key={i} className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                  </svg>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="w-full bg-gray-50 py-20">
-        <div className="container mx-auto px-4">
+      {/* FAQ - consistent width */}
+      <section className="w-full bg-gray-50 py-20 px-4">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center flex flex-col items-center mb-12">
             <h2 className="text-gray-600 text-3xl font-medium">
               {t("crm_faq_title")}
             </h2>
             <div className="w-[50px] bg-primary h-1 mx-auto mt-3"></div>
           </div>
-          <FaqAccordion faqs={faqs} />
+          <div className="max-w-5xl mx-auto">
+            <FaqAccordion faqs={faqs} />
+          </div>
         </div>
       </section>
 
