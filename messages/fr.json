@@ -39,6 +39,14 @@
   "previous":"Précedent",
   "blog_hero_title":"Blogue",
 
+  "home_crm_section_title": "Gestion de la Relation Client",
+  "home_crm_section_subtitle": "Optimisez Vos Processus d'Affaires",
+  "home_crm_section_description": "Notre solution CRM aide les entreprises de toutes tailles à gérer et analyser les interactions avec les clients tout au long du cycle de vie, dans le but d'améliorer les relations commerciales, la fidélisation des clients et de stimuler la croissance des ventes.",
+  "home_crm_section_feature_1": "Centralisation des informations clients et historique des interactions",
+  "home_crm_section_feature_2": "Gestion automatisée des flux de travail et des tâches",
+  "home_crm_section_feature_3": "Capacités complètes d'analyse et de reporting",
+  "home_crm_section_button": "En Savoir Plus Sur Notre CRM",
+
   "via_crm_title": "VIA CRM | Solution CRM Tout-en-Un",
   "crm_hero_title": "Simplifiez votre gestion de la relation client avec <span class='text-primary'>VIA CRM</span>",
   "crm_intro_text": "<p>VIA CRM est notre solution de gestion de la relation client tout-en-un qui transforme votre façon de gérer vos clients et votre marketing. Notre plateforme centralise toutes vos interactions client tout en offrant de puissants outils d'automatisation pour aider votre entreprise à se développer.</p><p>Conçu pour les entreprises de toutes tailles, VIA CRM vous aide à organiser vos contacts, suivre les opportunités de vente, automatiser les campagnes marketing et obtenir des informations précieuses grâce à des rapports complets.</p>",
@@ -108,7 +116,7 @@
   "crm_faq_q5_text": "Oui, vous pouvez changer de forfait à tout moment en fonction de l'évolution des besoins de votre entreprise. La mise à niveau est transparente et prend effet immédiatement, tandis que les rétrogradations s'appliqueront au début de votre prochain cycle de facturation. Il n'y a aucune pénalité pour changer de forfait, ce qui vous donne une flexibilité totale.",
   "cta1_title": "Appelez-nous ou envoyez un courriel",
   "cta1_subtitle": "Nous sommes à l’écoute pour répondre à vos questions et vous proposer la meilleure solution",
-
+  
   "cta2_title": "Besoin d'aide pour élaborer une stratégie digitale SEO pertinente ?</br>N'hésitez plus et faites appel à VIA Communication !",
   "cta2_btn": "En savoir plus sur nos services SEO",
 
