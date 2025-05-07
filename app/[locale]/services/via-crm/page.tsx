@@ -544,3 +544,4 @@ export default function ViaCrm({ params: { locale } }: { params: { locale: strin
       </section>
     </div>
   );
+} 
