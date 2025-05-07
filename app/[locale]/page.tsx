@@ -141,7 +141,62 @@ export default function Page({
           className="w-full lg:w-6/12 object-contain"
         />
       </section>
+      {/* CRM Section for Homepage */}
+<section className="w-full bg-gray-50 py-20 px-4">
+  <div className="max-w-7xl mx-auto">
+    <div className="text-center flex flex-col items-center mb-12">
+      <h2 className="text-3xl capitalize font-semibold text-gray-600">
+        {t("home_crm_section_title")}
+      </h2>
+      <div className="w-[50px] bg-primary h-1 mx-auto mt-3"></div>
+    </div>
 
+    <div className="w-full flex flex-col-reverse lg:flex-row gap-y-12 gap-x-16 items-center">
+      {/* Text content */}
+      <div className="w-full lg:w-6/12">
+        <h3 className="text-2xl font-semibold text-secondary mb-4">
+          {t("home_crm_section_subtitle")}
+        </h3>
+        <div className="body-text text-lg">
+          <p className="mb-4">{t("home_crm_section_description")}</p>
+        </div>
+        <ul className="mb-8">
+          {Array.from({ length: 3 }).map((_, index) => (
+            <li key={index} className="flex items-start mb-3">
+              <svg 
+                className="h-5 w-5 text-primary mr-2 mt-1" 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>{t(`home_crm_section_feature_${index + 1}`)}</span>
+            </li>
+          ))}
+        </ul>
+
+        <ButtonClient
+          href={"/services/via-crm"}
+          variant="filled"
+          size="md"
+          classes="!bg-primary hover:!bg-opacity-90 mt-4"
+          text={t("home_crm_section_button")}
+        />
+      </div>
+      
+      {/* Image */}
+      <div className="relative w-full lg:w-6/12 rounded-3xl shadow-lg overflow-hidden group">
+        <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <img
+          src="/img/crm-overview.jpg"
+          alt="CRM Platform Overview"
+          className="aspect-video w-full object-cover h-full rounded-3xl transition-transform duration-300 group-hover:scale-105"
+        />
+      </div>
+    </div>
+  </div>
+</section>
       {/* 3rd */}
       <section className="w-full flex flex-col container my-40 gap-y-20">
         {/* title subtitle */}
@@ -166,30 +221,7 @@ export default function Page({
           </div>
         </div>
       </section>
-      {/* CRM CTA Section */}
-<section className="w-full bg-[rgb(240,84,35)] py-20">
-  <div className="mx-auto max-w-7xl px-4">
-    <div className="flex flex-col lg:flex-row justify-between items-center lg:items-center text-center lg:text-left">
-      <div className="lg:w-8/12">
-        <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
-          {t("home_crm_cta_title")}
-        </h2>
-        <p className="mt-4 text-white/90 text-lg lg:w-10/12">
-          {t("home_crm_cta_subtitle")}
-        </p>
-      </div>
-      <div className="mt-10 lg:mt-0 w-full lg:w-4/12 flex justify-center lg:justify-end">
-        <ButtonClient
-          href={"/services/via-crm"}
-          variant="filled"
-          size="lg"
-          classes="!bg-white !text-primary hover:!bg-gray-100 shadow-lg"
-          text={t("home_crm_cta_button")}
-        />
-      </div>
-    </div>
-  </div>
-</section>
+      
       {/* 4th */}
       <section className="my-40 grid grid-cols-1 lg:grid-cols-2">
         {/* first square */}
