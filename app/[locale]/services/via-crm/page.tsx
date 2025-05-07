@@ -465,84 +465,85 @@ export default function ViaCrm({ params: { locale } }: { params: { locale: strin
         </div>
       </section>
 
-      {/* other services - improved with icons */}
-      <section className="w-full py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center flex flex-col items-center mb-12">
-            <h2 className="text-gray-600 text-3xl font-medium">
-              {t("other_title")}
-            </h2>
-            <div className="w-[50px] bg-primary h-1 mx-auto mt-3"></div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mx-auto">
-            <Link href="/services/agence-facebook-ads" className="group">
-              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 group-hover:-translate-y-2 transform flex flex-col items-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-                  <svg className="w-8 h-8 text-blue-600" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                  </svg>
-                </div>
-                <span className="text-xl text-secondary font-semibold group-hover:text-primary transition-colors duration-300">
-                  {t("other_fb")}
-                </span>
-              </div>
-            </Link>
-            
-            <Link href="/services/agence-google-ads" className="group">
-              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 group-hover:-translate-y-2 transform flex flex-col items-center">
-                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4">
-                  <svg className="w-8 h-8 text-red-600" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M22.18 10.382c-.39-.038-.779-.059-1.174-.059-3.32 0-6.397 1.172-8.799 3.131l3.443 2.994c1.573-1.396 3.631-2.156 5.683-2.156.475 0 .941.046 1.396.117v-3.492c0-.186-.196-.515-.549-.535zM8.753 18.588c1.516 1.352 3.608 2.213 5.911 2.213.526 0 1.036-.043 1.535-.11v-3.521a6.75 6.75 0 0 1-1.397.118c-2.037 0-3.915-.781-5.387-2.07l-3.396 2.982c2.383 1.97 5.453 3.152 8.783 3.152.399 0 .791-.021 1.187-.053.52-.053.906-.468.906-.978v-11.31l-6.629-5.773c-.304-.25-.752-.246-1.05 0l-10.203 8.95c-.406.355-.444.973-.08 1.37l1.53 1.676c.363.397.978.435 1.382.077l8.324-7.29z" />
-                  </svg>
-                </div>
-              <span className="text-xl text-secondary font-semibold group-hover:text-primary transition-colors duration-300">
-                {t("other_google")}
-              </span>
-            </div>
-          </Link>
-          
-          <Link href="/services/agence-seo" className="group">
-            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 group-hover:-translate-y-2 transform flex flex-col items-center">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
-                <svg className="w-8 h-8 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="10" />
-                  <line x1="2" y1="12" x2="22" y2="12" />
-                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-                </svg>
-              </div>
-              <span className="text-xl text-secondary font-semibold group-hover:text-primary transition-colors duration-300">
-                {t("other_seo")}
-              </span>
-            </div>
-          </Link>
-        </div>
-      </section>
-
-      {/* CTA - at bottom with improved design */}
-      <section className="w-full bg-gray-50 py-20">
-        <div className="mx-auto max-w-7xl p-4">
-          <div className="bg-gradient-to-r from-secondary to-secondary/90 px-8 lg:px-12 py-16 rounded-xl flex flex-col lg:flex-row justify-between items-center lg:items-center text-center lg:text-left shadow-xl">
-            <div className="lg:w-8/12">
-              <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
-                {t("cta1_title")}
+      {/* other services - consistent width */}
+        <section className="w-full py-20 px-4">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center flex flex-col items-center mb-12">
+              <h2 className="text-gray-600 text-3xl font-medium">
+                {t("other_title")}
               </h2>
-              <p className="mt-4 text-white/90 text-lg lg:w-10/12">
-                {t("cta1_subtitle")}
-              </p>
+              <div className="w-[50px] bg-primary h-1 mx-auto mt-3"></div>
             </div>
-            <div className="mt-10 lg:mt-0 w-full lg:w-4/12 flex justify-center lg:justify-end">
-              <ButtonClient
-                href={"/contact"}
-                variant="filled"
-                size="lg"
-                classes="!bg-white !text-primary hover:!bg-gray-100 shadow-lg"
-                text={t("btn_contact")}
-              />
+        
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-5xl mx-auto">
+              <Link href="/services/agence-facebook-ads" className="group">
+                <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 group-hover:-translate-y-2 transform flex flex-col items-center">
+                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                    <svg className="w-8 h-8 text-blue-600" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                    </svg>
+                  </div>
+                  <span className="text-xl text-secondary font-semibold group-hover:text-primary transition-colors duration-300">
+                    {t("other_fb")}
+                  </span>
+                </div>
+              </Link>
+              
+              <Link href="/services/agence-google-ads" className="group">
+                <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 group-hover:-translate-y-2 transform flex flex-col items-center">
+                  <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4">
+                    <svg className="w-8 h-8 text-red-600" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M22.18 10.382c-.39-.038-.779-.059-1.174-.059-3.32 0-6.397 1.172-8.799 3.131l3.443 2.994c1.573-1.396 3.631-2.156 5.683-2.156.475 0 .941.046 1.396.117v-3.492c0-.186-.196-.515-.549-.535zM8.753 18.588c1.516 1.352 3.608 2.213 5.911 2.213.526 0 1.036-.043 1.535-.11v-3.521a6.75 6.75 0 0 1-1.397.118c-2.037 0-3.915-.781-5.387-2.07l-3.396 2.982c2.383 1.97 5.453 3.152 8.783 3.152.399 0 .791-.021 1.187-.053.52-.053.906-.468.906-.978v-11.31l-6.629-5.773c-.304-.25-.752-.246-1.05 0l-10.203 8.95c-.406.355-.444.973-.08 1.37l1.53 1.676c.363.397.978.435 1.382.077l8.324-7.29z" />
+                    </svg>
+                  </div>
+                  <span className="text-xl text-secondary font-semibold group-hover:text-primary transition-colors duration-300">
+                    {t("other_google")}
+                  </span>
+                </div>
+              </Link>
+              
+              <Link href="/services/agence-seo" className="group">
+                <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 group-hover:-translate-y-2 transform flex flex-col items-center">
+                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                    <svg className="w-8 h-8 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="10" />
+                      <line x1="2" y1="12" x2="22" y2="12" />
+                      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                    </svg>
+                  </div>
+                  <span className="text-xl text-secondary font-semibold group-hover:text-primary transition-colors duration-300">
+                    {t("other_seo")}
+                  </span>
+                </div>
+              </Link>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+        
+        {/* CTA - full width background */}
+        <section className="w-full bg-secondary py-20">
+          <div className="mx-auto max-w-7xl px-4">
+            <div className="flex flex-col lg:flex-row justify-between items-center lg:items-center text-center lg:text-left">
+              <div className="lg:w-8/12">
+                <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+                  {t("cta1_title")}
+                </h2>
+                <p className="mt-4 text-white/90 text-lg lg:w-10/12">
+                  {t("cta1_subtitle")}
+                </p>
+              </div>
+              <div className="mt-10 lg:mt-0 w-full lg:w-4/12 flex justify-center lg:justify-end">
+                <ButtonClient
+                  href={"/contact"}
+                  variant="filled"
+                  size="lg"
+                  classes="!bg-white !text-primary hover:!bg-gray-100 shadow-lg"
+                  text={t("btn_contact")}
+                />
+              </div>
+            </div>
+          </div>
+        </section>
     </div>
   );
 } 
