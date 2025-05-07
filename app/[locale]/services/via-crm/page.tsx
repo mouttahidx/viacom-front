@@ -253,7 +253,7 @@ export default function ViaCrm({ params: { locale } }: { params: { locale: strin
               </div>
             </div>
             <img
-              src="/api/placeholder/800/600"
+              src="/img/crm-benifits.jpg"
               alt="CRM Benefits"
               className="w-full object-cover h-full rounded-2xl transition-transform duration-500 group-hover:scale-105"
             />
