@@ -1,11 +1,9 @@
 
-import { Button, Menu } from "@mantine/core";
 import { useLocale, useTranslations } from "next-intl";
-import { Link } from "@/navigation";
 import React from "react";
-import { usePathname } from "next/navigation";
 import NavigationLink from "./NavLink";
 import DropDownServices from "./DropDownServices";
+import SupportDropDown from "./support-dropdown";
 
 export default function Nav() {
   const t = useTranslations();
@@ -32,12 +30,7 @@ export default function Nav() {
       <NavigationLink href="/blogue">{t("nav_blog")}</NavigationLink>
       <NavigationLink href="/contact">{t("nav_contact")}</NavigationLink>
       <NavigationLink href="/faq">{t("nav_faq")}</NavigationLink>
-      <a
-            target="_blank"
-            href={locale === "fr" ? "https://soutien.viacommunication.com/":"https://support.viacommunication.com/"}
-          >
-        Support
-      </a>
+      <SupportDropDown />
     </nav>
   );
 }

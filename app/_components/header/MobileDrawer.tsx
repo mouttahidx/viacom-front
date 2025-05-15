@@ -10,7 +10,7 @@ import React, { useEffect } from "react";
 
 export default function MobileDrawer({ translations }: any) {
   const [opened, { open, close }] = useDisclosure(false);
-  const locale = useLocale()
+  const locale = useLocale();
   const pathname = usePathname();
 
   useEffect(() => {
@@ -113,13 +113,39 @@ export default function MobileDrawer({ translations }: any) {
               {translations["nav_faq"]}
             </Link>
           </div>
-          <a
-            target="_blank"
-            href={locale === "fr" ? "https://soutien.viacommunication.com/":"https://support.viacommunication.com/"}
-            className="border-b py-2 pl-4 w-full"
-          >
-            Support
-          </a>
+
+          <Accordion defaultValue="">
+            <Accordion.Item key="web" value={"web"}>
+              <Accordion.Control>Support</Accordion.Control>
+              <Accordion.Panel>
+                <div className="pl-4 w-full flex flex-col">
+                  <a
+                  className="border-b py-2 pl-4 w-full"
+                    target="_blank"
+                    href={
+                      locale === "fr"
+                        ? "https://soutien.viacommunication.com/"
+                        : "https://support.viacommunication.com/"
+                    }
+                  >
+                    {locale === "fr" ? "Support web" : "Web Support"}
+                  </a>
+                     <a
+                     className="py-2 pl-4 w-full"
+                    target="_blank"
+                    href={
+                      locale === "fr"
+                        ? "https://forms.monday.com/forms/48a84ff100d76b04e677089530ceecb1?r=use1"
+                        : "https://forms.monday.com/forms/b735d17c4a0e2aedd97d69fcc727ec50?r=use1"
+                    }
+                  >
+                    {locale === "fr" ? "Support VIA-CRM" : "VIA-CRM Support"}
+                  </a>
+                </div>
+              </Accordion.Panel>
+            </Accordion.Item>
+           
+          </Accordion>
         </div>{" "}
       </Drawer>
     </div>
