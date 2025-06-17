@@ -471,5 +471,9 @@ export const showcase = [
     link: "https://ecoletroissaisons.com/ ",
        image: "www.ecoletroissaisons.com.webp",
    },
+   {
+    link: "https://sunspacemyrtlebeach.com/ ",
+       image: "sunspacemyrtlebeach.com.jpg",
+   },
    
 ];
