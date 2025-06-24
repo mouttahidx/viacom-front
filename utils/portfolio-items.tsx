@@ -77,14 +77,13 @@ export const ecommerce = [
   },
   {
     link: "https://carwebdistribution.ca/ ",
-       image: "carwebdistribution.ca.webp",
-   },
-   
-   {
+    image: "carwebdistribution.ca.webp",
+  },
+
+  {
     link: "https://mdpfishing.com/ ",
-       image: "mdpfishing.com.webp",
-   },
-   
+    image: "mdpfishing.com.webp",
+  },
 ];
 export const showcase = [
   {
@@ -147,7 +146,7 @@ export const showcase = [
     link: "https://genialequipements.com/",
     image: "15.webp",
   },
-  
+
   {
     link: "https://ledetectiveduvin.com/",
     image: "17.jpg",
@@ -342,138 +341,153 @@ export const showcase = [
   },
   {
     link: "https://jerryzister.com/ ",
-       image: "jerryzister.webp",
-   },
-   
-   {
+    image: "jerryzister.webp",
+  },
+
+  {
     link: "https://www.brlifestyles.ca/ ",
-       image: "brilifestyles.webp",
-   },
-   
-   {
+    image: "brilifestyles.webp",
+  },
+
+  {
     link: "https://paltekpro.com/ ",
-       image: "paltekpro.webp",
-   },
-   {
+    image: "paltekpro.webp",
+  },
+  {
     link: "https://3seasonsolutions.com/ ",
-       image: "3seasonsolutions.com.webp",
-   },
-   
-   {
+    image: "3seasonsolutions.com.webp",
+  },
+
+  {
     link: "https://apksunrooms.com/ ",
-       image: "apksunrooms.com.webp",
-   },
-   
-   {
+    image: "apksunrooms.com.webp",
+  },
+
+  {
     link: "https://fenetreveranda.com/ ",
-       image: "fenetreveranda.com.webp",
-   },
-   
-   {
+    image: "fenetreveranda.com.webp",
+  },
+
+  {
     link: "https://habrico.com/ ",
-       image: "habrico.com.webp",
-   },
-   
-   {
+    image: "habrico.com.webp",
+  },
+
+  {
     link: "https://hr2construction.ca/ ",
-       image: "hr2construction.ca.webp",
-   },
-   
-   {
+    image: "hr2construction.ca.webp",
+  },
+
+  {
     link: "https://paquettewindows.com/ ",
-       image: "paquettewindows.com.webp",
-   },
-   
-   
-   
-   {
+    image: "paquettewindows.com.webp",
+  },
+
+  {
     link: "https://parklandsunrooms.com/ ",
-       image: "parklandsunrooms.com.webp",
-   },
-   
-   
-   {
+    image: "parklandsunrooms.com.webp",
+  },
+
+  {
     link: "https://pvcogranby.com/ ",
-       image: "pvcogranby.com.webp",
-   },
-   
-   {
+    image: "pvcogranby.com.webp",
+  },
+
+  {
     link: "https://rampesetbalconsmauricie.com/ ",
-       image: "rampesetbalconsmauricie.com.webp",
-   },
-   
-   {
+    image: "rampesetbalconsmauricie.com.webp",
+  },
+
+  {
     link: "https://rayjans.com/ ",
-       image: "Rayjans.webp",
-   },
-   
-   
-   {
+    image: "Rayjans.webp",
+  },
+
+  {
     link: "https://spectrum4remodeling.com/ ",
-       image: "spectrum4remodeling.com.webp",
-   },
-   
-   {
+    image: "spectrum4remodeling.com.webp",
+  },
+
+  {
     link: "https://sunroomsandshades.ca/ ",
-       image: "sunroomsandshades.ca.webp",
-   },
-   
-   
-   {
+    image: "sunroomsandshades.ca.webp",
+  },
+
+  {
     link: "https://sunspacecentralohio.com/ ",
-       image: "sunspacecentralohio.com.webp",
-   },
-   
-   
-   {
+    image: "sunspacecentralohio.com.webp",
+  },
+
+  {
     link: "https://sunspacekamloops.com/ ",
-       image: "sunspacekamloops.com.webp",
-   },
-   
-   {
+    image: "sunspacekamloops.com.webp",
+  },
+
+  {
     link: "https://tcmeyer.com/ ",
-       image: "Tcmeyer.com.webp",
-   },
-   
-   {
+    image: "Tcmeyer.com.webp",
+  },
+
+  {
     link: "https://www.sunspacefrance.com/ ",
-       image: "www.sunspacefrance.com.webp",
-   },
-   
-   {
+    image: "www.sunspacefrance.com.webp",
+  },
+
+  {
     link: "https://jmsantefinanciere.com/ ",
-       image: "jmsantefinanciere.com.webp",
-   },
-   
-   {
+    image: "jmsantefinanciere.com.webp",
+  },
+
+  {
     link: "https://novasun-glass.ca/ ",
-       image: "novasun-glass.ca.webp",
-   },
-   
-   {
+    image: "novasun-glass.ca.webp",
+  },
+
+  {
     link: "https://pamorin.com/ ",
-       image: "pamorin.com.webp",
-   },
-   
-   
-   {
+    image: "pamorin.com.webp",
+  },
+
+  {
     link: "https://sgt.marketing/ ",
-       image: "sgt.marketing.webp",
-   },
-   
-   {
+    image: "sgt.marketing.webp",
+  },
+
+  {
     link: "https://trilliumauto.ca/ ",
-       image: "trilliumauto.ca.webp",
-   },
-   
-   
-   {
+    image: "trilliumauto.ca.webp",
+  },
+
+  {
     link: "https://ecoletroissaisons.com/ ",
-       image: "www.ecoletroissaisons.com.webp",
-   },
-   {
+    image: "www.ecoletroissaisons.com.webp",
+  },
+  {
     link: "https://sunspacemyrtlebeach.com/ ",
-       image: "sunspacemyrtlebeach.com.jpg",
-   },
-   
+    image: "sunspacemyrtlebeach.com.jpg",
+  },
+  {
+    link: "https://sunspacenewcastle.com/ ",
+    image: "sunspacenewcastle.com.webp",
+  },
+
+  {
+    link: "https://sunspacerv.com/ ",
+    image: "sunspacerv.com.webp",
+  },
+
+  {
+    link: "https://oceanickventilation.com/ ",
+    image: "oceanickventilation.com.webp",
+  },
+
+  {
+    link: "https://naturalvisionssunrooms.com/ ",
+    image: "naturalvisionssunrooms.com.webp",
+  },
+
+  {
+    link: "https://www.ambria.design/ ",
+    image: "ambria.design.webp",
+  },
 ];
