@@ -31,8 +31,8 @@ export default function SupportDropDown() {
               target="_blank"
               href={
                 locale === "fr"
-                  ? "https://soutien.viacommunication.com/"
-                  : "https://support.viacommunication.com/"
+                  ? "https://wkf.ms/3T1Vm69"
+                  : "https://wkf.ms/3Xr8O4C"
               }
             >
               {locale === 'fr' ? 'Support web' : 'Web Support' }
