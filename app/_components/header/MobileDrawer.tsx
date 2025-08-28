@@ -120,18 +120,18 @@ export default function MobileDrawer({ translations }: any) {
               <Accordion.Panel>
                 <div className="pl-4 w-full flex flex-col">
                   <a
-                  className="border-b py-2 pl-4 w-full"
+                    className="border-b py-2 pl-4 w-full"
                     target="_blank"
                     href={
                       locale === "fr"
-                        ? "https://soutien.viacommunication.com/"
-                        : "https://support.viacommunication.com/"
+                        ? "https://wkf.ms/3T1Vm69"
+                        : "https://wkf.ms/3Xr8O4C"
                     }
                   >
                     {locale === "fr" ? "Support web" : "Web Support"}
                   </a>
-                     <a
-                     className="py-2 pl-4 w-full"
+                  <a
+                    className="py-2 pl-4 w-full"
                     target="_blank"
                     href={
                       locale === "fr"
@@ -144,7 +144,6 @@ export default function MobileDrawer({ translations }: any) {
                 </div>
               </Accordion.Panel>
             </Accordion.Item>
-           
           </Accordion>
         </div>{" "}
       </Drawer>
