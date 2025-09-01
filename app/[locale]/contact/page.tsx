@@ -1,4 +1,5 @@
 import FormClient from "@/app/_components/contactComponents/FormClient";
+import IframeForm from "@/app/_components/contactComponents/IframeForm";
 import { EnvelopeIcon, MapPinIcon, PhoneIcon } from "@heroicons/react/16/solid";
 import { useTranslations } from "next-intl";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
@@ -103,7 +104,8 @@ export default function Contact({params:{locale}}:{params:{locale:string}}) {
           />
           {/* Form */}
           <div className="w-full xl:w-5/12 px-4">
-            <FormClient translations={translations} />
+            {/* <FormClient translations={translations} /> */}
+            <IframeForm />
           </div>
         </div>
       </section>
