@@ -10,6 +10,11 @@ export const pathnames =  {// put here subpathes
   en:"/contact-us",
   fr:"/contactez-nous"
 },
+'/merci':
+{
+  en:"/thank-you",
+  fr:"/merci"
+},
 "/services":{
   en:"/our-services",
   fr:"/nos-services"

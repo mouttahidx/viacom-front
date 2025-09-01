@@ -656,5 +656,8 @@
   "other_marketing": "Marketing Digital",
 
   "404_title":"Pas trouvé – 404!",
-  "404_btn":"Retourner à l'accueil"
+  "404_btn":"Retourner à l'accueil",
+
+  "thanks_headline": "Merci pour votre message !",
+  "thanks_text": "Nous avons bien reçu votre formulaire et notre équipe vous contactera sous peu. En attendant, n’hésitez pas à explorer notre site ou à consulter nos dernières actualités.<br><br>Nous vous remercions pour votre intérêt et avons hâte d’entrer en contact avec vous !"
 }
