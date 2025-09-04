@@ -6,7 +6,7 @@ import { Montserrat } from "next/font/google";
 import "@mantine/core/styles.css";
 import { getTranslations } from "next-intl/server";
 import { locales } from "@/config";
-import ChatSupport from "../_components/header/ChatSupport";
+// import ChatSupport from "../_components/header/ChatSupport";
 import { NextIntlClientProvider } from "next-intl";
 
 const montserrat = Montserrat({
@@ -46,7 +46,7 @@ export default function LocaleLayout({
           <ColorSchemeScript />
         </head>
         <body>
-          <ChatSupport />
+          {/* <ChatSupport /> */}
           <NextProgressClient />
           <MantineProvider theme={theme}>
             <Header />
