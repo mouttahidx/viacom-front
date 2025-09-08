@@ -8,6 +8,7 @@ import { getTranslations } from "next-intl/server";
 import { locales } from "@/config";
 // import ChatSupport from "../_components/header/ChatSupport";
 import { NextIntlClientProvider } from "next-intl";
+import { GoogleTagManager } from '@next/third-parties/google';
 
 const montserrat = Montserrat({
   weight: ["300", "400", "500", "600", "700", "800"],
@@ -44,6 +45,7 @@ export default function LocaleLayout({
             content="FD-gdKgAlNtkC7aayVG0w9EbqpeWG-k7h4jwnnbYuT4"
           />
           <ColorSchemeScript />
+          <GoogleTagManager gtmId="GTM-TF2N3VK3"/>
         </head>
         <body>
           {/* <ChatSupport /> */}
