@@ -38,6 +38,7 @@ export default function LocaleLayout({
 }) {
   return (
     <html lang={locale}>
+      <GoogleTagManager gtmId="GTM-TF2N3VK3" />
       <NextIntlClientProvider locale={locale}>
         <head>
           <meta
@@ -45,7 +46,6 @@ export default function LocaleLayout({
             content="FD-gdKgAlNtkC7aayVG0w9EbqpeWG-k7h4jwnnbYuT4"
           />
           <ColorSchemeScript />
-          <GoogleTagManager gtmId="GTM-TF2N3VK3" />
         </head>
         <body>
           <noscript>
