@@ -8,7 +8,7 @@ import { getTranslations } from "next-intl/server";
 import { locales } from "@/config";
 // import ChatSupport from "../_components/header/ChatSupport";
 import { NextIntlClientProvider } from "next-intl";
-import { GoogleTagManager } from '@next/third-parties/google';
+import { GoogleTagManager } from "@next/third-parties/google";
 
 const montserrat = Montserrat({
   weight: ["300", "400", "500", "600", "700", "800"],
@@ -45,9 +45,17 @@ export default function LocaleLayout({
             content="FD-gdKgAlNtkC7aayVG0w9EbqpeWG-k7h4jwnnbYuT4"
           />
           <ColorSchemeScript />
-          <GoogleTagManager gtmId="GTM-TF2N3VK3"/>
+          <GoogleTagManager gtmId="GTM-TF2N3VK3" />
         </head>
         <body>
+          <noscript>
+            <iframe
+              src="https://www.googletagmanager.com/ns.html?id=GTM-TF2N3VK3"
+              height="0"
+              width="0"
+              style={{ display: "none", visibility: "hidden" }}
+            ></iframe>
+          </noscript>
           {/* <ChatSupport /> */}
           <NextProgressClient />
           <MantineProvider theme={theme}>

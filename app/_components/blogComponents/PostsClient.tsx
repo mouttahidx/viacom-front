@@ -35,6 +35,7 @@ export default function PostsClient({
     } catch (error) {}
     setLoading(false);
   };
+
   return (
     <div>
       <section className="text-gray-600 body-font">
