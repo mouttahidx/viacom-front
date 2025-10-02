@@ -1,0 +1,26 @@
+# viacommunication.com llms.txt
+
+> Viacommunication is a leading web agency based in Quebec, specializing in comprehensive digital marketing solutions. The website offers insights through a blog, provides various services such as SEO, Google Ads, and Facebook Ads, and includes resources for clients such as FAQs and contact information. It serves both French and English speaking audiences, making it accessible to a wider range of users.
+
+## URLs and Descriptions
+
+- [Home](https://viacommunication.com/): The main landing page of Viacommunication, introducing the agency and its offerings.
+- [Blog](https://viacommunication.com/blogue): The blog section featuring articles on various topics related to digital marketing.
+- [Blog Post](https://viacommunication.com/blogue/[slug]): Individual blog posts providing insights and information on specific subjects.
+- [Inspirational Meeting Between François Beaudry and Dennis Yu](https://viacommunication.com/blogue/rencontre-inspirante-entre-francois-beaudry-et-dennis-yu-a-affiliate-world-dubai-une-immersion-dans-le-monde-du-seo): A detailed article about an inspiring encounter at an SEO event in Dubai.
+- [Largest Web Agency in Quebec](https://viacommunication.com/blogue/via-communication-la-plus-grande-agence-web-a-quebec-pour-des-solutions-de-marketing-numerique-completes): An article highlighting the agency's status and comprehensive marketing solutions.
+- [Contact](https://viacommunication.com/contact): A contact page for inquiries and communication with the agency.
+- [Home (English)](https://viacommunication.com/en): The English version of the main landing page, introducing the agency's offerings.
+- [Blog (English)](https://viacommunication.com/en/blogue): The English blog section featuring articles on digital marketing topics.
+- [Blog Post (English)](https://viacommunication.com/en/blogue/[slug]): Individual blog posts in English providing insights on specific subjects.
+- [Inspiring Meeting Between François Beaudry and Dennis Yu (English)](https://viacommunication.com/en/blogue/inspiring-meeting-between-francois-beaudry-and-dennis-yu-at-affiliate-world-dubai-an-immersion-in-the-world-of-seo): An English article about the same inspiring encounter at the SEO event in Dubai.
+- [Web Design (English)](https://viacommunication.com/en/blogue/web-design): An article discussing web design trends and insights.
+- [Contact (English)](https://viacommunication.com/en/contact): English contact page for inquiries and communication.
+- [FAQ (English)](https://viacommunication.com/en/faq): Frequently asked questions in English, providing answers to common inquiries.
+- [Our Realizations (English)](https://viacommunication.com/en/nos-realisations): A showcase of projects and achievements by the agency.
+- [Privacy Policy (English)](https://viacommunication.com/en/politiques-de-confidentialite): The privacy policy outlining user data protection and usage.
+- [Services (English)](https://viacommunication.com/en/services): Overview of services offered by the agency in English.
+- [Facebook Ads Agency (English)](https://viacommunication.com/en/services/agence-facebook-ads): Details about the Facebook Ads service provided by the agency.
+- [Google Ads Agency (English)](https://viacommunication.com/en/services/agence-google-ads): Information about the Google Ads service offered by the agency.
+- [SEO Agency (English)](https://viacommunication.com/en/services/agence-seo): Insights into the SEO services provided by the agency.
+- [FAQ](https://viacommunication.com/faq): Frequently asked questions in French, providing answers to common inquiries.
