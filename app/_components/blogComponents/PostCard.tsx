@@ -3,6 +3,9 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { useLocale } from "next-intl";
 import { Link } from "@/navigation";
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;              // disable ISR
+export const fetchCache = 'force-no-store';
 
 export default function PostCard({
   title,

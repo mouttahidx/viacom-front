@@ -1,9 +1,7 @@
-import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
-import Head from "next/head";
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import ButtonClient from "@/app/_components/ButtonClient";
-import { useEffect } from "react";
 
 type Post = {
   title:{ 
@@ -59,7 +57,6 @@ export default async function Page({ params }: { params: any }) {
     notFound();
   }
   const t = await getTranslations();
-
   return (
     <div>
       <div className="pt-24 pb-24 lg:pt-44 bg-pages-hero-bg bg-no-repeat bg-cover flex justify-center items-center">
@@ -114,7 +111,9 @@ async function getPost(slug: string) {
   let post ;
   try {
     // Call an external API endpoint to get posts
-    const res = await fetch(process.env.NEXT_BACKEND_LINK + "posts/" + slug);
+    const res = await fetch(process.env.NEXT_BACKEND_LINK + "posts/" + slug, {
+      cache: 'no-store',
+    });
     post = await res.json();
     if(post?.content?.fr){
       post.content.fr =  post.content.fr.replace(/src="\/storage/gi, `src="${process.env.NEXT_BACKEND_PUBLIC_LINK}storage`)
@@ -134,24 +133,24 @@ async function getPost(slug: string) {
 }
 
 // This function gets called at build time
-export async function generateStaticParams() {
-  // Call an external API endpoint to get posts
-  let params: Array<object> = [];
+// export async function generateStaticParams() {
+//   // Call an external API endpoint to get posts
+//   let params: Array<object> = [];
 
-  try {
-    const res = await fetch(process.env.NEXT_BACKEND_LINK + "posts/");
-    const data = await res.json();
-    data.data.forEach((post: Post) => {
-      post.slug?.fr && params.push({ slug: post.slug?.fr });
+//   try {
+//     const res = await fetch(process.env.NEXT_BACKEND_LINK + "posts/");
+//     const data = await res.json();
+//     data.data.forEach((post: Post) => {
+//       post.slug?.fr && params.push({ slug: post.slug?.fr });
 
-      post.slug?.en && params.push({ slug: post.slug?.en });
-    });
-  } catch (error) {}
+//       post.slug?.en && params.push({ slug: post.slug?.en });
+//     });
+//   } catch (error) {}
 
-  // Get the paths we want to pre-render based on posts
-  const paths = params;
+//   // Get the paths we want to pre-render based on posts
+//   const paths = params;
 
-  // We'll pre-render only these paths at build time.
-  // { fallback: false } means other routes should 404.
-  return paths;
-}
+//   // We'll pre-render only these paths at build time.
+//   // { fallback: false } means other routes should 404.
+//   return paths;
+// }
