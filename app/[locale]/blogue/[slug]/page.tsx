@@ -3,6 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import ButtonClient from "@/app/_components/ButtonClient";
+import { useEffect } from "react";
 
 type Post = {
   title:{ 
@@ -57,7 +58,6 @@ export default async function Page({ params }: { params: any }) {
   if (!post.title[locale as keyof typeof post.title]) {
     notFound();
   }
-  unstable_setRequestLocale(locale);
   const t = await getTranslations();
 
   return (
@@ -116,6 +116,12 @@ async function getPost(slug: string) {
     // Call an external API endpoint to get posts
     const res = await fetch(process.env.NEXT_BACKEND_LINK + "posts/" + slug);
     post = await res.json();
+    if(post?.content?.fr){
+      post.content.fr =  post.content.fr.replace(/src="\/storage/gi, `src="${process.env.NEXT_BACKEND_PUBLIC_LINK}storage`)
+    }
+    if(post?.content?.en){
+      post.content.en =  post.content.en.replace(/src="\/storage/gi, `src="${process.env.NEXT_BACKEND_PUBLIC_LINK}storage`)
+    }
 
   } catch (error) {
     // console.log(error);
