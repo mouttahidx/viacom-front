@@ -31,6 +31,7 @@ export default function Page({params:{locale}}:{params:{locale:string}}) {
           <h2 className="text-3xl w-full">{t("services_hero_subtitle")}</h2>
           <ButtonClient
             href="/contact"
+            rel="nofollow"
             variant="filled"
             classes={"!bg-primary hover:!bg-opacity-90 mt-10 "}
             text={t("btn_contact")}

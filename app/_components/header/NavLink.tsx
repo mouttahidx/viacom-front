@@ -7,7 +7,8 @@ import type { AppPathnames } from "@/config";
 import { Link } from "@/navigation";
 
 const NavigationLink = forwardRef(
-  ({ href,children, ...others }: { href: string,children:ReactNode }, ref) => {
+  ({ href,children, ...others }: { href: string,children:ReactNode , rel ?: string}, ref) => {
+
     const selectedLayoutSegment = useSelectedLayoutSegment();
     const pathname = selectedLayoutSegment ? `/${selectedLayoutSegment}` : "/";
     const isActive = pathname === href;

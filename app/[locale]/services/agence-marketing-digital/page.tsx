@@ -126,6 +126,7 @@ export default function AgenceMarketingDigital({params:{locale}}:{params:{locale
             </div>
             <ButtonClient
               href={"/contact"}
+              rel="nofollow"
               variant="filled"
               size="md"
               classes="!bg-primary hover:!bg-opacity-90 mt-10 "
@@ -171,6 +172,7 @@ export default function AgenceMarketingDigital({params:{locale}}:{params:{locale
 
             <ButtonClient
               href={"/contact"}
+              rel="nofollow"
               variant="filled"
               size="md"
               classes="!bg-primary hover:!bg-opacity-90 mt-10 "
@@ -315,6 +317,7 @@ export default function AgenceMarketingDigital({params:{locale}}:{params:{locale
         <div className="w-full h-full bg-white bg-opacity-40  p-24">
           <ButtonClient
             href={"/contact"}
+            rel="nofollow"
             variant="filled"
             size="xl"
             classes="!bg-primary hover:!bg-opacity-90 shadow-xl"
@@ -339,6 +342,7 @@ export default function AgenceMarketingDigital({params:{locale}}:{params:{locale
           <div className="mt-10 lg:mt-0 flex flex-wrap gap-y-6 gap-x-4 w-full justify-center lg:w-3/12">
             <ButtonClient
               href={"/contact"}
+              rel="nofollow"
               variant="outline"
               color="#EE5422"
               classes="!block !w-full"

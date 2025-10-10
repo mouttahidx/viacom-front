@@ -8,17 +8,20 @@ import ButtonClient from "@/app/_components/ButtonClient";
 import FaqAccordion from "../../../_components/FaqAccordion";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 
-
 export async function generateMetadata() {
   const t = await getTranslations();
- 
+
   return {
-    title: t('nav_fb'),
-    description:`${t("nav_fb")} - ${t("meta_description")}`
+    title: t("nav_fb"),
+    description: `${t("nav_fb")} - ${t("meta_description")}`,
   };
 }
 
-export default function AgenceFacebookAds({params:{locale}}:{params:{locale:string}}) {
+export default function AgenceFacebookAds({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
   unstable_setRequestLocale(locale);
 
   const t = useTranslations();
@@ -89,8 +92,6 @@ export default function AgenceFacebookAds({params:{locale}}:{params:{locale:stri
     },
   ];
 
-
-
   return (
     <div>
       {/* hero */}
@@ -136,6 +137,7 @@ export default function AgenceFacebookAds({params:{locale}}:{params:{locale:stri
             </div>
             <ButtonClient
               href={"/contact"}
+              rel="nofollow"
               variant="filled"
               size="md"
               classes="!bg-primary hover:!bg-opacity-90 mt-10 "
@@ -306,6 +308,7 @@ export default function AgenceFacebookAds({params:{locale}}:{params:{locale:stri
             </div>
             <ButtonClient
               href={"/contact"}
+              rel="nofollow"
               variant="filled"
               size="md"
               classes="!bg-primary hover:!bg-opacity-90 mt-10 "
@@ -354,6 +357,7 @@ export default function AgenceFacebookAds({params:{locale}}:{params:{locale:stri
         <div className="w-full h-full bg-white bg-opacity-40  p-24">
           <ButtonClient
             href={"/contact"}
+            rel="nofollow"
             variant="filled"
             size="xl"
             classes="!bg-primary hover:!bg-opacity-90 shadow-xl"
@@ -470,6 +474,7 @@ export default function AgenceFacebookAds({params:{locale}}:{params:{locale:stri
             size="xl"
             classes="!bg-primary hover:!bg-opacity-90 shadow-xl"
             href="/contact"
+            rel="nofollow"
             text={t("btn_contact")}
           />
         </div>
@@ -491,6 +496,7 @@ export default function AgenceFacebookAds({params:{locale}}:{params:{locale:stri
           <div className="mt-10 lg:mt-0 flex flex-wrap gap-y-6 gap-x-4 w-full justify-center lg:w-3/12">
             <ButtonClient
               href={"/contact"}
+              rel="nofollow"
               variant="outline"
               color="#EE5422"
               classes="!block !w-full"

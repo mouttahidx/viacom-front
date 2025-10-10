@@ -12,6 +12,7 @@ export default function TopBar() {
         href="https://www.facebook.com/VIACommunication/"
         target="_blank"
         className="mr-4"
+        rel="nofollow"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -47,6 +48,7 @@ export default function TopBar() {
       <a
         href="https://www.linkedin.com/company/via-communication/about/"
         target="_blank"
+        rel="nofollow"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -92,6 +94,7 @@ export default function TopBar() {
         href="https://laravel.devvia.ca"
         className="uppercase text-white text-xs font-medium ml-auto"
         target="_blank"
+        rel="nofollow"
       >
         {t("nav_login")}
       </a>

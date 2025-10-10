@@ -54,6 +54,7 @@ export default function Page({
           <div className="mt-10 flex flex-wrap gap-y-6">
             <ButtonClient
               href="/contact"
+              rel="nofollow"
               variant="filled"
               classes={"!bg-primary hover:!bg-opacity-90 mr-4 "}
               text={t("btn_contact")}
@@ -69,7 +70,7 @@ export default function Page({
           </div>
         </div>
       </section>
-      
+
       {/* // 1st section */}
       <section className="w-full mx-auto max-w-6xl p-4 bottom-arrow relative">
         <div className=" lg:-mt-14  bg-primary px-8 lg:px-16 py-16 lg:pb-8 lg:pt-12 rounded-xl flex flex-col lg:flex-row justify-center lg:justify-start items-center text-center lg:text-left(">
@@ -89,6 +90,7 @@ export default function Page({
             />
             <ButtonClient
               href="/contact"
+              rel="nofollow"
               variant="filled"
               classes={"!bg-white !text-black hover:!bg-opacity-90 "}
               text={t("btn_contact")}
@@ -125,6 +127,7 @@ export default function Page({
           </p>
           <ButtonClient
             href="/contact"
+            rel="nofollow"
             variant="filled"
             classes={
               "!bg-primary hover:!bg-opacity-90 mt-10 !w-full md:!w-6/12"
@@ -142,61 +145,66 @@ export default function Page({
         />
       </section>
       {/* CRM Section for Homepage */}
-<section className="w-full bg-gray-50 py-20 px-4">
-  <div className="max-w-7xl mx-auto">
-    <div className="text-center flex flex-col items-center mb-12">
-      <h2 className="text-3xl capitalize font-semibold text-gray-600">
-        {t("home_crm_section_title")}
-      </h2>
-      <div className="w-[50px] bg-primary h-1 mx-auto mt-3"></div>
-    </div>
+      <section className="w-full bg-gray-50 py-20 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center flex flex-col items-center mb-12">
+            <h2 className="text-3xl capitalize font-semibold text-gray-600">
+              {t("home_crm_section_title")}
+            </h2>
+            <div className="w-[50px] bg-primary h-1 mx-auto mt-3"></div>
+          </div>
 
-    <div className="w-full flex flex-col-reverse lg:flex-row gap-y-12 gap-x-16 items-center">
-      {/* Text content */}
-      <div className="w-full lg:w-6/12">
-        <h3 className="text-2xl font-semibold text-secondary mb-4">
-          {t("home_crm_section_subtitle")}
-        </h3>
-        <div className="body-text text-lg">
-          <p className="mb-4">{t("home_crm_section_description")}</p>
+          <div className="w-full flex flex-col-reverse lg:flex-row gap-y-12 gap-x-16 items-center">
+            {/* Text content */}
+            <div className="w-full lg:w-6/12">
+              <h3 className="text-2xl font-semibold text-secondary mb-4">
+                {t("home_crm_section_subtitle")}
+              </h3>
+              <div className="body-text text-lg">
+                <p className="mb-4">{t("home_crm_section_description")}</p>
+              </div>
+              <ul className="mb-8">
+                {Array.from({ length: 3 }).map((_, index) => (
+                  <li key={index} className="flex items-start mb-3">
+                    <svg
+                      className="h-5 w-5 text-primary mr-2 mt-1"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                    <span>{t(`home_crm_section_feature_${index + 1}`)}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <ButtonClient
+                href={"/services/via-crm"}
+                variant="filled"
+                size="md"
+                classes="!bg-primary hover:!bg-opacity-90 mt-4"
+                text={t("home_crm_section_button")}
+              />
+            </div>
+
+            {/* Image */}
+            <div className="relative w-full lg:w-6/12 rounded-3xl shadow-lg overflow-hidden group">
+              <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <img
+                src="/img/crm-overview.jpg"
+                alt="CRM Platform Overview"
+                className="aspect-video w-full object-cover h-full rounded-3xl transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+          </div>
         </div>
-        <ul className="mb-8">
-          {Array.from({ length: 3 }).map((_, index) => (
-            <li key={index} className="flex items-start mb-3">
-              <svg 
-                className="h-5 w-5 text-primary mr-2 mt-1" 
-                fill="none" 
-                viewBox="0 0 24 24" 
-                stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span>{t(`home_crm_section_feature_${index + 1}`)}</span>
-            </li>
-          ))}
-        </ul>
-
-        <ButtonClient
-          href={"/services/via-crm"}
-          variant="filled"
-          size="md"
-          classes="!bg-primary hover:!bg-opacity-90 mt-4"
-          text={t("home_crm_section_button")}
-        />
-      </div>
-      
-      {/* Image */}
-      <div className="relative w-full lg:w-6/12 rounded-3xl shadow-lg overflow-hidden group">
-        <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-        <img
-          src="/img/crm-overview.jpg"
-          alt="CRM Platform Overview"
-          className="aspect-video w-full object-cover h-full rounded-3xl transition-transform duration-300 group-hover:scale-105"
-        />
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
       {/* 3rd */}
       <section className="w-full flex flex-col container my-40 gap-y-20">
         {/* title subtitle */}
@@ -221,7 +229,7 @@ export default function Page({
           </div>
         </div>
       </section>
-      
+
       {/* 4th */}
       <section className="my-40 grid grid-cols-1 lg:grid-cols-2">
         {/* first square */}
@@ -239,6 +247,7 @@ export default function Page({
           </p>
           <ButtonClient
             href="/contact"
+            rel="nofollow"
             variant="filled"
             classes={
               "!bg-primary hover:!bg-opacity-90 mt-10 !w-full md:!w-6/12 mx-auto"
@@ -644,6 +653,7 @@ export default function Page({
           <div className="mt-10 lg:mt-0 flex flex-wrap gap-y-6 gap-x-4 w-full justify-center lg:w-3/12">
             <ButtonClient
               href="/contact"
+              rel="nofollow"
               variant="outline"
               classes="!block !w-full"
               text={t("btn_contact")}

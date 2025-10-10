@@ -27,7 +27,8 @@ export default function SupportDropDown() {
           className="menu-item"
           component={() => (
             <a
-            className="py-4 px-1 text-sm"
+              rel="nofollow"
+              className="py-4 px-1 text-sm"
               target="_blank"
               href={
                 locale === "fr"
@@ -35,17 +36,17 @@ export default function SupportDropDown() {
                   : "https://wkf.ms/3Xr8O4C"
               }
             >
-              {locale === 'fr' ? 'Support web' : 'Web Support' }
+              {locale === "fr" ? "Support web" : "Web Support"}
             </a>
           )}
         ></Menu.Item>
         <Menu.Divider />
         <Menu.Item
           className="menu-item"
-         component={() => (
+          component={() => (
             <a
-            className="py-4 px-1 text-sm"
-
+              className="py-4 px-1 text-sm"
+              rel="nofollow"
               target="_blank"
               href={
                 locale === "fr"
@@ -53,9 +54,7 @@ export default function SupportDropDown() {
                   : "https://forms.monday.com/forms/b735d17c4a0e2aedd97d69fcc727ec50?r=use1"
               }
             >
-              {locale === 'fr' ? 'Support VIA-CRM' : 'VIA-CRM Support' }
-
-              
+              {locale === "fr" ? "Support VIA-CRM" : "VIA-CRM Support"}
             </a>
           )}
         ></Menu.Item>

@@ -11,6 +11,7 @@ export default function ButtonClient({
   text,
   color = undefined,
   size = undefined,
+  rel,
 }: {
   href: any;
   classes: any;
@@ -18,6 +19,7 @@ export default function ButtonClient({
   text: string;
   color?: string | undefined;
   size?: string | undefined;
+  rel ?: string
 }) {
   return (
     <Button
@@ -27,6 +29,7 @@ export default function ButtonClient({
       className={classes}
       color={color}
       size={size}
+      rel={rel}
     >
       {text}{" "}
     </Button>

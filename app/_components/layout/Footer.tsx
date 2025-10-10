@@ -48,6 +48,7 @@ export default function Footer() {
             <div className="flex  items-center gap-x-1">
               <MapPinIcon className="fill-white w-6 h-6" />{" "}
               <a
+                rel="nofollow"
                 target="_blank"
                 href="https://www.google.com/maps/place/1020+Rue+Bouvier+%23400,+Qu%C3%A9bec,+QC+G2K+0H3,+Canada/@46.8308746,-71.2852567,17z/data=!3m1!4b1!4m5!3m4!1s0x4cb897c0ce7524e7:0x88a7c7e893518194!8m2!3d46.8308746!4d-71.283068"
                 className="text-white"
@@ -61,6 +62,7 @@ export default function Footer() {
         <div className="flex lg:w-3/12 flex-col gap-y-8 text-sm md:w-4/12">
           <div>
             <a
+              rel="nofollow"
               href="https://www.google.com/partners/agency?id=3993273537"
               target="_blank"
             >
@@ -78,14 +80,11 @@ export default function Footer() {
           <div className=" flex flex-col gap-y-6">
             <p className="text-white font-medium">{t("footer_responsable")}</p>
             <p className="text-white mt-2 font-semibold">Francois Beaudry</p>
-            {/* <p className="text-white mt-2">
-            {t("email" })}:{" "}             <a href="mailto:info@viacommunication.com">
-                info@viacommunication.com
-              </a>
-            </p>
-            <p className="text-white mt-2">Québec: 418-825-2323</p> */}
             <p className="text-white mt-2">
-              <Link href={"/politiques-de-confidentialite" as any}>
+              <Link
+                href={"/politiques-de-confidentialite" as any}
+                rel="nofollow"
+              >
                 {t("footer_policies")}
               </Link>
             </p>
@@ -107,6 +106,7 @@ export default function Footer() {
               href="https://www.facebook.com/VIACommunication/"
               className=""
               target="_blank"
+              rel="nofollow"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -142,6 +142,7 @@ export default function Footer() {
             <a
               href="https://www.linkedin.com/company/via-communication/about/"
               target="_blank"
+              rel="nofollow"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

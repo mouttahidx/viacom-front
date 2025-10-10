@@ -28,7 +28,9 @@ export default function Nav() {
         {t("nav_portfolio")}
       </NavigationLink>
       <NavigationLink href="/blogue">{t("nav_blog")}</NavigationLink>
-      <NavigationLink href="/contact">{t("nav_contact")}</NavigationLink>
+      <NavigationLink href="/contact" rel="nofollow">
+        {t("nav_contact")}
+      </NavigationLink>
       <NavigationLink href="/faq">{t("nav_faq")}</NavigationLink>
       <SupportDropDown />
     </nav>
