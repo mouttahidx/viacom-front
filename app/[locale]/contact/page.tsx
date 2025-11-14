@@ -67,13 +67,14 @@ export default function Contact({params:{locale}}:{params:{locale:string}}) {
         <div className="bg-[#1C4D83] px-2 text-centers min-h-[250px] flex items-center flex-col justify-center border-y border-white md:border-none">
           <PhoneIcon className="text-white w-12 h-12" />
 
-          <h2 className="text-2xl mt-8 !text-white text-center">
-            {t("contact_phone")}
-          </h2>
+          <h2 className="text-2xl mt-8 !text-white text-center">Téléphone</h2>
           <p className="text-center text-sm mt-4">
-            Québec : <span className="text-primary">418-825-2323</span>
+            Québec :{" "}
+            <a href="tel:4188252323" className="text-primary">
+              418-825-2323
+            </a>
           </p>
-        </div>
+
         <div className="bg-[#1C4D83] px-2 text-centers min-h-[250px] flex items-center flex-col justify-center border-y border-white md:border-none">
           <EnvelopeIcon className="text-white w-12 h-12" />
 
