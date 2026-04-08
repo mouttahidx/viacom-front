@@ -1,7 +1,7 @@
 import IframeForm from "@/app/_components/contactComponents/IframeForm";
 import { EnvelopeIcon, MapPinIcon, PhoneIcon } from "@heroicons/react/16/solid";
 import { useTranslations } from "next-intl";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 
 
@@ -15,6 +15,7 @@ export async function generateMetadata() {
 }
 
 export default function Contact({params:{locale}}:{params:{locale:string}}) {
+  unstable_setRequestLocale(locale);
 
   const t = useTranslations();
 
@@ -32,6 +33,9 @@ export default function Contact({params:{locale}}:{params:{locale:string}}) {
     "contact_2_send": t('contact_2_send'),
     "contact_email_success": t('contact_email_success'),
   }
+
+  const phoneDisplay = process.env.NEXT_PUBLIC_PHONE?.trim() ?? "";
+  const phoneTel = phoneDisplay.replace(/\D/g, "");
 
   return (
     <div>
@@ -65,9 +69,14 @@ export default function Contact({params:{locale}}:{params:{locale:string}}) {
             {t("contact_phone")}
           </h2>
           <p className="text-center text-sm mt-4">
-            Québec : 
-            <span className="hidden lg:inline pl-1 text-primary">{process.env.NEXT_PUBLIC_PHONE}</span>
-            <a href={"tel:"} className="lg:hidden text-primary">{process.env.NEXT_PUBLIC_PHONE}</a>
+            Québec :{" "}
+            <span className="hidden lg:inline pl-1 text-primary">{phoneDisplay}</span>
+            <a
+              href={phoneTel ? `tel:${phoneTel}` : undefined}
+              className="lg:hidden text-primary"
+            >
+              {phoneDisplay}
+            </a>
           </p>
         </div>
         <div className="bg-[#1C4D83] px-2 text-centers min-h-[250px] flex items-center flex-col justify-center border-y border-white md:border-none">
