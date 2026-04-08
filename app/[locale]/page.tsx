@@ -1,30 +1,23 @@
 import { CheckIcon } from "@heroicons/react/16/solid";
 import { Divider } from "@mantine/core";
-import Image from "next/image";
 import IconsList from "../_components/homeComponents/IconsList";
 import Testimonials from "../_components/homeComponents/Testimonials";
 import { useTranslations } from "next-intl";
 import ButtonClient from "../_components/ButtonClient";
-import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
+import Image from "next/image";
 
 export async function generateMetadata() {
   const t = await getTranslations();
 
   return {
-    title: t("nav_home"),
+    title: `VIA Communication - ${t("home_hero_title")}`,
     description: `${t("nav_home")} - ${t("meta_description")}`,
    
   };
 }
 
-/* tslint:disable:no-unused-variable */
-export default function Page({
-  params: { locale },
-}: {
-  params: { locale: string };
-}) {
-  unstable_setRequestLocale(locale);
-
+export default function Page() {
   const t = useTranslations();
   return (
     <div>

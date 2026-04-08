@@ -4,7 +4,7 @@ import Header from "../_components/header";
 import Footer from "../_components/layout/Footer";
 import { Montserrat } from "next/font/google";
 import "@mantine/core/styles.css";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getMessages } from "next-intl/server";
 import { locales } from "@/config";
 // import ChatSupport from "../_components/header/ChatSupport";
 import { NextIntlClientProvider } from "next-intl";
@@ -29,17 +29,19 @@ export async function generateMetadata() {
   };
 }
 
-export default function LocaleLayout({
+export default async function LocaleLayout({
   children,
   params: { locale },
 }: {
   children: React.ReactNode;
   params: { locale: string };
 }) {
+  const messages = await getMessages();
+
   return (
     <html lang={locale}>
       <GoogleTagManager gtmId="GTM-TF2N3VK3" />
-      <NextIntlClientProvider locale={locale}>
+      <NextIntlClientProvider locale={locale} messages={messages}>
         <head>
           <meta
             name="google-site-verification"

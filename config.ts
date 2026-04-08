@@ -51,6 +51,14 @@ export const pathnames =  {// put here subpathes
   en:"/our-services/via-crm",
   fr:"/nos-services/via-crm"
 },
+"/conditions-d-utilisation": {
+  en: "/terms-of-service",
+  fr: "/conditions-d-utilisation",
+},
+"/politiques-de-confidentialite": {
+  en: "/politiques-de-confidentialite",
+  fr: "/politiques-de-confidentialite",
+},
 
 };
 
