@@ -6,14 +6,22 @@ import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { buildPageMetadata } from "@/lib/seo";
 
-export async function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
-  const t = await getTranslations();
- 
-  return {
-    title: t('via_crm_title'),
-    description: `${t("via_crm_title")} - ${t("meta_description")}`
-  };
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
+  const t = await getTranslations({ locale });
+
+  return buildPageMetadata({
+    locale,
+    pathnameKey: "/services/via-crm",
+    title: t("via_crm_title"),
+    description: `${t("via_crm_title")} — ${t("meta_description")}`,
+    ogImagePath: "/img/crm-overview.jpg",
+  });
 }
 
 export default function ViaCrm({ params: { locale } }: { params: { locale: string } }) {

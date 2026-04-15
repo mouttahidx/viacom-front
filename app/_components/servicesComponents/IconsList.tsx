@@ -1,4 +1,3 @@
-import { GetStaticPropsContext } from "next";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import React from "react";
@@ -11,7 +10,7 @@ export default function IconsList() {
         <Image
           unoptimized
           src={"/img/report.webp"}
-          alt=""
+          alt={t("services_1_1_title")}
           width={100}
           height={100}
           className="object-contain w-[100px]"
@@ -25,7 +24,7 @@ export default function IconsList() {
         <Image
           unoptimized
           src={"/img/strategy.webp"}
-          alt=""
+          alt={t("services_1_2_title")}
           width={100}
           height={100}
           className="object-contain w-[100px]"
@@ -39,7 +38,7 @@ export default function IconsList() {
         <Image
           unoptimized
           src={"/img/banner.webp"}
-          alt=""
+          alt={t("services_1_3_title")}
           width={100}
           height={100}
           className="object-contain w-[100px]"
@@ -53,7 +52,7 @@ export default function IconsList() {
         <Image
           unoptimized
           src={"/img/reviews.webp"}
-          alt=""
+          alt={t("services_1_4_title")}
           width={100}
           height={100}
           className="object-contain w-[100px]"

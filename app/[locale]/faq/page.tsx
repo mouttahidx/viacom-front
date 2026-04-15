@@ -2,14 +2,21 @@ import FaqAccordion from "@/app/_components/FaqAccordion";
 import { useTranslations } from "next-intl";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import React from "react";
+import { buildPageMetadata } from "@/lib/seo";
 
-export async function generateMetadata() {
-  const t = await getTranslations();
- 
-  return {
-    title: t('faq_hero_title'),
-    description:`${t("faq_hero_title")} - ${t("meta_description")}`
-  };
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
+  const t = await getTranslations({ locale });
+
+  return buildPageMetadata({
+    locale,
+    pathnameKey: "/faq",
+    title: t("faq_hero_title"),
+    description: `${t("faq_hero_title")} — ${t("meta_description")}`,
+  });
 }
 
 export default function Faq({params:{locale}}:{params:{locale:string}}) {

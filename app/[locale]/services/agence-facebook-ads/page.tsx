@@ -7,14 +7,22 @@ import React from "react";
 import ButtonClient from "@/app/_components/ButtonClient";
 import FaqAccordion from "../../../_components/FaqAccordion";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { buildPageMetadata } from "@/lib/seo";
 
-export async function generateMetadata() {
-  const t = await getTranslations();
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
+  const t = await getTranslations({ locale });
 
-  return {
+  return buildPageMetadata({
+    locale,
+    pathnameKey: "/services/agence-facebook-ads",
     title: t("nav_fb"),
-    description: `${t("nav_fb")} - ${t("meta_description")}`,
-  };
+    description: `${t("nav_fb")} — ${t("meta_description")}`,
+    ogImagePath: "/img/facebook-ads.webp",
+  });
 }
 
 export default function AgenceFacebookAds({
@@ -173,7 +181,7 @@ export default function AgenceFacebookAds({
             <Image
               unoptimized
               src={"/img/public.webp"}
-              alt=""
+              alt={t("fb_2_1_title")}
               width={400}
               height={400}
               className="w-full object-cover h-[280px] rounded-3xl hover:scale-105 duration-500"
@@ -194,7 +202,7 @@ export default function AgenceFacebookAds({
             <Image
               unoptimized
               src={"/img/medias.webp"}
-              alt=""
+              alt={t("fb_2_2_title")}
               width={400}
               height={400}
               className="w-full object-cover h-[280px] rounded-3xl hover:scale-105 duration-500"
@@ -217,7 +225,7 @@ export default function AgenceFacebookAds({
             <Image
               unoptimized
               src={"/img/robot-finger.webp"}
-              alt=""
+              alt={t("fb_2_3_title")}
               width={400}
               height={400}
               className="w-full object-cover h-[280px] rounded-3xl hover:scale-105 duration-500"
@@ -245,7 +253,7 @@ export default function AgenceFacebookAds({
             <Image
               unoptimized
               src={"/img/generate.webp"}
-              alt=""
+              alt={t("fb_2_4_title")}
               width={400}
               height={400}
               className="w-full object-cover h-[280px] rounded-3xl hover:scale-105 duration-500"
@@ -260,7 +268,7 @@ export default function AgenceFacebookAds({
             <Image
               unoptimized
               src={"/img/marque.jpg"}
-              alt=""
+              alt={t("fb_2_5_title")}
               width={400}
               height={400}
               className="w-full object-cover h-[280px] rounded-3xl hover:scale-105 duration-500"
@@ -280,7 +288,7 @@ export default function AgenceFacebookAds({
           <Image
             unoptimized
             src={"/img/ad.webp"}
-            alt="ad"
+            alt={t("fb_3_title")}
             width={400}
             height={400}
             className="w-full lg:w-6/12 object-cover h-full rounded-2xl shadow"
@@ -525,7 +533,6 @@ export default function AgenceFacebookAds({
         <Link
           className="text-xl text-dark-secondary mt-4 font-semibold hover:scale-105 duration-300"
           href="/"
-          rel="canonical"
         >
           {t("other_web")}
         </Link>

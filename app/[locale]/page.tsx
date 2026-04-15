@@ -6,15 +6,22 @@ import { useTranslations } from "next-intl";
 import ButtonClient from "../_components/ButtonClient";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
+import { buildPageMetadata } from "@/lib/seo";
 
-export async function generateMetadata() {
-  const t = await getTranslations();
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
+  const t = await getTranslations({ locale });
 
-  return {
-    title: `VIA Communication - ${t("home_hero_title")}`,
-    description: `${t("nav_home")} - ${t("meta_description")}`,
-   
-  };
+  return buildPageMetadata({
+    locale,
+    pathnameKey: "/",
+    title: t("home_hero_title"),
+    description: `${t("nav_home")} — ${t("meta_description")}`,
+    ogImagePath: "/img/hero-home.webp",
+  });
 }
 
 export default function Page() {
@@ -297,7 +304,7 @@ export default function Page() {
               <Image
                 unoptimized
                 src={"/img/facebook-ads.webp"}
-                alt=""
+                alt={t("home_5_1_1")}
                 width={100}
                 height={100}
                 className="object-contain w-[100px]"
@@ -328,7 +335,7 @@ export default function Page() {
               <Image
                 unoptimized
                 src={"/img/campaign.webp"}
-                alt=""
+                alt={t("home_5_2_1")}
                 width={100}
                 height={100}
                 className="object-contain w-[100px]"
@@ -358,7 +365,7 @@ export default function Page() {
           <Image
             unoptimized
             src={"/img/report.webp"}
-            alt=""
+            alt={t("home_5_3_1")}
             width={100}
             height={100}
             className="object-contain w-[100px]"

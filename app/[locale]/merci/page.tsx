@@ -5,15 +5,21 @@ import { useTranslations } from "next-intl";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import Head from "next/head";
 import Image from "next/image";
+import { buildPageMetadata } from "@/lib/seo";
 
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
+  const t = await getTranslations({ locale });
 
-export async function generateMetadata() {
-  const t = await getTranslations();
- 
-  return {
-    title: t('thanks_headline'),
-    description:`${t("thanks_headline")}`
-  };
+  return buildPageMetadata({
+    locale,
+    pathnameKey: "/merci",
+    title: t("thanks_headline"),
+    description: t("thanks_headline"),
+  });
 }
 
 export default function ThankYou({params:{locale}}:{params:{locale:string}}) {

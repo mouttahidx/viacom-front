@@ -8,15 +8,22 @@ import ButtonClient from "@/app/_components/ButtonClient";
 import TabsClient from "@/app/_components/TabsClient";
 import FaqAccordion from "@/app/_components/FaqAccordion";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { buildPageMetadata } from "@/lib/seo";
 
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
+  const t = await getTranslations({ locale });
 
-export async function generateMetadata() {
-  const t = await getTranslations();
- 
-  return {
-    title: t('nav_marketing'),
-    description:`${t("nav_marketing")} - ${t("meta_description")}`
-  };
+  return buildPageMetadata({
+    locale,
+    pathnameKey: "/services/agence-marketing-digital",
+    title: t("nav_marketing"),
+    description: `${t("nav_marketing")} — ${t("meta_description")}`,
+    ogImagePath: "/img/digital-marketing.webp",
+  });
 }
 
 export default function AgenceMarketingDigital({params:{locale}}:{params:{locale:string}}) {
@@ -196,13 +203,12 @@ export default function AgenceMarketingDigital({params:{locale}}:{params:{locale
         <div className="w-full flex flex-wrap lg:flex-nowrap gap-y-16 gap-x-4 2xl:gap-x-16">
           <Link
             href={"/"}
-            rel="canonical"
             className="w-full xl:w-4/12 flex flex-col items-center"
           >
             <Image
               unoptimized
               src={"/img/website-creation.webp"}
-              alt=""
+              alt={t("marketing_3_1_title")}
               width={400}
               height={400}
               className="w-full object-cover h-[280px] max-h-[380px] rounded-3xl hover:scale-105 duration-500"
@@ -222,7 +228,7 @@ export default function AgenceMarketingDigital({params:{locale}}:{params:{locale
             <Image
               unoptimized
               src={"/img/seo-card.webp"}
-              alt=""
+              alt={t("marketing_3_2_title")}
               width={400}
               height={400}
               className="w-full object-cover h-[280px] max-h-[380px] rounded-3xl hover:scale-105 duration-500"
@@ -242,7 +248,7 @@ export default function AgenceMarketingDigital({params:{locale}}:{params:{locale
             <Image
               unoptimized
               src={"/img/sem.webp"}
-              alt=""
+              alt={t("marketing_3_3_title")}
               width={400}
               height={400}
               className="w-full object-cover h-[280px] max-h-[380px] rounded-3xl hover:scale-105 duration-500"
@@ -264,7 +270,7 @@ export default function AgenceMarketingDigital({params:{locale}}:{params:{locale
             <Image
               unoptimized
               src={"/img/facebook-phone.webp"}
-              alt=""
+              alt={t("marketing_3_4_title")}
               width={400}
               height={400}
               className="w-full object-cover h-[280px] max-h-[380px] rounded-3xl hover:scale-105 duration-500"
@@ -281,7 +287,7 @@ export default function AgenceMarketingDigital({params:{locale}}:{params:{locale
             <Image
               unoptimized
               src={"/img/kpi.webp"}
-              alt=""
+              alt={t("marketing_3_5_title")}
               width={400}
               height={400}
               className="w-full object-cover h-[280px] max-h-[380px] rounded-3xl hover:scale-105 duration-500"
@@ -387,7 +393,6 @@ export default function AgenceMarketingDigital({params:{locale}}:{params:{locale
         <Link
           className="text-xl text-dark-secondary mt-4 font-semibold hover:scale-105 duration-300"
           href="/"
-          rel="canonical"
         >
           {t("other_web")}
         </Link>

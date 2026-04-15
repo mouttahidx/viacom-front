@@ -1,9 +1,27 @@
-"use client"
+"use client";
 import { Carousel } from "@mantine/carousel";
 import Image from "next/image";
+import { useLocale } from "next-intl";
 import React from "react";
 
+const SLIDES: { src: string; fr: string; en: string }[] = [
+  { src: "/img/sunspace.webp", fr: "Sunspace", en: "Sunspace" },
+  { src: "/img/levis.jpg", fr: "Lévis", en: "Levis" },
+  { src: "/img/laplante.jpg", fr: "La Plante", en: "La Plante" },
+  { src: "/img/crd.webp", fr: "CRD", en: "CRD" },
+  { src: "/img/oceanick.webp", fr: "Oceanick", en: "Oceanick" },
+  { src: "/img/eleganza.webp", fr: "Eleganza", en: "Eleganza" },
+  { src: "/img/ecole.webp", fr: "École", en: "School" },
+  {
+    src: "/img/alzeihmer.webp",
+    fr: "Alzheimer Québec",
+    en: "Alzheimer Society",
+  },
+];
+
 export default function CarouselClient() {
+  const locale = useLocale();
+
   return (
     <Carousel
       align={"start"}
@@ -15,86 +33,22 @@ export default function CarouselClient() {
       slidesToScroll={1}
       loop
     >
-      <Carousel.Slide>
-        <Image
-          unoptimized
-          alt=""
-          width={300}
-          height={300}
-          src={"/img/sunspace.webp"}
-          className="object-contain aspect-square w-[150px] "
-        />
-      </Carousel.Slide>
-      <Carousel.Slide>
-        <Image
-          unoptimized
-          alt=""
-          width={300}
-          height={200}
-          src={"/img/levis.jpg"}
-          className="object-contain w-[150px] "
-        />
-      </Carousel.Slide>
-      <Carousel.Slide>
-        <Image
-          unoptimized
-          alt=""
-          width={300}
-          height={200}
-          src={"/img/laplante.jpg"}
-          className="object-contain w-[150px] "
-        />
-      </Carousel.Slide>
-      <Carousel.Slide>
-        <Image
-          unoptimized
-          alt=""
-          width={300}
-          height={200}
-          src={"/img/crd.webp"}
-          className="object-contain w-[150px] "
-        />
-      </Carousel.Slide>
-      <Carousel.Slide>
-        <Image
-          unoptimized
-          alt=""
-          width={300}
-          height={200}
-          src={"/img/oceanick.webp"}
-          className="object-contain w-[150px] "
-        />
-      </Carousel.Slide>
-      <Carousel.Slide>
-        <Image
-          unoptimized
-          alt=""
-          width={300}
-          height={200}
-          src={"/img/eleganza.webp"}
-          className="object-contain w-[150px] "
-        />
-      </Carousel.Slide>
-      <Carousel.Slide>
-        <Image
-          unoptimized
-          alt=""
-          width={300}
-          height={200}
-          src={"/img/ecole.webp"}
-          className="object-contain w-[150px] "
-        />
-      </Carousel.Slide>
-      <Carousel.Slide>
-        <Image
-          unoptimized
-          alt=""
-          width={300}
-          height={200}
-          src={"/img/alzeihmer.webp"}
-          className="object-contain w-[150px] "
-        />
-      </Carousel.Slide>
+      {SLIDES.map((slide) => (
+        <Carousel.Slide key={slide.src}>
+          <Image
+            unoptimized
+            alt={locale === "fr" ? slide.fr : slide.en}
+            width={300}
+            height={300}
+            src={slide.src}
+            className={
+              slide.src.endsWith(".webp")
+                ? "object-contain aspect-square w-[150px] "
+                : "object-contain w-[150px] "
+            }
+          />
+        </Carousel.Slide>
+      ))}
     </Carousel>
   );
 }

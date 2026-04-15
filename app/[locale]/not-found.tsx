@@ -15,7 +15,7 @@ export default function NotFound() {
         <h2 className="mb-1 text-xl" >
           404{" "}
         </h2>
-        <Link href="/" className="underline" rel="canonical">
+        <Link href="/" className="underline">
          <HomeIcon className="w-8 h-8 mx-auto text-primary"/>
         </Link>
       </div>

@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { buildPageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({
   params: { locale },
@@ -8,10 +9,12 @@ export async function generateMetadata({
 }) {
   const t = await getTranslations({ locale });
 
-  return {
+  return buildPageMetadata({
+    locale,
+    pathnameKey: "/conditions-d-utilisation",
     title: t("terms_title"),
-    description: `${t("terms_title")} - ${t("meta_description")}`,
-  };
+    description: `${t("terms_title")} — ${t("meta_description")}`,
+  });
 }
 
 export default function ConditionsDUtilisation({

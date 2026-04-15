@@ -62,7 +62,7 @@ export default function StickyMenu() {
       >
         <div className="w-full px-4">
           <div className="flex justify-between items-center">
-            <Link href="/" rel="canonical" className="shrink-0">
+            <Link href="/" className="shrink-0">
               <Image
                 unoptimized
                 src="/img/Logo-dark.webp"

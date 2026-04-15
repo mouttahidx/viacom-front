@@ -3,15 +3,22 @@ import { EnvelopeIcon, MapPinIcon, PhoneIcon } from "@heroicons/react/16/solid";
 import { useTranslations } from "next-intl";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import Image from "next/image";
+import { buildPageMetadata } from "@/lib/seo";
 
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
+  const t = await getTranslations({ locale });
 
-export async function generateMetadata() {
-  const t = await getTranslations();
- 
-  return {
-    title: t('contact_hero_title'),
-    description:`${t("contact_hero_title")} - ${t("meta_description")}`
-  };
+  return buildPageMetadata({
+    locale,
+    pathnameKey: "/contact",
+    title: t("contact_hero_title"),
+    description: `${t("contact_hero_title")} — ${t("meta_description")}`,
+    ogImagePath: "/img/robot-finger-pc.webp",
+  });
 }
 
 export default function Contact({params:{locale}}:{params:{locale:string}}) {

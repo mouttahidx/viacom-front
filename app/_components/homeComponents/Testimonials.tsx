@@ -47,7 +47,7 @@ export default function Testimonials() {
                   unoptimized
                   width={100}
                   height={100}
-                  alt=""
+                  alt={testi.name}
                   src={testi.img}
                   className="size-14 rounded-full object-cover"
                 />

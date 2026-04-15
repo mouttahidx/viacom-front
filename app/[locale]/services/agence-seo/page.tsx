@@ -8,14 +8,22 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { buildPageMetadata } from "@/lib/seo";
 
-export async function generateMetadata() {
-  const t = await getTranslations();
- 
-  return {
-    title: t('nav_seo'),
-    description:`${t("nav_seo")} - ${t("meta_description")}`
-  };
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
+  const t = await getTranslations({ locale });
+
+  return buildPageMetadata({
+    locale,
+    pathnameKey: "/services/agence-seo",
+    title: t("nav_seo"),
+    description: `${t("nav_seo")} — ${t("meta_description")}`,
+    ogImagePath: "/img/seo.webp",
+  });
 }
 
 export default function AgenceSeo({params:{locale}}:{params:{locale:string}}) {
@@ -293,7 +301,7 @@ export default function AgenceSeo({params:{locale}}:{params:{locale:string}}) {
             <Image
               unoptimized
               src={"/img/s1.webp"}
-              alt=""
+              alt={t("seo_2_1_title")}
               width={400}
               height={400}
               className="w-full object-cover h-[280px] max-h-[380px] rounded-3xl hover:scale-105 duration-500"
@@ -308,7 +316,7 @@ export default function AgenceSeo({params:{locale}}:{params:{locale:string}}) {
             <Image
               unoptimized
               src={"/img/seo-card.webp"}
-              alt=""
+              alt={t("seo_2_2_title")}
               width={400}
               height={400}
               className="w-full object-cover h-[280px] max-h-[380px] rounded-3xl hover:scale-105 duration-500"
@@ -323,7 +331,7 @@ export default function AgenceSeo({params:{locale}}:{params:{locale:string}}) {
             <Image
               unoptimized
               src={"/img/finger-up.jpeg"}
-              alt=""
+              alt={t("seo_2_3_title")}
               width={400}
               height={400}
               className="w-full object-cover h-[280px] max-h-[380px] rounded-3xl hover:scale-105 duration-500"
@@ -340,7 +348,7 @@ export default function AgenceSeo({params:{locale}}:{params:{locale:string}}) {
             <Image
               unoptimized
               src={"/img/revenues.webp"}
-              alt=""
+              alt={t("seo_2_4_title")}
               width={400}
               height={400}
               className="w-full object-cover h-[280px] max-h-[380px] rounded-3xl hover:scale-105 duration-500"
@@ -355,7 +363,7 @@ export default function AgenceSeo({params:{locale}}:{params:{locale:string}}) {
             <Image
               unoptimized
               src={"/img/yes.webp"}
-              alt=""
+              alt={t("seo_2_5_title")}
               width={400}
               height={400}
               className="w-full object-cover h-[280px] max-h-[380px] rounded-3xl hover:scale-105 duration-500"
@@ -370,7 +378,7 @@ export default function AgenceSeo({params:{locale}}:{params:{locale:string}}) {
             <Image
               unoptimized
               src={"/img/stars.jpeg"}
-              alt=""
+              alt={t("seo_2_6_title")}
               width={400}
               height={400}
               className="w-full object-cover h-[280px] max-h-[380px] rounded-3xl hover:scale-105 duration-500"
@@ -525,7 +533,6 @@ export default function AgenceSeo({params:{locale}}:{params:{locale:string}}) {
         <Link
           className="text-xl text-dark-secondary mt-4 font-semibold hover:scale-105 duration-300"
           href="/"
-          rel="canonical"
         >
           {t("other_seo")}
         </Link>

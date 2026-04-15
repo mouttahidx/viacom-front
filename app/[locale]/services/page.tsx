@@ -6,14 +6,22 @@ import Head from "next/head";
 import { useTranslations } from "next-intl";
 import ButtonClient from "@/app/_components/ButtonClient";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
+import { buildPageMetadata } from "@/lib/seo";
 
-export async function generateMetadata() {
-  const t = await getTranslations();
- 
-  return {
-    title: t('services_hero_title'),
-    description:`${t("services_hero_title")} - ${t("meta_description")}`
-  };
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
+  const t = await getTranslations({ locale });
+
+  return buildPageMetadata({
+    locale,
+    pathnameKey: "/services",
+    title: t("services_hero_title"),
+    description: `${t("services_hero_title")} — ${t("meta_description")}`,
+    ogImagePath: "/img/services.webp",
+  });
 }
 
 export default function Page({params:{locale}}:{params:{locale:string}}) {

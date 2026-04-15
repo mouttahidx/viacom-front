@@ -1,7 +1,9 @@
+import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import ButtonClient from "@/app/_components/ButtonClient";
+import { buildBlogPostMetadata } from "@/lib/seo";
 
 type Post = {
   title:{ 
@@ -27,26 +29,42 @@ export const generateMetadata = async ({
     slug: string;
     locale: string;
   };
-}): Promise<any> => {
-  let post = null;
+}): Promise<Metadata> => {
+  let post: Post | null = null;
   try {
-    // Call an external API endpoint to get posts
     const res = await fetch(
       process.env.NEXT_BACKEND_LINK + "posts/" + params.slug
     );
+    if (!res.ok) notFound();
     post = await res.json();
-    
-  } catch (error) {
-    // console.log(error);
+  } catch {
     notFound();
   }
+
+  const title =
+    params.locale === "fr" ? post?.title?.fr : post?.title?.en;
+  const description =
+    params.locale === "fr"
+      ? post?.meta_description?.fr
+      : post?.meta_description?.en;
+  const keywords =
+    params.locale === "fr" ? post?.keywords?.fr : post?.keywords?.en;
+
+  const publicBase = process.env.NEXT_BACKEND_PUBLIC_LINK?.replace(/\/$/, "");
+  const ogImagePath =
+    post?.image && publicBase
+      ? `${publicBase}/storage/${post.image}`
+      : undefined;
+
   return {
-    title: params.locale === "fr" ? post?.title?.fr : post?.title?.en,
-    description:
-      params.locale === "fr"
-        ? post?.meta_description?.fr
-        : post?.meta_description?.en,
-    keywords: params.locale === "fr" ? post?.keywords?.fr : post?.keywords?.en,
+    ...buildBlogPostMetadata({
+      locale: params.locale,
+      slug: params.slug,
+      title: title ?? "Blog",
+      description: description ?? "",
+      ogImagePath,
+    }),
+    ...(keywords ? { keywords } : {}),
   };
 };
 
@@ -76,7 +94,11 @@ export default async function Page({ params }: { params: any }) {
             }
             width={1400}
             height={850}
-            alt="blog"
+            alt={
+              locale === "fr"
+                ? post?.title?.fr ?? "Article"
+                : post?.title?.en ?? "Article"
+            }
           />
           <div
             dangerouslySetInnerHTML={{

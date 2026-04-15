@@ -1,5 +1,6 @@
 import PostsClient from "@/app/_components/blogComponents/PostsClient";
 import { getTranslations } from "next-intl/server";
+import { buildPageMetadata } from "@/lib/seo";
 
 type Post = {
   title: {
@@ -21,13 +22,19 @@ type Headers = {
   last_page: number;
 };
 
-export async function generateMetadata() {
-  const t = await getTranslations();
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
+  const t = await getTranslations({ locale });
 
-  return {
-    title: `VIA Communication - ${t("nav_blog")}`,
-    description: `${t("nav_blog")} - ${t("meta_description")}`,
-  };
+  return buildPageMetadata({
+    locale,
+    pathnameKey: "/blogue",
+    title: t("nav_blog"),
+    description: `${t("nav_blog")} — ${t("meta_description")}`,
+  });
 }
 
 export default async function Page() {

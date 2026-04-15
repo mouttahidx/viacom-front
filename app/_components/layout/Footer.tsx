@@ -12,13 +12,13 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto bg-secondary px-4 flex flex-col sm:flex-row flex-wrap pt-16 py-10 gap-y-16 items-start lg:items-start">
         {/* first column */}
         <div className="lg:w-5/12 md:w-4/12 sm:w-6/12">
-          <Link href="/" rel="canonical">
+          <Link href="/">
             <Image
               unoptimized
               src="/img/Logo.webp"
               width={300}
               height={300}
-              alt=""
+              alt={t("nav_home") + " — VIA Communication"}
               className="w-10/12 md:w-[280px] object-contain"
             />
           </Link>
@@ -73,7 +73,7 @@ export default function Footer() {
                 src="/img/google-partner.webp"
                 width={300}
                 height={300}
-                alt=""
+                alt="Google Partner — VIA Communication"
                 className="w-6/12 lg:w-[300px]"
               />
             </a>

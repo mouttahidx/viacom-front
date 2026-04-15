@@ -2,6 +2,15 @@ import { ecommerce, showcase } from '@/utils/portfolio-items'
 import Image from 'next/image'
 import React from 'react'
 
+function portfolioAlt(link: string): string {
+  try {
+    const host = new URL(link.trim()).hostname.replace(/^www\./i, "");
+    return `Aperçu du site web — ${host}`;
+  } catch {
+    return "Réalisation web — portfolio VIA Communication";
+  }
+}
+
 export default function PortflioSections({title1,title2}:{title1:string,title2:string}) {
   return (
     <>
@@ -20,7 +29,7 @@ export default function PortflioSections({title1,title2}:{title1:string,title2:s
               <Image
                 unoptimized
                 src={"/portfolio/ecommerce/" + item.image}
-                alt=""
+                alt={portfolioAlt(item.link)}
                 width={350}
                 height={250}
                 className="bg-black hover:shadow  hover:scale-105 duration-300 cursor-pointer object-contain aspect-square w-full h-full border rounded"
@@ -45,7 +54,7 @@ export default function PortflioSections({title1,title2}:{title1:string,title2:s
               <Image
                 unoptimized
                 src={"/portfolio/showcase/" + item.image}
-                alt=""
+                alt={portfolioAlt(item.link)}
                 width={350}
                 height={250}
                 className="bg-black hover:shadow hover:scale-105 duration-300 cursor-pointer object-contain aspect-square w-full h-full border rounded"

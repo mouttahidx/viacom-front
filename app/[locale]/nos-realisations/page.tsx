@@ -6,14 +6,21 @@ import CarouselClient from "@/app/_components/CarouselClient";
 import ButtonClient from "@/app/_components/ButtonClient";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import PortflioSections from "@/app/_components/PortflioSections";
+import { buildPageMetadata } from "@/lib/seo";
 
-export async function generateMetadata() {
-  const t = await getTranslations();
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
+  const t = await getTranslations({ locale });
 
-  return {
+  return buildPageMetadata({
+    locale,
+    pathnameKey: "/nos-realisations",
     title: t("nav_portfolio"),
-    description: `${t("nav_portfolio")} - ${t("meta_description")}`,
-  };
+    description: `${t("nav_portfolio")} — ${t("meta_description")}`,
+  });
 }
 
 export default function NosRealisations({

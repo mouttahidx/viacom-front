@@ -6,7 +6,6 @@ export default function Logo() {
     <div className="relative">
       <Link
         href={"/"}
-        rel="canonical"
         className="before:content-logo-before before:block before:absolute before:right-full before:top-10 "
       >
         <Image

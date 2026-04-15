@@ -23,7 +23,7 @@ export default function MobileHeader() {
     <div>
       <div className="w-full px-4 block lg:hidden">
         <div className="w-full flex justify-between items-center border-b border-gray-300">
-          <Link href={"/"} rel="canonical">
+          <Link href={"/"}>
             <Image
               unoptimized
               src="/img/Logo-dark.webp"

@@ -11,7 +11,7 @@ export default function IconsList() {
         <Image
           unoptimized
           src={"/img/facebook-ads.webp"}
-          alt=""
+          alt={t("home_3_1_title")}
           width={100}
           height={100}
           className="object-contain w-[100px]"
@@ -25,7 +25,7 @@ export default function IconsList() {
         <Image
           unoptimized
           src={"/img/google-ads.webp"}
-          alt=""
+          alt={t("home_3_2_title")}
           width={100}
           height={100}
           className="object-contain w-[100px]"
@@ -39,7 +39,7 @@ export default function IconsList() {
         <Image
           unoptimized
           src={"/img/digital-marketing.webp"}
-          alt=""
+          alt={t("home_3_3_title")}
           width={100}
           height={100}
           className="object-contain w-[100px]"
@@ -53,7 +53,7 @@ export default function IconsList() {
         <Image
           unoptimized
           src={"/img/seo.webp"}
-          alt=""
+          alt={t("home_3_4_title")}
           width={100}
           height={100}
           className="object-contain w-[100px]"

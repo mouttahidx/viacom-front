@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
-
+import { buildPageMetadata } from "@/lib/seo";
 
 export async function generateMetadata({
   params: { locale },
@@ -9,10 +9,12 @@ export async function generateMetadata({
 }) {
   const t = await getTranslations({ locale });
 
-  return {
+  return buildPageMetadata({
+    locale,
+    pathnameKey: "/politiques-de-confidentialite",
     title: t("policies_title"),
-    description: `${t("policies_title")} - ${t("meta_description")}`,
-  };
+    description: `${t("policies_title")} — ${t("meta_description")}`,
+  });
 }
 
 export default function PolitiquesDeConfidentialite({params:{locale}}:{params:{locale:string}}) {

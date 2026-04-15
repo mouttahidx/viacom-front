@@ -6,16 +6,22 @@ import { useTranslations } from "next-intl";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import Head from "next/head";
 import Image from "next/image";
+import { buildPageMetadata } from "@/lib/seo";
 
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) {
+  const t = await getTranslations({ locale });
 
-
-export async function generateMetadata() {
-  const t = await getTranslations();
- 
-  return {
-    title: t('nav_google'),
-    description:`${t("nav_google")} - ${t("meta_description")}`
-  };
+  return buildPageMetadata({
+    locale,
+    pathnameKey: "/services/agence-google-ads",
+    title: t("nav_google"),
+    description: `${t("nav_google")} — ${t("meta_description")}`,
+    ogImagePath: "/img/google-ads.webp",
+  });
 }
 
 
@@ -193,7 +199,7 @@ export default function AgenceGoogleAds({params:{locale}}:{params:{locale:string
             <Image
               unoptimized
               src={"/img/visibility.webp"}
-              alt=""
+              alt={t("google_2_1_title")}
               width={400}
               height={400}
               className="w-full object-cover h-[280px] rounded-3xl hover:scale-105 duration-500"
@@ -208,7 +214,7 @@ export default function AgenceGoogleAds({params:{locale}}:{params:{locale:string
             <Image
               unoptimized
               src={"/img/fast.webp"}
-              alt=""
+              alt={t("google_2_2_title")}
               width={400}
               height={400}
               className="w-full object-cover h-[280px] rounded-3xl hover:scale-105 duration-500"
@@ -229,7 +235,7 @@ export default function AgenceGoogleAds({params:{locale}}:{params:{locale:string
             <Image
               unoptimized
               src={"/img/target.webp"}
-              alt=""
+              alt={t("google_2_3_title")}
               width={400}
               height={400}
               className="w-full object-cover h-[280px] rounded-3xl hover:scale-105 duration-500"
@@ -252,7 +258,7 @@ export default function AgenceGoogleAds({params:{locale}}:{params:{locale:string
             <Image
               unoptimized
               src={"/img/mesures.webp"}
-              alt=""
+              alt={t("google_2_4_title")}
               width={400}
               height={400}
               className="w-full object-cover h-[280px] rounded-3xl hover:scale-105 duration-500"
@@ -273,7 +279,7 @@ export default function AgenceGoogleAds({params:{locale}}:{params:{locale:string
             <Image
               unoptimized
               src={"/img/budget.webp"}
-              alt=""
+              alt={t("google_2_5_title")}
               width={400}
               height={400}
               className="w-full object-cover h-[280px] rounded-3xl hover:scale-105 duration-500"
@@ -294,7 +300,7 @@ export default function AgenceGoogleAds({params:{locale}}:{params:{locale:string
             <Image
               unoptimized
               src={"/img/notor.webp"}
-              alt=""
+              alt={t("google_2_6_title")}
               width={400}
               height={400}
               className="w-full object-cover h-[280px] rounded-3xl hover:scale-105 duration-500"
@@ -311,7 +317,7 @@ export default function AgenceGoogleAds({params:{locale}}:{params:{locale:string
             <Image
               unoptimized
               src={"/img/roi.webp"}
-              alt=""
+              alt={t("google_2_7_title")}
               width={400}
               height={400}
               className="w-full object-cover h-[280px] rounded-3xl hover:scale-105 duration-500"
@@ -326,7 +332,7 @@ export default function AgenceGoogleAds({params:{locale}}:{params:{locale:string
             <Image
               unoptimized
               src={"/img/ppc.webp"}
-              alt=""
+              alt={t("google_2_8_title")}
               width={400}
               height={400}
               className="w-full object-cover h-[280px] rounded-3xl hover:scale-105 duration-500"
@@ -341,7 +347,7 @@ export default function AgenceGoogleAds({params:{locale}}:{params:{locale:string
             <Image
               unoptimized
               src={"/img/up.webp"}
-              alt=""
+              alt={t("google_2_9_title")}
               width={400}
               height={400}
               className="w-full object-cover h-[280px] rounded-3xl hover:scale-105 duration-500"
@@ -361,7 +367,7 @@ export default function AgenceGoogleAds({params:{locale}}:{params:{locale:string
           <Image
             unoptimized
             src={"/img/ad.webp"}
-            alt="ad"
+            alt={t("google_3_title")}
             width={400}
             height={400}
             className="w-full lg:w-6/12 object-cover h-full rounded-2xl shadow"
