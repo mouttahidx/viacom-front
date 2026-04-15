@@ -9,6 +9,7 @@ import { locales } from "@/config";
 // import ChatSupport from "../_components/header/ChatSupport";
 import { NextIntlClientProvider } from "next-intl";
 import { GoogleTagManager } from "@next/third-parties/google";
+import Script from "next/script";
 import { getSiteOrigin } from "@/lib/seo";
 import StructuredData from "../_components/StructuredData";
 
@@ -91,6 +92,11 @@ export default async function LocaleLayout({
               style={{ display: "none", visibility: "hidden" }}
             ></iframe>
           </noscript>
+          <Script
+            src="https://analytics.ahrefs.com/analytics.js"
+            data-key="xJ7jrYhPuRe9vNECmpVtuA"
+            strategy="afterInteractive"
+          />
           {/* <ChatSupport /> */}
           <NextProgressClient />
           <MantineProvider theme={theme}>
