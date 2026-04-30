@@ -5,56 +5,111 @@ import { notFound } from "next/navigation";
 import ButtonClient from "@/app/_components/ButtonClient";
 import { buildBlogPostMetadata } from "@/lib/seo";
 
+type Locale = "fr" | "en";
+type LocalizedText = { fr: string; en: string };
+
 type Post = {
-  title:{ 
-    
-    fr: string;
-    en: string;
-  };
+  title: LocalizedText;
   id: number;
-  content: {
-    fr: string;
-    en: string;
-  };
-  meta_description: { fr: string; en: string };
-  slug: { fr: string; en: string };
-  keywords: { fr: string; en: string };
+  content: LocalizedText;
+  meta_description: LocalizedText;
+  slug: LocalizedText;
+  keywords: LocalizedText;
   image: string;
+  created_at?: string;
+  published_at?: string;
+  date?: string;
 };
+
+type PageParams = {
+  slug: string;
+  locale: string;
+};
+
+function resolvePostFromApiResponse(payload: unknown): Post | null {
+  const typedPayload = payload as any;
+  if (!typedPayload) return null;
+  if (typedPayload.title && typedPayload.content) return typedPayload as Post;
+  if (Array.isArray(typedPayload.data) && typedPayload.data.length > 0) {
+    return typedPayload.data[0] as Post;
+  }
+  if (typedPayload.data && typedPayload.data.title && typedPayload.data.content) {
+    return typedPayload.data as Post;
+  }
+  return null;
+}
+
+function normalizePostContent(post: Post): Post {
+  if (post.content.fr) {
+    post.content.fr = post.content.fr.replace(
+      /src="\/storage/gi,
+      `src="${process.env.NEXT_BACKEND_PUBLIC_LINK}storage`
+    );
+  }
+  if (post.content.en) {
+    post.content.en = post.content.en.replace(
+      /src="\/storage/gi,
+      `src="${process.env.NEXT_BACKEND_PUBLIC_LINK}storage`
+    );
+  }
+  return post;
+}
+
+function getLocalizedValue(value: LocalizedText | undefined, locale: string) {
+  return locale === "fr" ? value?.fr : value?.en;
+}
+
+function isSupportedLocale(locale: string): locale is Locale {
+  return locale === "fr" || locale === "en";
+}
+
+function getPostDate(post: Post): string | null {
+  const rawDate = post.published_at ?? post.created_at ?? post.date;
+  if (!rawDate) return null;
+
+  const parsed = new Date(rawDate);
+  if (Number.isNaN(parsed.getTime())) return null;
+
+  return parsed.toLocaleDateString("fr-CA", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+}
+
+async function fetchPostBySlug(slug: string, noStore = false): Promise<Post | null> {
+  const res = await fetch(`${process.env.NEXT_BACKEND_LINK}posts/${slug}`, {
+    ...(noStore ? { cache: "no-store" as const } : {}),
+  });
+
+  if (!res.ok) {
+    return null;
+  }
+
+  const payload = await res.json();
+  return resolvePostFromApiResponse(payload);
+}
 
 export const generateMetadata = async ({
   params,
 }: {
-  params: {
-    slug: string;
-    locale: string;
-  };
+  params: PageParams;
 }): Promise<Metadata> => {
   let post: Post | null = null;
   try {
-    const res = await fetch(
-      process.env.NEXT_BACKEND_LINK + "posts/" + params.slug
-    );
-    if (!res.ok) notFound();
-    post = await res.json();
+    post = await fetchPostBySlug(params.slug);
+    if (!post) notFound();
   } catch {
     notFound();
   }
 
-  const title =
-    params.locale === "fr" ? post?.title?.fr : post?.title?.en;
-  const description =
-    params.locale === "fr"
-      ? post?.meta_description?.fr
-      : post?.meta_description?.en;
-  const keywords =
-    params.locale === "fr" ? post?.keywords?.fr : post?.keywords?.en;
+  const title = getLocalizedValue(post?.title, params.locale);
+  const description = getLocalizedValue(post?.meta_description, params.locale);
+  const keywords = getLocalizedValue(post?.keywords, params.locale);
 
   const publicBase = process.env.NEXT_BACKEND_PUBLIC_LINK?.replace(/\/$/, "");
   const ogImagePath =
-    post?.image && publicBase
-      ? `${publicBase}/storage/${post.image}`
-      : undefined;
+    post?.image && publicBase ? `${publicBase}/storage/${post.image}` : undefined;
 
   return {
     ...buildBlogPostMetadata({
@@ -68,19 +123,28 @@ export const generateMetadata = async ({
   };
 };
 
-export default async function Page({ params }: { params: any }) {
-  const { slug, locale }:{slug:string,locale:string} = params;
-  const post: Post = await getPost(slug);
-  if (!post.title[locale as keyof typeof post.title]) {
+export default async function Page({ params }: { params: PageParams }) {
+  const { slug, locale } = params;
+  if (!isSupportedLocale(locale)) {
     notFound();
   }
+
+  const post = await getPost(slug);
+  if (!post.title[locale]) {
+    notFound();
+  }
+  const postDate = getPostDate(post);
+
   const t = await getTranslations();
   return (
     <div>
       <div className="pt-24 pb-24 lg:pt-44 bg-pages-hero-bg bg-no-repeat bg-cover flex justify-center items-center">
-        <h1 className="uppercase text-white text-3xl mt-10 max-w-6xl text-center">
-          {locale === "fr" ? post?.title?.fr : post?.title?.en}
-        </h1>
+        <div className="mt-10 text-center">
+          {postDate && <p className="mb-2 text-xs text-white/70">{postDate}</p>}
+          <h1 className="uppercase text-white text-3xl max-w-6xl">
+            {getLocalizedValue(post.title, locale)}
+          </h1>
+        </div>
       </div>
       <section className="max-w-5xl mx-auto  py-24">
         <article className="w-full">
@@ -88,21 +152,17 @@ export default async function Page({ params }: { params: any }) {
             unoptimized
             className="w-full h-full max-h-[450px] object-cover object-center rounded-lg shadow mb-12"
             src={
-              post?.image
-                ? "https://laravel.devvia.ca/storage/" + post?.image
+              post.image
+                ? "https://laravel.devvia.ca/storage/" + post.image
                 : "/img/ad.webp"
             }
             width={1400}
             height={850}
-            alt={
-              locale === "fr"
-                ? post?.title?.fr ?? "Article"
-                : post?.title?.en ?? "Article"
-            }
+            alt={getLocalizedValue(post.title, locale) ?? "Article"}
           />
           <div
             dangerouslySetInnerHTML={{
-              __html: locale === "en" ? post?.content?.en : post?.content?.fr,
+              __html: locale === "en" ? post.content.en : post.content.fr,
             }}
             className="w-full no-tailwindcss-base"
           />
@@ -130,27 +190,22 @@ export default async function Page({ params }: { params: any }) {
 
 // This function gets called at build time
 async function getPost(slug: string) {
-  let post ;
+  let post: Post | null = null;
   try {
-    // Call an external API endpoint to get posts
-    const res = await fetch(process.env.NEXT_BACKEND_LINK + "posts/" + slug, {
-      cache: 'no-store',
-    });
-    post = await res.json();
-    if(post?.content?.fr){
-      post.content.fr =  post.content.fr.replace(/src="\/storage/gi, `src="${process.env.NEXT_BACKEND_PUBLIC_LINK}storage`)
+    post = await fetchPostBySlug(slug, true);
+    if (!post) {
+      notFound();
     }
-    if(post?.content?.en){
-      post.content.en =  post.content.en.replace(/src="\/storage/gi, `src="${process.env.NEXT_BACKEND_PUBLIC_LINK}storage`)
-    }
-
-  } catch (error) {
-    // console.log(error);
+    normalizePostContent(post);
+  } catch {
     notFound();
   }
 
   // By returning { props: { posts } }, the Blog component
   // will receive `posts` as a prop at build time
+  if (!post) {
+    notFound();
+  }
   return post;
 }
 

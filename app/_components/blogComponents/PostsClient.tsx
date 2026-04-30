@@ -2,6 +2,9 @@
 import { useRef, useState } from "react";
 import ReactPaginate from "react-paginate";
 import PostCard from "./PostCard";
+import { Progress } from "@mantine/core";
+
+const POSTS_PER_PAGE = 10;
 
 export default function PostsClient({
   headers,
@@ -28,7 +31,10 @@ export default function PostsClient({
     setLoading(true);
     try {
       const res = await fetch(
-        "https://laravel.devvia.ca/api/posts?page=" + page.current
+        "https://laravel.devvia.ca/api/posts?page=" +
+          page.current +
+          "&per_page=" +
+          POSTS_PER_PAGE
       );
       const data = await res.json();
       setPosts(data.data);
@@ -52,6 +58,11 @@ export default function PostsClient({
                   categories={post.categories}
                 />
               ))}
+              {loading && (
+                <div className="col-span-full flex justify-center items-center py-16">
+                 <Progress value={100} />
+                 </div>)
+                 }
           </div>
         </div>
       </section>

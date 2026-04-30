@@ -2,6 +2,8 @@ import PostsClient from "@/app/_components/blogComponents/PostsClient";
 import { getTranslations } from "next-intl/server";
 import { buildPageMetadata } from "@/lib/seo";
 
+const POSTS_PER_PAGE = 10;
+
 type Post = {
   title: {
     fr: string;
@@ -39,11 +41,11 @@ export async function generateMetadata({
 
 export default async function Page() {
   const t = await getTranslations();
-  // const translations = {
-  //   previous: t("previous"),
-  //   next: t("next"),
-  // };
-  // const { posts, headers } = await getData();
+  const translations = {
+    previous: t("previous"),
+    next: t("next"),
+  };
+  const { posts, headers } = await getData();
 
   return (
     <div>
@@ -52,32 +54,27 @@ export default async function Page() {
           {t("blog_hero_title")}
         </h1>
       </div>
-
-      <div className="min-h-[40vh] flex items-center justify-center py-16">
-        <p className="text-xl text-gray-600 dark:text-gray-400">
-          {t("blog_under_maintenance")}
-        </p>
-      </div>
-
-      {/* <PostsClient
+      <PostsClient
         headers={headers}
         posts={posts}
         translations={translations}
-      /> */}
+      /> 
     </div>
   );
 }
 
-// async function getData() {
-//   let posts: Posts = [];
-//   let headers = { total: 0, last_page: 0 };
-//   try {
-//     const res = await fetch("https://laravel.devvia.ca/api/posts");
-//     const data = await res.json();
-//     posts = data.data;
-//     headers.total = data.total;
-//     headers.last_page = data.last_page;
-//   } catch (error) {}
+async function getData() {
+  let posts: Posts = [];
+  let headers = { total: 0, last_page: 0 };
+  try {
+    const res = await fetch(
+      `https://laravel.devvia.ca/api/posts?per_page=${POSTS_PER_PAGE}`
+    );
+    const data = await res.json();
+    posts = data.data;
+    headers.total = data.total;
+    headers.last_page = data.last_page;
+  } catch (error) {}
 
-//   return { posts, headers };
-// }
+  return { posts, headers };
+}

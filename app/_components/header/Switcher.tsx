@@ -4,7 +4,11 @@ import clsx from "clsx";
 import { useParams } from "next/navigation";
 import { ChangeEvent, ReactNode, useTransition } from "react";
 import { useRouter, usePathname } from "@/navigation";
-import Script from "next/script";
+
+type BlogPostPayload = {
+  slug?: { fr?: string; en?: string };
+  content?: { fr?: string; en?: string };
+};
 
 type Props = {
   children: ReactNode;
@@ -18,26 +22,56 @@ export default function Switcher({ children, defaultValue, label }: Props) {
   const pathname = usePathname();
   const params = useParams();
 
+  async function resolveSinglePostTarget(nextLocale: string): Promise<string> {
+    const slugParam = params?.slug;
+    const currentSlug =
+      typeof slugParam === "string"
+        ? slugParam
+        : Array.isArray(slugParam)
+        ? slugParam[0]
+        : undefined;
+
+    const listingPath = nextLocale === "fr" ? "/blogue" : "/blog";
+    if (!currentSlug) return listingPath;
+
+    try {
+      const res = await fetch(`https://laravel.devvia.ca/api/posts/${currentSlug}`);
+      if (!res.ok) return listingPath;
+
+      const payload = (await res.json()) as BlogPostPayload;
+      const targetSlug = nextLocale === "fr" ? payload?.slug?.fr : payload?.slug?.en;
+      const targetContent =
+        nextLocale === "fr" ? payload?.content?.fr : payload?.content?.en;
+
+      if (!targetSlug || !targetContent?.trim()) {
+        return listingPath;
+      }
+
+      return nextLocale === "fr" ? `/blogue/${targetSlug}` : `/blog/${targetSlug}`;
+    } catch {
+      return listingPath;
+    }
+  }
+
   function onSelectChange(event: ChangeEvent<HTMLSelectElement>) {
     const nextLocale = event.target.value;
     startTransition(() => {
-      startTransition(() => {
-        if (pathname.includes("/blog/")) {
-          // are used in combination with a given `pathname`. Since the two will
-          // always match for the current route, we can skip runtime checks.
-          router.replace(
-            // @ts-expect-error -- TypeScript will validate that only known `params`
-            { pathname: "/blog", params },
-            { locale: nextLocale }
-          );
-        } else {
-          router.replace(
-            // @ts-expect-error -- TypeScript will validate that only known `params`
-            { pathname, params },
-            { locale: nextLocale }
-          );
-        }
-      });
+      void (async () => {
+      const isSingleBlogPost =
+        pathname.includes("/blog/") || pathname.includes("/blogue/");
+
+      if (isSingleBlogPost) {
+        const targetPath = await resolveSinglePostTarget(nextLocale);
+        router.replace(targetPath as any, { locale: nextLocale });
+        return;
+      }
+
+      router.replace(
+        // @ts-expect-error -- TypeScript will validate that only known `params`
+        { pathname, params },
+        { locale: nextLocale }
+      );
+      })();
     });
   }
 
