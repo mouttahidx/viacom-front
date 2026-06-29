@@ -1,7 +1,4 @@
-import "@mantine/carousel/styles.css";
-import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { ecommerce, showcase } from "@/utils/portfolio-items";
 import CarouselClient from "@/app/_components/CarouselClient";
 import ButtonClient from "@/app/_components/ButtonClient";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";

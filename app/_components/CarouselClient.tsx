@@ -1,5 +1,4 @@
 "use client";
-import { Carousel } from "@mantine/carousel";
 import Image from "next/image";
 import { useLocale } from "next-intl";
 import React from "react";
@@ -18,36 +17,42 @@ const SLIDES: { src: string; fr: string; en: string }[] = [
   },
 ];
 
+function Slide({
+  slide,
+  locale,
+}: {
+  slide: (typeof SLIDES)[number];
+  locale: string;
+}) {
+  return (
+    <div className="flex shrink-0 items-center justify-center px-6 md:px-10">
+      <Image
+        unoptimized
+        alt={locale === "fr" ? slide.fr : slide.en}
+        width={300}
+        height={300}
+        src={slide.src}
+        className={
+          slide.src.endsWith(".webp")
+            ? "object-contain aspect-square w-[120px] md:w-[150px]"
+            : "object-contain w-[120px] md:w-[150px]"
+        }
+      />
+    </div>
+  );
+}
+
 export default function CarouselClient() {
   const locale = useLocale();
+  const slides = [...SLIDES, ...SLIDES];
 
   return (
-    <Carousel
-      align={"start"}
-      slideSize={{ base: "33%", md: "25%", lg: "15%" }}
-      height="100%"
-      slideGap="xl"
-      controlsOffset="xs"
-      controlSize={32}
-      slidesToScroll={1}
-      loop
-    >
-      {SLIDES.map((slide) => (
-        <Carousel.Slide key={slide.src}>
-          <Image
-            unoptimized
-            alt={locale === "fr" ? slide.fr : slide.en}
-            width={300}
-            height={300}
-            src={slide.src}
-            className={
-              slide.src.endsWith(".webp")
-                ? "object-contain aspect-square w-[150px] "
-                : "object-contain w-[150px] "
-            }
-          />
-        </Carousel.Slide>
-      ))}
-    </Carousel>
+    <div className="overflow-hidden w-full">
+      <div className="flex w-max animate-marquee hover:[animation-play-state:paused]">
+        {slides.map((slide, index) => (
+          <Slide key={`${slide.src}-${index}`} slide={slide} locale={locale} />
+        ))}
+      </div>
+    </div>
   );
 }
