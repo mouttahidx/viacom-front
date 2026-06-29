@@ -617,14 +617,6 @@ export default function Page() {
             width={200}
             height={200}
             className="object-contain w-10/12 lg:w-full"
-            src={"/img/oceanick.webp"}
-            alt="logo"
-          />
-          <Image
-            unoptimized
-            width={200}
-            height={200}
-            className="object-contain w-10/12 lg:w-full"
             src={"/img/laplante.jpg"}
             alt="logo"
           />

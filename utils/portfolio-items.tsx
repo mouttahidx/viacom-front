@@ -477,11 +477,6 @@ export const showcase = [
   },
 
   {
-    link: "https://oceanickventilation.com/ ",
-    image: "oceanickventilation.com.webp",
-  },
-
-  {
     link: "https://naturalvisionssunrooms.com/ ",
     image: "naturalvisionssunrooms.com.webp",
   },
