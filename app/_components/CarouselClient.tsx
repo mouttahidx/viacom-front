@@ -9,7 +9,6 @@ const SLIDES: { src: string; fr: string; en: string }[] = [
   { src: "/img/levis.jpg", fr: "Lévis", en: "Levis" },
   { src: "/img/laplante.jpg", fr: "La Plante", en: "La Plante" },
   { src: "/img/crd.webp", fr: "CRD", en: "CRD" },
-  { src: "/img/oceanick.webp", fr: "Oceanick", en: "Oceanick" },
   { src: "/img/eleganza.webp", fr: "Eleganza", en: "Eleganza" },
   { src: "/img/ecole.webp", fr: "École", en: "School" },
   {
