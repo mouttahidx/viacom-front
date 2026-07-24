@@ -18,11 +18,13 @@ export async function POST(req: NextRequest) {
   if (!checkAdminPassword(password)) {
     return NextResponse.json({ message: "Invalid password" }, { status: 401 });
   }
-  setAdminSessionCookie();
+  const secure = req.nextUrl.protocol === "https:";
+  setAdminSessionCookie({ secure });
   return NextResponse.json({ ok: true });
 }
 
-export async function DELETE() {
-  clearAdminSessionCookie();
+export async function DELETE(req: NextRequest) {
+  const secure = req.nextUrl.protocol === "https:";
+  clearAdminSessionCookie({ secure });
   return NextResponse.json({ ok: true });
 }

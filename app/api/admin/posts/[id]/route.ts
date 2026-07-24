@@ -32,49 +32,60 @@ export async function PUT(
   { params }: { params: { id: string } }
 ) {
   if (!isAdminAuthenticated()) return unauthorized();
-  const id = Number(params.id);
-  const store = readBlogStore();
-  const index = store.posts.findIndex((p) => p.id === id);
-  if (index === -1) {
-    return NextResponse.json({ message: "Not found" }, { status: 404 });
+  try {
+    const id = Number(params.id);
+    if (!Number.isFinite(id)) {
+      return NextResponse.json({ message: "Invalid id" }, { status: 400 });
+    }
+    const store = readBlogStore();
+    const index = store.posts.findIndex((p) => p.id === id);
+    if (index === -1) {
+      return NextResponse.json({ message: "Not found" }, { status: 404 });
+    }
+
+    const body = await req.json();
+    const existing = store.posts[index];
+    const now = new Date().toISOString().slice(0, 19).replace("T", " ");
+
+    const title = {
+      fr: body.title?.fr ?? existing.title.fr ?? "",
+      en: body.title?.en ?? existing.title.en ?? "",
+    };
+    const slug = {
+      fr:
+        body.slug?.fr ??
+        existing.slug.fr ??
+        (title.fr ? slugify(title.fr) : ""),
+      en:
+        body.slug?.en ??
+        existing.slug.en ??
+        (title.en ? slugify(title.en) : ""),
+    };
+
+    const updated = {
+      ...existing,
+      title,
+      slug,
+      image: body.image ?? existing.image,
+      meta_description: body.meta_description ?? existing.meta_description,
+      keywords: body.keywords ?? existing.keywords,
+      content: body.content ?? existing.content,
+      category_ids: Array.isArray(body.category_ids)
+        ? body.category_ids
+        : existing.category_ids,
+      updated_at: now,
+    };
+
+    store.posts[index] = updated;
+    writeBlogStore(store);
+    return NextResponse.json(withCategories(updated, store.categories));
+  } catch (err) {
+    console.error("PUT /api/admin/posts/[id] failed", err);
+    return NextResponse.json(
+      { message: "Erreur serveur lors de l'enregistrement" },
+      { status: 500 }
+    );
   }
-
-  const body = await req.json();
-  const existing = store.posts[index];
-  const now = new Date().toISOString().slice(0, 19).replace("T", " ");
-
-  const title = {
-    fr: body.title?.fr ?? existing.title.fr ?? "",
-    en: body.title?.en ?? existing.title.en ?? "",
-  };
-  const slug = {
-    fr:
-      body.slug?.fr ??
-      existing.slug.fr ??
-      (title.fr ? slugify(title.fr) : ""),
-    en:
-      body.slug?.en ??
-      existing.slug.en ??
-      (title.en ? slugify(title.en) : ""),
-  };
-
-  const updated = {
-    ...existing,
-    title,
-    slug,
-    image: body.image ?? existing.image,
-    meta_description: body.meta_description ?? existing.meta_description,
-    keywords: body.keywords ?? existing.keywords,
-    content: body.content ?? existing.content,
-    category_ids: Array.isArray(body.category_ids)
-      ? body.category_ids
-      : existing.category_ids,
-    updated_at: now,
-  };
-
-  store.posts[index] = updated;
-  writeBlogStore(store);
-  return NextResponse.json(withCategories(updated, store.categories));
 }
 
 export async function DELETE(

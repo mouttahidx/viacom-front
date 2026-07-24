@@ -29,35 +29,50 @@ export async function GET() {
 
 export async function POST(req: NextRequest) {
   if (!isAdminAuthenticated()) return unauthorized();
-  const body = await req.json();
-  const store = readBlogStore();
-  const now = new Date().toISOString().slice(0, 19).replace("T", " ");
+  try {
+    const body = await req.json();
+    const store = readBlogStore();
+    const now = new Date().toISOString().slice(0, 19).replace("T", " ");
 
-  const title: LocalizedText = {
-    fr: body.title?.fr || "",
-    en: body.title?.en || "",
-  };
-  const slug: LocalizedText = {
-    fr: body.slug?.fr || (title.fr ? slugify(title.fr) : ""),
-    en: body.slug?.en || (title.en ? slugify(title.en) : ""),
-  };
+    const title: LocalizedText = {
+      fr: body.title?.fr || "",
+      en: body.title?.en || "",
+    };
+    const slug: LocalizedText = {
+      fr: body.slug?.fr || (title.fr ? slugify(title.fr) : ""),
+      en: body.slug?.en || (title.en ? slugify(title.en) : ""),
+    };
 
-  const post = {
-    id: store.nextPostId++,
-    title,
-    slug,
-    image: body.image || "",
-    meta_description: body.meta_description || emptyLocalized(),
-    keywords: body.keywords || emptyLocalized(),
-    content: body.content || emptyLocalized(),
-    created_at: now,
-    updated_at: now,
-    category_ids: Array.isArray(body.category_ids) ? body.category_ids : [],
-  };
+    if (!title.fr && !title.en) {
+      return NextResponse.json(
+        { message: "Le titre est requis (FR ou EN)" },
+        { status: 400 }
+      );
+    }
 
-  store.posts.unshift(post);
-  writeBlogStore(store);
-  return NextResponse.json(withCategories(post, store.categories), {
-    status: 201,
-  });
+    const post = {
+      id: store.nextPostId++,
+      title,
+      slug,
+      image: body.image || "",
+      meta_description: body.meta_description || emptyLocalized(),
+      keywords: body.keywords || emptyLocalized(),
+      content: body.content || emptyLocalized(),
+      created_at: now,
+      updated_at: now,
+      category_ids: Array.isArray(body.category_ids) ? body.category_ids : [],
+    };
+
+    store.posts.unshift(post);
+    writeBlogStore(store);
+    return NextResponse.json(withCategories(post, store.categories), {
+      status: 201,
+    });
+  } catch (err) {
+    console.error("POST /api/admin/posts failed", err);
+    return NextResponse.json(
+      { message: "Erreur serveur lors de l'enregistrement" },
+      { status: 500 }
+    );
+  }
 }

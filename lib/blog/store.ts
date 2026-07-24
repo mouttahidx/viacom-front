@@ -57,7 +57,12 @@ export function writeBlogStore(store: BlogStore) {
   if (!fs.existsSync(DATA_DIR)) {
     fs.mkdirSync(DATA_DIR, { recursive: true });
   }
-  fs.writeFileSync(DATA_FILE, JSON.stringify(store, null, 2), "utf8");
+  const payload = JSON.stringify(store, null, 2);
+  const tmpFile = `${DATA_FILE}.tmp`;
+  fs.writeFileSync(tmpFile, payload, "utf8");
+  // Windows cannot rename over an existing file
+  fs.copyFileSync(tmpFile, DATA_FILE);
+  fs.unlinkSync(tmpFile);
 }
 
 export function withCategories(post: Post, categories: Category[]) {

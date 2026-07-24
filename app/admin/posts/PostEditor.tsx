@@ -107,29 +107,45 @@ export default function PostEditor({
     setError("");
     try {
       const payload = {
-        ...form,
+        id: form.id,
+        title: form.title,
         slug: {
           fr: form.slug.fr || (form.title.fr ? slugify(form.title.fr) : ""),
           en: form.slug.en || (form.title.en ? slugify(form.title.en) : ""),
         },
+        image: form.image,
+        meta_description: form.meta_description,
+        keywords: form.keywords,
+        content: form.content,
+        category_ids: form.category_ids,
       };
       const res = await fetch(
         isEdit ? `/api/admin/posts/${form.id}` : "/api/admin/posts",
         {
           method: isEdit ? "PUT" : "POST",
           headers: { "Content-Type": "application/json" },
+          credentials: "same-origin",
           body: JSON.stringify(payload),
         }
       );
+      const data = await res.json().catch(() => ({}));
       if (!res.ok) {
-        setError("Enregistrement impossible");
+        if (res.status === 401) {
+          setError("Session expirée — reconnectez-vous");
+          router.replace("/admin");
+          return;
+        }
+        setError(
+          data?.message
+            ? `Enregistrement impossible: ${data.message}`
+            : `Enregistrement impossible (${res.status})`
+        );
         return;
       }
       setSavedFlash(true);
       setTimeout(() => setSavedFlash(false), 1800);
       if (!isEdit) {
-        const created = await res.json();
-        router.replace(`/admin/posts/${created.id}`);
+        router.replace(`/admin/posts/${data.id}`);
         router.refresh();
         return;
       }

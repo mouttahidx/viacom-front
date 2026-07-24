@@ -16,6 +16,15 @@ function sign(value: string): string {
   return createHmac("sha256", getSecret()).update(value).digest("hex");
 }
 
+function shouldUseSecureCookie(secure?: boolean): boolean {
+  if (typeof secure === "boolean") return secure;
+  if (process.env.ADMIN_COOKIE_SECURE === "true") return true;
+  if (process.env.ADMIN_COOKIE_SECURE === "false") return false;
+  // Only default to Secure on known HTTPS hosts (e.g. Vercel).
+  // Do not key off NODE_ENV alone — .env often sets NODE_ENV=production on HTTP.
+  return Boolean(process.env.VERCEL);
+}
+
 export function createAdminSessionToken(): string {
   const payload = `admin:${Date.now()}`;
   return `${payload}.${sign(payload)}`;
@@ -36,22 +45,22 @@ export function verifyAdminSessionToken(token?: string | null): boolean {
   }
 }
 
-export function setAdminSessionCookie() {
+export function setAdminSessionCookie(options?: { secure?: boolean }) {
   const token = createAdminSessionToken();
   cookies().set(COOKIE_NAME, token, {
     httpOnly: true,
     sameSite: "lax",
-    secure: process.env.NODE_ENV === "production",
+    secure: shouldUseSecureCookie(options?.secure),
     path: "/",
     maxAge: MAX_AGE_SECONDS,
   });
 }
 
-export function clearAdminSessionCookie() {
+export function clearAdminSessionCookie(options?: { secure?: boolean }) {
   cookies().set(COOKIE_NAME, "", {
     httpOnly: true,
     sameSite: "lax",
-    secure: process.env.NODE_ENV === "production",
+    secure: shouldUseSecureCookie(options?.secure),
     path: "/",
     maxAge: 0,
   });
