@@ -110,15 +110,9 @@ export default function TopBar() {
         </a>
       </span>
 
-      <a
-        href="https://laravel.devvia.ca"
-        className="uppercase text-white text-xs font-medium ml-auto"
-        target="_blank"
-        rel="nofollow"
-      >
-        {t("nav_login")}
-      </a>
-      <LanguageSelect />
+      <div className="ml-auto">
+        <LanguageSelect />
+      </div>
     </div>
   );
 }
