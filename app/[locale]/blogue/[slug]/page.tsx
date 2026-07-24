@@ -4,56 +4,19 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import ButtonClient from "@/app/_components/ButtonClient";
 import { buildBlogPostMetadata } from "@/lib/seo";
+import {
+  findPostBySlug,
+  getBlogImageUrl,
+  normalizePostHtml,
+  type LocalizedText,
+} from "@/lib/blog/store";
 
 type Locale = "fr" | "en";
-type LocalizedText = { fr: string; en: string };
-
-type Post = {
-  title: LocalizedText;
-  id: number;
-  content: LocalizedText;
-  meta_description: LocalizedText;
-  slug: LocalizedText;
-  keywords: LocalizedText;
-  image: string;
-  created_at?: string;
-  published_at?: string;
-  date?: string;
-};
 
 type PageParams = {
   slug: string;
   locale: string;
 };
-
-function resolvePostFromApiResponse(payload: unknown): Post | null {
-  const typedPayload = payload as any;
-  if (!typedPayload) return null;
-  if (typedPayload.title && typedPayload.content) return typedPayload as Post;
-  if (Array.isArray(typedPayload.data) && typedPayload.data.length > 0) {
-    return typedPayload.data[0] as Post;
-  }
-  if (typedPayload.data && typedPayload.data.title && typedPayload.data.content) {
-    return typedPayload.data as Post;
-  }
-  return null;
-}
-
-function normalizePostContent(post: Post): Post {
-  if (post.content.fr) {
-    post.content.fr = post.content.fr.replace(
-      /src="\/storage/gi,
-      `src="${process.env.NEXT_BACKEND_PUBLIC_LINK}storage`
-    );
-  }
-  if (post.content.en) {
-    post.content.en = post.content.en.replace(
-      /src="\/storage/gi,
-      `src="${process.env.NEXT_BACKEND_PUBLIC_LINK}storage`
-    );
-  }
-  return post;
-}
 
 function getLocalizedValue(value: LocalizedText | undefined, locale: string) {
   return locale === "fr" ? value?.fr : value?.en;
@@ -63,7 +26,11 @@ function isSupportedLocale(locale: string): locale is Locale {
   return locale === "fr" || locale === "en";
 }
 
-function getPostDate(post: Post): string | null {
+function getPostDate(post: {
+  published_at?: string;
+  created_at?: string | null;
+  date?: string;
+}): string | null {
   const rawDate = post.published_at ?? post.created_at ?? post.date;
   if (!rawDate) return null;
 
@@ -77,39 +44,18 @@ function getPostDate(post: Post): string | null {
   });
 }
 
-async function fetchPostBySlug(slug: string, noStore = false): Promise<Post | null> {
-  const res = await fetch(`${process.env.NEXT_BACKEND_LINK}posts/${slug}`, {
-    ...(noStore ? { cache: "no-store" as const } : {}),
-  });
-
-  if (!res.ok) {
-    return null;
-  }
-
-  const payload = await res.json();
-  return resolvePostFromApiResponse(payload);
-}
-
 export const generateMetadata = async ({
   params,
 }: {
   params: PageParams;
 }): Promise<Metadata> => {
-  let post: Post | null = null;
-  try {
-    post = await fetchPostBySlug(params.slug);
-    if (!post) notFound();
-  } catch {
-    notFound();
-  }
+  const post = findPostBySlug(params.slug);
+  if (!post) notFound();
 
-  const title = getLocalizedValue(post?.title, params.locale);
-  const description = getLocalizedValue(post?.meta_description, params.locale);
-  const keywords = getLocalizedValue(post?.keywords, params.locale);
-
-  const publicBase = process.env.NEXT_BACKEND_PUBLIC_LINK?.replace(/\/$/, "");
-  const ogImagePath =
-    post?.image && publicBase ? `${publicBase}/storage/${post.image}` : undefined;
+  const title = getLocalizedValue(post.title, params.locale);
+  const description = getLocalizedValue(post.meta_description, params.locale);
+  const keywords = getLocalizedValue(post.keywords, params.locale);
+  const ogImagePath = getBlogImageUrl(post.image);
 
   return {
     ...buildBlogPostMetadata({
@@ -129,13 +75,18 @@ export default async function Page({ params }: { params: PageParams }) {
     notFound();
   }
 
-  const post = await getPost(slug);
-  if (!post.title[locale]) {
+  const post = findPostBySlug(slug);
+  if (!post || !post.title[locale]) {
     notFound();
   }
-  const postDate = getPostDate(post);
 
+  const content = {
+    fr: normalizePostHtml(post.content?.fr),
+    en: normalizePostHtml(post.content?.en),
+  };
+  const postDate = getPostDate(post);
   const t = await getTranslations();
+
   return (
     <div>
       <div className="pt-24 pb-24 lg:pt-44 bg-pages-hero-bg bg-no-repeat bg-cover flex justify-center items-center">
@@ -151,18 +102,14 @@ export default async function Page({ params }: { params: PageParams }) {
           <Image
             unoptimized
             className="w-full h-full max-h-[450px] object-cover object-center rounded-lg shadow mb-12"
-            src={
-              post.image
-                ? "https://laravel.devvia.ca/storage/" + post.image
-                : "/img/ad.webp"
-            }
+            src={getBlogImageUrl(post.image)}
             width={1400}
             height={850}
             alt={getLocalizedValue(post.title, locale) ?? "Article"}
           />
           <div
             dangerouslySetInnerHTML={{
-              __html: locale === "en" ? post.content.en : post.content.fr,
+              __html: locale === "en" ? content.en : content.fr,
             }}
             className="w-full no-tailwindcss-base"
           />
@@ -187,47 +134,3 @@ export default async function Page({ params }: { params: PageParams }) {
     </div>
   );
 }
-
-// This function gets called at build time
-async function getPost(slug: string) {
-  let post: Post | null = null;
-  try {
-    post = await fetchPostBySlug(slug, true);
-    if (!post) {
-      notFound();
-    }
-    normalizePostContent(post);
-  } catch {
-    notFound();
-  }
-
-  // By returning { props: { posts } }, the Blog component
-  // will receive `posts` as a prop at build time
-  if (!post) {
-    notFound();
-  }
-  return post;
-}
-
-// This function gets called at build time
-// export async function generateStaticParams() {
-//   // Call an external API endpoint to get posts
-//   let params: Array<object> = [];
-
-//   try {
-//     const res = await fetch(process.env.NEXT_BACKEND_LINK + "posts/");
-//     const data = await res.json();
-//     data.data.forEach((post: Post) => {
-//       post.slug?.fr && params.push({ slug: post.slug?.fr });
-
-//       post.slug?.en && params.push({ slug: post.slug?.en });
-//     });
-//   } catch (error) {}
-
-//   // Get the paths we want to pre-render based on posts
-//   const paths = params;
-
-//   // We'll pre-render only these paths at build time.
-//   // { fallback: false } means other routes should 404.
-//   return paths;
-// }

@@ -1,6 +1,5 @@
-@layer tailwind {
-  @tailwind base;
-}@tailwind components;
+@tailwind base;
+@tailwind components;
 @tailwind utilities;
 
 :root {
@@ -82,51 +81,89 @@ body {
   .text-balance {
     text-wrap: balance;
   }
-
-  @layer base {
-    .no-tailwindcss-base {
-      padding-left:10px !important;
-      padding-right:10px !important;
-      overflow-x: hidden!important;
-    }
-    .no-tailwindcss-base a{
-      color:#F05423;
-    }
-    .no-tailwindcss-base td{
-      display: table-cell;
-      width: 50%;
-    }
-    .no-tailwindcss-base tr{
-      vertical-align: top;
-    }
-    @media screen and (max-width:885px) {
-      .no-tailwindcss-base td{
-        display: block;
-        width: 100%!important;
-      }
-      .no-tailwindcss-base img{
-        margin-bottom: 15px;
-        display: block;
-        max-width: 100%;
-        float: none!important;
-        margin-left:0!important;
-      }
-      
-    }
-    .no-tailwindcss-base, .no-tailwindcss-base * , .no-tailwindcss-base > * {
-        font-size: revert;
-        font-weight: revert;
-        margin: revert;
-        display: revert;
-        vertical-align: revert;
-        max-width: revert;
-        height: revert;
-        border-width: revert;
-        border-style: revert;
-        border-color: revert;
-        outline: revert;
-        list-style: revert;
-        padding: revert;
-    }
 }
+
+/* Blog article HTML from CMS — keep readable without breaking multi-column tables */
+.no-tailwindcss-base {
+  overflow-x: auto;
+  color: #1e293b;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+.no-tailwindcss-base::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.no-tailwindcss-base a {
+  color: #f05423;
+}
+
+.no-tailwindcss-base img {
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+/* End-of-article social / brand icons — uniform square size */
+.no-tailwindcss-base img[src*="/img/social/"],
+.no-tailwindcss-base img[src*="/img/Logo.webp"],
+.no-tailwindcss-base img[src*="/img/Logo-dark.webp"] {
+  width: 72px !important;
+  height: 72px !important;
+  max-width: 72px !important;
+  object-fit: contain !important;
+  border-radius: 14px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.no-tailwindcss-base img[src*="/img/Logo.webp"],
+.no-tailwindcss-base img[src*="/img/Logo-dark.webp"] {
+  background-color: #0c2249;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.no-tailwindcss-base table {
+  border-collapse: collapse;
+  max-width: 100%;
+}
+
+.no-tailwindcss-base td,
+.no-tailwindcss-base th {
+  vertical-align: top;
+}
+
+.no-tailwindcss-base h1,
+.no-tailwindcss-base h2,
+.no-tailwindcss-base h3,
+.no-tailwindcss-base h4 {
+  color: #0c2249;
+  line-height: 1.3;
+  margin: 1.25em 0 0.5em;
+}
+
+.no-tailwindcss-base p {
+  margin: 0.75em 0;
+}
+
+@media screen and (max-width: 885px) {
+  .no-tailwindcss-base table,
+  .no-tailwindcss-base tbody,
+  .no-tailwindcss-base tr,
+  .no-tailwindcss-base td {
+    display: block;
+    width: 100% !important;
+  }
+
+  .no-tailwindcss-base img {
+    float: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-bottom: 15px;
+    display: block;
+  }
 }

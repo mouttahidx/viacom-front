@@ -35,7 +35,7 @@ export default function Switcher({ children, defaultValue, label }: Props) {
     if (!currentSlug) return listingPath;
 
     try {
-      const res = await fetch(`https://laravel.devvia.ca/api/posts/${currentSlug}`);
+      const res = await fetch(`/api/posts/${currentSlug}`);
       if (!res.ok) return listingPath;
 
       const payload = (await res.json()) as BlogPostPayload;

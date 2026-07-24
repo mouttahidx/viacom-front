@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <rect width="120" height="120" rx="24" fill="#0C2249"/>
+  <text x="60" y="52" text-anchor="middle" font-family="Arial,sans-serif" font-size="28" font-weight="700" fill="#F05423">BLVD</text>
+  <text x="60" y="78" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#ffffff">102.1</text>
+</svg>

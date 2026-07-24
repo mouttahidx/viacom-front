@@ -1,11 +1,9 @@
 "use client";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useLocale } from "next-intl";
 import { Link } from "@/navigation";
-export const dynamic = 'force-dynamic';
-export const revalidate = 0;              // disable ISR
-export const fetchCache = 'force-no-store';
+import { getBlogImageUrl } from "@/lib/blog/images";
 
 export default function PostCard({
   title,
@@ -21,15 +19,17 @@ export default function PostCard({
   categories: Array<any>;
 }) {
   const locale = useLocale();
+  const cover = getBlogImageUrl(image);
+
   if (locale === "en" && title?.en) {
     return (
       <div className="p-4 w-full rounded-xl ">
         <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-          <Link href={"/blog/" + slug?.en as any} locale="en">
+          <Link href={("/blog/" + slug?.en) as any} locale="en">
             <Image
               unoptimized
               className="md:h-36 w-full object-cover object-center h-[200px] lg:h-[210px]"
-              src={"https://laravel.devvia.ca/storage/" + image}
+              src={cover}
               width={500}
               height={600}
               alt="blog"
@@ -53,7 +53,7 @@ export default function PostCard({
             <div className="flex items-center flex-wrap ">
               <Link
                 locale="en"
-                href={"/blog/" + slug?.en as any}
+                href={("/blog/" + slug?.en) as any}
                 className="text-primary inline-flex items-center md:mb-2 lg:mb-0"
               >
                 Read More
@@ -68,11 +68,11 @@ export default function PostCard({
     locale === "fr" && (
       <div className="p-4 w-full rounded-xl ">
         <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-          <Link href={"/blogue/" + slug?.fr as any} locale="fr">
+          <Link href={("/blogue/" + slug?.fr) as any} locale="fr">
             <Image
               unoptimized
               className="md:h-36 w-full object-cover object-center h-[200px] lg:h-[210px]"
-              src={"https://laravel.devvia.ca/storage/" + image}
+              src={cover}
               width={500}
               height={600}
               alt="blog"
@@ -96,7 +96,7 @@ export default function PostCard({
             <div className="flex items-center flex-wrap ">
               <Link
                 locale="fr"
-                href={"/blogue/" + slug?.fr as any}
+                href={("/blogue/" + slug?.fr) as any}
                 className="text-primary inline-flex items-center md:mb-2 lg:mb-0"
               >
                 Lire plus

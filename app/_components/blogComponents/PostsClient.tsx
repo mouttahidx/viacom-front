@@ -31,7 +31,7 @@ export default function PostsClient({
     setLoading(true);
     try {
       const res = await fetch(
-        "https://laravel.devvia.ca/api/posts?page=" +
+        "/api/posts?page=" +
           page.current +
           "&per_page=" +
           POSTS_PER_PAGE
