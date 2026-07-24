@@ -18,6 +18,10 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "*.private.blob.vercel-storage.com",
+      },
+      {
+        protocol: "https",
         hostname: "cdn.livechatinc.com",
         port: "",
         pathname: "/**",

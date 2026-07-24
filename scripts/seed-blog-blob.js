@@ -38,7 +38,7 @@ async function main() {
   console.log(`Uploading blog store: ${posts} posts, ${cats} categories...`);
 
   const blob = await put(BLOB_PATHNAME, JSON.stringify(store, null, 2), {
-    access: "public",
+    access: "private",
     addRandomSuffix: false,
     allowOverwrite: true,
     contentType: "application/json",

@@ -3,6 +3,7 @@ import { put } from "@vercel/blob";
 import { writeFile, mkdir } from "fs/promises";
 import path from "path";
 import { isAdminAuthenticated } from "@/lib/blog/auth";
+import { BLOB_ACCESS, useBlobStorage } from "@/lib/blog/store";
 
 export const dynamic = "force-dynamic";
 
@@ -20,14 +21,18 @@ export async function POST(req: NextRequest) {
   const bytes = Buffer.from(await file.arrayBuffer());
   const ext = path.extname(file.name) || ".webp";
   const safeName = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}${ext}`;
+  const blobPath = `blog-uploads/${safeName}`;
 
   try {
-    if (process.env.BLOB_READ_WRITE_TOKEN?.trim()) {
-      const blob = await put(`blog-uploads/${safeName}`, bytes, {
-        access: "public",
+    if (useBlobStorage()) {
+      await put(blobPath, bytes, {
+        access: BLOB_ACCESS,
         contentType: file.type || undefined,
+        addRandomSuffix: false,
+        allowOverwrite: true,
       });
-      return NextResponse.json({ path: blob.url });
+      // Private blobs are served through our proxy (not a direct blob URL)
+      return NextResponse.json({ path: `/api/blog-media/${blobPath}` });
     }
 
     if (process.env.VERCEL) {
@@ -46,6 +51,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ path: `/uploads/blog/${safeName}` });
   } catch (err) {
     console.error("Upload failed", err);
-    return NextResponse.json({ message: "Upload failed" }, { status: 500 });
+    const message = err instanceof Error ? err.message : "Upload failed";
+    return NextResponse.json({ message }, { status: 500 });
   }
 }

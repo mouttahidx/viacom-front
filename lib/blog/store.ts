@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { list, put } from "@vercel/blob";
+import { get, put } from "@vercel/blob";
 
 export type LocalizedText = { fr?: string; en?: string };
 export { getBlogImageUrl, normalizePostHtml, slugify } from "@/lib/blog/images";
@@ -36,7 +36,8 @@ export type BlogStore = {
 
 const DATA_DIR = path.join(process.cwd(), "data");
 const DATA_FILE = path.join(DATA_DIR, "blog.json");
-const BLOB_PATHNAME = "blog/data.json";
+export const BLOG_BLOB_PATHNAME = "blog/data.json";
+export const BLOB_ACCESS = "private" as const;
 
 function emptyStore(): BlogStore {
   return {
@@ -47,7 +48,7 @@ function emptyStore(): BlogStore {
   };
 }
 
-function useBlobStorage() {
+export function useBlobStorage() {
   const token = process.env.BLOB_READ_WRITE_TOKEN?.trim() || "";
   // Ignore placeholder values like "vercel_blob_rw_..."
   return Boolean(token) && !token.endsWith("...") && token.length > 20;
@@ -72,34 +73,33 @@ function writeLocalStore(store: BlogStore) {
   fs.unlinkSync(tmpFile);
 }
 
-async function findBlogBlobUrl(): Promise<string | null> {
-  const { blobs } = await list({
-    prefix: BLOB_PATHNAME,
-    limit: 10,
-  });
-  const exact = blobs.find((b) => b.pathname === BLOB_PATHNAME);
-  return exact?.url ?? blobs[0]?.url ?? null;
+async function streamToText(stream: ReadableStream<Uint8Array>): Promise<string> {
+  return new Response(stream).text();
 }
 
 async function readBlobStore(): Promise<BlogStore> {
-  const url = await findBlogBlobUrl();
-  if (!url) {
-    // First deploy: seed from bundled data/blog.json
+  const result = await get(BLOG_BLOB_PATHNAME, {
+    access: BLOB_ACCESS,
+    useCache: false,
+  });
+
+  if (!result) {
     const seeded = readLocalStore();
     await writeBlobStore(seeded);
     return seeded;
   }
 
-  const res = await fetch(url, { cache: "no-store" });
-  if (!res.ok) {
-    throw new Error(`Failed to read blog blob (${res.status})`);
+  if (result.statusCode !== 200 || !result.stream) {
+    throw new Error("Failed to read blog blob");
   }
-  return (await res.json()) as BlogStore;
+
+  const text = await streamToText(result.stream);
+  return JSON.parse(text) as BlogStore;
 }
 
 async function writeBlobStore(store: BlogStore) {
-  await put(BLOB_PATHNAME, JSON.stringify(store, null, 2), {
-    access: "public",
+  await put(BLOG_BLOB_PATHNAME, JSON.stringify(store, null, 2), {
+    access: BLOB_ACCESS,
     addRandomSuffix: false,
     allowOverwrite: true,
     contentType: "application/json",
@@ -120,7 +120,6 @@ export async function writeBlogStore(store: BlogStore): Promise<void> {
     return;
   }
 
-  // On Vercel without Blob token, filesystem writes fail — surface a clear error
   if (process.env.VERCEL) {
     throw new Error(
       "BLOB_READ_WRITE_TOKEN manquant: configurez Vercel Blob pour enregistrer les articles."
