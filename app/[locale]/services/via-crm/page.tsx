@@ -4,7 +4,7 @@ import { Button } from "@mantine/core";
 import { useTranslations } from "next-intl";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/navigation";
 import React from "react";
 import { buildPageMetadata } from "@/lib/seo";
 
@@ -411,7 +411,10 @@ export default function ViaCrm({ params: { locale } }: { params: { locale: strin
                 ))}
               </ul>
               <Link
-                href={`/contact?forfait=${t("crm_plan_1_id")}`}
+                href={{
+                  pathname: "/contact",
+                  query: { forfait: t("crm_plan_1_id") },
+                }}
                 className="text-center bg-primary hover:bg-opacity-90 text-white font-semibold py-3 px-6 rounded-lg mt-auto transition-all duration-300 hover:shadow-lg"
               >
                 {t("btn_contact_for_pricing")}
@@ -467,7 +470,10 @@ export default function ViaCrm({ params: { locale } }: { params: { locale: strin
                 ))}
               </ul>
               <Link
-                href={`/contact?forfait=${t("crm_plan_2_id")}`}
+                href={{
+                  pathname: "/contact",
+                  query: { forfait: t("crm_plan_2_id") },
+                }}
                 className="text-center bg-primary hover:bg-opacity-90 text-white font-semibold py-3 px-6 rounded-lg mt-auto transition-all duration-300 hover:shadow-lg"
               >
                 {t("btn_contact_for_pricing")}
@@ -520,7 +526,10 @@ export default function ViaCrm({ params: { locale } }: { params: { locale: strin
                 ))}
               </ul>
               <Link
-                href={`/contact?forfait=${t("crm_plan_3_id")}`}
+                href={{
+                  pathname: "/contact",
+                  query: { forfait: t("crm_plan_3_id") },
+                }}
                 className="text-center bg-primary hover:bg-opacity-90 text-white font-semibold py-3 px-6 rounded-lg mt-auto transition-all duration-300 hover:shadow-lg"
               >
                 {t("btn_contact_for_pricing")}

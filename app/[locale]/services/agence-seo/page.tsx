@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import Head from "next/head";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/navigation";
 import React from "react";
 import { buildPageMetadata } from "@/lib/seo";
 

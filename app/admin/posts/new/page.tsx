@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import PostEditor from "./PostEditor";
-import { PageLoader } from "../_components/Loading";
+import PostEditor from "../PostEditor";
+import { PageLoader } from "../../_components/Loading";
 
 export default function NewPostPage() {
   const router = useRouter();

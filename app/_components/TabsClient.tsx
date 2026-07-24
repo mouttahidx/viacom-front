@@ -17,17 +17,17 @@ export default function TabsClient({tabs}:{tabs:any}) {
       defaultValue={tabs[0].label}
     >
       <Tabs.List justify="start">
-        {tabs.map((item:any) => (
+        {tabs.map((item: any) => (
           <Tabs.Tab value={item.label} key={item.label}>
             {item.label}
           </Tabs.Tab>
         ))}
-        {tabs.map((item:any) => (
-          <Tabs.Panel value={item.label} key={item.label}>
-            {item.text}
-          </Tabs.Panel>
-        ))}
       </Tabs.List>
+      {tabs.map((item: any) => (
+        <Tabs.Panel value={item.label} key={item.label}>
+          {item.text}
+        </Tabs.Panel>
+      ))}
     </Tabs>
   );
 }

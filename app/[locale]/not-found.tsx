@@ -1,7 +1,7 @@
 import { HomeIcon, HomeModernIcon } from "@heroicons/react/16/solid";
 import { useTranslations } from "next-intl";
 import { getLocale, unstable_setRequestLocale } from "next-intl/server";
-import Link from "next/link";
+import { Link } from "@/navigation";
 
 export default function NotFound() {
   return (
