@@ -22,6 +22,7 @@ const RichTextEditor = dynamic(() => import("../_components/RichTextEditor"), {
 
 type Localized = { fr?: string; en?: string };
 type Category = { id: number; title: Localized };
+type PostStatus = "draft" | "published";
 type PostForm = {
   id?: number;
   title: Localized;
@@ -30,6 +31,7 @@ type PostForm = {
   meta_description: Localized;
   keywords: Localized;
   content: Localized;
+  status: PostStatus;
   category_ids: number[];
 };
 
@@ -40,6 +42,7 @@ const empty: PostForm = {
   meta_description: { fr: "", en: "" },
   keywords: { fr: "", en: "" },
   content: { fr: "", en: "" },
+  status: "draft",
   category_ids: [],
 };
 
@@ -51,7 +54,31 @@ export default function PostEditor({
   categories: Category[];
 }) {
   const router = useRouter();
-  const [form, setForm] = useState<PostForm>({ ...empty, ...initial });
+  const [form, setForm] = useState<PostForm>({
+    ...empty,
+    ...initial,
+    status:
+      initial?.status === "draft"
+        ? "draft"
+        : initial?.status === "published"
+          ? "published"
+          : initial?.id
+            ? "published"
+            : "draft",
+    title: { ...empty.title, ...initial?.title },
+    slug: { ...empty.slug, ...initial?.slug },
+    meta_description: {
+      ...empty.meta_description,
+      ...initial?.meta_description,
+    },
+    keywords: { ...empty.keywords, ...initial?.keywords },
+    content: { ...empty.content, ...initial?.content },
+    category_ids: initial?.category_ids || [],
+  });
+  const [slugManual, setSlugManual] = useState<{ fr: boolean; en: boolean }>({
+    fr: Boolean(initial?.slug?.fr),
+    en: Boolean(initial?.slug?.en),
+  });
   const [locale, setLocale] = useState<"fr" | "en">("fr");
   const [saving, setSaving] = useState(false);
   const [uploading, setUploading] = useState(false);
@@ -73,6 +100,25 @@ export default function PostEditor({
       ...prev,
       [field]: { ...prev[field], [loc]: value },
     }));
+  }
+
+  function onTitleChange(loc: "fr" | "en", value: string) {
+    setForm((prev) => {
+      const nextSlug = { ...prev.slug };
+      if (!slugManual[loc]) {
+        nextSlug[loc] = value ? slugify(value) : "";
+      }
+      return {
+        ...prev,
+        title: { ...prev.title, [loc]: value },
+        slug: nextSlug,
+      };
+    });
+  }
+
+  function onSlugChange(loc: "fr" | "en", value: string) {
+    setSlugManual((prev) => ({ ...prev, [loc]: true }));
+    setLocalized("slug", loc, value);
   }
 
   function toggleCategory(id: number) {
@@ -117,6 +163,7 @@ export default function PostEditor({
         meta_description: form.meta_description,
         keywords: form.keywords,
         content: form.content,
+        status: form.status,
         category_ids: form.category_ids,
       };
       const res = await fetch(
@@ -218,7 +265,7 @@ export default function PostEditor({
                 <input
                   className="mt-1.5 w-full rounded-xl border border-slate-200 px-3 py-2.5 outline-none ring-[#F05423]/30 focus:ring-2"
                   value={form.title[locale] || ""}
-                  onChange={(e) => setLocalized("title", locale, e.target.value)}
+                  onChange={(e) => onTitleChange(locale, e.target.value)}
                   placeholder={
                     locale === "fr" ? "Titre de l'article" : "Post title"
                   }
@@ -230,9 +277,13 @@ export default function PostEditor({
                 <input
                   className="mt-1.5 w-full rounded-xl border border-slate-200 px-3 py-2.5 font-mono text-sm outline-none ring-[#F05423]/30 focus:ring-2"
                   value={form.slug[locale] || ""}
-                  onChange={(e) => setLocalized("slug", locale, e.target.value)}
+                  onChange={(e) => onSlugChange(locale, e.target.value)}
                   placeholder="url-de-larticle"
                 />
+                <span className="mt-1 block text-xs font-normal text-slate-400">
+                  Généré automatiquement depuis le titre
+                  {slugManual[locale] ? " (modifié manuellement)" : ""}
+                </span>
               </label>
 
               <div>
@@ -275,6 +326,40 @@ export default function PostEditor({
           </div>
 
           <div className="space-y-5">
+            <div className="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm">
+              <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-slate-500">
+                Statut
+              </h2>
+              <div className="flex gap-2 rounded-xl bg-slate-100 p-1">
+                {(
+                  [
+                    { value: "draft", label: "Brouillon" },
+                    { value: "published", label: "Publié" },
+                  ] as const
+                ).map((opt) => (
+                  <button
+                    key={opt.value}
+                    type="button"
+                    onClick={() =>
+                      setForm((prev) => ({ ...prev, status: opt.value }))
+                    }
+                    className={`flex-1 rounded-lg px-3 py-2 text-sm font-semibold transition ${
+                      form.status === opt.value
+                        ? opt.value === "published"
+                          ? "bg-emerald-600 text-white shadow-sm"
+                          : "bg-white text-[#0C2249] shadow-sm"
+                        : "text-slate-500 hover:text-slate-700"
+                    }`}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
+              </div>
+              <p className="mt-2 text-xs text-slate-400">
+                Seuls les articles publiés apparaissent sur le site.
+              </p>
+            </div>
+
             <div className="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm">
               <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-slate-500">
                 Couverture

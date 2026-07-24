@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { isAdminAuthenticated } from "@/lib/blog/auth";
 import {
   LocalizedText,
+  PostStatus,
   readBlogStore,
   slugify,
   withCategories,
@@ -58,6 +59,7 @@ export async function POST(req: NextRequest) {
       meta_description: body.meta_description || emptyLocalized(),
       keywords: body.keywords || emptyLocalized(),
       content: body.content || emptyLocalized(),
+      status: (body.status === "draft" ? "draft" : "published") as PostStatus,
       created_at: now,
       updated_at: now,
       category_ids: Array.isArray(body.category_ids) ? body.category_ids : [],

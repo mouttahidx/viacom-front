@@ -12,6 +12,7 @@ type PostRow = {
   title: { fr?: string; en?: string };
   slug: { fr?: string; en?: string };
   image?: string;
+  status?: "draft" | "published";
   updated_at?: string | null;
   created_at?: string | null;
 };
@@ -20,10 +21,8 @@ export default function AdminPostsPage() {
   const router = useRouter();
   const [posts, setPosts] = useState<PostRow[]>([]);
   const [loading, setLoading] = useState(true);
-  const [seeding, setSeeding] = useState(false);
   const [deletingId, setDeletingId] = useState<number | null>(null);
   const [query, setQuery] = useState("");
-  const [seedMessage, setSeedMessage] = useState("");
 
   async function load() {
     setLoading(true);
@@ -43,34 +42,6 @@ export default function AdminPostsPage() {
   useEffect(() => {
     load();
   }, []);
-
-  async function seedFromBundle() {
-    if (
-      !confirm(
-        "Importer les articles depuis data/blog.json vers le stockage (Blob) ? Cela écrase le contenu actuel."
-      )
-    ) {
-      return;
-    }
-    setSeeding(true);
-    setSeedMessage("");
-    try {
-      const res = await fetch("/api/admin/seed", { method: "POST" });
-      const data = await res.json().catch(() => ({}));
-      if (!res.ok) {
-        setSeedMessage(data?.message || "Import impossible");
-        return;
-      }
-      setSeedMessage(
-        `Import OK — ${data.posts} article(s), ${data.categories} catégorie(s)`
-      );
-      await load();
-    } catch {
-      setSeedMessage("Erreur réseau pendant l'import");
-    } finally {
-      setSeeding(false);
-    }
-  }
 
   async function removePost(id: number) {
     if (!confirm("Supprimer cet article ?")) return;
@@ -97,29 +68,14 @@ export default function AdminPostsPage() {
         loading ? "Chargement du blog..." : `${posts.length} article(s) au total`
       }
       actions={
-        <div className="flex flex-wrap items-center gap-2">
-          <button
-            type="button"
-            onClick={seedFromBundle}
-            disabled={seeding || loading}
-            className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-50 disabled:opacity-60"
-          >
-            {seeding ? "Import..." : "Importer data/blog.json"}
-          </button>
-          <Link
-            href="/admin/posts/new"
-            className="rounded-xl bg-[#F05423] px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-[#d9481c]"
-          >
-            + Nouvel article
-          </Link>
-        </div>
+        <Link
+          href="/admin/posts/new"
+          className="rounded-xl bg-[#F05423] px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-[#d9481c]"
+        >
+          + Nouvel article
+        </Link>
       }
     >
-      {seedMessage && (
-        <div className="mb-4 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700">
-          {seedMessage}
-        </div>
-      )}
       {loading ? (
         <div className="space-y-4">
           <PageLoader label="Chargement des articles..." />
@@ -137,10 +93,11 @@ export default function AdminPostsPage() {
           </div>
 
           <div className="overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-sm">
-            <div className="hidden grid-cols-[88px_1fr_1fr_140px] gap-3 border-b border-slate-100 bg-slate-50/80 px-4 py-3 text-xs font-semibold uppercase tracking-wide text-slate-500 md:grid">
+            <div className="hidden grid-cols-[88px_1fr_1fr_110px_140px] gap-3 border-b border-slate-100 bg-slate-50/80 px-4 py-3 text-xs font-semibold uppercase tracking-wide text-slate-500 md:grid">
               <span>Image</span>
               <span>Titre</span>
               <span>Slug</span>
+              <span>Statut</span>
               <span>Actions</span>
             </div>
 
@@ -151,10 +108,12 @@ export default function AdminPostsPage() {
             )}
 
             <ul className="divide-y divide-slate-100">
-              {filtered.map((post) => (
+              {filtered.map((post) => {
+                const published = post.status !== "draft";
+                return (
                 <li
                   key={post.id}
-                  className="grid grid-cols-1 items-center gap-3 px-4 py-3 transition hover:bg-slate-50/80 md:grid-cols-[88px_1fr_1fr_140px]"
+                  className="grid grid-cols-1 items-center gap-3 px-4 py-3 transition hover:bg-slate-50/80 md:grid-cols-[88px_1fr_1fr_110px_140px]"
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
@@ -173,6 +132,15 @@ export default function AdminPostsPage() {
                   <p className="hidden truncate font-mono text-xs text-slate-500 md:block">
                     {post.slug.fr || post.slug.en}
                   </p>
+                  <span
+                    className={`inline-flex w-fit rounded-full px-2.5 py-1 text-xs font-semibold ${
+                      published
+                        ? "bg-emerald-50 text-emerald-700"
+                        : "bg-amber-50 text-amber-700"
+                    }`}
+                  >
+                    {published ? "Publié" : "Brouillon"}
+                  </span>
                   <div className="flex items-center gap-2">
                     <Link
                       href={`/admin/posts/${post.id}`}
@@ -193,7 +161,8 @@ export default function AdminPostsPage() {
                     </button>
                   </div>
                 </li>
-              ))}
+              );
+              })}
             </ul>
           </div>
         </>

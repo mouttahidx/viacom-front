@@ -23,11 +23,8 @@ export async function generateMetadata({
 }
 
 export default function ThankYou({params:{locale}}:{params:{locale:string}}) {
+  unstable_setRequestLocale(locale);
   const t = useTranslations();
-
-
-  
-
 
   return (
     <div>

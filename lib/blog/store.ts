@@ -14,6 +14,8 @@ export type Category = {
   updated_at?: string | null;
 };
 
+export type PostStatus = "draft" | "published";
+
 export type Post = {
   id: number;
   title: LocalizedText;
@@ -22,6 +24,7 @@ export type Post = {
   meta_description: LocalizedText;
   keywords: LocalizedText;
   content: LocalizedText;
+  status: PostStatus;
   created_at?: string | null;
   updated_at?: string | null;
   category_ids: number[];
@@ -54,12 +57,23 @@ export function useBlobStorage() {
   return Boolean(token) && !token.endsWith("...") && token.length > 20;
 }
 
+function normalizeStore(store: BlogStore): BlogStore {
+  return {
+    ...store,
+    posts: (store.posts || []).map((post) => ({
+      ...post,
+      status: post.status === "draft" ? "draft" : "published",
+      category_ids: Array.isArray(post.category_ids) ? post.category_ids : [],
+    })),
+  };
+}
+
 function readLocalStore(): BlogStore {
   if (!fs.existsSync(DATA_FILE)) {
     return emptyStore();
   }
   const raw = fs.readFileSync(DATA_FILE, "utf8");
-  return JSON.parse(raw) as BlogStore;
+  return normalizeStore(JSON.parse(raw) as BlogStore);
 }
 
 function writeLocalStore(store: BlogStore) {
@@ -94,7 +108,7 @@ async function readBlobStore(): Promise<BlogStore> {
   }
 
   const text = await streamToText(result.stream);
-  return JSON.parse(text) as BlogStore;
+  return normalizeStore(JSON.parse(text) as BlogStore);
 }
 
 async function writeBlobStore(store: BlogStore) {
@@ -134,13 +148,18 @@ export function withCategories(post: Post, categories: Category[]) {
   return { ...post, categories: cats };
 }
 
+export function isPublished(post: Post): boolean {
+  return post.status !== "draft";
+}
+
 export async function listPosts(page = 1, perPage = 10) {
   const store = await readBlogStore();
-  const total = store.posts.length;
+  const published = store.posts.filter(isPublished);
+  const total = published.length;
   const lastPage = Math.max(1, Math.ceil(total / perPage));
   const safePage = Math.min(Math.max(1, page), lastPage);
   const start = (safePage - 1) * perPage;
-  const data = store.posts
+  const data = published
     .slice(start, start + perPage)
     .map((post) => withCategories(post, store.categories));
 
@@ -156,7 +175,8 @@ export async function listPosts(page = 1, perPage = 10) {
 export async function findPostBySlug(slug: string) {
   const store = await readBlogStore();
   const post = store.posts.find(
-    (p) => p.slug?.fr === slug || p.slug?.en === slug
+    (p) =>
+      isPublished(p) && (p.slug?.fr === slug || p.slug?.en === slug)
   );
   if (!post) return null;
   return withCategories(post, store.categories);

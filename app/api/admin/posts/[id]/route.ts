@@ -70,6 +70,12 @@ export async function PUT(
       meta_description: body.meta_description ?? existing.meta_description,
       keywords: body.keywords ?? existing.keywords,
       content: body.content ?? existing.content,
+      status:
+        body.status === "draft" || body.status === "published"
+          ? body.status
+          : existing.status === "draft"
+            ? "draft"
+            : "published",
       category_ids: Array.isArray(body.category_ids)
         ? body.category_ids
         : existing.category_ids,
