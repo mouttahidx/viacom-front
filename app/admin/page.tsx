@@ -1,12 +1,19 @@
 "use client";
 
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import ReCAPTCHA from "react-google-recaptcha";
 import { Spinner } from "./_components/Loading";
+
+const SITE_KEY =
+  process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ||
+  "6LfpNLgpAAAAAMJxMDeW89ER3_TdDwSf6ZqDTSP1";
 
 export default function AdminLoginPage() {
   const router = useRouter();
+  const recaptchaRef = useRef<ReCAPTCHA | null>(null);
   const [password, setPassword] = useState("");
+  const [captchaToken, setCaptchaToken] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [checking, setChecking] = useState(true);
@@ -25,18 +32,35 @@ export default function AdminLoginPage() {
     e.preventDefault();
     setLoading(true);
     setError("");
+
+    if (!captchaToken) {
+      setError("Veuillez valider le reCAPTCHA");
+      setLoading(false);
+      return;
+    }
+
     try {
       const res = await fetch("/api/admin/auth", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ password }),
+        credentials: "same-origin",
+        body: JSON.stringify({ password, recaptchaToken: captchaToken }),
       });
+      const data = await res.json().catch(() => ({}));
       if (!res.ok) {
-        setError("Mot de passe incorrect");
+        recaptchaRef.current?.reset();
+        setCaptchaToken("");
+        if (res.status === 400 && data?.message === "recaptcha") {
+          setError("reCAPTCHA invalide — réessayez");
+        } else {
+          setError("Mot de passe incorrect");
+        }
         return;
       }
       router.replace("/admin/posts");
     } catch {
+      recaptchaRef.current?.reset();
+      setCaptchaToken("");
       setError("Erreur de connexion");
     } finally {
       setLoading(false);
@@ -81,6 +105,17 @@ export default function AdminLoginPage() {
               required
             />
           </label>
+
+          <div className="flex justify-center overflow-x-auto">
+            <ReCAPTCHA
+              ref={recaptchaRef}
+              sitekey={SITE_KEY}
+              onChange={(token) => setCaptchaToken(token || "")}
+              onExpired={() => setCaptchaToken("")}
+              onErrored={() => setCaptchaToken("")}
+            />
+          </div>
+
           {error && (
             <p className="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-600">
               {error}
