@@ -20,7 +20,7 @@ function emptyLocalized(): LocalizedText {
 
 export async function GET() {
   if (!isAdminAuthenticated()) return unauthorized();
-  const store = readBlogStore();
+  const store = await readBlogStore();
   return NextResponse.json({
     posts: store.posts.map((p) => withCategories(p, store.categories)),
     categories: store.categories,
@@ -31,7 +31,7 @@ export async function POST(req: NextRequest) {
   if (!isAdminAuthenticated()) return unauthorized();
   try {
     const body = await req.json();
-    const store = readBlogStore();
+    const store = await readBlogStore();
     const now = new Date().toISOString().slice(0, 19).replace("T", " ");
 
     const title: LocalizedText = {
@@ -64,15 +64,14 @@ export async function POST(req: NextRequest) {
     };
 
     store.posts.unshift(post);
-    writeBlogStore(store);
+    await writeBlogStore(store);
     return NextResponse.json(withCategories(post, store.categories), {
       status: 201,
     });
   } catch (err) {
     console.error("POST /api/admin/posts failed", err);
-    return NextResponse.json(
-      { message: "Erreur serveur lors de l'enregistrement" },
-      { status: 500 }
-    );
+    const message =
+      err instanceof Error ? err.message : "Erreur serveur lors de l'enregistrement";
+    return NextResponse.json({ message }, { status: 500 });
   }
 }

@@ -19,7 +19,7 @@ export async function GET(
 ) {
   if (!isAdminAuthenticated()) return unauthorized();
   const id = Number(params.id);
-  const store = readBlogStore();
+  const store = await readBlogStore();
   const post = store.posts.find((p) => p.id === id);
   if (!post) {
     return NextResponse.json({ message: "Not found" }, { status: 404 });
@@ -37,7 +37,7 @@ export async function PUT(
     if (!Number.isFinite(id)) {
       return NextResponse.json({ message: "Invalid id" }, { status: 400 });
     }
-    const store = readBlogStore();
+    const store = await readBlogStore();
     const index = store.posts.findIndex((p) => p.id === id);
     if (index === -1) {
       return NextResponse.json({ message: "Not found" }, { status: 404 });
@@ -77,14 +77,13 @@ export async function PUT(
     };
 
     store.posts[index] = updated;
-    writeBlogStore(store);
+    await writeBlogStore(store);
     return NextResponse.json(withCategories(updated, store.categories));
   } catch (err) {
     console.error("PUT /api/admin/posts/[id] failed", err);
-    return NextResponse.json(
-      { message: "Erreur serveur lors de l'enregistrement" },
-      { status: 500 }
-    );
+    const message =
+      err instanceof Error ? err.message : "Erreur serveur lors de l'enregistrement";
+    return NextResponse.json({ message }, { status: 500 });
   }
 }
 
@@ -93,13 +92,20 @@ export async function DELETE(
   { params }: { params: { id: string } }
 ) {
   if (!isAdminAuthenticated()) return unauthorized();
-  const id = Number(params.id);
-  const store = readBlogStore();
-  const before = store.posts.length;
-  store.posts = store.posts.filter((p) => p.id !== id);
-  if (store.posts.length === before) {
-    return NextResponse.json({ message: "Not found" }, { status: 404 });
+  try {
+    const id = Number(params.id);
+    const store = await readBlogStore();
+    const before = store.posts.length;
+    store.posts = store.posts.filter((p) => p.id !== id);
+    if (store.posts.length === before) {
+      return NextResponse.json({ message: "Not found" }, { status: 404 });
+    }
+    await writeBlogStore(store);
+    return NextResponse.json({ ok: true });
+  } catch (err) {
+    console.error("DELETE /api/admin/posts/[id] failed", err);
+    const message =
+      err instanceof Error ? err.message : "Erreur serveur lors de la suppression";
+    return NextResponse.json({ message }, { status: 500 });
   }
-  writeBlogStore(store);
-  return NextResponse.json({ ok: true });
 }

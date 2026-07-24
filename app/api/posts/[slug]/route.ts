@@ -7,7 +7,7 @@ export async function GET(
   _req: NextRequest,
   { params }: { params: { slug: string } }
 ) {
-  const post = findPostBySlug(params.slug);
+  const post = await findPostBySlug(params.slug);
   if (!post) {
     return NextResponse.json({ message: "Not found" }, { status: 404 });
   }

@@ -49,7 +49,7 @@ export const generateMetadata = async ({
 }: {
   params: PageParams;
 }): Promise<Metadata> => {
-  const post = findPostBySlug(params.slug);
+  const post = await findPostBySlug(params.slug);
   if (!post) notFound();
 
   const title = getLocalizedValue(post.title, params.locale);
@@ -75,7 +75,7 @@ export default async function Page({ params }: { params: PageParams }) {
     notFound();
   }
 
-  const post = findPostBySlug(slug);
+  const post = await findPostBySlug(slug);
   if (!post || !post.title[locale]) {
     notFound();
   }

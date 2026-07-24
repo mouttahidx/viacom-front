@@ -26,7 +26,7 @@ export default async function Page() {
     previous: t("previous"),
     next: t("next"),
   };
-  const result = listPosts(1, POSTS_PER_PAGE);
+  const result = await listPosts(1, POSTS_PER_PAGE);
   const posts = result.data.map((post) => ({
     ...post,
     content: {
