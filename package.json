@@ -8,6 +8,7 @@
     "start": "node server.js",
     "lint": "next lint",
     "blog:import": "node scripts/import-blog-sql.js",
+    "blog:seed-blob": "node scripts/seed-blog-blob.js",
     "blog:move-images": "node scripts/move-blog-images.js",
     "postinstall": "node scripts/copy-tinymce.js"
   },

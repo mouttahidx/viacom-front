@@ -20,8 +20,10 @@ export default function AdminPostsPage() {
   const router = useRouter();
   const [posts, setPosts] = useState<PostRow[]>([]);
   const [loading, setLoading] = useState(true);
+  const [seeding, setSeeding] = useState(false);
   const [deletingId, setDeletingId] = useState<number | null>(null);
   const [query, setQuery] = useState("");
+  const [seedMessage, setSeedMessage] = useState("");
 
   async function load() {
     setLoading(true);
@@ -41,6 +43,34 @@ export default function AdminPostsPage() {
   useEffect(() => {
     load();
   }, []);
+
+  async function seedFromBundle() {
+    if (
+      !confirm(
+        "Importer les articles depuis data/blog.json vers le stockage (Blob) ? Cela écrase le contenu actuel."
+      )
+    ) {
+      return;
+    }
+    setSeeding(true);
+    setSeedMessage("");
+    try {
+      const res = await fetch("/api/admin/seed", { method: "POST" });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setSeedMessage(data?.message || "Import impossible");
+        return;
+      }
+      setSeedMessage(
+        `Import OK — ${data.posts} article(s), ${data.categories} catégorie(s)`
+      );
+      await load();
+    } catch {
+      setSeedMessage("Erreur réseau pendant l'import");
+    } finally {
+      setSeeding(false);
+    }
+  }
 
   async function removePost(id: number) {
     if (!confirm("Supprimer cet article ?")) return;
@@ -67,14 +97,29 @@ export default function AdminPostsPage() {
         loading ? "Chargement du blog..." : `${posts.length} article(s) au total`
       }
       actions={
-        <Link
-          href="/admin/posts/new"
-          className="rounded-xl bg-[#F05423] px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-[#d9481c]"
-        >
-          + Nouvel article
-        </Link>
+        <div className="flex flex-wrap items-center gap-2">
+          <button
+            type="button"
+            onClick={seedFromBundle}
+            disabled={seeding || loading}
+            className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-50 disabled:opacity-60"
+          >
+            {seeding ? "Import..." : "Importer data/blog.json"}
+          </button>
+          <Link
+            href="/admin/posts/new"
+            className="rounded-xl bg-[#F05423] px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-[#d9481c]"
+          >
+            + Nouvel article
+          </Link>
+        </div>
       }
     >
+      {seedMessage && (
+        <div className="mb-4 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700">
+          {seedMessage}
+        </div>
+      )}
       {loading ? (
         <div className="space-y-4">
           <PageLoader label="Chargement des articles..." />

@@ -48,7 +48,9 @@ function emptyStore(): BlogStore {
 }
 
 function useBlobStorage() {
-  return Boolean(process.env.BLOB_READ_WRITE_TOKEN?.trim());
+  const token = process.env.BLOB_READ_WRITE_TOKEN?.trim() || "";
+  // Ignore placeholder values like "vercel_blob_rw_..."
+  return Boolean(token) && !token.endsWith("...") && token.length > 20;
 }
 
 function readLocalStore(): BlogStore {
